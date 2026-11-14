@@ -1,0 +1,27 @@
+name: Show both ends of the live mobile verse
+on:
+  push:
+    branches: [verse-layout-screenshots]
+    paths: ['.github/workflows/capture-mobile-scroll.yml']
+
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Chromium
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Verify and capture the live verse
+        run: python3 audit/capture-mobile-scroll.py
+      - name: Save the results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/verse-screenshots/mobile-verse-5-scroll-*.png
+          git commit -m "Show the start and closing reference of the live mobile verse"
+          git push origin HEAD:refs/heads/verse-layout-screenshots
