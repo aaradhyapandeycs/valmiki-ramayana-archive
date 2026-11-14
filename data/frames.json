@@ -1,0 +1,2729 @@
+{
+  "schema_version": 1,
+  "books": {
+    "baala": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/baala/baala_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/baala/baala_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/baala_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/baala/sarga1/bala_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga1/bala_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga1/bala_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/baala/sarga2/bala_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga2/bala_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga2/bala_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/baala/sarga3/bala_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga3/bala_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga3/bala_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/baala/sarga4/bala_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga4/bala_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga4/bala_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/baala/sarga5/bala_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga5/bala_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga5/bala_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/baala/sarga6/bala_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga6/bala_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga6/bala_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/baala/sarga7/bala_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga7/bala_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga7/bala_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/baala/sarga8/bala_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga8/bala_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga8/bala_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/baala/sarga9/bala_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga9/bala_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga9/bala_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/baala/sarga10/bala_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga10/bala_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga10/bala_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/baala/sarga11/bala_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga11/bala_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga11/bala_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/baala/sarga12/bala_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga12/bala_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga12/bala_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/baala/sarga13/bala_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga13/bala_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga13/bala_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/baala/sarga14/bala_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga14/bala_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga14/bala_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/baala/sarga15/bala_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga15/bala_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga15/bala_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/baala/sarga16/bala_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga16/bala_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga16/bala_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/baala/sarga17/bala_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga17/bala_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga17/bala_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/baala/sarga18/bala_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga18/bala_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga18/bala_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/baala/sarga19/bala_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga19/bala_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga19/bala_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/baala/sarga20/bala_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga20/bala_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga20/bala_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/baala/sarga21/bala_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga21/bala_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga21/bala_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/baala/sarga22/bala_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga22/bala_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga22/bala_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/baala/sarga23/bala_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga23/bala_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga23/bala_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/baala/sarga24/bala_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga24/bala_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga24/bala_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/baala/sarga25/bala_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga25/bala_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga25/bala_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/baala/sarga26/bala_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga26/bala_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga26/bala_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/baala/sarga27/bala_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga27/bala_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga27/bala_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/baala/sarga28/bala_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga28/bala_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga28/bala_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/baala/sarga29/bala_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga29/bala_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga29/bala_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/baala/sarga30/bala_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga30/bala_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga30/bala_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/baala/sarga31/bala_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga31/bala_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga31/bala_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/baala/sarga32/bala_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga32/bala_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga32/bala_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/baala/sarga33/bala_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga33/bala_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga33/bala_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/baala/sarga34/bala_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga34/bala_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga34/bala_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/baala/sarga35/bala_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga35/bala_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga35/bala_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/baala/sarga36/bala_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga36/bala_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga36/bala_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/baala/sarga37/bala_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga37/bala_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga37/bala_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/baala/sarga38/bala_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga38/bala_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga38/bala_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/baala/sarga39/bala_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga39/bala_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga39/bala_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/baala/sarga40/bala_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga40/bala_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga40/bala_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/baala/sarga41/bala_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga41/bala_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga41/bala_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/baala/sarga42/bala_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga42/bala_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga42/bala_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/baala/sarga43/bala_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga43/bala_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga43/bala_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/baala/sarga44/bala_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga44/bala_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga44/bala_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/baala/sarga45/bala_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga45/bala_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga45/bala_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/baala/sarga46/bala_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga46/bala_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga46/bala_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/baala/sarga47/bala_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga47/bala_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga47/bala_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/baala/sarga48/bala_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga48/bala_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga48/bala_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/baala/sarga49/bala_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga49/bala_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga49/bala_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/baala/sarga50/bala_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga50/bala_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga50/bala_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/baala/sarga51/bala_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga51/bala_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga51/bala_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/baala/sarga52/bala_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga52/bala_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga52/bala_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/baala/sarga53/bala_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga53/bala_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga53/bala_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/baala/sarga54/bala_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga54/bala_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga54/bala_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/baala/sarga55/bala_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga55/bala_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga55/bala_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/baala/sarga56/bala_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga56/bala_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga56/bala_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/baala/sarga57/bala_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga57/bala_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga57/bala_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/baala/sarga58/bala_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga58/bala_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga58/bala_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/baala/sarga59/bala_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga59/bala_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga59/bala_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/baala/sarga60/bala_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga60/bala_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga60/bala_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/baala/sarga61/bala_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga61/bala_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga61/bala_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/baala/sarga62/bala_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga62/bala_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga62/bala_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/baala/sarga63/bala_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga63/bala_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga63/bala_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/baala/sarga64/bala_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga64/bala_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga64/bala_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/baala/sarga65/bala_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga65/bala_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga65/bala_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/baala/sarga66/bala_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga66/bala_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga66/bala_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/baala/sarga67/bala_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga67/bala_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga67/bala_67_frame.htm"
+        },
+        "68": {
+          "original": "https://valmikiramayan.net/baala/sarga68/bala_68_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga68/bala_68_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga68/bala_68_frame.htm"
+        },
+        "69": {
+          "original": "https://valmikiramayan.net/baala/sarga69/bala_69_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga69/bala_69_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga69/bala_69_frame.htm"
+        },
+        "70": {
+          "original": "https://valmikiramayan.net/baala/sarga70/bala_70_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga70/bala_70_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga70/bala_70_frame.htm"
+        },
+        "71": {
+          "original": "https://valmikiramayan.net/baala/sarga71/bala_71_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga71/bala_71_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga71/bala_71_frame.htm"
+        },
+        "72": {
+          "original": "https://valmikiramayan.net/baala/sarga72/bala_72_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga72/bala_72_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga72/bala_72_frame.htm"
+        },
+        "73": {
+          "original": "https://valmikiramayan.net/baala/sarga73/bala_73_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga73/bala_73_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga73/bala_73_frame.htm"
+        },
+        "74": {
+          "original": "https://valmikiramayan.net/baala/sarga74/bala_74_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga74/bala_74_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga74/bala_74_frame.htm"
+        },
+        "75": {
+          "original": "https://valmikiramayan.net/baala/sarga75/bala_75_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga75/bala_75_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga75/bala_75_frame.htm"
+        },
+        "76": {
+          "original": "https://valmikiramayan.net/baala/sarga76/bala_76_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga76/bala_76_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga76/bala_76_frame.htm"
+        },
+        "77": {
+          "original": "https://valmikiramayan.net/baala/sarga77/bala_77_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/baala/sarga77/bala_77_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/baala/sarga77/bala_77_frame.htm"
+        }
+      }
+    },
+    "ayodhya": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/ayodhya/ayodhya_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/ayodhya/ayodhya_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/ayodhya_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga1/ayodhya_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga1/ayodhya_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga1/ayodhya_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga2/ayodhya_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga2/ayodhya_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga2/ayodhya_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga3/ayodhya_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga3/ayodhya_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga3/ayodhya_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga4/ayodhya_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga4/ayodhya_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga4/ayodhya_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga5/ayodhya_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga5/ayodhya_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga5/ayodhya_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga6/ayodhya_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga6/ayodhya_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga6/ayodhya_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga7/ayodhya_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga7/ayodhya_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga7/ayodhya_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga8/ayodhya_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga8/ayodhya_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga8/ayodhya_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga9/ayodhya_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga9/ayodhya_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga9/ayodhya_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga10/ayodhya_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga10/ayodhya_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga10/ayodhya_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga11/ayodhya_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga11/ayodhya_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga11/ayodhya_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga12/ayodhya_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga12/ayodhya_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga12/ayodhya_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga13/ayodhya_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga13/ayodhya_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga13/ayodhya_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga14/ayodhya_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga14/ayodhya_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga14/ayodhya_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga15/ayodhya_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga15/ayodhya_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga15/ayodhya_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga16/ayodhya_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga16/ayodhya_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga16/ayodhya_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga17/ayodhya_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga17/ayodhya_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga17/ayodhya_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga18/ayodhya_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga18/ayodhya_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga18/ayodhya_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga19/ayodhya_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga19/ayodhya_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga19/ayodhya_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga20/ayodhya_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga20/ayodhya_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga20/ayodhya_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga21/ayodhya_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga21/ayodhya_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga21/ayodhya_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga22/ayodhya_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga22/ayodhya_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga22/ayodhya_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga23/ayodhya_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga23/ayodhya_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga23/ayodhya_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga24/ayodhya_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga24/ayodhya_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga24/ayodhya_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga25/ayodhya_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga25/ayodhya_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga25/ayodhya_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga26/ayodhya_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga26/ayodhya_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga26/ayodhya_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga27/ayodhya_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga27/ayodhya_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga27/ayodhya_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga28/ayodhya_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga28/ayodhya_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga28/ayodhya_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga29/ayodhya_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga29/ayodhya_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga29/ayodhya_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga30/ayodhya_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga30/ayodhya_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga30/ayodhya_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga31/ayodhya_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga31/ayodhya_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga31/ayodhya_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga32/ayodhya_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga32/ayodhya_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga32/ayodhya_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga33/ayodhya_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga33/ayodhya_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga33/ayodhya_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga34/ayodhya_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga34/ayodhya_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga34/ayodhya_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga35/ayodhya_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga35/ayodhya_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga35/ayodhya_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga36/ayodhya_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga36/ayodhya_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga36/ayodhya_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga37/ayodhya_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga37/ayodhya_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga37/ayodhya_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga38/ayodhya_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga38/ayodhya_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga38/ayodhya_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga39/ayodhya_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga39/ayodhya_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga39/ayodhya_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga40/ayodhya_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga40/ayodhya_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga40/ayodhya_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga41/ayodhya_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga41/ayodhya_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga41/ayodhya_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga42/ayodhya_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga42/ayodhya_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga42/ayodhya_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga43/ayodhya_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga43/ayodhya_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga43/ayodhya_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga44/ayodhya_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga44/ayodhya_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga44/ayodhya_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga45/ayodhya_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga45/ayodhya_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga45/ayodhya_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga46/ayodhya_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga46/ayodhya_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga46/ayodhya_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga47/ayodhya_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga48/ayodhya_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga48/ayodhya_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga48/ayodhya_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga49/ayodhya_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga50/ayodhya_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga50/ayodhya_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga50/ayodhya_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga51/ayodhya_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga51/ayodhya_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga51/ayodhya_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga52/ayodhya_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga52/ayodhya_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga52/ayodhya_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga53/ayodhya_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga53/ayodhya_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga53/ayodhya_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga54/ayodhya_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga54/ayodhya_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga54/ayodhya_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga55/ayodhya_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga55/ayodhya_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga55/ayodhya_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga56/ayodhya_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga56/ayodhya_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga56/ayodhya_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga57/ayodhya_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga57/ayodhya_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga57/ayodhya_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga58/ayodhya_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga58/ayodhya_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga58/ayodhya_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga59/ayodhya_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga59/ayodhya_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga59/ayodhya_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga60/ayodhya_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga60/ayodhya_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga60/ayodhya_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga61/ayodhya_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga61/ayodhya_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga61/ayodhya_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga62/ayodhya_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga62/ayodhya_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga62/ayodhya_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga63/ayodhya_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga63/ayodhya_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga63/ayodhya_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga64/ayodhya_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga64/ayodhya_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga64/ayodhya_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga65/ayodhya_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga65/ayodhya_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga65/ayodhya_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga66/ayodhya_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga66/ayodhya_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga66/ayodhya_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga67/ayodhya_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga67/ayodhya_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga67/ayodhya_67_frame.htm"
+        },
+        "68": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga68/ayodhya_68_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga68/ayodhya_68_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga68/ayodhya_68_frame.htm"
+        },
+        "69": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga69/ayodhya_69_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga69/ayodhya_69_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga69/ayodhya_69_frame.htm"
+        },
+        "70": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga70/ayodhya_70_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga70/ayodhya_70_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga70/ayodhya_70_frame.htm"
+        },
+        "71": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga71/ayodhya_71_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga71/ayodhya_71_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga71/ayodhya_71_frame.htm"
+        },
+        "72": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga72/ayodhya_72_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga72/ayodhya_72_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga72/ayodhya_72_frame.htm"
+        },
+        "73": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga73/ayodhya_73_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga73/ayodhya_73_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga73/ayodhya_73_frame.htm"
+        },
+        "74": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga74/ayodhya_74_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga74/ayodhya_74_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga74/ayodhya_74_frame.htm"
+        },
+        "75": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga75/ayodhya_75_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga75/ayodhya_75_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga75/ayodhya_75_frame.htm"
+        },
+        "76": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga76/ayodhya_76_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga76/ayodhya_76_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga76/ayodhya_76_frame.htm"
+        },
+        "77": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga77/ayodhya_77_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga77/ayodhya_77_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga77/ayodhya_77_frame.htm"
+        },
+        "78": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga78/ayodhya_78_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga78/ayodhya_78_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga78/ayodhya_78_frame.htm"
+        },
+        "79": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga79/ayodhya_79_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga79/ayodhya_79_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga79/ayodhya_79_frame.htm"
+        },
+        "80": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga80/ayodhya_80_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga80/ayodhya_80_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga80/ayodhya_80_frame.htm"
+        },
+        "81": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga81/ayodhya_81_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga81/ayodhya_81_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga81/ayodhya_81_frame.htm"
+        },
+        "82": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga82/ayodhya_82_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga82/ayodhya_82_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga82/ayodhya_82_frame.htm"
+        },
+        "83": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga83/ayodhya_83_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga83/ayodhya_83_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga83/ayodhya_83_frame.htm"
+        },
+        "84": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga84/ayodhya_84_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga84/ayodhya_84_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga84/ayodhya_84_frame.htm"
+        },
+        "85": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga85/ayodhya_85_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga85/ayodhya_85_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga85/ayodhya_85_frame.htm"
+        },
+        "86": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga86/ayodhya_86_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga86/ayodhya_86_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga86/ayodhya_86_frame.htm"
+        },
+        "87": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga87/ayodhya_87_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga87/ayodhya_87_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga87/ayodhya_87_frame.htm"
+        },
+        "88": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga88/ayodhya_88_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga88/ayodhya_88_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga88/ayodhya_88_frame.htm"
+        },
+        "89": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga89/ayodhya_89_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga89/ayodhya_89_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga89/ayodhya_89_frame.htm"
+        },
+        "90": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga90/ayodhya_90_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga90/ayodhya_90_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga90/ayodhya_90_frame.htm"
+        },
+        "91": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga91/ayodhya_91_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga91/ayodhya_91_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga91/ayodhya_91_frame.htm"
+        },
+        "92": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga92/ayodhya_92_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga92/ayodhya_92_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga92/ayodhya_92_frame.htm"
+        },
+        "93": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga93/ayodhya_93_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga93/ayodhya_93_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga93/ayodhya_93_frame.htm"
+        },
+        "94": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga94/ayodhya_94_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga94/ayodhya_94_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga94/ayodhya_94_frame.htm"
+        },
+        "95": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga95/ayodhya_95_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga95/ayodhya_95_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga95/ayodhya_95_frame.htm"
+        },
+        "96": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga96/ayodhya_96_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga96/ayodhya_96_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga96/ayodhya_96_frame.htm"
+        },
+        "97": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga97/ayodhya_97_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga97/ayodhya_97_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga97/ayodhya_97_frame.htm"
+        },
+        "98": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga98/ayodhya_98_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga98/ayodhya_98_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga98/ayodhya_98_frame.htm"
+        },
+        "99": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga99/ayodhya_99_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga99/ayodhya_99_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga99/ayodhya_99_frame.htm"
+        },
+        "100": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga100/ayodhya_100_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga100/ayodhya_100_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga100/ayodhya_100_frame.htm"
+        },
+        "101": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga101/ayodhya_101_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga101/ayodhya_101_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga101/ayodhya_101_frame.htm"
+        },
+        "102": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga102/ayodhya_102_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga102/ayodhya_102_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga102/ayodhya_102_frame.htm"
+        },
+        "103": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga103/ayodhya_103_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga103/ayodhya_103_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga103/ayodhya_103_frame.htm"
+        },
+        "104": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga104/ayodhya_104_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga104/ayodhya_104_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga104/ayodhya_104_frame.htm"
+        },
+        "105": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga105/ayodhya_105_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga105/ayodhya_105_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga105/ayodhya_105_frame.htm"
+        },
+        "106": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga106/ayodhya_106_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga106/ayodhya_106_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga106/ayodhya_106_frame.htm"
+        },
+        "107": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga107/ayodhya_107_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga107/ayodhya_107_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga107/ayodhya_107_frame.htm"
+        },
+        "108": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga108/ayodhya_108_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga108/ayodhya_108_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga108/ayodhya_108_frame.htm"
+        },
+        "109": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga109/ayodhya_109_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga109/ayodhya_109_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga109/ayodhya_109_frame.htm"
+        },
+        "110": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga110/ayodhya_110_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga110/ayodhya_110_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga110/ayodhya_110_frame.htm"
+        },
+        "111": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga111/ayodhya_111_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga111/ayodhya_111_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga111/ayodhya_111_frame.htm"
+        },
+        "112": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga112/ayodhya_112_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga112/ayodhya_112_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga112/ayodhya_112_frame.htm"
+        },
+        "113": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga113/ayodhya_113_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga113/ayodhya_113_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga113/ayodhya_113_frame.htm"
+        },
+        "114": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga114/ayodhya_114_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga114/ayodhya_114_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga114/ayodhya_114_frame.htm"
+        },
+        "115": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga115/ayodhya_115_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga115/ayodhya_115_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga115/ayodhya_115_frame.htm"
+        },
+        "116": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga116/ayodhya_116_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga116/ayodhya_116_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga116/ayodhya_116_frame.htm"
+        },
+        "117": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga117/ayodhya_117_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga117/ayodhya_117_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga117/ayodhya_117_frame.htm"
+        },
+        "118": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga118/ayodhya_118_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga118/ayodhya_118_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga118/ayodhya_118_frame.htm"
+        },
+        "119": {
+          "original": "https://valmikiramayan.net/ayodhya/sarga119/ayodhya_119_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/ayodhya/sarga119/ayodhya_119_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/ayodhya/sarga119/ayodhya_119_frame.htm"
+        }
+      }
+    },
+    "aranya": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/aranya/aranya_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/aranya/aranya_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/aranya_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/aranya/sarga1/aranya_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga1/aranya_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga1/aranya_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/aranya/sarga2/aranya_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga2/aranya_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga2/aranya_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/aranya/sarga3/aranya_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga3/aranya_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga3/aranya_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/aranya/sarga4/aranya_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga4/aranya_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga4/aranya_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/aranya/sarga5/aranya_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga5/aranya_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga5/aranya_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/aranya/sarga6/aranya_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga6/aranya_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga6/aranya_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/aranya/sarga7/aranya_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga7/aranya_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga7/aranya_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/aranya/sarga8/aranya_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga8/aranya_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga8/aranya_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/aranya/sarga9/aranya_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga9/aranya_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga9/aranya_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/aranya/sarga10/aranya_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga10/aranya_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga10/aranya_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/aranya/sarga11/aranya_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga11/aranya_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga11/aranya_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/aranya/sarga12/aranya_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga12/aranya_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga12/aranya_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/aranya/sarga13/aranya_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga13/aranya_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga13/aranya_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/aranya/sarga14/aranya_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga14/aranya_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga14/aranya_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/aranya/sarga15/aranya_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga15/aranya_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga15/aranya_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/aranya/sarga16/aranya_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga16/aranya_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga16/aranya_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/aranya/sarga17/aranya_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga17/aranya_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga17/aranya_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/aranya/sarga18/aranya_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga18/aranya_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga18/aranya_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/aranya/sarga19/aranya_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga19/aranya_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga19/aranya_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/aranya/sarga20/aranya_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga20/aranya_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga20/aranya_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/aranya/sarga21/aranya_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga21/aranya_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga21/aranya_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/aranya/sarga22/aranya_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga22/aranya_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga22/aranya_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/aranya/sarga23/aranya_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga23/aranya_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga23/aranya_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/aranya/sarga24/aranya_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga24/aranya_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga24/aranya_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/aranya/sarga25/aranya_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga25/aranya_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga25/aranya_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/aranya/sarga26/aranya_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga26/aranya_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga26/aranya_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/aranya/sarga27/aranya_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga27/aranya_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga27/aranya_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/aranya/sarga28/aranya_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga28/aranya_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga28/aranya_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/aranya/sarga29/aranya_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga29/aranya_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga29/aranya_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/aranya/sarga30/aranya_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga30/aranya_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga30/aranya_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/aranya/sarga31/aranya_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga31/aranya_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga31/aranya_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/aranya/sarga32/aranya_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga32/aranya_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga32/aranya_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/aranya/sarga33/aranya_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga33/aranya_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga33/aranya_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/aranya/sarga34/aranya_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga34/aranya_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga34/aranya_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/aranya/sarga35/aranya_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga35/aranya_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga35/aranya_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/aranya/sarga36/aranya_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga36/aranya_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga36/aranya_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/aranya/sarga37/aranya_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga37/aranya_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga37/aranya_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/aranya/sarga38/aranya_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga38/aranya_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga38/aranya_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/aranya/sarga39/aranya_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga39/aranya_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga39/aranya_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/aranya/sarga40/aranya_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga40/aranya_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga40/aranya_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/aranya/sarga41/aranya_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga41/aranya_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga41/aranya_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/aranya/sarga42/aranya_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga42/aranya_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga42/aranya_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/aranya/sarga43/aranya_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga43/aranya_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga43/aranya_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/aranya/sarga44/aranya_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga44/aranya_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga44/aranya_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/aranya/sarga45/aranya_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga45/aranya_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga45/aranya_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/aranya/sarga46/aranya_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga46/aranya_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga46/aranya_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/aranya/sarga47/aranya_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga47/aranya_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga47/aranya_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/aranya/sarga48/aranya_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga48/aranya_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga48/aranya_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/aranya/sarga49/aranya_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga49/aranya_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga49/aranya_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/aranya/sarga50/aranya_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga50/aranya_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga50/aranya_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/aranya/sarga51/aranya_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga51/aranya_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga51/aranya_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/aranya/sarga52/aranya_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga52/aranya_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga52/aranya_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/aranya/sarga53/aranya_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga53/aranya_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga53/aranya_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/aranya/sarga54/aranya_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga54/aranya_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga54/aranya_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/aranya/sarga55/aranya_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga55/aranya_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga55/aranya_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/aranya/sarga56/aranya_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga56/aranya_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga56/aranya_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/aranya/sarga57/aranya_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga57/aranya_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga57/aranya_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/aranya/sarga58/aranya_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga58/aranya_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga58/aranya_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/aranya/sarga59/aranya_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga59/aranya_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga59/aranya_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/aranya/sarga60/aranya_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga60/aranya_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga60/aranya_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/aranya/sarga61/aranya_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga61/aranya_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga61/aranya_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/aranya/sarga62/aranya_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga62/aranya_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga62/aranya_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/aranya/sarga63/aranya_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga63/aranya_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga63/aranya_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/aranya/sarga64/aranya_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga64/aranya_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga64/aranya_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/aranya/sarga65/aranya_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga65/aranya_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga65/aranya_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/aranya/sarga66/aranya_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga66/aranya_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga66/aranya_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/aranya/sarga67/aranya_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga67/aranya_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga67/aranya_67_frame.htm"
+        },
+        "68": {
+          "original": "https://valmikiramayan.net/aranya/sarga68/aranya_68_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga68/aranya_68_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga68/aranya_68_frame.htm"
+        },
+        "69": {
+          "original": "https://valmikiramayan.net/aranya/sarga69/aranya_69_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga69/aranya_69_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga69/aranya_69_frame.htm"
+        },
+        "70": {
+          "original": "https://valmikiramayan.net/aranya/sarga70/aranya_70_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga70/aranya_70_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga70/aranya_70_frame.htm"
+        },
+        "71": {
+          "original": "https://valmikiramayan.net/aranya/sarga71/aranya_71_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga71/aranya_71_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga71/aranya_71_frame.htm"
+        },
+        "72": {
+          "original": "https://valmikiramayan.net/aranya/sarga72/aranya_72_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga72/aranya_72_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga72/aranya_72_frame.htm"
+        },
+        "73": {
+          "original": "https://valmikiramayan.net/aranya/sarga73/aranya_73_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga73/aranya_73_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga73/aranya_73_frame.htm"
+        },
+        "74": {
+          "original": "https://valmikiramayan.net/aranya/sarga74/aranya_74_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga74/aranya_74_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga74/aranya_74_frame.htm"
+        },
+        "75": {
+          "original": "https://valmikiramayan.net/aranya/sarga75/aranya_75_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/aranya/sarga75/aranya_75_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/aranya/sarga75/aranya_75_frame.htm"
+        }
+      }
+    },
+    "kish": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/kish/kishkindha_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/kish/kishkindha_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/kishkindha_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/kish/sarga1/kishkindha_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga1/kishkindha_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga1/kishkindha_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/kish/sarga2/kishkindha_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga2/kishkindha_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga2/kishkindha_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/kish/sarga3/kishkindha_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga3/kishkindha_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga3/kishkindha_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/kish/sarga4/kishkindha_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga4/kishkindha_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga4/kishkindha_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/kish/sarga5/kishkindha_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga5/kishkindha_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga5/kishkindha_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/kish/sarga6/kishkindha_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga6/kishkindha_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga6/kishkindha_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/kish/sarga7/kishkindha_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga7/kishkindha_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga7/kishkindha_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/kish/sarga8/kishkindha_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga8/kishkindha_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga8/kishkindha_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/kish/sarga9/kishkindha_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga9/kishkindha_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga9/kishkindha_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/kish/sarga10/kishkindha_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga10/kishkindha_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga10/kishkindha_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/kish/sarga11/kishkindha_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga11/kishkindha_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga11/kishkindha_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/kish/sarga12/kishkindha_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga12/kishkindha_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga12/kishkindha_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/kish/sarga13/kishkindha_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga13/kishkindha_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga13/kishkindha_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/kish/sarga14/kishkindha_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga14/kishkindha_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga14/kishkindha_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/kish/sarga15/kishkindha_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga15/kishkindha_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga15/kishkindha_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/kish/sarga16/kishkindha_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga16/kishkindha_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga16/kishkindha_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/kish/sarga17/kishkindha_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga17/kishkindha_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga17/kishkindha_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/kish/sarga18/kishkindha_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga18/kishkindha_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga18/kishkindha_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/kish/sarga19/kishkindha_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga19/kishkindha_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga19/kishkindha_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/kish/sarga20/kishkindha_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga20/kishkindha_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga20/kishkindha_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/kish/sarga21/kishkindha_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga21/kishkindha_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga21/kishkindha_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/kish/sarga22/kishkindha_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga22/kishkindha_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga22/kishkindha_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/kish/sarga23/kishkindha_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga23/kishkindha_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga23/kishkindha_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/kish/sarga24/kishkindha_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga24/kishkindha_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga24/kishkindha_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/kish/sarga25/kishkindha_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga25/kishkindha_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga25/kishkindha_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/kish/sarga26/kishkindha_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga26/kishkindha_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga26/kishkindha_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/kish/sarga27/kishkindha_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga27/kishkindha_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga27/kishkindha_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/kish/sarga28/kishkindha_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga28/kishkindha_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga28/kishkindha_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/kish/sarga29/kishkindha_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga29/kishkindha_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga29/kishkindha_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/kish/sarga30/kishkindha_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga30/kishkindha_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga30/kishkindha_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/kish/sarga31/kishkindha_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga31/kishkindha_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga31/kishkindha_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/kish/sarga32/kishkindha_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga32/kishkindha_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga32/kishkindha_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/kish/sarga33/kishkindha_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga33/kishkindha_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga33/kishkindha_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/kish/sarga34/kishkindha_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga34/kishkindha_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga34/kishkindha_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/kish/sarga35/kishkindha_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga35/kishkindha_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga35/kishkindha_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/kish/sarga36/kishkindha_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga36/kishkindha_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga36/kishkindha_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/kish/sarga37/kishkindha_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga37/kishkindha_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga37/kishkindha_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/kish/sarga38/kishkindha_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga38/kishkindha_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga38/kishkindha_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/kish/sarga39/kishkindha_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga39/kishkindha_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga39/kishkindha_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/kish/sarga40/kishkindha_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga40/kishkindha_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga40/kishkindha_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/kish/sarga41/kishkindha_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga41/kishkindha_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga41/kishkindha_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/kish/sarga42/kishkindha_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga42/kishkindha_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga42/kishkindha_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/kish/sarga43/kishkindha_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga43/kishkindha_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga43/kishkindha_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/kish/sarga44/kishkindha_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga44/kishkindha_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga44/kishkindha_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/kish/sarga45/kishkindha_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga45/kishkindha_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga45/kishkindha_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/kish/sarga46/kishkindha_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga46/kishkindha_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga46/kishkindha_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/kish/sarga47/kishkindha_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga47/kishkindha_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga47/kishkindha_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/kish/sarga48/kishkindha_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga48/kishkindha_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga48/kishkindha_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/kish/sarga49/kishkindha_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga49/kishkindha_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga49/kishkindha_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/kish/sarga50/kishkindha_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga50/kishkindha_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga50/kishkindha_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/kish/sarga51/kishkindha_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga51/kishkindha_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga51/kishkindha_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/kish/sarga52/kishkindha_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga52/kishkindha_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga52/kishkindha_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/kish/sarga53/kishkindha_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga53/kishkindha_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga53/kishkindha_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/kish/sarga54/kishkindha_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga54/kishkindha_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga54/kishkindha_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/kish/sarga55/kishkindha_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga55/kishkindha_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga55/kishkindha_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/kish/sarga56/kishkindha_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga56/kishkindha_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga56/kishkindha_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/kish/sarga57/kishkindha_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga57/kishkindha_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga57/kishkindha_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/kish/sarga58/kishkindha_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga58/kishkindha_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga58/kishkindha_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/kish/sarga59/kishkindha_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga59/kishkindha_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga59/kishkindha_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/kish/sarga60/kishkindha_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga60/kishkindha_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga60/kishkindha_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/kish/sarga61/kishkindha_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga61/kishkindha_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga61/kishkindha_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/kish/sarga62/kishkindha_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga62/kishkindha_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga62/kishkindha_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/kish/sarga63/kishkindha_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga63/kishkindha_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga63/kishkindha_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/kish/sarga64/kishkindha_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga64/kishkindha_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga64/kishkindha_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/kish/sarga65/kishkindha_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga65/kishkindha_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga65/kishkindha_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/kish/sarga66/kishkindha_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga66/kishkindha_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga66/kishkindha_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/kish/sarga67/kishkindha_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/kish/sarga67/kishkindha_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/kish/sarga67/kishkindha_67_frame.htm"
+        }
+      }
+    },
+    "sundara": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/sundara/sundara_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/sundara/sundara_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sundara_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/sundara/sarga1/sundara_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga1/sundara_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga1/sundara_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/sundara/sarga2/sundara_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga2/sundara_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga2/sundara_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/sundara/sarga3/sundara_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga3/sundara_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga3/sundara_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/sundara/sarga4/sundara_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga4/sundara_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga4/sundara_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/sundara/sarga5/sundara_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga5/sundara_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga5/sundara_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/sundara/sarga6/sundara_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga6/sundara_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga6/sundara_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/sundara/sarga7/sundara_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga7/sundara_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga7/sundara_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/sundara/sarga8/sundara_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga8/sundara_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga8/sundara_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/sundara/sarga9/sundara_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga9/sundara_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga9/sundara_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/sundara/sarga10/sundara_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga10/sundara_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga10/sundara_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/sundara/sarga11/sundara_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga11/sundara_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga11/sundara_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/sundara/sarga12/sundara_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga12/sundara_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga12/sundara_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/sundara/sarga13/sundara_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga13/sundara_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga13/sundara_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/sundara/sarga14/sundara_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga14/sundara_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga14/sundara_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/sundara/sarga15/sundara_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga15/sundara_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga15/sundara_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/sundara/sarga16/sundara_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga16/sundara_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga16/sundara_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/sundara/sarga17/sundara_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga17/sundara_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga17/sundara_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/sundara/sarga18/sundara_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga18/sundara_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga18/sundara_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/sundara/sarga19/sundara_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga19/sundara_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga19/sundara_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/sundara/sarga20/sundara_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga20/sundara_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga20/sundara_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/sundara/sarga21/sundara_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga21/sundara_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga21/sundara_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/sundara/sarga22/sundara_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga22/sundara_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga22/sundara_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/sundara/sarga23/sundara_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga23/sundara_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga23/sundara_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/sundara/sarga24/sundara_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga24/sundara_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga24/sundara_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/sundara/sarga25/sundara_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga25/sundara_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga25/sundara_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/sundara/sarga26/sundara_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga26/sundara_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga26/sundara_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/sundara/sarga27/sundara_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga27/sundara_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga27/sundara_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/sundara/sarga28/sundara_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga28/sundara_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga28/sundara_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/sundara/sarga29/sundara_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga29/sundara_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga29/sundara_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/sundara/sarga30/sundara_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga30/sundara_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga30/sundara_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/sundara/sarga31/sundara_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga31/sundara_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga31/sundara_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/sundara/sarga32/sundara_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga32/sundara_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga32/sundara_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/sundara/sarga33/sundara_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga33/sundara_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga33/sundara_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/sundara/sarga34/sundara_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga34/sundara_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga34/sundara_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/sundara/sarga35/sundara_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga35/sundara_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga35/sundara_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/sundara/sarga36/sundara_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga36/sundara_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga36/sundara_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/sundara/sarga37/sundara_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga37/sundara_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga37/sundara_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/sundara/sarga38/sundara_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga38/sundara_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga38/sundara_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/sundara/sarga39/sundara_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga39/sundara_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga39/sundara_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/sundara/sarga40/sundara_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga40/sundara_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga40/sundara_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/sundara/sarga41/sundara_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga41/sundara_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga41/sundara_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/sundara/sarga42/sundara_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga42/sundara_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga42/sundara_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/sundara/sarga43/sundara_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga43/sundara_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga43/sundara_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/sundara/sarga44/sundara_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga44/sundara_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga44/sundara_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/sundara/sarga45/sundara_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga45/sundara_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga45/sundara_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/sundara/sarga46/sundara_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga46/sundara_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga46/sundara_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/sundara/sarga47/sundara_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga47/sundara_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga47/sundara_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/sundara/sarga48/sundara_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga48/sundara_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga48/sundara_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/sundara/sarga49/sundara_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga49/sundara_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga49/sundara_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/sundara/sarga50/sundara_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga50/sundara_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga50/sundara_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/sundara/sarga51/sundara_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga51/sundara_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga51/sundara_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/sundara/sarga52/sundara_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga52/sundara_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga52/sundara_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/sundara/sarga53/sundara_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga53/sundara_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga53/sundara_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/sundara/sarga54/sundara_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga54/sundara_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga54/sundara_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/sundara/sarga55/sundara_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga55/sundara_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga55/sundara_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/sundara/sarga56/sundara_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga56/sundara_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga56/sundara_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/sundara/sarga57/sundara_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga57/sundara_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga57/sundara_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/sundara/sarga58/sundara_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga58/sundara_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga58/sundara_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/sundara/sarga59/sundara_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga59/sundara_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga59/sundara_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/sundara/sarga60/sundara_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga60/sundara_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga60/sundara_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/sundara/sarga61/sundara_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga61/sundara_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga61/sundara_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/sundara/sarga62/sundara_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga62/sundara_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga62/sundara_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/sundara/sarga63/sundara_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga63/sundara_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga63/sundara_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/sundara/sarga64/sundara_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga64/sundara_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga64/sundara_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/sundara/sarga65/sundara_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga65/sundara_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga65/sundara_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/sundara/sarga66/sundara_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga66/sundara_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga66/sundara_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/sundara/sarga67/sundara_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga67/sundara_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga67/sundara_67_frame.htm"
+        },
+        "68": {
+          "original": "https://valmikiramayan.net/sundara/sarga68/sundara_68_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/sundara/sarga68/sundara_68_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/sundara/sarga68/sundara_68_frame.htm"
+        }
+      }
+    },
+    "yuddha": {
+      "indexes": {
+        "original": "https://valmikiramayan.net/yuddha/yuddha_contents.htm",
+        "utf8": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm",
+        "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/yuddha_contents.htm"
+      },
+      "chapters": {
+        "1": {
+          "original": "https://valmikiramayan.net/yuddha/sarga1/yuddha_1_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga1/yuddha_1_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga1/yuddha_1_frame.htm"
+        },
+        "2": {
+          "original": "https://valmikiramayan.net/yuddha/sarga2/yuddha_2_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga2/yuddha_2_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga2/yuddha_2_frame.htm"
+        },
+        "3": {
+          "original": "https://valmikiramayan.net/yuddha/sarga3/yuddha_3_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga3/yuddha_3_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga3/yuddha_3_frame.htm"
+        },
+        "4": {
+          "original": "https://valmikiramayan.net/yuddha/sarga4/yuddha_4_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga4/yuddha_4_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga4/yuddha_4_frame.htm"
+        },
+        "5": {
+          "original": "https://valmikiramayan.net/yuddha/sarga5/yuddha_5_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga5/yuddha_5_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga5/yuddha_5_frame.htm"
+        },
+        "6": {
+          "original": "https://valmikiramayan.net/yuddha/sarga6/yuddha_6_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga6/yuddha_6_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga6/yuddha_6_frame.htm"
+        },
+        "7": {
+          "original": "https://valmikiramayan.net/yuddha/sarga7/yuddha_7_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga7/yuddha_7_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga7/yuddha_7_frame.htm"
+        },
+        "8": {
+          "original": "https://valmikiramayan.net/yuddha/sarga8/yuddha_8_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga8/yuddha_8_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga8/yuddha_8_frame.htm"
+        },
+        "9": {
+          "original": "https://valmikiramayan.net/yuddha/sarga9/yuddha_9_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga9/yuddha_9_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga9/yuddha_9_frame.htm"
+        },
+        "10": {
+          "original": "https://valmikiramayan.net/yuddha/sarga10/yuddha_10_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga10/yuddha_10_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga10/yuddha_10_frame.htm"
+        },
+        "11": {
+          "original": "https://valmikiramayan.net/yuddha/sarga11/yuddha_11_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga11/yuddha_11_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga11/yuddha_11_frame.htm"
+        },
+        "12": {
+          "original": "https://valmikiramayan.net/yuddha/sarga12/yuddha_12_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga12/yuddha_12_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga12/yuddha_12_frame.htm"
+        },
+        "13": {
+          "original": "https://valmikiramayan.net/yuddha/sarga13/yuddha_13_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga13/yuddha_13_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga13/yuddha_13_frame.htm"
+        },
+        "14": {
+          "original": "https://valmikiramayan.net/yuddha/sarga14/yuddha_14_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga14/yuddha_14_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga14/yuddha_14_frame.htm"
+        },
+        "15": {
+          "original": "https://valmikiramayan.net/yuddha/sarga15/yuddha_15_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga15/yuddha_15_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga15/yuddha_15_frame.htm"
+        },
+        "16": {
+          "original": "https://valmikiramayan.net/yuddha/sarga16/yuddha_16_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga16/yuddha_16_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga16/yuddha_16_frame.htm"
+        },
+        "17": {
+          "original": "https://valmikiramayan.net/yuddha/sarga17/yuddha_17_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga17/yuddha_17_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga17/yuddha_17_frame.htm"
+        },
+        "18": {
+          "original": "https://valmikiramayan.net/yuddha/sarga18/yuddha_18_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga18/yuddha_18_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga18/yuddha_18_frame.htm"
+        },
+        "19": {
+          "original": "https://valmikiramayan.net/yuddha/sarga19/yuddha_19_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga19/yuddha_19_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga19/yuddha_19_frame.htm"
+        },
+        "20": {
+          "original": "https://valmikiramayan.net/yuddha/sarga20/yuddha_20_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga20/yuddha_20_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga20/yuddha_20_frame.htm"
+        },
+        "21": {
+          "original": "https://valmikiramayan.net/yuddha/sarga21/yuddha_21_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga21/yuddha_21_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga21/yuddha_21_frame.htm"
+        },
+        "22": {
+          "original": "https://valmikiramayan.net/yuddha/sarga22/yuddha_22_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga22/yuddha_22_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga22/yuddha_22_frame.htm"
+        },
+        "23": {
+          "original": "https://valmikiramayan.net/yuddha/sarga23/yuddha_23_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga23/yuddha_23_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga23/yuddha_23_frame.htm"
+        },
+        "24": {
+          "original": "https://valmikiramayan.net/yuddha/sarga24/yuddha_24_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga24/yuddha_24_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga24/yuddha_24_frame.htm"
+        },
+        "25": {
+          "original": "https://valmikiramayan.net/yuddha/sarga25/yuddha_5F25_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga25/yuddha_5F25_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga25/yuddha_25_frame.htm"
+        },
+        "26": {
+          "original": "https://valmikiramayan.net/yuddha/sarga26/yuddha_26_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga26/yuddha_26_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga26/yuddha_26_frame.htm"
+        },
+        "27": {
+          "original": "https://valmikiramayan.net/yuddha/sarga27/yuddha_27_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga27/yuddha_27_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga27/yuddha_27_frame.htm"
+        },
+        "28": {
+          "original": "https://valmikiramayan.net/yuddha/sarga28/yuddha_28_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga28/yuddha_28_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga28/yuddha_28_frame.htm"
+        },
+        "29": {
+          "original": "https://valmikiramayan.net/yuddha/sarga29/yuddha_29_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga29/yuddha_29_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga29/yuddha_29_frame.htm"
+        },
+        "30": {
+          "original": "https://valmikiramayan.net/yuddha/sarga30/yuddha_30_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga30/yuddha_30_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga30/yuddha_30_frame.htm"
+        },
+        "31": {
+          "original": "https://valmikiramayan.net/yuddha/sarga31/yuddha_31_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga31/yuddha_31_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga31/yuddha_31_frame.htm"
+        },
+        "32": {
+          "original": "https://valmikiramayan.net/yuddha/sarga32/yuddha_32_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga32/yuddha_32_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga32/yuddha_32_frame.htm"
+        },
+        "33": {
+          "original": "https://valmikiramayan.net/yuddha/sarga33/yuddha_33_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga33/yuddha_33_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga33/yuddha_33_frame.htm"
+        },
+        "34": {
+          "original": "https://valmikiramayan.net/yuddha/sarga34/yuddha_34_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga34/yuddha_34_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga34/yuddha_34_frame.htm"
+        },
+        "35": {
+          "original": "https://valmikiramayan.net/yuddha/sarga35/yuddha_35_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga35/yuddha_35_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga35/yuddha_35_frame.htm"
+        },
+        "36": {
+          "original": "https://valmikiramayan.net/yuddha/sarga36/yuddha_36_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga36/yuddha_36_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga36/yuddha_36_frame.htm"
+        },
+        "37": {
+          "original": "https://valmikiramayan.net/yuddha/sarga37/yuddha_37_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga37/yuddha_37_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga37/yuddha_37_frame.htm"
+        },
+        "38": {
+          "original": "https://valmikiramayan.net/yuddha/sarga38/yuddha_38_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga38/yuddha_38_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga38/yuddha_38_frame.htm"
+        },
+        "39": {
+          "original": "https://valmikiramayan.net/yuddha/sarga39/yuddha_39_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga39/yuddha_39_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga39/yuddha_39_frame.htm"
+        },
+        "40": {
+          "original": "https://valmikiramayan.net/yuddha/sarga40/yuddha_5F40_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga40/yuddha_5F40_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga40/yuddha_40_frame.htm"
+        },
+        "41": {
+          "original": "https://valmikiramayan.net/yuddha/sarga41/yuddha_41_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga41/yuddha_41_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga41/yuddha_41_frame.htm"
+        },
+        "42": {
+          "original": "https://valmikiramayan.net/yuddha/sarga42/yuddha_42_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga42/yuddha_42_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga42/yuddha_42_frame.htm"
+        },
+        "43": {
+          "original": "https://valmikiramayan.net/yuddha/sarga43/yuddha_43_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga43/yuddha_43_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga43/yuddha_43_frame.htm"
+        },
+        "44": {
+          "original": "https://valmikiramayan.net/yuddha/sarga44/yuddha_44_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga44/yuddha_44_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga44/yuddha_44_frame.htm"
+        },
+        "45": {
+          "original": "https://valmikiramayan.net/yuddha/sarga45/yuddha_45_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga45/yuddha_45_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga45/yuddha_45_frame.htm"
+        },
+        "46": {
+          "original": "https://valmikiramayan.net/yuddha/sarga46/yuddha_46_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga46/yuddha_46_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga46/yuddha_46_frame.htm"
+        },
+        "47": {
+          "original": "https://valmikiramayan.net/yuddha/sarga47/yuddha_47_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga47/yuddha_47_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga47/yuddha_47_frame.htm"
+        },
+        "48": {
+          "original": "https://valmikiramayan.net/yuddha/sarga48/yuddha_48_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga48/yuddha_48_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga48/yuddha_48_frame.htm"
+        },
+        "49": {
+          "original": "https://valmikiramayan.net/yuddha/sarga49/yuddha_49_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga49/yuddha_49_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga49/yuddha_49_frame.htm"
+        },
+        "50": {
+          "original": "https://valmikiramayan.net/yuddha/sarga50/yuddha_50_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga50/yuddha_50_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga50/yuddha_50_frame.htm"
+        },
+        "51": {
+          "original": "https://valmikiramayan.net/yuddha/sarga51/yuddha_51_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga51/yuddha_51_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga51/yuddha_51_frame.htm"
+        },
+        "52": {
+          "original": "https://valmikiramayan.net/yuddha/sarga52/yuddha_52_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga52/yuddha_52_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga52/yuddha_52_frame.htm"
+        },
+        "53": {
+          "original": "https://valmikiramayan.net/yuddha/sarga53/yuddha_53_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga53/yuddha_53_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga53/yuddha_53_frame.htm"
+        },
+        "54": {
+          "original": "https://valmikiramayan.net/yuddha/sarga54/yuddha_54_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga54/yuddha_54_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga54/yuddha_54_frame.htm"
+        },
+        "55": {
+          "original": "https://valmikiramayan.net/yuddha/sarga55/yuddha_55_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga55/yuddha_55_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga55/yuddha_55_frame.htm"
+        },
+        "56": {
+          "original": "https://valmikiramayan.net/yuddha/sarga56/yuddha_56_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga56/yuddha_56_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga56/yuddha_56_frame.htm"
+        },
+        "57": {
+          "original": "https://valmikiramayan.net/yuddha/sarga57/yuddha_57_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga57/yuddha_57_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga57/yuddha_57_frame.htm"
+        },
+        "58": {
+          "original": "https://valmikiramayan.net/yuddha/sarga58/yuddha_58_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga58/yuddha_58_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga58/yuddha_58_frame.htm"
+        },
+        "59": {
+          "original": "https://valmikiramayan.net/yuddha/sarga59/yuddha_59_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga59/yuddha_59_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga59/yuddha_59_frame.htm"
+        },
+        "60": {
+          "original": "https://valmikiramayan.net/yuddha/sarga60/yuddha_60_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga60/yuddha_60_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga60/yuddha_60_frame.htm"
+        },
+        "61": {
+          "original": "https://valmikiramayan.net/yuddha/sarga61/yuddha_61_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga61/yuddha_61_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga61/yuddha_61_frame.htm"
+        },
+        "62": {
+          "original": "https://valmikiramayan.net/yuddha/sarga62/yuddha_62_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga62/yuddha_62_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga62/yuddha_62_frame.htm"
+        },
+        "63": {
+          "original": "https://valmikiramayan.net/yuddha/sarga63/yuddha_63_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga63/yuddha_63_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga63/yuddha_63_frame.htm"
+        },
+        "64": {
+          "original": "https://valmikiramayan.net/yuddha/sarga64/yuddha_64_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga64/yuddha_64_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga64/yuddha_64_frame.htm"
+        },
+        "65": {
+          "original": "https://valmikiramayan.net/yuddha/sarga65/yuddha_65_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga65/yuddha_65_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga65/yuddha_65_frame.htm"
+        },
+        "66": {
+          "original": "https://valmikiramayan.net/yuddha/sarga66/yuddha_66_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga66/yuddha_66_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga66/yuddha_66_frame.htm"
+        },
+        "67": {
+          "original": "https://valmikiramayan.net/yuddha/sarga67/yuddha_67_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga67/yuddha_67_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga67/yuddha_67_frame.htm"
+        },
+        "68": {
+          "original": "https://valmikiramayan.net/yuddha/sarga68/yuddha_68_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga68/yuddha_68_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga68/yuddha_68_frame.htm"
+        },
+        "69": {
+          "original": "https://valmikiramayan.net/yuddha/sarga69/yuddha_69_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga69/yuddha_69_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga69/yuddha_69_frame.htm"
+        },
+        "70": {
+          "original": "https://valmikiramayan.net/yuddha/sarga70/yuddha_70_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga70/yuddha_70_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga70/yuddha_70_frame.htm"
+        },
+        "71": {
+          "original": "https://valmikiramayan.net/yuddha/sarga71/yuddha_71_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga71/yuddha_71_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga71/yuddha_71_frame.htm"
+        },
+        "72": {
+          "original": "https://valmikiramayan.net/yuddha/sarga72/yuddha_72_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga72/yuddha_72_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga72/yuddha_72_frame.htm"
+        },
+        "73": {
+          "original": "https://valmikiramayan.net/yuddha/sarga73/yuddha_73_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga73/yuddha_73_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga73/yuddha_73_frame.htm"
+        },
+        "74": {
+          "original": "https://valmikiramayan.net/yuddha/sarga74/yuddha_74_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga74/yuddha_74_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga74/yuddha_74_frame.htm"
+        },
+        "75": {
+          "original": "https://valmikiramayan.net/yuddha/sarga75/yuddha_75_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga75/yuddha_75_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga75/yuddha_75_frame.htm"
+        },
+        "76": {
+          "original": "https://valmikiramayan.net/yuddha/sarga76/yuddha_76_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga76/yuddha_76_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga76/yuddha_76_frame.htm"
+        },
+        "77": {
+          "original": "https://valmikiramayan.net/yuddha/sarga77/yuddha_77_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga77/yuddha_77_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga77/yuddha_77_frame.htm"
+        },
+        "78": {
+          "original": "https://valmikiramayan.net/yuddha/sarga78/yuddha_78_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga78/yuddha_78_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga78/yuddha_78_frame.htm"
+        },
+        "79": {
+          "original": "https://valmikiramayan.net/yuddha/sarga79/yuddha_79_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga79/yuddha_79_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga79/yuddha_79_frame.htm"
+        },
+        "80": {
+          "original": "https://valmikiramayan.net/yuddha/sarga80/yuddha_80_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga80/yuddha_80_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga80/yuddha_80_frame.htm"
+        },
+        "81": {
+          "original": "https://valmikiramayan.net/yuddha/sarga81/yuddha_81_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga81/yuddha_81_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga81/yuddha_81_frame.htm"
+        },
+        "82": {
+          "original": "https://valmikiramayan.net/yuddha/sarga82/yuddha_82_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga82/yuddha_82_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga82/yuddha_82_frame.htm"
+        },
+        "83": {
+          "original": "https://valmikiramayan.net/yuddha/sarga83/yuddha_83_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga83/yuddha_83_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga83/yuddha_83_frame.htm"
+        },
+        "84": {
+          "original": "https://valmikiramayan.net/yuddha/sarga84/yuddha_84_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga84/yuddha_84_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga84/yuddha_84_frame.htm"
+        },
+        "85": {
+          "original": "https://valmikiramayan.net/yuddha/sarga85/yuddha_85_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga85/yuddha_85_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga85/yuddha_85_frame.htm"
+        },
+        "86": {
+          "original": "https://valmikiramayan.net/yuddha/sarga86/yuddha_86_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga86/yuddha_86_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga86/yuddha_86_frame.htm"
+        },
+        "87": {
+          "original": "https://valmikiramayan.net/yuddha/sarga87/yuddha_87_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga87/yuddha_87_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga87/yuddha_87_frame.htm"
+        },
+        "88": {
+          "original": "https://valmikiramayan.net/yuddha/sarga88/yuddha_88_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga88/yuddha_88_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga88/yuddha_88_frame.htm"
+        },
+        "89": {
+          "original": "https://valmikiramayan.net/yuddha/sarga89/yuddha_89_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga89/yuddha_89_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga89/yuddha_89_frame.htm"
+        },
+        "90": {
+          "original": "https://valmikiramayan.net/yuddha/sarga90/yuddha_90_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga90/yuddha_90_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga90/yuddha_90_frame.htm"
+        },
+        "91": {
+          "original": "https://valmikiramayan.net/yuddha/sarga91/yuddha_91_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga91/yuddha_91_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga91/yuddha_91_frame.htm"
+        },
+        "92": {
+          "original": "https://valmikiramayan.net/yuddha/sarga92/yuddha_92_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga92/yuddha_92_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga92/yuddha_92_frame.htm"
+        },
+        "93": {
+          "original": "https://valmikiramayan.net/yuddha/sarga93/yuddha_93_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddha_93_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga93/yuddha_93_frame.htm"
+        },
+        "94": {
+          "original": "https://valmikiramayan.net/yuddha/sarga94/yuddha_94_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddha_94_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga94/yuddha_94_frame.htm"
+        },
+        "95": {
+          "original": "https://valmikiramayan.net/yuddha/sarga95/yuddha_95_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddha_95_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga95/yuddha_95_frame.htm"
+        },
+        "96": {
+          "original": "https://valmikiramayan.net/yuddha/sarga96/yuddha_96_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddha_96_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga96/yuddha_96_frame.htm"
+        },
+        "97": {
+          "original": "https://valmikiramayan.net/yuddha/sarga97/yuddha_97_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga97/yuddha_97_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga97/yuddha_97_frame.htm"
+        },
+        "98": {
+          "original": "https://valmikiramayan.net/yuddha/sarga98/yuddha_98_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga98/yuddha_98_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga98/yuddha_98_frame.htm"
+        },
+        "99": {
+          "original": "https://valmikiramayan.net/yuddha/sarga99/yuddha_99_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga99/yuddha_99_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga99/yuddha_99_frame.htm"
+        },
+        "100": {
+          "original": "https://valmikiramayan.net/yuddha/sarga100/yuddha_100_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga100/yuddha_100_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga100/yuddha_100_frame.htm"
+        },
+        "101": {
+          "original": "https://valmikiramayan.net/yuddha/sarga101/yuddha_101_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga101/yuddha_101_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga101/yuddha_101_frame.htm"
+        },
+        "102": {
+          "original": "https://valmikiramayan.net/yuddha/sarga102/yuddha_102_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga102/yuddha_102_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga102/yuddha_102_frame.htm"
+        },
+        "103": {
+          "original": "https://valmikiramayan.net/yuddha/sarga103/yuddha_103_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga103/yuddha_103_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga103/yuddha_103_frame.htm"
+        },
+        "104": {
+          "original": "https://valmikiramayan.net/yuddha/sarga104/yuddha_104_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga104/yuddha_104_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga104/yuddha_104_frame.htm"
+        },
+        "105": {
+          "original": "https://valmikiramayan.net/yuddha/sarga105/yuddha_105_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga105/yuddha_105_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga105/yuddha_105_frame.htm"
+        },
+        "106": {
+          "original": "https://valmikiramayan.net/yuddha/sarga106/yuddha_106_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga106/yuddha_106_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga106/yuddha_106_frame.htm"
+        },
+        "107": {
+          "original": "https://valmikiramayan.net/yuddha/sarga107/yuddha_107_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga107/yuddha_107_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga107/yuddha_107_frame.htm"
+        },
+        "108": {
+          "original": "https://valmikiramayan.net/yuddha/sarga108/yuddha_108_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga108/yuddha_108_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga108/yuddha_108_frame.htm"
+        },
+        "109": {
+          "original": "https://valmikiramayan.net/yuddha/sarga109/yuddha_109_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga109/yuddha_109_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga109/yuddha_109_frame.htm"
+        },
+        "110": {
+          "original": "https://valmikiramayan.net/yuddha/sarga110/yuddha_110_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga110/yuddha_110_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga110/yuddha_110_frame.htm"
+        },
+        "111": {
+          "original": "https://valmikiramayan.net/yuddha/sarga111/yuddha_111_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga111/yuddha_111_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga111/yuddha_111_frame.htm"
+        },
+        "112": {
+          "original": "https://valmikiramayan.net/yuddha/sarga112/yuddha_112_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga112/yuddha_112_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga112/yuddha_112_frame.htm"
+        },
+        "113": {
+          "original": "https://valmikiramayan.net/yuddha/sarga113/yuddha_113_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga113/yuddha_113_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga113/yuddha_113_frame.htm"
+        },
+        "114": {
+          "original": "https://valmikiramayan.net/yuddha/sarga114/yuddha_114_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga114/yuddha_114_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga114/yuddha_114_frame.htm"
+        },
+        "115": {
+          "original": "https://valmikiramayan.net/yuddha/sarga115/yuddha_115_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga115/yuddha_115_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga115/yuddha_115_frame.htm"
+        },
+        "116": {
+          "original": "https://valmikiramayan.net/yuddha/sarga116/yuddha_116_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga116/yuddha_116_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga116/yuddha_116_frame.htm"
+        },
+        "117": {
+          "original": "https://valmikiramayan.net/yuddha/sarga117/yuddha_117_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga117/yuddha_117_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga117/yuddha_117_frame.htm"
+        },
+        "118": {
+          "original": "https://valmikiramayan.net/yuddha/sarga118/yuddha_118_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga118/yuddha_118_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga118/yuddha_118_frame.htm"
+        },
+        "119": {
+          "original": "https://valmikiramayan.net/yuddha/sarga119/yuddha_119_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga119/yuddha_119_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga119/yuddha_119_frame.htm"
+        },
+        "120": {
+          "original": "https://valmikiramayan.net/yuddha/sarga120/yuddha_120_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga120/yuddha_120_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga120/yuddha_120_frame.htm"
+        },
+        "121": {
+          "original": "https://valmikiramayan.net/yuddha/sarga121/yuddha_121_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga121/yuddha_121_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga121/yuddha_121_frame.htm"
+        },
+        "122": {
+          "original": "https://valmikiramayan.net/yuddha/sarga122/yuddha_122_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga122/yuddha_122_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga122/yuddha_122_frame.htm"
+        },
+        "123": {
+          "original": "https://valmikiramayan.net/yuddha/sarga123/yuddha_123_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga123/yuddha_123_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga123/yuddha_123_frame.htm"
+        },
+        "124": {
+          "original": "https://valmikiramayan.net/yuddha/sarga124/yuddha_124_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga124/yuddha_124_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga124/yuddha_124_frame.htm"
+        },
+        "125": {
+          "original": "https://valmikiramayan.net/yuddha/sarga125/yuddha_125_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga125/yuddha_125_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga125/yuddha_125_frame.htm"
+        },
+        "126": {
+          "original": "https://valmikiramayan.net/yuddha/sarga126/yuddha_126_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga126/yuddha_126_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga126/yuddha_126_frame.htm"
+        },
+        "127": {
+          "original": "https://valmikiramayan.net/yuddha/sarga127/yuddha_127_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga127/yuddha_127_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga127/yuddha_127_frame.htm"
+        },
+        "128": {
+          "original": "https://valmikiramayan.net/yuddha/sarga128/yuddha_128_frame.htm",
+          "utf8": "https://valmikiramayan.net/utf8/yuddha/sarga128/yuddha_128_frame.htm",
+          "mirror": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga128/yuddha_128_frame.htm"
+        }
+      }
+    }
+  }
+}

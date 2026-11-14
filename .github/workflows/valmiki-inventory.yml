@@ -4,30 +4,23 @@ on:
     paths: ['.github/workflows/valmiki-inventory.yml']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: valmiki-source-inventory
+  cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 85
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
       - name: Inventory source URLs and reconcile chapter indexes
         run: |
-          python3 inventory.py --output audit/original --max-pages 3000 --max-seconds 900 --delay 0.1
+          python3 inventory.py --self-test
+          python3 inventory.py --fresh --output audit/primary --max-pages 30000 --max-seconds 4500 --delay 0.1
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: original-source-inventory
-          path: audit/original
-      - name: Commit audit metadata
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audit/original
-          if ! git diff --cached --quiet; then
-            git commit -m "Record Valmiki source inventory checkpoint"
-            git fetch origin main
-            git rebase origin/main
-            git push
-          fi
+          name: primary-source-inventory
+          path: audit/primary
+          if-no-files-found: error
