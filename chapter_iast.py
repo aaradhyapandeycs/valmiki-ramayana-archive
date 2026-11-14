@@ -1,6 +1,7 @@
 """Validate the reviewed IAST headings against their source chapter indexes."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import unicodedata
 
@@ -12,9 +13,19 @@ def chapter_fingerprint(books):
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def display_chapters(books):
+def load_title_review():
     path = ROOT / "data" / "chapter-iast.json"
-    review = json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def title_aliases(heading, glossary):
+    return [variant for spelling, item in glossary.items()
+            if re.search(rf"(?<!\w){re.escape(spelling)}(?!\w)", heading)
+            for variant in item["variants"]]
+
+
+def display_chapters(books):
+    review = load_title_review()
     if review["source_fingerprint"] != chapter_fingerprint(books):
         raise ValueError("The source headings changed. Review the IAST headings before building.")
     if set(review["books"]) != {book["slug"] for book in books}:

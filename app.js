@@ -21,7 +21,7 @@ function render(entries) {
       return entry.book_number === Number(citation[1]) && entry.number === Number(citation[2]);
     }
     if (/^\d+$/.test(query)) return entry.number === Number(query);
-    const label = normalize(`${entry.book} ${entry.number} ${entry.title}`);
+    const label = normalize(`${entry.book} ${entry.number} ${entry.title} ${(entry.aliases || []).join(" ")}`);
     return query.split(/\s+/).every(term => label.includes(term));
   });
 

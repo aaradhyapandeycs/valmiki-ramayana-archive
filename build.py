@@ -11,7 +11,7 @@ import json
 import os
 from pathlib import Path
 
-from chapter_iast import display_chapters
+from chapter_iast import display_chapters, load_title_review, title_aliases
 from dutt_reader import render_dutt
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
@@ -65,6 +65,7 @@ def write(path, contents):
 def main():
     OUT.mkdir(exist_ok=True)
     chapters = display_chapters(SOURCE_CHAPTERS)
+    glossary = load_title_review()["glossary"]
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
     snapshot = ROOT / "data" / "sanskrit" / "summary.json"
     if snapshot.is_file():
@@ -112,7 +113,7 @@ def main():
                 if pane["url"] not in links.values():
                     manifest.append({"source_url": pane["url"], "new_url": new,
                                      "status": pane["status"], "note": pane["label"]})
-            search.append({"book": name, "number": n, "book_number": book_number, "title": row["title"], "url": new})
+            search.append({"book": name, "number": n, "book_number": book_number, "title": row["title"], "aliases": title_aliases(row["title"], glossary), "url": new})
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
             body = f"""<p class="eyebrow">{esc(name)} Kāṇḍa · Sarga {n} of {len(rows)}</p>

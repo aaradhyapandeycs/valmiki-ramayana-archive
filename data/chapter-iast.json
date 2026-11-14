@@ -547,5 +547,119 @@
       "127": "Bharata commands for the reception of Rāma in the City of Ayodhyā",
       "128": "Śrī Rāma’s paṭṭābhiṣeka"
     }
+  },
+  "glossary": {
+    "Rāma": {
+      "devanagari": "राम",
+      "variants": [
+        "rAma",
+        "Rama"
+      ]
+    },
+    "Vālmīki": {
+      "devanagari": "वाल्मीकि",
+      "variants": [
+        "vAlmIki",
+        "Valmiki"
+      ]
+    },
+    "Rāmāyaṇa": {
+      "devanagari": "रामायण",
+      "variants": [
+        "rAmAyaNa",
+        "Ramayana"
+      ]
+    },
+    "Nārada": {
+      "devanagari": "नारद",
+      "variants": [
+        "nArada",
+        "Narada"
+      ]
+    },
+    "Sītā": {
+      "devanagari": "सीता",
+      "variants": [
+        "Sita",
+        "Seetha"
+      ]
+    },
+    "Lakṣmaṇa": {
+      "devanagari": "लक्ष्मण",
+      "variants": [
+        "lakshmaNa",
+        "Lakshmana"
+      ]
+    },
+    "Rāvaṇa": {
+      "devanagari": "रावण",
+      "variants": [
+        "Ravana"
+      ]
+    },
+    "Hanumān": {
+      "devanagari": "हनुमान्",
+      "variants": [
+        "Hanuma",
+        "Hanuman"
+      ]
+    },
+    "Vālī": {
+      "devanagari": "वाली",
+      "variants": [
+        "Vali",
+        "Valii",
+        "Vālin"
+      ]
+    },
+    "Daśaratha": {
+      "devanagari": "दशरथ",
+      "variants": [
+        "Dasaratha",
+        "Dasharatha"
+      ]
+    },
+    "Ṛṣyaśṛṅga": {
+      "devanagari": "ऋष्यशृङ्ग",
+      "variants": [
+        "Rishyasringa",
+        "Rishyashringa"
+      ]
+    },
+    "Vibhīṣaṇa": {
+      "devanagari": "विभीषण",
+      "variants": [
+        "Vibhishana",
+        "Vibheeshana"
+      ]
+    },
+    "Sugrīva": {
+      "devanagari": "सुग्रीव",
+      "variants": [
+        "Sugriva",
+        "Sugreeva"
+      ]
+    },
+    "Kiṣkindhā": {
+      "devanagari": "किष्किन्धा",
+      "variants": [
+        "Kishkindha",
+        "Kishkinda"
+      ]
+    }
+  },
+  "notes": {
+    "sundara": [
+      "31",
+      "33",
+      "34",
+      "35",
+      "36",
+      "39",
+      "50",
+      "51",
+      "64"
+    ],
+    "editorial_note": "Several source English headings are incomplete; their original text is available in chapters.json. Sanskrit spellings were reviewed separately."
   }
 }
