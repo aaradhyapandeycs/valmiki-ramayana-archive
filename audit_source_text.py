@@ -187,7 +187,8 @@ def check_rendered(record, raw, reviewed=()):
         return "source_paratext_missing_or_unexpected"
     for node, item in zip(sources, reviewed):
         texts = [plain(child) for child in node.iter("div") if child.get("lang") == "sa-Deva"]
-        if texts != [item["sanskrit"]] or node.get("aria-label") != item["kind"]:
+        if (texts != [item["sanskrit"]] or node.get("aria-label") != item["kind"]
+                or node.get("id") != f'source-paragraph-{item["source_paragraph"]}'):
             return "rendered_source_paratext_mismatch"
     source = record["source_url"]
     if not any(a.get("href") == source for a in sections[0].iter("a")):

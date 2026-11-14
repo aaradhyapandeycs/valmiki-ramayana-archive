@@ -96,7 +96,7 @@ def verify(root, commit=None):
         if defects:
             defect_chapters.append(f"{slug}/{number}")
 
-    if counts != Counter(summary["counts"]) or statuses != Counter(summary["statuses"]):
+    if counts != +Counter(summary["counts"]) or statuses != +Counter(summary["statuses"]):
         raise ValueError("Coverage totals disagree with per-chapter records")
     print(f"Verified capture citations and script containment: {dict(counts)}")
     print(f"Chapter verification status: {dict(statuses)}")

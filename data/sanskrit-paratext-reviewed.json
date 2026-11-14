@@ -1,12 +1,1304 @@
 {
+  "ayodhya/5": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इत्यार्शे स्रीमद्रामायने आदिकाव्ये अयोध्यकान्दे पन्चम सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga5/ayodhyasans5.htm",
+      "source_paragraph": 103,
+      "source_normalized_text_sha256": "7c480e5c4f9c9b0e593793b37bedc957d859bb6018bc697d25448410e71fc351"
+    }
+  ],
+  "ayodhya/7": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इत्यार्षे स्रीमद्रामायने आदिकाव्ये अयोध्यकान्दे शस्तः सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga7/ayodhyasans7.htm",
+      "source_paragraph": 135,
+      "source_normalized_text_sha256": "33f70ea60aeb3b385f1fe6e3bb8c4efeb58ee41047b2e1584825af0f9ce962ca"
+    }
+  ],
+  "ayodhya/9": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इत्यार्षे स्रिमद्रामयणे आदिकाव्ये अयोध्य काण्दे नवम सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga9/ayodhyasans9.htm",
+      "source_paragraph": 248,
+      "source_normalized_text_sha256": "f3de2ad349d8ff40cf428c687d8492247fb3c37048c66c4cfb4c49076e116d44"
+    }
+  ],
+  "ayodhya/14": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इत्यार्शे स्रीमद्रामायने आदिकाव्ये अयोध्यकान्दे चतुर्दशः सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga14/ayodhyasans14.htm",
+      "source_paragraph": 221,
+      "source_normalized_text_sha256": "47b867b5ee58aeef35fe2e1ce286ee383cf5fca3a19e6fb6a23892b45a547db0"
+    }
+  ],
+  "ayodhya/25": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इति रामयने अयोध्य कान्द पन्चविंसः सर्ग ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga25/ayodhyasans25.htm",
+      "source_paragraph": 179,
+      "source_normalized_text_sha256": "cce7c952043cfd6bb9f48c979bfb0f17cc66614fe9f842a36ab6a805ea522d0a"
+    }
+  ],
+  "ayodhya/27": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इति श्रिमद् रामयने अयोध्य कान्दे षत्विंसः सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga27/ayodhyasans27.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "22b6b15de6fd45178f30f4c6f95fcaadc5e25dfcc8c270d9b7c51736f105ac60"
+    }
+  ],
+  "ayodhya/28": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इति अयोध्य कान्दे रामयने ष्टाविंशः सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga28/ayodhyasans28.htm",
+      "source_paragraph": 107,
+      "source_normalized_text_sha256": "4dd5eadcc181a282474e97b6a57d39ade97eca12fe76e21dd2d860285e5327c7"
+    }
+  ],
+  "ayodhya/85": [
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "एवमुक्तस्तु भरतो निषादाधिपतिं गुहम् । प्रत्युवाच महाप्राज्ञो वाक्यं हेत्वर्थसंहितम् ॥ २-८५-१",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga85/ayodhyasans85.htm",
+      "source_paragraph": 3,
+      "source_normalized_text_sha256": "33ecb826473cf55cdc9f7f50cb35a15ab530332456a56881c6f5556d4afe51bc"
+    }
+  ],
+  "ayodhya/97": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इत्यार्षे श्रीमद्रामायने आदिकावे अयोध्याकाण्डे सप्तनवतितमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga97/ayodhyasans97.htm",
+      "source_paragraph": 119,
+      "source_normalized_text_sha256": "01cab8997dadd9388490c36dd33ce6d7a4ec8d6f0384e22849de9d34f3cb8bdb"
+    }
+  ],
   "aranya/1": [
     {
       "placement": "before",
       "kind": "Source invocation",
       "sanskrit": "ॐ शान्ति शान्ति शान्तिः",
       "source_url": "https://valmikiramayan.net/utf8/aranya/sarga1/aranyasans1.htm",
-      "source_paragraph": 1,
+      "source_paragraph": 7,
       "source_normalized_text_sha256": "cd10257789cab46b91e068db590ce9291e6dc96dd6f6c21453969337a019cd72"
+    }
+  ],
+  "aranya/2": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इति वाल्मीकि रामयणे आदि काव्ये अरण्य काण्डे द्वितीयः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/aranya/sarga2/aranyasans2.htm",
+      "source_paragraph": 106,
+      "source_normalized_text_sha256": "e208dafde2eb416a97886e63e4df1bb921b7c178d458dc778b6a3e62f276ab53"
+    }
+  ],
+  "sundara/4": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "|| इति रामायने सुन्दरकाण्डे चतुर्थः सर्गः ||",
+      "source_url": "https://valmikiramayan.net/utf8/sundara/sarga4/sundarasans4.htm",
+      "source_paragraph": 94,
+      "source_normalized_text_sha256": "92d7a0672dd6e31b0894d43eea2f47ad3b9681f3fe518b569e1d7e6dec4383f0"
+    }
+  ],
+  "yuddha/5": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इत्यार्षे श्रीमद्रामयणे आदिकाव्ये युद्धकाण्डेपञ्चमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga5/yuddhasans5.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "587c89ff9d3dc515e76eb59794661e6ea34848b1d46f65018efb2a36fc082ccf"
+    }
+  ],
+  "yuddha/48": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इत्यार्षे श्रीमद्रामायने आदिकाव्ये युद्धकाण्डे अष्टचत्वारिंशः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga48/yuddhasans48.htm",
+      "source_paragraph": 151,
+      "source_normalized_text_sha256": "d2f46def97c8eca42be6465113bc2a6e1cc0754fd13689bbce7b82718203ee66"
+    }
+  ],
+  "yuddha/93": [
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "स प्रविश्य सभान् राजा दीनः परमदुःखितः | निषसादासने मुख्ये सिन्हः क्रुद्ध इव श्वसन् || ९३-६-१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 3,
+      "source_normalized_text_sha256": "55bcdc97d98fa453fb6223a6dbbd97869f6552955e32200f5d1c3e5575c063f3"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अब्रवीच्च तदा सर्वान्बलमुख्यान्महाबलः | रावणः प्रांजलीन्वाक्यं पुत्रव्यसनकर्शितः || ९३-६-२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 7,
+      "source_normalized_text_sha256": "a425d732719a66ba02f34a74bf1a862dca1602c2e34f820aebd264bffb78ce65"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "सर्वे भवन्तः सर्वेण हस्त्यश्वेन समावृताः | निर्यान्तु रथसंघैश्च पादातैश्चोपशोभिताः || ९३-६-३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 11,
+      "source_normalized_text_sha256": "fb6897a78bb1a399331a852dbcad045fc7d1e37728bbe6f5319bea6892dc0c4c"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "एकन् रामं परिक्षिप्य समरे हन्तुमर्हथ | प्रहृष्टा शरवर्षेण प्रावृट्काल इवाम्बुदाः || ९३-६-४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 15,
+      "source_normalized_text_sha256": "5bdfa4439924347ca85edd51a5a47a6a2e6e0e518bc42ad69e376598037ed9d2"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अथ वाहन् शरैर्तीष्क्णैर्भिन्नगात्रं महारणे | भवद्भिः श्वो निहन्तास्मि रामन् लोकस्य पश्यतः || ९३-६-५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 19,
+      "source_normalized_text_sha256": "9b403163d447d27adc933aa95c209bdc281aab9590d2b05d3d53376ccffe4d50"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "इत्येवन् राक्षसेन्द्रस्य वाक्यमादाय राक्षसाः | निर्ययुस्ते रथैः शीघ्रं नागानीकैश्च सन्वृताः || ९३-६-६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 23,
+      "source_normalized_text_sha256": "7e3883d1a7ec2c63f67d4bdba24f0921ceb065f783eef26655bb955732e6874c"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "परिघान् पट्टिशांश्चैव शरखड्गपरश्वधान् | शरीरान्तकरान् सर्वे चिक्षिपुर्वानरान् प्रति || ९३-६-७ वानराश्च द्रुमान् शैलान् राक्षसान् प्रति चिक्षिपुः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 27,
+      "source_normalized_text_sha256": "9e63261b8fb1ab515d580a4c75b3377e558d2557b146f1b866c2c2f127c35ef3"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "स संग्रामो महाभीमः सूर्यस्योदयनं प्रति || ९३-६-८ रक्षसान् वानराणान् च तुमुलः समपद्यत |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 31,
+      "source_normalized_text_sha256": "7eb5e952ea055ea87cddd37157285895ab58146c06aacc5100e61ff5b488d73e"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ते गदाभिर्विचित्राभिः प्रासैः खड्गैः परश्वधैः || ९३-६-९ अन्योन्यन् समरे जघ्नुस्तदा वानरराक्षसाः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 35,
+      "source_normalized_text_sha256": "b9b6ee4c48d0700fe6124531f79e0ec3736d12d1ef32fb409f75ba1f40321f78"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "एवं प्रवृते संग्रामे ह्यदुभुतं सुमहद्रजः || ९३-६-१० रक्षसां वानराणां च शान्तं शोणितविस्रवैः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 39,
+      "source_normalized_text_sha256": "4a2720a245970167b93f77e257a95615cddf78383d4ab1d2c6dca5f1a97e2a69"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "मातंगरथकूलस्य वाजिमत्स्या ध्वजद्रुमाः || ९३-६-११ शरीरसंघाटवहाः प्रसस्रुः शोणितापगाः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 43,
+      "source_normalized_text_sha256": "899b8300cdbedd2bd042ffd4fc62ffb013cebe81efee07dd13577373b3b7cfdb"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ततस्ते वानराः सर्वे शोणितौघपरिप्लुताः || ९३-६-१२ ध्वजवर्मरथानश्वान्नानाप्रहरणानि च | आप्लुत्याप्लुत्य समरे वानरेन्द्रा बभंजिरे || ९३-६-१३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 47,
+      "source_normalized_text_sha256": "84b7214122b5e752589e0ecb71e06df865300d7acc563844d7987f8aefda453a"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "केशान्कर्णललाटांश्च नासिकाश्च प्लवंगमाः | रक्षसान् दशनैस्तीक्ष्णैर्नखैश्चापि व्यकर्तयन् || ९३-६-१४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 51,
+      "source_normalized_text_sha256": "d8efa6be228188eca597f911b8e817640b6025c919fe5d2faadfa9d635878614"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "एकैकन् राक्षसं संख्ये शतं वानरपुंगवाः | अभ्यधावन्त फलिनन् वृक्षं शकुनयो यथा || ९३-६-१५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 55,
+      "source_normalized_text_sha256": "002520a7944c1200d59b0b4a4628c33185697e674aa64fb6ea1465484d2dcbf6"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "तथा गदाभिर्गुर्वीभिः प्रासैः खड्गैः परश्वधैः | निर्जघ्नुर्वानरान्घोरान्राक्षसाः पर्वतोपमाः || ९३-६-१६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 59,
+      "source_normalized_text_sha256": "251499208cfe1b44924cd89187d1dd072dcf9ddcae3af36d1622d92d7850512a"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "राक्षसैर्वध्यमानानान् वानराणां महाचमूः | शरण्यन् शरणं याता रामन् दशरथात्मजम् || ९३-६-१७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "098a7f05c92eb2efa47c8a14a6c42eb3918bc07dea44a9c07e514834cc7cfc7a"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ततो रामो महातेजा धनुरादाय वीर्यवान् | प्रविश्य राक्षसन् सैन्यं शरवर्षं ववर्ष ह || ९३-६-१८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 67,
+      "source_normalized_text_sha256": "9d527d816f3dcc2a9e3e9b719209cb549b0b15a2f15fbdb0835d0aa03984c865"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "प्रविष्टन् तु तदा रामं मेघाः सूर्यमिवाम्बरे | नाभिजग्मुर्महाघोरं निर्दहन्तन् शराग्निना || ९३-६-१९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 71,
+      "source_normalized_text_sha256": "e947d9c083f066a1ffce23e26bf5e954b4aec18f6140e3112dadf753adfb1865"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "कृतान्येव सुघोराणि रामेण रजनीचराः | रणे रामस्य ददृशुः कर्माण्यसुकराणि च || ९३-६-२०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 75,
+      "source_normalized_text_sha256": "770396602ab1ddca4b55b335d6ca38d854756074bf9c60147a7108b5753595b7"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "चालयन्तं महानीकन् विधमन्तं महारथान् | ददृशुस्ते न वै रामन् वातं वनगतं यथा || ९३-६-२१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 79,
+      "source_normalized_text_sha256": "e8183e0eba9c4e5cdf0753d09b3398bbb4a9a12c20885ed668cdf086bdf0df94"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "छिन्नं भिन्नन् शरैर्दग्धं प्रभग्नं शस्त्रपीडितम् | बलन् रामेण ददृशुर्न रमं शीघ्रकारिणम् || ९३-६-२२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 83,
+      "source_normalized_text_sha256": "25a9145ce01230d4ae8f61038b449e45ca5384c7c85c5757fb98b0fbc7f4890b"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "प्रहरन्तन् शरीरेषु न ते पश्यन्ति राभवम् | इन्द्रियार्थेषु तिष्ठन्तं भूतात्मानमिव प्रजाः || ९३-६-२३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 87,
+      "source_normalized_text_sha256": "09a41307d183d87a7a1fa03163a896cdf51dcc4a519d786b9d98c50e6dc9f653"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "एष हन्ति गजानीकमेष हन्ति महारथान् | एष हन्ति शरैस्तीक्ष्णैः पदातीन्वाजिभिः सह || ९३-६-२४ इति ते राक्षसाः सर्वे रामस्य सदृशान्रणे | अन्योन्यकुपिता जघ्नुः सादृश्याद्राघवस्य तु || ९३-६-२५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 91,
+      "source_normalized_text_sha256": "b532e61491e655b2ea983305428a8e34c808a709e2b134564de134a3d4d684d0"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "स ते ददृशिरे रामन् दहन्तमरिवाहिनीम् | मोहिताः परमास्त्रेण गान्धर्वेण महात्मना || ९३-६-२६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "6e957d3bf938224d305e25e000b2443f1ed991c51abff56e4e6b0f37c933fc5c"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ते तु राम सहस्राणि रणे पश्यन्ति राक्षसाः | पुनः पश्यन्ति काकुत्स्थमेकमेव महात्मना || ९३-६-२७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 99,
+      "source_normalized_text_sha256": "7fb3ed041058a4efc26c681abf097064ce3d87875af0f4699ee3c6bb5bdaa9ce"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "भ्रमन्तीन् कांचनीं कोटिं कार्मुकस्य महात्मनः | अलातचक्रप्रतिमान् ददृशुस्ते न राघवम् || ९३-६-२८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 103,
+      "source_normalized_text_sha256": "f0ff5ca19855fb47bd4b4134a5813f9d14fbbb73ca4f37218ffa40530bf82b31"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "शरीरनाभिसत्त्वार्चिः शरारं नेमिकार्मुकम् | ज्याघोषतलनिर्घोषन् तेजोबुद्धिगुणप्रभम् || ९३-६-२९ दिव्यास्त्रगुणपर्यन्तं निघ्नन्तन् युधि राक्षसान् | ददृशू रामचक्रन् तत्कालचक्रमिव प्रजाः || ९३-६-३०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 107,
+      "source_normalized_text_sha256": "1009f01e3561d05e329a9dfa59f903c54b1fd7e159e47e7226c8bd46fa002c23"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ते हताश्वा हतरथाः श्रान्ता विमथितध्वजाः | अभिपेतुः पुरीन् लंकां हतशेषा निशाचराः || ९३-६-३४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 115,
+      "source_normalized_text_sha256": "3349fbca691c4980317dbff381ab727105906ac85e084c2ea260532a73f1dcd4"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "हतैर्गजपदात्यश्वैस्तद्बभूव रणाजिरम् | आक्रीडभूमी क्रुद्रस्य रुद्रस्येव महात्मनः || ९३-६-३५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 119,
+      "source_normalized_text_sha256": "bb7a4e2f99b0d0b76d5769645ecdcf77f3cef4e67c2ccf384eb686be663f112d"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततो देवाः सगन्धर्वाः सिद्धाश्च परमर्षयः | साधु साध्विति रामस्य तत्कर्म समपूजयन् || ९३-६-३६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 123,
+      "source_normalized_text_sha256": "bfed664dd5eb54eb9482dab7726dc9c6d1d4bed26fb4141ea924e41920fe3188"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "अब्रवीच्च तदा रामः सुग्रीवं प्रत्यनन्तरम् | विभीषणं च धर्मात्मा हनूमन्तं च वानरम् || ९३-६-३७ जाम्बवन्तं हरिश्रेष्ठं मैन्दं द्विविदमेव च | एतदस्त्रबलन् दिव्यं मम वा त्र्यम्बकस्य वा || ९३-६-३८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 127,
+      "source_normalized_text_sha256": "c200d4c06ca7d3a0ca9836a8a4c08180ec66581ec61a842918408e0b66993491"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "निहत्य तान् राक्षसवाहिनीन् तु | रामस्तदा शक्रसमो महात्मा | अस्त्रेषु शस्त्रेषु जितक्लमश् च | सन्स्तूयते देवगणैः प्रहृष्टैः || ९३-६-३९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga93/yuddhasans93.htm",
+      "source_paragraph": 131,
+      "source_normalized_text_sha256": "3f3bfabc70a884ea75e02371029c1cbf53eb1b5a5d452659ba18ac32001b929d"
+    }
+  ],
+  "yuddha/94": [
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "दृष्ट्वा श्रुत्वा च सम्भ्रान्ता हतशेषा निशाचराः | राक्षस्यश्च समागम्य दीनाश्चिन्तापरिप्लुताः || ९४-६-४ विधवा हतपुत्राश्च क्रोशन्त्यो हतबान्धवाः | राक्षस्यः सह संगम्य दुःखार्ताः पर्यदेवयन् || ९४-६-५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 7,
+      "source_normalized_text_sha256": "c55b8ffe6e3122a3a37ae3fc201eacd4b424ee5dbd9bbf97f75f4a00800708f2"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "कथन् शूर्पणखा वृद्धा कराला निर्णतोदरी | आससाद वने रामन् कन्दर्पमिव रूपिणम् || ९४-६-६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 11,
+      "source_normalized_text_sha256": "c0d8c4b787670463d307d77092d6116b72af4f42fb7e3a4c23f07913d399e3e1"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "सुकुमारं महासत्त्वन् सर्वभूतहिते रतम् | तन् दृष्ट्वा लोकवध्या सा हीनरूपा प्रकामिता || ९४-६-७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 15,
+      "source_normalized_text_sha256": "b54c24e1ad9d9153cb96e056669db615e088715632deeb1823fe8a32e4839f77"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "कथन् सर्वगुणैर्हीना गुणवन्तं महौजसं | सुमुखन् दुर्मुखी रामं कामयामास राक्षसी || ९४-६-८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 19,
+      "source_normalized_text_sha256": "6197f396afaf576054b50fa0a7e8f06ac858e04f5c44d772d36801cd21ab27c8"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "जनस्यास्याल्पभाग्यत्वात्पलिनी श्वेतमूर्धजा | अकार्यमपहास्यन् च सर्वलोकविगर्हितम् || ९४-६-९ राक्षसानान् विनाशाय दूषणस्य खरस्य च | चकाराप्रतिरूपा सा राघवस्य प्रधर्षणम् || ९४-६-१०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 23,
+      "source_normalized_text_sha256": "2777550be5f705c66e886d69a69f9349a0ee8aec383762512dc90f6faffb621f"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तन्निमित्तमिदन् वैरं रावणेन कृतं महत् | वधाय नीता सा सीता दशग्रीवेण रक्षसा || ९४-६-११",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 27,
+      "source_normalized_text_sha256": "2653dd7e60d538e602eb4876e6b6125ac5ad880526d2e956375ad0e71c58bd9d"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "न च सीतान् दशग्रीवः प्राप्नोति जनकात्मजाम् | बद्धं बलवता वैरमक्षयन् राघवेण ह || ९४-६-१२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 31,
+      "source_normalized_text_sha256": "eb90239aa90deaa82dac88f890f73367f5f5280cec804aa23fe18b1562e12a78"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "वैदेहीं प्रार्थयानन् तन् विराधं प्रेक्ष्य राक्षसं | हतमेकेन रामेण पर्याप्तन् तन्निदर्शनम् || ९४-६-१३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 35,
+      "source_normalized_text_sha256": "0f481ec7b56f735af4f26a149387bd45fe44060a2cb2169ea9c299c92bcb4f86"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "चतुर्दशसहस्राणि रक्षसां भीमकर्मणाम् | निहतानि जनस्थाने शरैरग्निशिखोपमैः || ९४-६-१४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 39,
+      "source_normalized_text_sha256": "cdd891224841f59fce0900a4b588a21cc7fe63d140fb4df3eb8d3bbee5420e31"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "खरश्च निहतः संख्ये दूषणस्त्रिशिरास्तथा | शरैरादित्यसंकाशैः पर्याप्तन् तन्निदर्शनम् || ९४-६-१५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 43,
+      "source_normalized_text_sha256": "37e56896e7f8c1b4a735296e6e5bdb5da04b6eaf82821e885e42f7ef1935e6de"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "हतो योजनबाहुश्च कबन्धो रुधिराशनः | क्रोधार्तो विनदन्सोअथ पर्याप्तन् तन्निदर्शनम् || ९४-६-१६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 47,
+      "source_normalized_text_sha256": "8898a03002045382c21577674270935c118e7b3a4ae2141be74b3f6b3930069a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "जघान बलिनन् रामः सहस्रनयनात्मजम् | बालिनं मेघसंकाशं पर्याप्तन् तन्निदर्शनम् || ९४-६-१७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 51,
+      "source_normalized_text_sha256": "02c68d8d2a02386499c5500a3fe53c2ccf95a33dae738e562aeeb28d6d69698c"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ऋश्यमूके वसंशैले दीनो भग्नमनोरथः | सुग्रीवः स्थापितो राज्ये पर्याप्तन् तन्निदर्शनम् || ९४-६-१८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 55,
+      "source_normalized_text_sha256": "f0a9ea504982fd6ead312516a6bc5546ffd8c8bc35289f62b132ca9a1db7a9ce"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "धर्मार्थसहितन् वाक्यं सर्वेषां रक्षसां हितम् | युक्तन् विभीषणेनोक्तं मोहात्तस्य न रोचते || ९४-६-१९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 59,
+      "source_normalized_text_sha256": "cfcf8b47189272222dcd3ddabc10edeced548a5683f95bfc473b828256145f0a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "विभीषणवचः कुर्याद्यदि स्म धनदानुजः | श्मशानभूता दुःखार्ता नेयन् लंका पुरी भवेत् || ९४-६-२०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "23a86ec03f73a89aa6181929879a9b7849d367e056fbf1e93c1eefc8fa1433e6"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "कुम्भकर्णन् हतं श्रुत्वा राघवेण महाबलम् | अतिकायं च दुर्मर्षं लक्ष्मणेन हतं तदा || ९४-६-२१ प्रियन् चेन्द्रजितं पुत्रन् रावणो नावबुध्यते |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 67,
+      "source_normalized_text_sha256": "47818440b678505fbee78ede777f5aeb53a4058c59160c92764ac4a0ab7bd70c"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "मम पुत्रो मम भ्राता मम भर्ता रणे हतः || ९४-६-२२ इत्येवन् श्रूयते शब्दो राक्षसानान् कुले कुले |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 71,
+      "source_normalized_text_sha256": "8a62740f3a4569bad6c86cf752b5127807363159596cb122b452e7b8554ecda6"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रथाश्चाश्वाश्च नागाश्च हताः शतसहस्रशः || ९४-६-२३ रणे रामेण शूरेण राक्षसाश्च पदातयः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 75,
+      "source_normalized_text_sha256": "a71ab8e79677dcd121fe01c74818570cdd2dfb19c0f3227a406d36dc471b6775"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रुद्रो वा यदि वा विष्णुर्महेन्द्रो वा शतक्रतुः || ९४-६-२४ हन्ति नो रामरूपेण यदि वा स्वयमन्तकः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 79,
+      "source_normalized_text_sha256": "a58a7494c5891fa0814f6a0d3f31b1c7ab962433161a3857d6a4e6de2aca3031"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "हतप्रवीरा रामेण निराशा जीविते वयम् || ९४-६-२५ अपश्यन्त्यो भयस्यान्तमनाथा विलपामहे |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 83,
+      "source_normalized_text_sha256": "6405bb55ab85ad9fa094fd291ce16c6e69bbe70482679de20d452d5b99bf0040"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रामहस्ताद्दशग्रीवः शूरो दत्तवरो युधि || ९४-६-२६ इदं भयं महाघोरमुत्पन्नं नावबुध्यते |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 87,
+      "source_normalized_text_sha256": "7b94ddf617a4f88c799450bbabc6f22b2368bf0824097df41c76ff945c05954c"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "न देवा न च गन्धर्वा न पिशाचा न राकसाः || ९४-६-२७ उपसृष्टं परित्रातुन् शक्ता रामेण सन्युगे |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 91,
+      "source_normalized_text_sha256": "77df1d0c2b08e994c02e274cd9487a3e59771b9589817e7b372739d7b0c841af"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "उत्पाताश्चापि दृश्यन्ते रावणस्य रणे रणे || ९४-६-२८ कथयिष्यन्ति रामेण रावणस्य निबर्हणम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "76091b873ac3e318d441f59fca64470460d95c0e1a9d6a37d7db487c0ae10f9a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "पितामहेन प्रीतेन देवदानवराक्षसैः || ९४-६-२९ रावणस्याभयन् दत्तं मानुषेभ्यो न याचितम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 99,
+      "source_normalized_text_sha256": "277ee4cbf16504d582fc0693fcf57467fe63c91301f8066073a06e0385b3618b"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तदिदं मानुषान्मन्ये प्राप्तं निःसंशयं भयम् || ९४-६-३० जीवितान्तकरन् घोरन् रक्षसां रावणस्य च |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 103,
+      "source_normalized_text_sha256": "0710bb5cee7cecaa8c16676088cbdb11ef2755a37ad9acc3a7b227329365d2a0"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "पीड्यमानास्तु बलिना वरदानेन रक्षसा || ९४-६-३१ दीप्तैस्तपोभिर्विबुधाः पितामहमपूजयन् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 107,
+      "source_normalized_text_sha256": "283dce48c44b970e970c18cddaba0fa60fdce401c8577ec33111a2a800662107"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "देवतानान् हितार्थाय महात्मा वै पितामहः || ९४-६-३२ उवाच देवताः सर्वा इदन् तुष्टो महद्वचः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 111,
+      "source_normalized_text_sha256": "8a84d81889ba51a4ef14d18d55fefd6fb64077fc4ee443f702a66b19728490af"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य प्रभृति लोकान्स्त्रीन्सर्वे दानवराक्षसाः || ९४-६-३३ भयेन प्रावृता नित्यन् विचरिष्यन्ति शाश्वतम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 115,
+      "source_normalized_text_sha256": "01593042e3becf0a607ea4cb4e09e85ea260356e07930ff766fc2473a283d651"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "दैवतैस्तु समागम्य सर्वैश्चेन्द्रपुरोगमैः || ९४-६-३४ वृषध्वजस्त्रिपुरहा महादेवः प्रसादितः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 119,
+      "source_normalized_text_sha256": "cf1465ce8420091cfa0dd0c46975684fed784499278eb357b0cba9891509010d"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "प्रसन्नस्तु महादेवो देवानेतद्वचोअब्रवीत् || ९४-६-३५ उत्पत्स्यति हितार्थन् वो नारी रक्षःक्षयावहा |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 123,
+      "source_normalized_text_sha256": "2caff36d9cc272aa082cb94c39fdca36bc849b3a002c7d223d73b2a6f2fa91b6"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "एषा देवैः प्रयुक्ता तु क्षुद्यथा दानवान्पुरा || ९४-६-३६ भक्षयिष्यति नः सीता राक्षसघ्नी सरावणान् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 127,
+      "source_normalized_text_sha256": "66450ee972d82849486d9020d09cb52f5193c427ae7d88d6e23b80bad3c4e5b4"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रावणस्यापनीतेन दुर्विनीतस्य दुर्मतेः || ९४-६-३७ अयं निष्टानको घोरः शोकेन समभिप्लुतः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 131,
+      "source_normalized_text_sha256": "53fe1f95bf765dc303cca8d5a2a1bc983b9a0c180c6039a4bded46186f3e574c"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तं न पश्यामहे लोके यो नः शरणदो भवेत् || ९४-६-३८ राघवेणोपसृष्टानान् कालेनेव युगक्षये |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 135,
+      "source_normalized_text_sha256": "9f9742e0381f61acaa81e708f6a8c8c3f06a771defb2c45bfc2a72080e91f448"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "नास्ति नः शरणं कश्चिद्भये महति तिष्ठताम् || ९४-६-३९ दावाग्निवेष्ठितानां हि करेणूनां यथा वने |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 139,
+      "source_normalized_text_sha256": "fd78ba419a5705c1520990a70bf55b29af8e566374ac1ecab0a05297a4e9634a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "प्राप्तकालं कृतं तेन पौलस्त्येन महात्मना || ९४-६-४० यत एवं भयं दृष्ठं तमेव शरणं गतः |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 143,
+      "source_normalized_text_sha256": "d4a5d1da98cfdd3581845e2d987b9373bad9a213e9c1be9fb81024a91a52ab25"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "इतीव सर्वा रजनीचरस्त्रियः | परस्परन् सम्परिरभ्य बाहुभिः | विषेदुरार्तातिभयाभिपीडिता | विनेदुरुच्चैश्च तदा सुदारुणम् || ९४-६-४१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga94/yuddhasans94.htm",
+      "source_paragraph": 147,
+      "source_normalized_text_sha256": "0cf87dec45817c3e8962fb1539ddfbb5a4ad768baaa70cfdf2a94e31db8d11cf"
+    }
+  ],
+  "yuddha/95": [
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "आर्तानान् राक्षसीनान् तु लङ्कायां वै कुले कुले रावणः करुणन् शब्दं शुश्राव परिवेदितम् || ६-९५-१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 3,
+      "source_normalized_text_sha256": "b8e1eb2fa7d05c1f33aa4a2a6476fb19873dda0c4b660fe01a003f657de39b32"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "स तु दीर्घन् विनिश्वस्य मुहूर्तन् ध्यानमास्थितः | बभूव परमक्रुद्धो रावणो भीमदर्शनः || ६-९५-२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 7,
+      "source_normalized_text_sha256": "93782b98909d33c12a5b4d997d6d0ce3105929517b7738a9bdc776319843a7b6"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "सन्दश्य दशनैरोष्ठन् क्रोधसन्रक्तलोचनः | राक्षसैरपि दुर्दर्शः कालाग्निरिव मूर्छितः || ६-९५-३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 11,
+      "source_normalized_text_sha256": "ce00c649a9bbf31acd72f83c61c186bbe06348138677756dd3733b1baf07e92c"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "उवाच च समीपस्थान्राक्षसान्राक्षसेश्वरः | भयाव्यक्तकथान्स्तत्र निर्दहन्निव चक्षुषा || ६-९५-४ महोदरं महापार्श्वन् विरूपाक्षन् च राक्षसं | शीघ्रन् वदत सैन्यानि निर्यातेति ममाज्ञया || ६-९५-५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 15,
+      "source_normalized_text_sha256": "c70d5f656a97778dbd13632d9f6bf2bfa57c222eb532c0106ec965dfba69b735"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "तस्य तद्वचनन् श्रुत्वा राक्षसास्ते भयार्दिताः | चोदयामासुरव्यग्रान्राक्षसान्स्तान्नृपाज्ञया || ६-९५-६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 19,
+      "source_normalized_text_sha256": "f9faed90e8d074605d11660d0fbb7e91a356a6b8c83e1de2077cbc151a15fa0b"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ते तु सर्वे तथेत्युक्त्वा राक्षसा भीमदर्शनाः | कृतस्वस्त्ययनाः सर्वे रावणाभिमुखा ययुः || ६-९५-७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 23,
+      "source_normalized_text_sha256": "b0c341529285c88ee4b5a2f8a003353e9b08a6da5263588da87002d35072dfbd"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "प्रतिपूज्य यथान्यायन् रावणन् ते महारथाः | तस्थुः प्रांजलयः सर्वे भर्तुर्विजयकांक्षिणः || ६-९५-८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 27,
+      "source_normalized_text_sha256": "e499444158dda48649ffd468d9c528ccb60ebb8c324f7db05c0224a493f5ac68"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अथोवाच प्रहस्यैतान्रावणः क्रोधमूर्छितः | महोदरमहापार्श्वौ विरूपाक्षन् च राक्षसं || ६-९५-९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 31,
+      "source_normalized_text_sha256": "ae3fcc955ac7c6f907a521571c43d60526aa7d0037ac34e5f10d94530af17ee3"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य बाणैर्धनुर्मुक्तैर्युगान्तादित्यसंनिभैः | राघवन् लक्ष्मणन् चैव नेष्यामि यमसाधनम् || ६-९५-१०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 35,
+      "source_normalized_text_sha256": "e7644c9b35719ba2fccfc4dcc33399b4f1db143456168f1ad3510c0857b2887c"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "खरस्य कुम्भकर्णस्य प्रहस्तेन्द्रजितोस्तथा | करिष्यामि प्रतीकारमद्य शत्रुवधादहम् || ६-९५-११",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 39,
+      "source_normalized_text_sha256": "a4e5b01e34fb5ddd2ddf7dbbd37eb40d107f76dd40806f7ece9de8eea35be66a"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "नैवान्तरिक्षं न दिशो न नद्यो नापि सागरः | प्रकाशत्वन् गमिष्यामि मद्बाणजलदावृताः || ६-९५-१२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 43,
+      "source_normalized_text_sha256": "e4b954e22f5e7215ddbc1041f5db69dd8042cefb78c56e0deb9c385243240271"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य वानरयूथानान् तानि यूथानि भागशः | धनुःसमुद्रादुद्भूतैर्मथिष्यामि शरोर्मिभिः || ६-९५-१३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 47,
+      "source_normalized_text_sha256": "a3c3ee73ff775b97ad34aa03db3ae024dfc542e965bba00d01318880755cab6f"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य वानरसैन्यानि रथेन पवनौजसा | धनुःसमुद्रादुद्भूतैर्मथिष्यामि शरोर्मिभिः || ६-९५-१४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 51,
+      "source_normalized_text_sha256": "8febecc83208fbcbf558dca6d9464f83b7169817320ecfd85fa003d16422e085"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "व्याकोशपद्मचक्राणि पद्मकेसरवर्चसाम् | अद्य यूथतटाकानि गजवत्प्रमथाम्यहम् || ६-९५-१५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 55,
+      "source_normalized_text_sha256": "bc101d7606c25ebabd3c6b00d68c7364238e04fe4b8192470256620d286d06c6"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "सशरैरद्य वदनैः संख्ये वानरयूथपाः | मण्डयिष्यन्ति वसुधान् सनालैरिव पंकलैः || ६-९५-१६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 59,
+      "source_normalized_text_sha256": "195287297b0cce9f9316f0f39401da0318212d06e0a58e06055a818dcf365ad1"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य युद्धप्रचण्डानान् हरीणान् द्रुमयोधिनाम् | मुक्तेनैकेषुणा युद्धे भेत्स्यामि च शतंशतम् || ६-९५-१७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "d6e0732edf2396daf7b08e648f3b4ecaf6fe56309e6f6bfb1ab9b05e1be60ee2"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "हतो भर्ता हतो भ्राता यासान् च तनया हताः | वधेनाद्य रिपोस्तासान् कर्मोम्यस्रप्रमार्जनम् || ६-९५-१८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 67,
+      "source_normalized_text_sha256": "1b94535efee66578cf6cc237ce027774d65edeb7b92197873a3927e83a3f6474"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य मद्बाणनिर्भिन्नैः प्रकीर्णैर्गतचेतनैः | करोमि वानरैर्युद्धे यत्नावेक्ष्य तलां महीम् || ६-९५-१९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 71,
+      "source_normalized_text_sha256": "963fc1e5210bff01e65b9b1dbd17aa2905dd06dc0cc2bc34d3e7b3b39ef3f7e1"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "अद्य काकाश्च गृध्रा ये च मान्साशिनोअपरे | सर्वान्स्तान्स्तर्पयिष्यामि शत्रुमान्सैः शरार्दितैः || ६-९५-२०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 75,
+      "source_normalized_text_sha256": "6e37436b11a945036c27b9bcb599c6ff8bdfebbc1b4eb051b9c82332c26eef00"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "कल्प्यतां मे रथशीघ्रन् क्षिप्रमानीयतां धनुः | अनुप्रयान्तु मान् युद्धे येअवशिष्टा निशाचराः || ६-९५-२१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 79,
+      "source_normalized_text_sha256": "4a57be19e93ae2a8c4d4ba7f8f221be84cd63b1d911d34d526948db9ac9b7e93"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "तस्य तद्वचनन् श्रुत्वा महापार्श्वोअब्रवीद्वचः | बलाध्यक्षान्स्थितान्स्तत्र बलन् सन्त्वर्यताम् इति || ६-९५-२२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 83,
+      "source_normalized_text_sha256": "7fdf31813dcd0ac0960281dde922dfaae08064735c134fe2465528c2d58bc994"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "बलाध्यक्षास्तु सन्रब्धा राक्षसान्स्तान्गृहाद्गृहात् | चोदयन्तः परिययुर्लङ्कान् लघुपराक्रमाः || ६-९५-२३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 87,
+      "source_normalized_text_sha256": "788d2af4d41347f17ee7f8ab30dd6d45f2f21cfbd8bf92baec24bf845ba41f4c"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "अथानयन्बलाध्यक्षाश्चत्वारो रावणाज्ञया | आरुरोह रथन् दिव्यं दीप्यमानन् स्वतेजसा || ६-९५-२७ द्रुतन् सूतसमायुक्तं युक्ताष्टतुरगं रथम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "c85c02fbdea549dfb1bb0483c21a2718b75c05aa22e2e29df16a0fa4c9781cb8"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततः प्रयातः सहसा राक्षसैर्बहुभिर्वृतः || ६-९५-२८ रावणः सत्त्वगाम्भीर्याद्दारयन्निव मेदिनीम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 99,
+      "source_normalized_text_sha256": "9e4263e4c552fbb246ecf21c2683382f3f12701fc68fec00a9ad9db95fc12862"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततश्चासीन्महानादस्तूर्याणाम् च ततस्ततः || ६-९५-२९ मृदङ्ग्गैः पटहैः शङ्खैः कलहैः सह रक्षसाम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 103,
+      "source_normalized_text_sha256": "ae58bf75924100fc48fa4c39acb0922a5b879db5944ea73ee4b42f87ec114f95"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "आगतो रक्षसां राजा चत्रचामरसंयुतः || ६-९५-३० सीतापहारी दुर्वृत्तो ब्रह्मघ्नो देवकण्टकः | योद्धुं रघुवरेणेति शुश्रुवे कलहध्वनिः || ६-९५-३१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 107,
+      "source_normalized_text_sha256": "6448fe35b9592f586d45b03ede52280550887d5b4a5dee4810bb7d31e0217d6a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तेन नादेन महता पृथिवी समकम्पत | तं शब्दं सहसा श्रुत्वा वानरा दुद्रुवुर्भयात् || ६-९५-३२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 111,
+      "source_normalized_text_sha256": "f61bf81f98aec7bd12b72767983b8adcb1494f71fc89f848fa065b91be9bea2e"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रावणस्तु महाबाहुः सचिवैः परिवारितः | आजगाम महातेजा जयाय विजयं प्रति || ६-९५-३३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 115,
+      "source_normalized_text_sha256": "26fa665eea2ae41bda8975c1d11ef48c6185a9986910995b6604ef1621811f0a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "रावणेनाभ्यनुज्ञातौ महापार्श्वमहोदरौ | विरूपाक्षश्च दुर्धर्षो रथानारुरुहुस्तदा || ६-९५-३४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 119,
+      "source_normalized_text_sha256": "c6308b0050bff5bac02614e331a65fc596c35e65b9f79d00e1962f42a695bc8d"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ते तु हृष्टा विनर्दन्तो भिन्दत इव मेदिनीम् | नादन् घोरन् विमुंचन्तो निर्ययुर्जयकांक्षिणः || ६-९५-३५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 123,
+      "source_normalized_text_sha256": "6679aed18a047dfd1e9ccc663b31da6d44c9f23280ab4a67b3b7ee30aaf60577"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततो युद्धाय तेजस्वी रक्षोगणबलैर्वृतः | निर्ययावुद्यतधनुः कालान्तकयमोमपः || ६-९५-३६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 127,
+      "source_normalized_text_sha256": "b221ef3c119e7e0f8f3dd7b90030c038269568937927ef9b47fc29db9fabc208"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततः प्रजवनाश्वेन रथेन स महारथः | द्वारेण निर्ययौ तेन यत्र तौ रामलक्ष्मणौ || ६-९५-३७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 131,
+      "source_normalized_text_sha256": "49d1338f355a4d14522fd4cdc05f53004a913ee1235e1b9c1e1dafa9002302b1"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततो नष्टप्रभः सूर्यो दिशश्च तिमिरावृताः | द्विजाश्च नेदुर्घोराश्च संचचाल च मेदिनी || ६-९५-३८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 135,
+      "source_normalized_text_sha256": "f17059ecf6572086784ce8fa137fdf7eff8e8e8722795271a3e077cfd3c528c8"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ववर्ष रुधिरन् देवश्चस्खलुश्च तुरंगमाः | ध्वजाग्रे न्यपतद्गृध्रो विनेदुश्चाशिवन् शिवाः || ६-९५-३९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 139,
+      "source_normalized_text_sha256": "e2cdd4ebdee49fca2d75227a84c6377b5ad6cebdf99aafe89f03a2dd728ae738"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "नयनन् चास्फुरद्वामन् सव्यो बाहुरकम्पत | विवर्णवदनश्चासीत्किन् चिदभ्रश्यत स्वनः || ६-९५-४०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 143,
+      "source_normalized_text_sha256": "08819928b49cede8572c762f78d80fe9d93387b9cbe7a1fef062695824538c2a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततो निष्पततो युद्धे दशग्रीवस्य रक्षसः | रणे निधनशन्सीनि रूपाण्येतानि जज्ञिरे || ६-९५-४१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 147,
+      "source_normalized_text_sha256": "00ae0cf52022cac16de4bf9ffc3b2ded3066bd8332d89ce4337067c46c09589b"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "अन्तरिक्षात्पपातोल्का निर्घातसमनिस्वना | विनेदुरशिवन् गृध्रा वायसैरनुनादिताः || ६-९५-४२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 151,
+      "source_normalized_text_sha256": "ca15c5945d5e6a304030cb2ac76154f594c7d6e670b027869b8ae75a1f4ec145"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "एतानचिन्तयन्घोरानुत्पातान्समुपस्थितान् | निर्ययौ रावणो मोहाद्वधार्थी कालचोदितः || ६-९५-४३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 155,
+      "source_normalized_text_sha256": "0d4a1a14f37d4556a2d1935fc5ca86aef0dde8da4db53ba99c985bedce3581d1"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तेषान् तु रथघोषेण राक्षसानां महात्मनाम् | वानराणामपि चमूर्युद्धायैवाभ्यवर्तत || ६-९५-४४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 159,
+      "source_normalized_text_sha256": "9a68c6de26938a9217ced9cf6c321623a17e04c75cde30bb94be994697d55796"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तेषान् सुतुमुलं युद्धं बभूव कपिरक्षसाम् | अन्योन्यमाह्वयानानान् क्रुद्धानां जयमिच्छताम् || ६-९५-४५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 163,
+      "source_normalized_text_sha256": "b23f384a3cbe6beb65dc0f4ba2f629e52466c409a43c7cb9649c390fe6bf4b6e"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततः क्रुद्धो दशग्रीवः शरैः कांचनभूषणैः | वानराणामनीकेषु चकार कदनं महत् || ६-९५-४६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 167,
+      "source_normalized_text_sha256": "886ce6f12df03b2d4d93e528864b84993bc9857d2e2848afef59e1124a630fbf"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "निकृत्तशिरसः के चिद्रावणेन वलीमुखाः | केचिद्विच्छिन्नहृदयाः केचिच्छ्रोत्रविवर्जिताः || ६-९५-४७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 171,
+      "source_normalized_text_sha256": "777bfc622d88fc138aafd3f6e335d7178740054b64d70e6d616f43da206a39d8"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "निरुच्छ्वासा हताः के चित्के चित्पार्श्वेषु दारिताः | के चिद्विभिन्नशिरसः के चिच्चक्षुर्विवर्जिताः || ६-९५-४८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 175,
+      "source_normalized_text_sha256": "0c3933097dfa2bb674c3dbfee145c2d10a0c344ff1c7f922774ed7a773e6f1fd"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "दशाननः क्रोधविवृत्तनेत्रो यतो यतोअभ्येति रथेन संख्ये | ततस्ततस्तस्य शरप्रवेगं सोढुं न शेकुर्हरियूथपास्ते || ६-९५-४९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga95/yuddhasans95.htm",
+      "source_paragraph": 179,
+      "source_normalized_text_sha256": "e8923158dfc5e4751597f60270a18bad2ce9746b0e77298c5dd54c4505815c09"
+    }
+  ],
+  "yuddha/96": [
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "तथा तैः कृत्तगात्रैस्तु दशग्रीवेण मार्गणैः | बभूव वसुधा तत्र प्रकीर्णा हरिभिर्वृता || ६-९६-१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 3,
+      "source_normalized_text_sha256": "1bba0fc28e37f89cff9a9ad05353a7d9fb3ddb437d85d0161dc4a5548b197f29"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "रावणस्याप्रसह्यन् तन् शरसम्पातमेकतः | न शेकुः सहितुन् दीप्तं पतङ्गा इव पावकम् || ६-९६-२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 7,
+      "source_normalized_text_sha256": "500f4cf538bd05b830f46df2d987f29bf4b6bb46ee7216da7376cf6f14cf6bea"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "तेअर्दिता निशितैर्बाणैः क्रोशन्तो विप्रदुद्रुवुः | पावकार्चिःसमाविष्टा दह्यमाना यथा गजाः || ६-९६-३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 11,
+      "source_normalized_text_sha256": "c5b025aad81bfe21fdab3d6c7cbf215da3d669a43d536ba1b25dec3e4aaed9f6"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "प्लवङ्गानामनीकानि महाभ्राणीव मारुतः | स ययौ समरे तस्मिन्विधमन्रावणः शरैः || ६-९६-४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 15,
+      "source_normalized_text_sha256": "a3f7e8305d6de384d5fbabd84813c25870f1984518c11f6401366a8ee8deb50e"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "कदनन् तरसा कृत्वा राक्षसेन्द्रो वनौकसाम् | आससाद ततो युद्धे राघवन् त्वरितस्तदा || ६-९६-५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 19,
+      "source_normalized_text_sha256": "315f11a06ff72d8fd39a621a42186ca825203943753246ef81142d3de647519d"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "सुग्रीवस्तान्कपीन्दृष्ट्वा भग्नान्विद्रवतो रणे | गुल्मे सुषेणं निक्षिप्य चक्रे युद्धे द्रुतं मनः || ६-९६-६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 23,
+      "source_normalized_text_sha256": "e932670b6db6ea1b4212676f428497a3375d9261f219414dc7d6eb9a2f2ca39e"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "आत्मनः सदृशन् वीरं स तं निक्षिप्य वानरम् | सुग्रीवोअभिमुखः शत्रुं प्रतस्थे पादपायुधः || ६-९६-७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 27,
+      "source_normalized_text_sha256": "15df043356ba65157fe229248c3ee9962c30c561882a89912defa670b51845c5"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "पार्श्वतः पृष्ठतश्चास्य सर्वे यूथाधिपाः स्वयम् | अनुजह्रुर्महाशैलान्विविधांश्च महाद्रुमान् || ६-९६-८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 31,
+      "source_normalized_text_sha256": "bd9d401771fcd9f6af10cc93da9e2aa1dee38e0c4479b1e78def28516d59b25d"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "स नदन्युधि सुग्रीवः स्वरेण महता महान् | पातयन्विविधांश्चान्याञ्जघानोत्तमराक्षसान् || ६-९६-९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 35,
+      "source_normalized_text_sha256": "9829dacfec40ab252878d69df9daefa018c0166e9a3025977e33fd64d71dabc5"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "ममर्द च महाकायो राक्षसान्वानरेश्वरः | युगान्तसमये वायुः प्रवृद्धानगमानिव || ६-९६-१०",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 39,
+      "source_normalized_text_sha256": "3b508fa221988165d8845ca2e8ba1fdadba39d8fa1a164a84e15435a6a89baf4"
+    },
+    {
+      "placement": "before",
+      "kind": "Source verse passage",
+      "sanskrit": "राक्षसानामनीकेषु शैलवर्षन् ववर्ष ह | अश्ववर्षन् यथा मेघः पक्षिसङ्घेषु कानने || ६-९६-११",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 43,
+      "source_normalized_text_sha256": "737bffd39bdd4e54b059ce5474e2a224e51c6026d3b1906cc516198627405c80"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स तन् द्विरदमारुह्य विरूपाक्षो महारथः | विनदन्भीमनिर्ह्रालन् वानरानभ्यधावत || ६-९६-१५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 51,
+      "source_normalized_text_sha256": "3337c0e25f14f19f982b41f36500f0af880097b276695e5f9256f62bb08a8568"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "सुग्रीवे स शरान्घोरान्विससर्ज चमूमुखे | स्थापयामासा चोद्विग्नान्राक्षसान्सम्प्रहर्षयन् || ६-९६-१६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 55,
+      "source_normalized_text_sha256": "099c8c6aaca3262b20df2803281099f01fbe2ce538c32b87a8d402cc318025b2"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "सोअतिविद्धः शितैर्बाणैः कपीन्द्रस्तेन रक्षसा | चुक्रोध च महाक्रोधो वधे चास्य मनो दधे || ६-९६-१७",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 59,
+      "source_normalized_text_sha256": "869bbd9e27ebd078263e7a732e5acd47b09986ecebcb91368424443244b9ace5"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततः पादपमुद्धृत्य शूरः सम्प्रधने हरिः | अभिपत्य जघानास्य प्रमुखे तं महागजम् || ६-९६-१८",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "7c606c25f564f096bbfb92ec0a30500bc15d8a2ed6f666361c4c190cb26d0fe8"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स तु प्रहाराभिहतः सुग्रीवेण महागजः | अपासर्पद्धनुर्मात्रं निषसाद ननाद च || ६-९६-१९",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 67,
+      "source_normalized_text_sha256": "8a58ea91bb84cf3f9ab41586c921277e10033563d7e29c6f64e8fa98c91e17b7"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "गजात्तु मथितात्तूर्णमपक्रम्य स वीर्यवान् | राक्षसोअभिमुखः शत्रुं प्रत्युद्गम्य ततः कपिम् || ६-९६-२० आर्षभन् चर्मखड्गं च प्रगृह्य लघुविक्रमः | भर्त्सयन्निव सुग्रीवमाससाद व्यवस्थितम् || ६-९६-२१",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 71,
+      "source_normalized_text_sha256": "5fe6435e9b95138aac28ab9b11a85c66cd16a32bd8c2a7af8820097015ae06e6"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स हि तस्याभिसङ्क्रुद्धः प्रगृह्य महतीन् शिलाम् | विरूपाक्षाय चिक्षेप सुग्रीवो जलदोपमाम् || ६-९६-२२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 75,
+      "source_normalized_text_sha256": "bdf798c1b8b7c0458859c25e3eeb30b017317395dd2aaac5f3f865257e9a5558"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स तान् शिलामापतन्तीन् दृष्ट्वा राक्षसपुङ्गवः | अपक्रम्य सुविक्रान्तः खड्गेन प्राहरत्तदा || ६-९६-२३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 79,
+      "source_normalized_text_sha256": "9fe3c3b849f27bc527e12ee1dca31f3aa4f0ca8a4510b592532fbd2912d0a695"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तेन खड्गेन सङ्क्रुद्धः सुग्रीवस्य चमूमुखे | कवचं पातयामास स खड्गाभिहतोअपतत् || ६-९६-२४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 83,
+      "source_normalized_text_sha256": "64823d10beacdd05f4464d82937f288a316f6aa0b4c869b22281ec8252d9b837"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "सहसा स तदोत्पत्य राक्षसस्य महाहवे | मुष्टिं संवर्त्य वेगेन पातयामास वक्षसि || ६-९६-२५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 87,
+      "source_normalized_text_sha256": "e5fde711a33bd99317cccb0f64f9b96d1b515816fb40b5e3479dc4cab3c16503"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "मुष्टिप्रहाराभिहतो विरूपाक्षो निशाचरः | तेन खड्गेन संक्रुद्धः सुग्रीवस्य चमूमुखे || ६-९६-२६ कवचम् पातयामास पद्भ्यामभिहतोऽपतत् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 91,
+      "source_normalized_text_sha256": "93e76148cf24f1cf1c27a2f7e5edff5f575dfb269f79322f28d167504c566195"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स समुत्थाय पतितः कपिस्तस्य व्यसर्जयत् || ६-९६-२७ तलप्रहारमशनेः समानं भीमनिस्वनम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 95,
+      "source_normalized_text_sha256": "6977f35c462b85fb5393a8265cc26899b3c29b06559f050487bccd9186352169"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तलप्रहारन् तद्रक्षः सुग्रीवेण समुद्यतम् || ६-९६-२८ नैपुण्यान्मोचयित्वैनं मुष्टिनोरस्यताडयत् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 99,
+      "source_normalized_text_sha256": "42a7bbbe53b49f8e4a57523efc1302bf8facf92006295b97e26b6acaa06d36d2"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "ततस्तु सङ्क्रुद्धतरः सुग्रीवो वानरेश्वरः || ६-९६-२९ मोक्षितन् चात्मनो दृष्ट्वा प्रहारं तेन रक्षसा |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 103,
+      "source_normalized_text_sha256": "6672d471ff8486b09dde42d801cbbc1389b74c8347412e5522cec3d7d0565945"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स ददर्शान्तरन् तस्य विरूपाक्षस्य वानरः || ६-९६-३० ततो न्यपातयत्क्रोधाच्छङ्खदेशे महातलम् |",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 107,
+      "source_normalized_text_sha256": "730a72b87614a0d3307786f4bde3b7d30ca76bf01cd4f9ba21fc2578b9cbe4cf"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "महेन्द्राशनिकल्पेन तलेनाभिहतः क्षितौ || ६-९६-३१ पपात रुधिरक्लिन्नः शोणितन् स समुद्वमन् | स्रोतोभ्यस्तु विरूपाक्षो जलं रस्रवणादिव || ६-९६-३२",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 111,
+      "source_normalized_text_sha256": "2c89b7e29a4fbbd32d88b76aff05574ba5e52771a447f02c52e4c4564080cffd"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "विवृत्तनयनन् क्रोधात्सफेन रुधिराप्लुतम् | ददृशुस्ते विरूपाक्षन् विरूपाक्षतरन् कृतम् || ६-९६-३३",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 116,
+      "source_normalized_text_sha256": "4af0e43bede843c73ff22a97fdd82e966eae2ec68fb2c04e313ce77191b28e5a"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "स्फुरन्तं परिवर्जन्तं पार्श्वेन रुधिरोक्षितम् | करुणन् च विनर्दान्तं ददृशुः कपयो रिपुम् || ६-९६-३४",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 121,
+      "source_normalized_text_sha256": "0f4fff22637c88c4a37caeae433120b95ef1a14ed14f072c4188a8d74e749082"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "तथा तु तौ सन्यति सम्प्रयुक्तौ | तरस्विनौ वानरराक्षसानाम् | बलार्णवौ सस्वनतुः सभीमं | महार्णवौ द्वाविव भिन्नवेलौ || ६-९६-३५",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 125,
+      "source_normalized_text_sha256": "6afb04c040397cf24d0b5b2110dcda4feeccfac7f58ed747390df6ff74289211"
+    },
+    {
+      "placement": "after",
+      "kind": "Source verse passage",
+      "sanskrit": "विनाशितं प्रेक्ष्य विरूपनेत्रं | महाबलन् तन् हरिपार्थिवेन | बलन् समस्तन् कपिराक्षसानाम् | उन्मत्तगङ्गाप्रतिमं बभूव || ६-९६-३६",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga96/yuddhasans96.htm",
+      "source_paragraph": 129,
+      "source_normalized_text_sha256": "e15722fda2aaaa3ecaa5085bd24a38bf8f9a0f00ba24cf1ccde1f7aedb6090af"
+    }
+  ],
+  "yuddha/124": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इत्यार्षे श्रीमद्रामायने आदिकाव्ये युद्धकाण्डे चतुर्विंशत्यधिक शततमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga124/yuddhasans124.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "0041f0ed12862bc9c3873e2670d346c5ea66b88d26b60a3a76a74522bf6764d5"
     }
   ],
   "yuddha/127": [
@@ -15,7 +1307,7 @@
       "kind": "Source colophon",
       "sanskrit": "इत्यार्षे श्रीमद्रामायने आदिकाव्ये युद्धकाण्डे सप्तविंशत्यधिकशततमः सर्गः",
       "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga127/yuddhasans127.htm",
-      "source_paragraph": 108,
+      "source_paragraph": 215,
       "source_normalized_text_sha256": "65a6ac0a39ff8d4b53f54e5936732f78b2e1bc0fc75b079d501207de2cb1952f"
     }
   ]

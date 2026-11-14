@@ -113,6 +113,33 @@ def sanskrit_inventory(data, base):
     return chapters, blocks
 
 
+def paratext_inventory(data, chapters, base):
+    catalog = data / "sanskrit-paratext-reviewed.json"
+    if not catalog.is_file():
+        return []
+    paragraphs = []
+    for key, entries in read_json(catalog).items():
+        slug, chapter = key.split("/")
+        destination = f"{base}{slug}/{chapter}/"
+        for entry in entries:
+            url = entry["source_url"]
+            if url not in chapters:
+                continue
+            expected = destination + "#sanskrit"
+            if chapters[url]["destination"] != expected:
+                raise ValueError(f"Invalid paratext witness URL for {key}: {url}")
+            ordinal = entry["source_paragraph"]
+            paragraphs.append({
+                "source_url": url,
+                "source_paragraph": ordinal,
+                "source_sha256": entry["source_normalized_text_sha256"],
+                "destination_url": f"{destination}#source-paragraph-{ordinal}",
+                "type": "reviewed_source_paragraph",
+                "role": entry["kind"],
+            })
+    return paragraphs
+
+
 def asset_type(url):
     path = source_path(url) or unquote(urlsplit(url).path)
     suffix = Path(path).suffix.lower()
@@ -149,6 +176,7 @@ def audit_source(data, dist, base, audits):
     for entries in variants.get("chapters", {}).values():
         catalog.update((entry["url"], entry) for entry in entries)
     chapters, blocks = sanskrit_inventory(data, base)
+    paratext = paratext_inventory(data, chapters, base)
     preserved = {}
     intro = dist / "resources" / "vr_intro_ayyangar.json"
     if intro.is_file():
@@ -210,13 +238,13 @@ def audit_source(data, dist, base, audits):
     # Several source navigational anchors designate a grouped text block. Keep
     # every block's actual source label even when it is missing or reused.
     known = {row["source_url"] for row in resources}
-    if any(block["source_url"] not in known for block in blocks):
+    if any(block["source_url"] not in known for block in blocks + paratext):
         raise ValueError("Sanskrit block is missing from the source URL inventory")
-    render_targets = [b["destination_url"] for b in blocks if b["type"] != "colophon"]
+    render_targets = [b["destination_url"] for b in blocks + paratext if b["type"] != "colophon"]
     if len(render_targets) != len(set(render_targets)):
         raise ValueError("Duplicate Sanskrit block destination anchor")
     anchors = {}
-    destinations = {row["destination_url"] for row in resources + blocks if row["destination_url"]}
+    destinations = {row["destination_url"] for row in resources + blocks + paratext if row["destination_url"]}
     destinations.update(url for row in blocks for url in row.get("destination_aliases", ()))
     for url in destinations:
         target = urlsplit(url)
@@ -251,6 +279,7 @@ def audit_source(data, dist, base, audits):
             } for name, values in variants.get("coverage", {}).items()
         },
         "text_block_types": Counter(r["type"] for r in blocks),
+        "reviewed_source_paragraphs": Counter(r["role"] for r in paratext),
         "text_blocks_with_source_anchor": sum("source_locator_url" in r for r in blocks),
         "text_blocks_without_source_anchor": sum(r["type"] != "colophon" and "source_locator_url" not in r for r in blocks),
     }
@@ -277,6 +306,7 @@ def audit_source(data, dist, base, audits):
         ],
         "resources": resources,
         "sanskrit_blocks": blocks,
+        "sanskrit_paratext": paratext,
     })
     print(json.dumps(stats, ensure_ascii=False))
 

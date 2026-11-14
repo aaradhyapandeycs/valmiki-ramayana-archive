@@ -69,7 +69,8 @@ def main():
     chapters = display_chapters(SOURCE_CHAPTERS)
     title_review = load_title_review()
     glossary = title_review["glossary"]
-    if corrections := title_review.get("editorial_heading_corrections"):
+    corrections = title_review.get("editorial_heading_corrections", {})
+    if corrections:
         write("heading-provenance.json", json.dumps(corrections, ensure_ascii=False, indent=2) + "\n")
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
     paratext = load_paratext(sanskrit)
@@ -125,8 +126,19 @@ def main():
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
             additions = paratext.get((slug, n), {})
+            correction = corrections.get(slug, {}).get(str(n))
+            heading_note = ""
+            if correction:
+                refs = " · ".join(
+                    f'<a href="{esc(url)}">Source {i} ↗</a>'
+                    for i, url in enumerate(correction["sources"], 1)
+                )
+                heading_note = (f'<details class="chapter-sources"><summary>Editorial heading</summary>'
+                                f'<p>Original index heading: {esc(correction["source_index_heading"])}</p>'
+                                f'<p>{esc(correction["reason"])} {refs}</p></details>')
             body = f"""<p class="eyebrow">{esc(name)} Kāṇḍa · Sarga {n} of {len(rows)}</p>
 <h1>{esc(row['title'])}</h1>
+{heading_note}
 <p class="source-note">Open the source edition for its English translation, word meanings, and commentary.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
