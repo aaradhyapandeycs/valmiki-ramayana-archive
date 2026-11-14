@@ -1,0 +1,109 @@
+name: Preserve a verified Sanskrit capture
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sanskrit-snapshot.yml']
+  workflow_dispatch:
+    inputs:
+      capture_run_id:
+        description: 'Run ID of a completed Sanskrit capture'
+        required: true
+        type: string
+      capture_commit:
+        description: 'Exact source repository commit from the capture summary'
+        required: true
+        type: string
+permissions:
+  actions: read
+  contents: write
+concurrency:
+  group: preserve-sanskrit-snapshot
+  cancel-in-progress: false
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify capture run and artifact identity
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
+          CAPTURE_COMMIT: ${{ inputs.capture_commit || 'f593b61f4d9689b0409d7d6e419abf9b75d99fe8' }}
+        run: |
+          [[ "$CAPTURE_RUN_ID" =~ ^[0-9]+$ && "$CAPTURE_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CAPTURE_RUN_ID" |
+            jq -e --arg sha "$CAPTURE_COMMIT" '
+              .conclusion == "success" and .head_sha == $sha and
+              .head_branch == "main" and .path == ".github/workflows/sanskrit-capture.yml"
+            '
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CAPTURE_RUN_ID/artifacts" |
+            jq -e '[.artifacts[] | select(.name == "source-sanskrit" and (.expired | not))] | length == 1'
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-sanskrit
+          path: ${{ runner.temp }}/source-sanskrit
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.capture_run_id || '43561258233' }}
+      - name: Verify artifact and construct exact snapshot tree
+        env:
+          CAPTURE_COMMIT: ${{ inputs.capture_commit || 'f593b61f4d9689b0409d7d6e419abf9b75d99fe8' }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
+        run: |
+          python3 verify_capture.py "$RUNNER_TEMP/source-sanskrit" --commit "$CAPTURE_COMMIT"
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from shutil import copyfile
+          from ingest_sanskrit import BOOK_COUNTS
+
+          root = Path(os.environ["RUNNER_TEMP"])
+          source = root / "source-sanskrit"
+          snapshot = root / "verified-sanskrit"
+          files = [Path("summary.json")] + [
+              Path(slug) / f"{sarga}.json"
+              for slug, count in BOOK_COUNTS.items()
+              for sarga in range(1, count + 1)
+          ]
+          actual = {p.relative_to(source) for p in source.rglob("*") if p.is_file() or p.is_symlink()}
+          if actual != set(files):
+              raise ValueError("Unexpected files in downloaded artifact")
+          for name in files:
+              if (source / name).is_symlink():
+                  raise ValueError(f"Unexpected symlink: {name}")
+              destination = snapshot / name
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              copyfile(source / name, destination)
+          provenance = {
+              "repository": os.environ["GITHUB_REPOSITORY"],
+              "capture_run_id": os.environ["CAPTURE_RUN_ID"],
+              "capture_commit": os.environ["CAPTURE_COMMIT"],
+          }
+          (snapshot / "provenance.json").write_text(
+              json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
+          )
+          PY
+      - name: Publish snapshot on its dedicated branch
+        env:
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch=sanskrit-snapshot
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null; then
+            git fetch --no-tags origin "refs/heads/$branch"
+            git switch --detach FETCH_HEAD
+            git rm -r --ignore-unmatch .
+          else
+            lookup_status=$?
+            test "$lookup_status" -eq 2
+            git switch --orphan "$branch"
+          fi
+          cp -a "$RUNNER_TEMP/verified-sanskrit/." .
+          git add --all
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve Sanskrit capture from run $CAPTURE_RUN_ID"
+          fi
+          git push origin "HEAD:refs/heads/$branch"
+          printf 'Snapshot commit: %s\n' "$(git rev-parse HEAD)"

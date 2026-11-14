@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 
+from dutt_reader import render_dutt
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide)
 
@@ -17,6 +18,7 @@ ROOT = Path(__file__).parent
 OUT = ROOT / "dist"
 BASE = os.environ.get("BASE_PATH", "/valmiki-ramayana-archive/").rstrip("/") + "/"
 HOST = "https://valmikiramayan.net"
+DUTT = ROOT / "dutt-corpus"
 NAMES = {
     "baala": "Bāla", "ayodhya": "Ayodhyā", "aranya": "Araṇya",
     "kish": "Kiṣkindhā", "sundara": "Sundara", "yuddha": "Yuddha",
@@ -30,6 +32,8 @@ def esc(s):
 
 def page(title, body, depth=0):
     home = "../" * depth + "index.html"
+    english = (f'<a href="{home.replace("index.html", "english/")}">Dutt’s English translation</a>'
+               if DUTT.is_dir() else "")
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09203F"><title>{esc(title)} · Vālmīki Rāmāyaṇa</title>
@@ -39,7 +43,7 @@ def page(title, body, depth=0):
 <p class="tagline">A searchable directory of the six kāṇḍas</p>
 <nav aria-label="Main navigation">
 <a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
-<a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a></nav></header>
+<a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}</nav></header>
 <main id="main" class="wrap">{body}</main><footer class="wrap">
 <p>Chapter titles and order: <a href="{HOST}/">Valmiki Ramayana</a>.
 Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
@@ -150,6 +154,8 @@ the source edition for translation and commentary.</p>
 <div id="results" hidden></div><div id="books">{"".join(cards)}</div>{sources}
 <script src="app.js" defer></script>"""
     write("index.html", page("Chapter directory", body))
+    if DUTT.is_dir():
+        render_dutt(page, write, DUTT)
     write(".nojekyll", "")
     write("404.html", page("Page not found", '<h1>Page not found</h1><p><a href="index.html">Return to the chapter directory</a>.</p>'))
     write("style.css", (ROOT / "style.css").read_text())

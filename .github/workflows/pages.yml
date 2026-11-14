@@ -52,6 +52,8 @@ jobs:
             audit=audit/primary
           fi
           python3 build_variant_inventory.py "$audit" data/frames.json data/variants.json --listing-samples data/listing-samples.json
+      - name: Prepare the separately attributed Dutt translation
+        run: python3 build_dutt.py --download
       - name: Build and validate
         run: |
           python3 build.py
