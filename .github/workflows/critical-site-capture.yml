@@ -2,7 +2,7 @@ name: Capture the Critical Edition English reader
 on:
   push:
     branches: [main]
-    paths: ["capture_critical_site.py", ".github/workflows/critical-site-capture.yml"]
+    paths: ["capture_critical_site.py", "map_critical_translations.py", ".github/workflows/critical-site-capture.yml"]
   workflow_dispatch:
 permissions:
   contents: write
@@ -12,8 +12,19 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
+          path: data/sanskrit
+          persist-credentials: false
       - name: Capture the public edition data and check every coordinate
-        run: python3 capture_critical_site.py --output "$RUNNER_TEMP/critical-site"
+        run: |
+          python3 capture_critical_site.py --output "$RUNNER_TEMP/critical-site" --raw-dir "$RUNNER_TEMP/critical-original"
+          python3 map_critical_translations.py --critical-dir "$RUNNER_TEMP/critical-original" --archive-snapshot data/sanskrit \
+            --supplements data/sanskrit-paratext-reviewed.json --output "$RUNNER_TEMP/critical-site/archive-links.json"
+          curl --fail --silent --show-error --retry 3 https://raw.githubusercontent.com/rahular/itihasa/main/LICENSE \
+            -o "$RUNNER_TEMP/critical-site/LICENSE" || curl --fail --silent --show-error --retry 3 \
+            https://www.apache.org/licenses/LICENSE-2.0.txt -o "$RUNNER_TEMP/critical-site/LICENSE"
       - name: Preserve the checked English translation and alignment snapshot
         run: |
           branch=critical-english-snapshot
@@ -27,6 +38,7 @@ jobs:
             test "$rc" -eq 2
             git switch --orphan "$branch"
           fi
+          rm -rf -- data/sanskrit
           cp -a "$RUNNER_TEMP/critical-site/." .
           git add .
           if ! git diff --cached --quiet; then git commit -m "Preserve the checked Critical Edition English alignment"; fi

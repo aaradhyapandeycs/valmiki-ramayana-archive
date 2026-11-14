@@ -158,6 +158,9 @@ def capture(output, local=None, raw_dir=None, workers=10):
             counts.update(alignment)
     require(len(hashes) == 606 and len(ids) == len(set(ids)) == 18761 and counts == ALIGNMENTS,
             "Site data does not agree with its advertised alignment totals")
+    coordinate_hash = sha256("\n".join(ids).encode("utf-8"))
+    require(coordinate_hash == manifest["qa"]["generatedIdsSha256"],
+            "Site data's complete coordinate hash does not match the source manifest")
     if raw_dir:
         (raw_dir / "manifest-all.json").write_bytes(manifest_raw)
         (raw_dir / "source-manifest.json").write_bytes(source_manifest_raw)
@@ -174,6 +177,7 @@ def capture(output, local=None, raw_dir=None, workers=10):
         "origin": ORIGIN, "sourceSiteCommit": VERSION,
         "source": "local files" if local else "direct original Site HTTP",
         "sargas": 606, "coordinates": 18761, "alignmentCounts": dict(counts),
+        "coordinateSHA256": coordinate_hash,
         "rawManifestSHA256": sha256(manifest_raw), "rawSourceManifestSHA256": sha256(source_manifest_raw),
         "rawChapterSHA256": hashes,
         "export": "English witness, coordinates, provenance and Sanskrit fingerprints",
