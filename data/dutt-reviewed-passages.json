@@ -68,5 +68,265 @@
         ]
       }
     ]
+  },
+  "baala/61": {
+    "section": "61",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lxi",
+    "section_sha256": "e35fa23bfa85dca59fc3787b31c9a1affc13d3fe4c0b31233f7e7e3fef63155f",
+    "passages": [
+      {
+        "refs": [
+          "1-61-9"
+        ],
+        "units": [
+          "verse-9"
+        ],
+        "unit_sha256": [
+          "a021191e1b8127d3deab4b651e32c92cb5f556afbc4f177e268c6a26337dfa56"
+        ],
+        "english_span": [
+          1139,
+          1348
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-60-9"
+        ],
+        "review_note": "go-bhis sahasraśaḥ: price is a thousand kine/cattle, not kings."
+      }
+    ]
+  },
+  "baala/45": {
+    "section": "45",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-xlv",
+    "section_sha256": "b1d1eeb77966453628678121045708679f749fe1e2b069d6cc287d19fe0005b7",
+    "passages": [
+      {
+        "refs": [
+          "1-45-38"
+        ],
+        "units": [
+          "verse-38"
+        ],
+        "unit_sha256": [
+          "105302272019872d1eb19efd4d2426ce7c1b424b65d2c7e65f8523dce97dd3dd"
+        ],
+        "english_span": [
+          5162,
+          5308
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-44-23"
+        ],
+        "review_note": "daiteyāḥ and sutāḥ are plural: Diti’s sons. The two consecutive Gutenberg sentences both translate this verse."
+      }
+    ]
+  },
+  "baala/26": {
+    "section": "26",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-xxvi",
+    "section_sha256": "fbbcd54908166f579603c280ded7906ca62fdb165d9d4d93602802e61d34907d",
+    "passages": [
+      {
+        "refs": [
+          "1-26-9"
+        ],
+        "units": [
+          "verse-9"
+        ],
+        "unit_sha256": [
+          "4eeb9fccbe4975bdc1af9dae5ec0d05115469b6845b7b77cbbed41bb38723f7f"
+        ],
+        "english_span": [
+          1116,
+          1257
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-25-9"
+        ],
+        "review_note": "This verse ends with Rāghava addressing Lakṣmaṇa; the speech itself begins in the next verse. The pinned CE OCR adds an extraneous 9 and changes the punctuation."
+      }
+    ]
+  },
+  "ayodhya/13": {
+    "section": "13",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#id244",
+    "section_sha256": "88f857c50c358d70d709203b33d6a84f09018e9b2f91f8875a32fd66fd585b80",
+    "passages": [
+      {
+        "refs": [
+          "2-13-19"
+        ],
+        "units": [
+          "block-18"
+        ],
+        "unit_sha256": [
+          "9734526efd0ce476bb94696044e0c43b1d62d4323405426d9d0c00c763af8194"
+        ],
+        "english_span": [
+          2513,
+          2632
+        ],
+        "replaces_critical_refs": [
+          "VRCE-2-11-11"
+        ],
+        "review_note": "rājā means king. This reader’s block contains both the hand-clasp and speech introduction, while the words of the speech are the next passage."
+      }
+    ]
+  },
+  "yuddha/84": {
+    "section": "84",
+    "href": "https://www.gutenberg.org/cache/epub/60188/pg60188-images.html#section-lxxxiv",
+    "section_sha256": "6f93e103da890287e369e908f21dc3a6c031b62843737236f6090175fe7593fb",
+    "passages": [
+      {
+        "refs": [
+          "6-84-8"
+        ],
+        "units": [
+          "block-7"
+        ],
+        "unit_sha256": [
+          "28a5dd030f0322938d6023a295677fe459e456762ee6afc5f33cdaa08664e77b"
+        ],
+        "english_span": [
+          852,
+          970
+        ],
+        "replaces_critical_refs": [
+          "VRCE-6-71-8"
+        ],
+        "review_note": "saumitriṃ is Lakṣmaṇa, Sumitrā’s son. The subsequent quoted speech starts in the following verse."
+      }
+    ]
+  },
+  "yuddha/88": {
+    "section": "88",
+    "href": "https://www.gutenberg.org/cache/epub/60188/pg60188-images.html#section-lxxxviii",
+    "section_sha256": "63af6756e77b47eb0021d4a24de3609a4a79cc08e9c437e4d82112d5fd8091c6",
+    "passages": [
+      {
+        "refs": [
+          "6-88-32"
+        ],
+        "units": [
+          "block-31"
+        ],
+        "unit_sha256": [
+          "59011bb5fb9ee2f76d6f21e24727dcbf344abe274f18665e390d87b0df8495a2"
+        ],
+        "english_span": [
+          4429,
+          4554
+        ],
+        "replaces_critical_refs": [
+          "VRCE-6-75-27"
+        ],
+        "review_note": "tribhir bāṇaiḥ specifies three arrows. Sanskrit source prints 88-6-32; build’s documented prefix normalizes the displayed reference to book 6 chapter 88 verse 32."
+      }
+    ]
+  },
+  "sundara/1": {
+    "section": "1",
+    "href": "https://www.gutenberg.org/cache/epub/57826/pg57826-images.html#id484",
+    "section_sha256": "d48ce4f29768fd022105cb57a58d53588d093328df3392e5985c8eff3afa4c3b",
+    "passages": [
+      {
+        "refs": [
+          "5-1-77"
+        ],
+        "units": [
+          "block-69"
+        ],
+        "unit_sha256": [
+          "5cec5236f23987f647685c44bdf15f329629af156c2013548ff8fc8f654814f2"
+        ],
+        "english_span": [
+          10151,
+          10292
+        ],
+        "replaces_critical_refs": [
+          "VRCE-5-1-70"
+        ],
+        "review_note": "Gutenberg has falling and ends the sentence at beautiful. The aligned copy has an OCR substitution and an unrelated tail."
+      }
+    ]
+  },
+  "baala/55": {
+    "section": "55",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lv",
+    "section_sha256": "dc9a4a6788e712e940fc16f2763aa5f75be23585024d8d144c71ad2d18e0570d",
+    "passages": [
+      {
+        "refs": [
+          "1-55-1"
+        ],
+        "units": [
+          "verse-1"
+        ],
+        "unit_sha256": [
+          "78d1dc74baad75421b9c8b8902fd9c30caf45936acca53cbc04b9b9d676a6fa4"
+        ],
+        "english_span": [
+          1,
+          187
+        ],
+        "review_note": "The retained sarga-opening sentence covers Vasiṣṭha’s instruction and exact response context. CE split joins the previous sarga’s unrelated account and duplicates a sentence.",
+        "excluded_split_refs": [
+          "VRCE-1-54-1"
+        ]
+      }
+    ]
+  },
+  "baala/36": {
+    "section": "36",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-xxxvi",
+    "section_sha256": "8ceaf2dd4c3aaaf9e29909f38e19f637929aba9e8bc70279c29c1f24a4a2863a",
+    "passages": [
+      {
+        "refs": [
+          "1-36-4"
+        ],
+        "units": [
+          "block-4"
+        ],
+        "unit_sha256": [
+          "154939845230952456fb1a652e4579575c36adbec7d7ba5796a0246046a46081"
+        ],
+        "english_span": [
+          566,
+          702
+        ],
+        "review_note": "Only the sentence about Viśvāmitra beginning the story corresponds to this Sanskrit source block. The previous question and ensuing Śiva account belong to adjacent source blocks.",
+        "excluded_split_refs": [
+          "VRCE-1-35-5"
+        ]
+      }
+    ]
+  },
+  "ayodhya/91": {
+    "section": "91",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lxxxxi",
+    "section_sha256": "a3cf8b261728383aeb4852d2bc4ab348a0173f99a61bb508c5ead92b54276df3",
+    "passages": [
+      {
+        "refs": [
+          "2-91-44"
+        ],
+        "units": [
+          "verse-44"
+        ],
+        "unit_sha256": [
+          "b91518c720601857226c1803a841ab836ad31dd70071a87bc42840dfe8de754f"
+        ],
+        "english_span": [
+          5589,
+          5696
+        ],
+        "review_note": "Verse 44 describes the women sent by Kubera. Brahmā’s women and the description of the effect on men belong to adjacent verses, so neither is included.",
+        "excluded_split_refs": [
+          "VRCE-2-85-41"
+        ]
+      }
+    ]
   }
 }

@@ -137,7 +137,49 @@ def prepare_links(record, additions, source):
     return groups, issues
 
 
-def translation_panel(groups):
+def original_passages(record, witnesses, passages, occupied):
+    """Validate independent translations against printed references and pinned Sanskrit."""
+    by_number = defaultdict(list)
+    for index, (anchor, numbers, fragment, digest) in enumerate(witnesses):
+        for number in numbers:
+            by_number[number].append((index, anchor, fragment, digest))
+    result = []
+    parts = defaultdict(set)
+    for passage in passages:
+        refs = [REF.fullmatch(ref) for ref in passage["refs"]]
+        if (not refs or not all(ref and tuple(map(int, ref.groups()[:2])) == (record["book"], record["sarga"])
+                                and ref[4] in {"", "a", "b"} for ref in refs)
+                or not passage["original_english"].strip()):
+            raise ValueError(f"Invalid independent English passage: {passage['refs']}")
+        matches = []
+        last = -1
+        for ref in refs:
+            number = int(ref[3])
+            candidates = by_number[number]
+            covered = {ref[4]} if ref[4] else {"a", "b"}
+            start = 2 * number + int("a" not in covered)
+            if (len(candidates) != 1 or parts[number] & covered
+                    or (last != -1 and start != last + 1)):
+                raise ValueError(f"Ambiguous or nonconsecutive independent English passage: {passage['refs']}")
+            last = start + len(covered) - 1
+            parts[number].update(covered)
+            if candidates[0] not in matches:
+                matches.append(candidates[0])
+        positions, anchors, fragments, digests = zip(*matches)
+        if (list(positions) != list(range(positions[0], positions[-1] + 1))
+                or list(digests) != passage["unit_sha256"] or occupied.intersection(anchors)):
+            raise ValueError(f"Independent English differs from its Sanskrit reading: {passage['refs']}")
+        fragment = fragments[0]
+        href = record["source_url"] + ("#" + fragment if fragment and ANCHOR.fullmatch(fragment) else "")
+        result.append({**passage, "units": list(anchors), "href": href})
+    touched = {anchor for passage in result for anchor in passage["units"]}
+    if any(anchor in touched and any(parts[n] != {"a", "b"} for n in numbers)
+           for anchor, numbers, _, _ in witnesses):
+        raise ValueError("Independent English covers only part of an archive unit")
+    return result, touched
+
+
+def translation_panel(groups, translated_units):
     from critical_reader import inline_panel
 
     if not groups:
@@ -145,19 +187,33 @@ def translation_panel(groups):
     links = []
     translations = []
     chapter_link = ""
-    unavailable = any("row" not in group and "dutt_text" not in group for group in groups)
+    unavailable = any(not translated_units.issuperset(group["units"]) for group in groups)
     for group in groups:
         if "row" in group:
             translations.append(inline_panel(group))
             continue
+        if "original_english" in group:
+            refs = escape(" ".join(group["refs"]), quote=True)
+            units = escape(" ".join(group["units"]), quote=True)
+            labels = escape(", ".join(group["refs"]))
+            translations.append(
+                f'<div class="original-translation" data-original-refs="{refs}" data-original-units="{units}">'
+                f'<p class="original-english-text">{escape(group["original_english"])}</p>'
+                f'<p class="critical-refs">Archive translation from Sanskrit · {labels} · '
+                f'<a href="{escape(group["href"], quote=True)}" rel="external">Sanskrit source ↗</a></p></div>'
+            )
+            continue
         if "dutt_text" in group:
+            from dutt_reader import MARKUP
+
+            prose = MARKUP.sub(r"<em>\1</em>", escape(group["dutt_text"]))
             labels = ", ".join(group["refs"])
             reference = (group["refs"][0] + "–" + group["refs"][-1].rsplit("-", 1)[1]
                          if len(group["refs"]) > 1 else labels)
             translations.append(
                 f'<div class="dutt-inline" data-dutt-refs="{escape(" ".join(group["refs"]), quote=True)}" '
                 f'data-dutt-units="{escape(" ".join(group["units"]), quote=True)}">'
-                f'<p class="dutt-english-text">{escape(group["dutt_text"])}</p>'
+                f'<p class="dutt-english-text">{prose}</p>'
                 f'<p class="critical-refs"><a href="{escape(group["href"], quote=True)}" rel="external">'
                 f'{escape(group["translator"])} · {escape(reference)} ↗</a> · Historical spelling</p></div>'
             )
@@ -174,7 +230,7 @@ def translation_panel(groups):
         links.append(f'<li><a href="{url}" rel="external" data-source-refs="{refs}" '
                      f'data-prose-basis="{basis}">{escape(labels)} · {caption} ↗</a></li>')
     original_links = f'<ul role="list">{"".join(links)}</ul>' if links else ""
-    label = "English translation unavailable here" if unavailable and not translations else "English translation"
+    label = "English translation" if translations else "English translation unavailable here" if unavailable else "Source links"
     return ('<div class="verse-translation" lang="en">'
             f'<p class="verse-translation-label">{label}</p>'
             f'{"".join(translations)}{original_links}{chapter_link}</div>')
@@ -184,6 +240,8 @@ def pair_units(units, groups):
     """Keep each link once alongside its exact contiguous set of reader blocks."""
     positions = {anchor: index for index, (anchor, _) in enumerate(units)}
     at = defaultdict(list)
+    translated_units = {anchor for group in groups if {"row", "dutt_text", "original_english"}.intersection(group)
+                        for anchor in group["units"]}
     for group in groups:
         at[positions[group["units"][0]]].append(group)
 
@@ -202,7 +260,7 @@ def pair_units(units, groups):
         nested_starts = [index for index in range(position + 1, end + 1) if index in at]
         if not nested_starts:
             source = "".join(entry for _, entry in units[position:end + 1])
-            html.append(paired(source, starts))
+            html.append(paired(source, starts, translated_units))
             position = end + 1
             continue
         tracks = []
@@ -210,7 +268,7 @@ def pair_units(units, groups):
         while cursor <= end:
             _, source = units[cursor]
             links = at.get(cursor, ())
-            tracks.append(paired(source, links) if links else source)
+            tracks.append(paired(source, links, translated_units) if links else source)
             if links:
                 end = max(end, *(positions[group["units"][-1]] for group in links))
             cursor += 1
@@ -219,6 +277,6 @@ def pair_units(units, groups):
     return "".join(html)
 
 
-def paired(source, groups):
+def paired(source, groups, translated_units):
     return (f'<div class="verse-pair"><div class="verse-pair-source">{source}</div>'
-            f'{translation_panel(groups)}</div>')
+            f'{translation_panel(groups, translated_units)}</div>')

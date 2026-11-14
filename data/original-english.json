@@ -1,0 +1,355 @@
+{
+  "baala/5": [
+    {
+      "refs": [
+        "1-5-1",
+        "1-5-2",
+        "1-5-3"
+      ],
+      "unit_sha256": [
+        "502ceb3ddb4006dab45d7709e86f5e852aac5f722dbe0dde3f12a1f3288be7b4"
+      ],
+      "original_english": "This renowned narrative, called the Rāmāyaṇa, arose in the line of the great Ikṣvāku kings. From the time of Prajāpati, the whole earth had belonged to those victorious rulers. Sagara was one of them. He had the ocean dug, and his sixty thousand sons surrounded him when he went out."
+    },
+    {
+      "refs": [
+        "1-5-4"
+      ],
+      "unit_sha256": [
+        "deaed347d74a9827271e0cce60379977a73f38d5cc7e6dd9c5bd8f3fd8613c3a"
+      ],
+      "original_english": "We two will tell the whole story from the beginning. It brings together right conduct, desire, and material well-being. It should be heard without fault-finding."
+    },
+    {
+      "refs": [
+        "1-5-7"
+      ],
+      "unit_sha256": [
+        "2db480e2e48f4e120a3fc99fcfb9f6ff52637c876dd43ddd681ef2e57fc4e663"
+      ],
+      "original_english": "The magnificent city extended twelve yojanas in length and three in breadth. Its broad streets were well laid out."
+    },
+    {
+      "refs": [
+        "1-5-9"
+      ],
+      "unit_sha256": [
+        "56206971d450fea0cc1c1ddaa7d90e96ded9ac859b800c4e0a03a838b043bce5"
+      ],
+      "original_english": "King Daśaratha, who made his vast realm prosper, dwelt in that city as the lord of the gods dwells in heaven."
+    },
+    {
+      "refs": [
+        "1-5-10"
+      ],
+      "unit_sha256": [
+        "fc7b9e7442f84520eb68222d97e95def98bbd9235860d37f100a06c8ede73379"
+      ],
+      "original_english": "The city had doors and gateways, orderly markets, every kind of weapon and engine, and artisans of every craft."
+    },
+    {
+      "refs": [
+        "1-5-11"
+      ],
+      "unit_sha256": [
+        "b2f75c26548420cc25bed37d9452a95e493edd27284309a687ee6e282dab2656"
+      ],
+      "original_english": "Court bards and heralds crowded the prosperous city. Its splendor had no equal. Banners stood on high towers, and hundreds of śataghnīs guarded it."
+    },
+    {
+      "refs": [
+        "1-5-12"
+      ],
+      "unit_sha256": [
+        "da60e0e96d7f7fc21f3220c234e304d7a32e8dcc4e7d53481d9db8603d38a940"
+      ],
+      "original_english": "Troupes of women performers were found throughout the city. It had gardens and mango groves, and a great rampart encircled it."
+    },
+    {
+      "refs": [
+        "1-5-13"
+      ],
+      "unit_sha256": [
+        "a216170749d3b9b5c0ce8e4a260ad372022a9cf5254c57614501103078a5831e"
+      ],
+      "original_english": "A deep moat made it a formidable stronghold, difficult for outsiders to approach. It teemed with horses, elephants, cattle, camels, and donkeys."
+    },
+    {
+      "refs": [
+        "1-5-14"
+      ],
+      "unit_sha256": [
+        "95a539fa29ce39a1f23a8c7b4b42e483f98ce85ce8fdcb3b10c87baafd4a8a60"
+      ],
+      "original_english": "Groups of neighboring kings came bearing tribute, and merchants from many lands added to the city’s splendor."
+    },
+    {
+      "refs": [
+        "1-5-15"
+      ],
+      "unit_sha256": [
+        "22c3b946754b2cc288fbc92d373e8c6eb0ab35573131cd7fcb7cf6d87b599581"
+      ],
+      "original_english": "Gem-worked palaces and hills adorned the city. It was full of gabled buildings, like Indra’s Amarāvatī."
+    },
+    {
+      "refs": [
+        "1-5-20",
+        "1-5-21",
+        "1-5-22"
+      ],
+      "unit_sha256": [
+        "5b3707448acc97852cef31aec19b0a4a407eee2136b82bc722ee403ec6ce3344",
+        "86b9bc041d3e673fc7c7e85dc90e67d7ab35cd9b14d8ea20b39ed659d0e40de6",
+        "db5d06cdcfe473b63ecb7d34dde355488a0357605332e8c3d4429dd5d63dd6ce"
+      ],
+      "original_english": "King Daśaratha made his home in that city, which was full of thousands of great chariot warriors. Dexterous and skilled, they would not shoot a man who stood alone, one without father or son, one known only by his sound, or one in flight. They could kill fierce lions, tigers, and boars roaring in the forest, using sharp weapons or the strength of their arms.",
+      "review_note": "The meaning of laghuhastāḥ follows the independently attested reading against the archive’s layuhastāḥ. Govindarāja’s gloss supports the four archery exclusions."
+    },
+    {
+      "refs": [
+        "1-5-23"
+      ],
+      "unit_sha256": [
+        "4c905f0a64d41369452990eb799e82641a246b435be2028ee4ed5e49d0df25d1"
+      ],
+      "original_english": "The city was filled with eminent twice-born men who kept the sacred fires, lived virtuously, and mastered the Vedas and their six auxiliary disciplines. They gave in abundance, held to the truth, and were noble in spirit. There were also seers who could be compared to the great ṛṣis."
+    }
+  ],
+  "baala/77": [
+    {
+      "refs": [
+        "1-77-6",
+        "1-77-7",
+        "1-77-8a"
+      ],
+      "unit_sha256": [
+        "1cb61a2de23ca092c7f0955e4afa61b5d3df4c343162f211b4bf85a140394eb6",
+        "4be50d029c28de36486868c935b249e57d2a279dbfedd2f1ee01fc4f8185cdaa",
+        "5f7b976bcbb94bf92cdc35be31c60014fb6d7ef55656b06191d56d0a1665eafd"
+      ],
+      "original_english": "Daśaratha urged his army onward and quickly reached the city. It was lovely with banners and standards and loud with the sound of trumpets. The royal road had been sprinkled with water and covered with scattered flowers. Throngs of citizens filled the city, carrying auspicious offerings and their faces lighting up as the king approached. The king entered amid those crowds.",
+      "review_note": "The original English locator lists only 7 and 8a. The Sanskrit and gloss include verse 6."
+    },
+    {
+      "refs": [
+        "1-77-8b",
+        "1-77-9"
+      ],
+      "unit_sha256": [
+        "5f7b976bcbb94bf92cdc35be31c60014fb6d7ef55656b06191d56d0a1665eafd",
+        "fc0368273a4e044db992b9ad63e70993f96d5cedca092932570205a3287b8a05"
+      ],
+      "original_english": "The townspeople and the brahmins who lived in the city had come a long way to meet him. Followed by his illustrious sons, the glorious king entered his beloved residence, which resembled the Himālaya."
+    },
+    {
+      "refs": [
+        "1-77-10a"
+      ],
+      "unit_sha256": [
+        "3a05f3fc9dec4f7802074f231acf52c9edab414d49798b19a1662402d43d2939"
+      ],
+      "original_english": "The king rejoiced at home among his own people, who honored him with all that he could wish for."
+    },
+    {
+      "refs": [
+        "1-77-10b",
+        "1-77-11a"
+      ],
+      "unit_sha256": [
+        "3a05f3fc9dec4f7802074f231acf52c9edab414d49798b19a1662402d43d2939",
+        "f28afe996c86de0596f4678ab1b44db09984a05da684a2dc0005bf955e10bfe2"
+      ],
+      "original_english": "Kausalyā, Sumitrā, slender-waisted Kaikeyī, and the other royal women were occupied with welcoming the brides."
+    },
+    {
+      "refs": [
+        "1-77-11b",
+        "1-77-12a"
+      ],
+      "unit_sha256": [
+        "f28afe996c86de0596f4678ab1b44db09984a05da684a2dc0005bf955e10bfe2",
+        "47f9876705dad116f1234dc551164bb9ea9b60a0144ddae3c5b3e62b10132639"
+      ],
+      "original_english": "The royal women received the noble Sītā, the renowned Ūrmilā, and both daughters of Kuśadhvaja."
+    },
+    {
+      "refs": [
+        "1-77-12b",
+        "1-77-13a"
+      ],
+      "unit_sha256": [
+        "47f9876705dad116f1234dc551164bb9ea9b60a0144ddae3c5b3e62b10132639",
+        "51a2ab3f65c738f132549c19c51176d2ac5bb39b2231d2cb5f2f091fe4f4272b"
+      ],
+      "original_english": "The brides, radiant in their fine garments, took part in rites of blessing and fire offerings. They all went at once to pay reverence at the shrines of the gods."
+    },
+    {
+      "refs": [
+        "1-77-13b",
+        "1-77-14a"
+      ],
+      "unit_sha256": [
+        "51a2ab3f65c738f132549c19c51176d2ac5bb39b2231d2cb5f2f091fe4f4272b",
+        "f9f11d9fb0a258485584111b8dcf5dfc7b14a134dfbf763890ff319aceb1e753"
+      ],
+      "original_english": "The princesses greeted those to whom respect was due. Then they all happily enjoyed the company of their husbands in private."
+    },
+    {
+      "refs": [
+        "1-77-14b",
+        "1-77-15a"
+      ],
+      "unit_sha256": [
+        "f9f11d9fb0a258485584111b8dcf5dfc7b14a134dfbf763890ff319aceb1e753",
+        "c8b1aaf55f9e4194f71aef414ec7cd0b195685bcb22d443d13a74eaedccfb694"
+      ],
+      "original_english": "The princes, foremost among men, were married and trained in arms, with wealth and friends about them. They lived in attendance on their father."
+    },
+    {
+      "refs": [
+        "1-77-15b",
+        "1-77-16",
+        "1-77-17a"
+      ],
+      "unit_sha256": [
+        "c8b1aaf55f9e4194f71aef414ec7cd0b195685bcb22d443d13a74eaedccfb694",
+        "8c1a937ed365f14035be658ac64ee9c6fd1ffd756fbaf8305ab6ea6efcf3c9bb",
+        "9dd8d8b94e4f482c8b9991b62478f23efb08a788c9d29abfdaf17843a69b3d17"
+      ],
+      "original_english": "Some time later King Daśaratha, descendant of Raghu, said to his son Bharata, Kaikeyī’s son, “My boy, this brave son of the king of Kekaya is staying here. He is Yudhājit, your mother’s brother, and he has come to take you with him.”"
+    },
+    {
+      "refs": [
+        "1-77-17b",
+        "1-77-18a"
+      ],
+      "unit_sha256": [
+        "9dd8d8b94e4f482c8b9991b62478f23efb08a788c9d29abfdaf17843a69b3d17",
+        "c330a89b68159a0993c67229491cbfc2d82630a182221b31613628f3b0a1290d"
+      ],
+      "original_english": "Hearing this from Daśaratha, Bharata, Kaikeyī’s son, prepared to set out with Śatrughna."
+    },
+    {
+      "refs": [
+        "1-77-18b",
+        "1-77-19a"
+      ],
+      "unit_sha256": [
+        "c330a89b68159a0993c67229491cbfc2d82630a182221b31613628f3b0a1290d",
+        "8dfbab3bffeeaa82907d4391b902f3058b9d39fdb7a30c7283f938cb7a344e2b"
+      ],
+      "original_english": "Brave Bharata, foremost among men, took leave of his father, his mothers, and Rāma, who was unwearied in action. He departed with Śatrughna."
+    },
+    {
+      "refs": [
+        "1-77-19b",
+        "1-77-20a"
+      ],
+      "unit_sha256": [
+        "8dfbab3bffeeaa82907d4391b902f3058b9d39fdb7a30c7283f938cb7a344e2b",
+        "d30f5eb7fae06be207bf3d1dff6a7e2ac452f34702761b682b56ead032f2a2c6"
+      ],
+      "original_english": "Delighted to have Bharata and Śatrughna with him, the brave Yudhājit entered his own city. Yudhājit’s father was pleased."
+    },
+    {
+      "refs": [
+        "1-77-20b",
+        "1-77-21a"
+      ],
+      "unit_sha256": [
+        "d30f5eb7fae06be207bf3d1dff6a7e2ac452f34702761b682b56ead032f2a2c6",
+        "54df237c18f9d7b9fcd72340a32be0bcc7a3912eca94f19505a91f58e1e6041f"
+      ],
+      "original_english": "After Bharata left, Rāma and the mighty Lakṣmaṇa paid devoted attention to their godlike father."
+    },
+    {
+      "refs": [
+        "1-77-21b",
+        "1-77-22a"
+      ],
+      "unit_sha256": [
+        "54df237c18f9d7b9fcd72340a32be0bcc7a3912eca94f19505a91f58e1e6041f",
+        "de1fa2ff677b16dd6ab040eeff3a0ced7d1c9e947c4edf7b4a627eb10b1815b8"
+      ],
+      "original_english": "Guided by his father’s orders, Rāma attended to all the affairs of the city, doing everything that would please and benefit its people."
+    },
+    {
+      "refs": [
+        "1-77-22b",
+        "1-77-23a"
+      ],
+      "unit_sha256": [
+        "de1fa2ff677b16dd6ab040eeff3a0ced7d1c9e947c4edf7b4a627eb10b1815b8",
+        "e5b29195ee8bae61af638c013f82e28cd3f17d1271df1f9bbbce303f76952979"
+      ],
+      "original_english": "With strict self-discipline, he carried out his duties to his mothers and attended to what was due to his elders at the proper times."
+    },
+    {
+      "refs": [
+        "1-77-23b",
+        "1-77-24a"
+      ],
+      "unit_sha256": [
+        "e5b29195ee8bae61af638c013f82e28cd3f17d1271df1f9bbbce303f76952979",
+        "ae9ede1d72f4fabc3c2a54e4fe3176b007b905a0692823b2a4709e0e8546eb6e"
+      ],
+      "original_english": "Daśaratha, the brahmins, the merchants, and all the people of the realm were pleased with Rāma’s character and conduct.",
+      "review_note": "The source reads sarvaṃ here. The sense follows the independently attested reading sarve with viṣayavāsinaḥ. Naigamāḥ is rendered as merchants following Govindarāja."
+    },
+    {
+      "refs": [
+        "1-77-24b",
+        "1-77-25a"
+      ],
+      "unit_sha256": [
+        "ae9ede1d72f4fabc3c2a54e4fe3176b007b905a0692823b2a4709e0e8546eb6e",
+        "f3736e2fd4a750527bdcddb12b124bd50a19db7413dcc405940ca68aefa6dd51"
+      ],
+      "original_english": "Rāma, whose valor never failed him, became renowned in the world and surpassed them in virtue, as the Self-born Creator surpasses all beings."
+    },
+    {
+      "refs": [
+        "1-77-25b",
+        "1-77-26a"
+      ],
+      "unit_sha256": [
+        "f3736e2fd4a750527bdcddb12b124bd50a19db7413dcc405940ca68aefa6dd51",
+        "d172ad818d636d3b0e9fe6891bc703ed692f13e964577a379efada04ba809542"
+      ],
+      "original_english": "High-minded Rāma spent many seasons in delight with Sītā. His thoughts were on her and he had a place in her heart."
+    },
+    {
+      "refs": [
+        "1-77-26b",
+        "1-77-27a"
+      ],
+      "unit_sha256": [
+        "d172ad818d636d3b0e9fe6891bc703ed692f13e964577a379efada04ba809542",
+        "beac3469090113106800949bdff8870eaffbe3d809882914483b97be80470cd4"
+      ],
+      "original_english": "Sītā was dear to Rāma as the wife he had married with his father’s assent. Her virtues and beauty deepened his love still further."
+    },
+    {
+      "refs": [
+        "1-77-27b",
+        "1-77-28"
+      ],
+      "unit_sha256": [
+        "beac3469090113106800949bdff8870eaffbe3d809882914483b97be80470cd4",
+        "0a1106b83e1dcc441a480960641b79a38bb0c2eef14f36c9bc5aa071d2abc1ed"
+      ],
+      "original_english": "Her husband was twice as dear to her. Their hearts made their innermost thoughts clear to one another, and Sītā of Mithilā, Janaka’s daughter, was especially attuned to Rāma. In beauty she equaled the goddesses and seemed Śrī in bodily form.",
+      "review_note": "The elliptical second line of verse 28 permits more than one reading. The English conveys the closeness and mutual understanding common to the readings, following comparison with Dutt, the ValmikiRamayan.net gloss, and the IIT Kanpur gloss."
+    },
+    {
+      "refs": [
+        "1-77-29"
+      ],
+      "unit_sha256": [
+        "ca06669bc5df3e767220c930a08aa73940aef6958bcae9a8c65a4331dba1ec8d"
+      ],
+      "original_english": "United with the daughter of an eminent king, who longed for him, Rāma, son of the royal sage, shone with great joy, as Viṣṇu, lord of the immortals, shines with Śrī."
+    }
+  ]
+}

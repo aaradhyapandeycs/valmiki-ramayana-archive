@@ -168,6 +168,17 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
                 raise ValueError(f"{no_link}: Sanskrit rendering errors beside the gap {usable['errors'][:8]}")
             unmatched_result = {"chapter": no_link, "source_link": await gap.locator("a").get_attribute("href"),
                                 "checked_script_rows": usable["stats"]["lines"]}
+        for chapter, translated, units in (("baala/5", 12, 14), ("baala/77", 21, 24)):
+            await open_route(page, args.after, chapter + "/", enlarged)
+            originals = page.locator(".original-translation")
+            assert await originals.count() == translated
+            anchors = await originals.evaluate_all("nodes => [...new Set(nodes.flatMap(node => node.dataset.originalUnits.split(' ')))]")
+            assert len(anchors) == units
+            assert not await page.locator('.verse-translation-label:text-is("English translation unavailable here")').count()
+            assert not (await page.evaluate(GEOMETRY, {"wide": wide}))["errors"]
+            if screenshot:
+                await screenshot_panel(page, originals.first.locator("xpath=../.."),
+                                       args.output / f"after-{name}-{chapter.replace('/', '-')}-original.png")
         if name in {"mobile", "mobile-large-text"} and not keyboard_checks:
             raise ValueError(f"{name}: no keyboard-scroll probe was available")
         if args.before and name in {"desktop", "mobile"}:

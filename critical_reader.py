@@ -159,6 +159,8 @@ def inline_groups(crosswalk, chapter, record, additions, critical_rows):
                 group["method"] != "orthographic_nasal" or len(rows) != 1
                 or status["type"] != "1:1" or status["confidence"] < .85):
             continue
+        if status["type"] == "split":
+            continue
         if status["type"] == "approximate" or any(passage_key(row) != passage_key(other) for other in rows):
             raise ValueError(f"Crosswalk contains an invalid Dutt passage group: {group['refs']}")
         if len(group["units"]) != len(group["unit_sha256"]) or any(

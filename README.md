@@ -87,6 +87,12 @@ transcription’s wording and spelling, with whitespace normalized. The
 English coverage report distinguishes inline prose from source links and
 chapter-level references throughout the Sanskrit archive.
 
+The [independent English passages](data/original-english.json) cite the exact
+local Sanskrit by verse reference and block digest. The label “Archive
+translation from Sanskrit” identifies them in the reader. Dutt’s historical
+prose retains its own credit. The inline reader uses exact, reviewed spans
+when automated split alignments import material from adjacent verses.
+
 
 ## Critical Edition English
 

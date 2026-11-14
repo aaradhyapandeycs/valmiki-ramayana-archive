@@ -137,7 +137,7 @@ def archive_entries(chapter, crosswalk, records):
             types = {row["alignment"]["type"] for row in rows}
             require(len(types) == 1, f"{chapter}: crosswalk combined different alignment types")
             type_ = next(iter(types))
-            if type_ == "approximate":
+            if type_ in {"approximate", "split"}:
                 continue
             if method == "orthographic_nasal" and (type_ != "1:1" or len(rows) != 1 or
                                               rows[0]["alignment"]["confidence"] < .85):
@@ -218,8 +218,16 @@ def verify_archive(dist, source, records, counts):
     expected = {f"{slug}/{chapter}" for slug, count in ARCHIVE_BOOKS.items() for chapter in range(1, count + 1)}
     require(set(crosswalk["chapters"]) == expected, "English crosswalk is missing archive chapters")
     require(set(crosswalk["orthographic_candidates"]) <= expected, "English crosswalk contains unknown archive chapters")
+    reviewed_path = Path(__file__).resolve().parent / "data" / "dutt-reviewed-passages.json"
+    reviewed = json.loads(reviewed_path.read_bytes()) if reviewed_path.is_file() else {}
     for chapter in sorted(expected):
         entries = archive_entries(chapter, crosswalk, records)
+        for review in reviewed.get(chapter, {}).get("passages", []):
+            refs = review.get("replaces_critical_refs", [])
+            if refs:
+                original, _ = entries.pop(refs[0])
+                require(original["refs"] == refs and original["units"] == review["units"],
+                        f"{chapter}: reviewed Dutt correction replaces the wrong crosswalk passage")
         raw = (dist / chapter / "index.html").read_bytes()
         check_archive_chapter(raw, entries, chapter, counts)
 

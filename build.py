@@ -14,7 +14,7 @@ from pathlib import Path
 from chapter_iast import display_chapters, load_title_review, title_aliases
 from dutt_reader import render_dutt, reviewed_passages
 from critical_reader import inline_groups, read_critical, render_critical
-from prose_links import REF, TRANSLATORS, local_units, prepare_links
+from prose_links import REF, TRANSLATORS, local_units, original_passages, prepare_links
 from sanskrit_paratext import load_paratext, render_paratext
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
@@ -85,6 +85,7 @@ def main():
     critical_manifest, critical_books = read_critical(CRITICAL)
     crosswalk = load_catalog("critical-site/archive-links.json", None)
     reviewed = reviewed_passages(DUTT, load_catalog("dutt-reviewed-passages.json", {})) if sanskrit else {}
+    original = load_catalog("original-english.json", {}) if sanskrit else {}
     critical_rows = {row["id"]: row for chapters in critical_books.values()
                      for rows in chapters.values() for row in rows}
     shown_english = {}
@@ -199,10 +200,26 @@ def main():
                     f'<a href="{esc(evidence["source_url"])}" rel="external">Read the chapter’s English at the source ↗</a>.</p>'
                 )
             matched_english = inline_groups(crosswalk, key, record, additions, critical_rows) if crosswalk and record else []
+            restored_english = reviewed.pop(key, [])
+            if crosswalk:
+                replacements = {tuple(group["replaces_critical_refs"]): group["units"]
+                                for group in restored_english if "replaces_critical_refs" in group}
+                for group in matched_english:
+                    refs = tuple(group["refs"])
+                    if refs in replacements and replacements.pop(refs) != group["units"]:
+                        raise ValueError(f"Dutt correction targets a different group at {key}")
+                if replacements:
+                    raise ValueError(f"Dutt correction targets an unknown matching group at {key}")
+                for group in restored_english:
+                    if any(critical_rows[ref]["alignment"]["type"] != "split" for ref in group.get("excluded_split_refs", ())):
+                        raise ValueError(f"Reviewed Dutt passage refers to a non-split record at {key}")
+                replaced = {tuple(group["replaces_critical_refs"]) for group in restored_english if "replaces_critical_refs" in group}
+                matched_english = [group for group in matched_english if tuple(group["refs"]) not in replaced]
             if matched_english:
                 shown_english[key] = [{name: value for name, value in passage.items() if name != "row"}
                                       for passage in matched_english]
-            restored_english = reviewed.pop(key, [])
+            drafts = original.pop(key, [])
+            additional_english = []
             gaps = []
             if record:
                 by_anchor = {anchor: (position, numbers, digest)
@@ -221,13 +238,14 @@ def main():
                             or inline.intersection(group["units"])):
                         raise ValueError(f"Reviewed Dutt mapping overlaps or disagrees with Sanskrit at {key}")
                     inline.update(group["units"])
+                additional_english, original_units = original_passages(record, witnesses, drafts, inline)
                 urls_by_anchor = {}
                 for group in groups:
                     for anchor in group["units"]:
                         urls_by_anchor.setdefault(anchor, []).append(group["href"])
                 unresolved = []
                 for anchor, numbers, _, _ in witnesses:
-                    if anchor not in inline:
+                    if anchor not in inline and anchor not in original_units:
                         urls = list(dict.fromkeys(urls_by_anchor.get(anchor, ())))
                         unresolved.append({"anchor": anchor, "printed_verse_numbers": sorted(numbers),
                                            "source_urls": urls or [record["source_url"]],
@@ -242,12 +260,16 @@ def main():
                         for group in restored_english
                     ],
                     "inline_dutt_reading_units": len(inline),
+                    "original_english_reading_units": len(original_units),
+                    "original_english_passages": [{key: group[key] for key in ("refs", "units", "href")}
+                                                 for group in additional_english],
                     "unresolved": unresolved,
                 }
-            elif restored_english:
-                raise ValueError(f"Reviewed Dutt passage has no Sanskrit witness at {key}")
+            elif restored_english or drafts:
+                raise ValueError(f"English passage has no Sanskrit witness at {key}")
             offsets = chapter_layout.get("supplements")
-            passage = render_sanskrit(record, layout=chapter_layout, groups=groups + matched_english + restored_english + gaps,
+            passage = render_sanskrit(record, layout=chapter_layout,
+                                      groups=groups + matched_english + restored_english + additional_english + gaps,
                                       translation_note=translation_note,
                                       before=render_paratext(additions.get("before"), offsets),
                                       after=render_paratext(additions.get("after"), offsets))
@@ -291,12 +313,12 @@ def main():
                      f'<h2><a href="{slug}/">{name} Kāṇḍa</a></h2></div><span>{len(rows)} sargas</span></div>'
                      f'<ol class="chapters">{items}</ol></section>')
 
-    if reviewed:
-        raise ValueError(f"Reviewed Dutt data refer to unknown archive chapters: {sorted(reviewed)}")
+    if reviewed or original:
+        raise ValueError(f"English data refer to unknown archive chapters: {sorted(reviewed.keys() | original.keys())}")
     if english_coverage:
         write("english-coverage.json", json.dumps({
             "scope": "Six-book Sanskrit archive. A reading unit can contain multiple or partial verses.",
-            "fallback_text": "No verified republication license for the modern source translation. Direct links are supplied.",
+            "fallback_text": "Independently translated and reviewed Sanskrit passages appear where recorded. The modern source translation is linked.",
             "chapters": english_coverage,
         }, ensure_ascii=False, separators=(",", ":")) + "\n")
 
