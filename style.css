@@ -270,3 +270,10 @@ footer p { max-width: 83ch; }
 
 .reader .verse-line { padding-inline-end: .22em; }
 .reader .verse-scroll { padding-inline-start: .12rem; }
+
+.brand, .site-head nav a, .skip {
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
+}
+
+.skip { max-inline-size: calc(100% - 2rem); }

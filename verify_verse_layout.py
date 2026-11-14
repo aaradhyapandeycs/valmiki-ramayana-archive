@@ -40,7 +40,10 @@ LINE_AUDIT = r"""() => {
     if (document.documentElement.scrollWidth > innerWidth + 1) {
         errors.push({
             problem: 'page-wide horizontal overflow',
-            viewport: innerWidth, width: document.documentElement.scrollWidth
+            viewport: innerWidth, width: document.documentElement.scrollWidth,
+            protrusions: [...document.querySelectorAll('body *')]
+                .filter(el => !el.closest('.verse-scroll') && el.getBoundingClientRect().right > innerWidth + 1)
+                .slice(0, 8).map(el => [el.tagName, el.className, Math.round(el.getBoundingClientRect().right)])
         });
     }
     const scrollRegions = new Set();
