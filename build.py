@@ -63,6 +63,9 @@ def write(path, contents):
 def main():
     OUT.mkdir(exist_ok=True)
     sanskrit = load_sanskrit(CHAPTERS)
+    snapshot = ROOT / "data" / "sanskrit" / "summary.json"
+    if snapshot.is_file():
+        write("sanskrit-coverage.json", snapshot.read_text(encoding="utf-8"))
     frames = load_catalog("frames.json", None)["books"]
     variants = load_catalog("variants.json", {"chapters": {}})
     ancillary = load_catalog("ancillary.json", {"groups": []})
@@ -111,8 +114,7 @@ def main():
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
             body = f"""<p class="eyebrow">{esc(name)} Kāṇḍa · Sarga {n} of {len(rows)}</p>
 <h1>{esc(row['title'])}</h1>
-<p class="source-note">The source chapter is available through its original frame page.
-Open the source edition for Sanskrit, transliteration, English translation, and commentary.</p>
+<p class="source-note">Open the source edition for its English translation, word meanings, and commentary.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
 {render_sanskrit(sanskrit.get((slug, n)))}
@@ -166,7 +168,7 @@ where each URL was found and which responses were observed.</p></section>"""
 <h1>Explore the Rāmāyaṇa, chapter by chapter.</h1>
 <p>All 534 sargas in the six-book index, in source order. Search chapter headings, then follow
 the source edition for translation and commentary.</p>
-<p class="coverage">{render_coverage(sanskrit)}</p>
+<p class="coverage">{render_coverage(sanskrit)}{' · <a href="sanskrit-coverage.json">Capture record</a>' if snapshot.is_file() else ""}</p>
 <label class="search-label" for="search">Search chapter headings or sarga number</label>
 <input id="search" type="search" placeholder="Try Hanuma, forest, or 2-119" autocomplete="off">
 <p id="search-count" aria-live="polite"></p></section>

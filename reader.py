@@ -92,10 +92,9 @@ def render_sanskrit(record):
 
 
 def render_coverage(records):
-    counts = {kind: sum(r["kind"] == kind for r in records.values()) for kind in WITNESSES}
-    return (f'{counts["primary"]} chapters with Sanskrit from the primary source · '
-            f'{counts["mirror"]} from the Sanskrit Documents mirror · '
-            f'{534 - len(records)} with source links')
+    if len(records) == 534 and all(record["kind"] == "primary" for record in records.values()):
+        return "Sanskrit from the original site in all 534 indexed chapters"
+    return f"Sanskrit available for {len(records)} of 534 indexed chapters"
 
 
 def load_catalog(name, default):
