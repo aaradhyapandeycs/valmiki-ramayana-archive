@@ -1393,5 +1393,192 @@
         "71f09173d7668eeaf0fc8dc942a0f535d8b4a8f12a5179a7983a14f399b12bb1"
       ]
     }
+  ],
+  "kish/47": [
+    {
+      "refs": [
+        "4-47-1"
+      ],
+      "original_english": "At the command of the king of the vānaras, the foremost of them set out swiftly in every direction to find the princess of Videha, just as they had been told.",
+      "unit_sha256": [
+        "5451fc471c25515188c6118420c6f50a6ea21ef1e5b0ae2ec6816ca00b98f501"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-2"
+      ],
+      "original_english": "They searched everywhere: lakes, thickets along streams, open spaces and cities, places cut off by rivers, and mountains.",
+      "unit_sha256": [
+        "0998f2d516a1be98755c6499515d59a3b07af3ce5c2c75b281c4440b57336520"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-3"
+      ],
+      "original_english": "The leaders of all the vānara bands searched the regions Sugrīva had assigned them, including the mountains, woods, and deep forests.",
+      "unit_sha256": [
+        "206845e32a6702251009a200609ad35b9ace7f048129276ec259676d3c705fdd"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-4"
+      ],
+      "original_english": "All day the vānaras searched, determined to find Sītā. At night they came together on the ground.",
+      "unit_sha256": [
+        "e4d5528556fba8fc411133d541ec52d7423ee6e9dbbd2c6817a792890316a3c2"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-5"
+      ],
+      "original_english": "Day after day, when the vānaras found trees that bore fruit in every season in those regions, they made their beds there for the night.",
+      "unit_sha256": [
+        "a9b86e10ff28014dc5c468e1e0a1121c1ee6d8b8b093692d3e60d7648fedd7f0"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-6"
+      ],
+      "original_english": "Counting the day they set out as the first, the foremost vānaras reached Prasravaṇa within the month. They met the king of the vānaras, having lost hope.",
+      "unit_sha256": [
+        "9109bb12eeb043bf6d73f9aa546786ccb9394cbe516668e3e833ea82ece42ed9"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-7"
+      ],
+      "original_english": "Mighty Vinata had searched the east with his companions as instructed. He came back without having seen Sītā.",
+      "unit_sha256": [
+        "985c256d64e1dc48071b8f79b7c424686b908cbef7e26d89c872ba1cb54d1096"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-8"
+      ],
+      "original_english": "The brave Śatabali, a great vānara, had searched the whole northern quarter. He now returned with his forces.",
+      "unit_sha256": [
+        "6a54b25a01b723cf4f80cb66f6492020ebad05d8d56875c18f3e7c127fcb9ad8"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-9"
+      ],
+      "original_english": "Suṣeṇa had searched the west with his vānaras. He came back when the month was up and approached Sugrīva.",
+      "unit_sha256": [
+        "68d9e75780f1a1d5510c86fdb4aa52b85a34f09c4e315fc930b1cd360a223d0d"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-10"
+      ],
+      "original_english": "They went up to Sugrīva on the heights of Prasravaṇa, where he sat with Rāma. After greeting him respectfully, they spoke.",
+      "unit_sha256": [
+        "7a16131818adaeed34614a78805b8cb4e1df983500d470e092ad4f52303d1eb6"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-11"
+      ],
+      "original_english": "“We searched all the mountains and dense forests, the rivers as far as the sea, and all the inhabited regions.",
+      "unit_sha256": [
+        "3aed1ccf2f1b9327ba47a14d6ebc4acf0d0f261c16f9ea4a1b260246bb6dc63d"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-12"
+      ],
+      "original_english": "“We searched all the caves you named, and the great thickets tangled with spreading creepers.",
+      "unit_sha256": [
+        "2fb924b653da7d64ec08004630168ee9e565b0c43bdd8cde372dcede50abd433"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-13"
+      ],
+      "original_english": "“In dense, inaccessible, and rough country we tracked down and killed creatures of immense size. We searched the thickest parts again and again.",
+      "unit_sha256": [
+        "3f36b54e7e59d3f38bb315d304c0a63b99c06d99cbab30eb01ce2ed449aa8b0a"
+      ]
+    },
+    {
+      "refs": [
+        "4-47-14"
+      ],
+      "original_english": "“O king of the vānaras, Hanumān, noble in spirit and birth, will learn what became of the princess of Mithilā. Hanumān, son of the wind, has followed the very direction in which Sītā went.”",
+      "unit_sha256": [
+        "0ee070118c0b7bd6459b019d3f9514b8e998242f9a8acfcd0d672a35549cca33"
+      ],
+      "review_note": "The pinned witness prints jñāsyasi (second person). The source gloss and the Sanskrit Wikisource witness read jñāsyati (third person), agreeing with Hanumān as the nominative subject. The translation follows that reading.",
+      "alternate_sanskrit_url": "https://sa.wikisource.org/wiki/रामायणम्/किष्किन्धाकाण्डम्/सर्गः_४७"
+    }
+  ],
+  "sundara/60": [
+    {
+      "refs": [
+        "5-60-1",
+        "5-60-2a"
+      ],
+      "unit_sha256": [
+        "ddb29a60794a276084dc09bf3d8193c969399747710a31e0e1aa4757cb4a883e",
+        "c616c03aee3690cc4aa62b9a4893f2eef9c06f08df709b36b937b84d13aefbae"
+      ],
+      "original_english": "When he heard Hanumān’s account, Vālin’s son Aṅgada said, “Monkeys, now that Sītā has been found, we should not go back to the noble Rāma without her."
+    },
+    {
+      "refs": [
+        "5-60-2b",
+        "5-60-3a"
+      ],
+      "unit_sha256": [
+        "c616c03aee3690cc4aa62b9a4893f2eef9c06f08df709b36b937b84d13aefbae",
+        "28d889fa5a611c950ce7d22716e2a71cc3e0917a9647850d76d802dfd7544220"
+      ],
+      "original_english": "“You are renowned for your valor. It hardly seems right to go back and report that the princess was found but not brought home."
+    },
+    {
+      "refs": [
+        "5-60-3b",
+        "5-60-4a"
+      ],
+      "unit_sha256": [
+        "28d889fa5a611c950ce7d22716e2a71cc3e0917a9647850d76d802dfd7544220",
+        "9b273ba52445bae34e43fbc5189e1752be1e0c858ec3e20021909ef7dff98d07"
+      ],
+      "original_english": "“Best of the vānaras, in all the worlds of gods and demons, no one can match you in leaping or in valor."
+    },
+    {
+      "refs": [
+        "5-60-4b",
+        "5-60-5a"
+      ],
+      "unit_sha256": [
+        "9b273ba52445bae34e43fbc5189e1752be1e0c858ec3e20021909ef7dff98d07",
+        "20fc873c7acdbf1ab34772674e66552baa032fb71e5862c5174930ebc5acc91f"
+      ],
+      "original_english": "“Hanumān has slain the rākṣasas’ champions. What else is there for us to do? Let us take Jānakī with us when we go.”"
+    },
+    {
+      "refs": [
+        "5-60-5b",
+        "5-60-6"
+      ],
+      "unit_sha256": [
+        "20fc873c7acdbf1ab34772674e66552baa032fb71e5862c5174930ebc5acc91f",
+        "d489f756d3812986817803eacad5c6bf0718d54d011c19ff986b199facfb210c"
+      ],
+      "original_english": "Jāmbavān, foremost among the forest creatures, was delighted by Aṅgada’s resolve. Understanding the matter, he gave this considered reply: “Prince, the plan you propose is within our powers. But see that we accomplish the task in the way Rāma intends.”"
+    }
   ]
 }

@@ -196,11 +196,16 @@ def translation_panel(groups, translated_units):
             refs = escape(" ".join(group["refs"]), quote=True)
             units = escape(" ".join(group["units"]), quote=True)
             labels = escape(", ".join(group["refs"]))
+            variant = group.get("alternate_sanskrit_url")
+            variant_link = (f' · <a href="{escape(variant, quote=True)}" rel="external">Variant reading ↗</a>'
+                            if variant else "")
+            variant_note = (f'<p class="critical-refs">{escape(group["review_note"])}</p>' if variant else "")
             translations.append(
                 f'<div class="original-translation" data-original-refs="{refs}" data-original-units="{units}">'
                 f'<p class="original-english-text">{escape(group["original_english"])}</p>'
                 f'<p class="critical-refs">Archive translation from Sanskrit · {labels} · '
-                f'<a href="{escape(group["href"], quote=True)}" rel="external">Sanskrit source ↗</a></p></div>'
+                f'<a href="{escape(group["href"], quote=True)}" rel="external">Sanskrit source ↗</a>'
+                f'{variant_link}</p>{variant_note}</div>'
             )
             continue
         if "dutt_text" in group:

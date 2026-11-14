@@ -327,10 +327,14 @@ def verify(args):
             require(units == placement["units"] and passage_is_aligned(node, units, ancestors)
                     and node.get("data-original-refs", "").split() == placement["refs"] == draft["refs"],
                     f"Original English is outside its Sanskrit group at {chapter_path}")
-            require(len(node) == 2 and "original-english-text" in classes(node[0])
+            variant = draft.get("alternate_sanskrit_url")
+            require(len(node) == (3 if variant else 2) and "original-english-text" in classes(node[0])
                     and "".join(node[0].itertext()) == draft["original_english"]
-                    and len(node[1]) == 1 and node[1][0].get("href") == placement["href"],
+                    and len(node[1]) == (2 if variant else 1) and node[1][0].get("href") == placement["href"],
                     f"Original English or source link changed at {chapter_path}")
+            if variant:
+                require(node[1][1].get("href") == variant and meaningful(node[2]) == draft["review_note"],
+                        f"Original English variant evidence changed at {chapter_path}")
             original_units.update(units)
         unresolved = {gap["anchor"]: gap for gap in english["unresolved"]}
         require(english["reading_units"] == len(unit_ids) and inline <= unit_ids
