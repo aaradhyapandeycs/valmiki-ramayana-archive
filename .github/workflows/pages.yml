@@ -2,6 +2,10 @@ name: Build and deploy
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Valmiki source inventory", "Audit chapter directory listings"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       inventory_run_id:
@@ -18,12 +22,13 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     env:
-      INVENTORY_RUN_ID: ${{ inputs.inventory_run_id }}
+      REQUESTED_INVENTORY: ${{ inputs.inventory_run_id }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
@@ -39,13 +44,31 @@ jobs:
           ref: '57b40a93e97e6a17c1a7f361cf672c0255dc8b08'
           path: data/ayyangar
           persist-credentials: false
-      - name: Load the full URL audit
-        if: env.INVENTORY_RUN_ID != ''
+      - name: Select an inventory snapshot
+        id: audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id="$REQUESTED_INVENTORY"
+          artifact=primary-source-inventory
+          if [ -z "$run_id" ]; then
+            run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/valmiki-inventory.yml/runs?branch=main&status=success&per_page=10" --jq '[.workflow_runs[] | select(.id == 43560969413)][0].id // empty')
+          fi
+          if [ -z "$run_id" ]; then
+            run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/chapter-listings.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].id // empty' 2>/dev/null || true)
+            artifact=chapter-directory-inventory
+          fi
+          if [ -n "$run_id" ]; then
+            [[ "$run_id" =~ ^[0-9]+$ ]]
+          fi
+          printf 'run_id=%s\nartifact=%s\n' "$run_id" "$artifact" >> "$GITHUB_OUTPUT"
+      - name: Load the source URL audit
+        if: steps.audit.outputs.run_id != ''
         uses: actions/download-artifact@v4
         with:
-          name: primary-source-inventory
+          name: ${{ steps.audit.outputs.artifact }}
           path: audit/primary
-          run-id: ${{ env.INVENTORY_RUN_ID }}
+          run-id: ${{ steps.audit.outputs.run_id }}
           github-token: ${{ github.token }}
       - name: Verify the recorded Sanskrit snapshot
         run: python3 verify_capture.py data/sanskrit --commit 89e2ac54cb045ff189f5ea06abc0867dab85f010

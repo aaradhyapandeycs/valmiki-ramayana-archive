@@ -1,0 +1,20 @@
+name: Audit chapter directory listings
+on:
+  push:
+    branches: [main]
+    paths: ['chapter_listings.py', '.github/workflows/chapter-listings.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 chapter_listings.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter-directory-inventory
+          path: audit/directories
+          if-no-files-found: error
