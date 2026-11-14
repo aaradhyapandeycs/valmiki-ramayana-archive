@@ -1310,5 +1310,25 @@
       "source_paragraph": 215,
       "source_normalized_text_sha256": "65a6ac0a39ff8d4b53f54e5936732f78b2e1bc0fc75b079d501207de2cb1952f"
     }
+  ],
+  "sundara/66": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "त्यार्षे श्रीमद्रामायणे आदिकाव्ये सुन्दरकाण्डे षट्षष्टितमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/sundara/sarga66/sundarasans66.htm",
+      "source_paragraph": 63,
+      "source_normalized_text_sha256": "0a020702c90b314fc3a75874e8e8cf32e5a280009cb2fa6774c5aa08a34e659f"
+    }
+  ],
+  "yuddha/88": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इतार्षे श्रीमद्रामायणे आदिकाव्ये युद्धकाण्डे अष्टाशीतितमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga88/yuddhasans88.htm",
+      "source_paragraph": 303,
+      "source_normalized_text_sha256": "d1d03f57f5b767825498441c50c1dc712fc4923fa243d72fa2d38cd1f1502b43"
+    }
   ]
 }

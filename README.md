@@ -48,3 +48,12 @@ characters remain in the Devanāgarī witness and are flagged beside the absent
 IAST. The separate Dutt reader changes only terms in its reviewed glossary.
 The two publicly available IAST audit files record the checks and the
 remaining exceptions.
+
+## Audit evidence
+
+The published coverage manifest distinguishes direct Sanskrit and facsimile
+copies from links to original translations, glosses, commentary, and resources.
+The separate [textual exception ledger](TEXTUAL_EXCEPTIONS.md) lists
+additional or malformed source material with direct links. The independent
+source-text workflow fetches the original Sanskrit HTML and compares every
+pinned and restored passage against both the generated and published readers.

@@ -201,13 +201,14 @@ def main():
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     write("search.json", json.dumps(search, ensure_ascii=False, separators=(",", ":")))
     heading_audit = ' · <a href="heading-provenance.json">Editorial heading sources</a>' if corrections else ""
+    text_audit = '<a href="https://github.com/aaradhyapandeycs/valmiki-ramayana-archive/blob/main/TEXTUAL_EXCEPTIONS.md">Textual exceptions</a>' 
     sources = f"""<section class="sources" id="sources"><h2>Sources &amp; rights</h2>
 <p>Chapter headings use reviewed IAST. They follow the six kāṇḍa indexes of
 <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>. The source describes its six-book presentation
 and verse numbering in its <a href="{HOST}/utf8/ramayana.shtml">introduction</a>.
 The Sanskrit epic is ancient; the particular translation, commentary, editorial layout,
 fonts, and downloads have no verified reuse grant for this project. Follow the original links for those materials.</p>
-<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a> · <a href="source-manifest.json">Source coverage manifest</a>{heading_audit}</p>
+<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a> · <a href="source-manifest.json">Source coverage manifest</a>{heading_audit} · {text_audit}</p>
 <p>Source availability can change. A source link may fail or redirect; the manifest records
 where each URL was found and which responses were observed.</p></section>"""
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
