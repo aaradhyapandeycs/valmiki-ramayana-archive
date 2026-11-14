@@ -1,0 +1,21 @@
+{
+  "base": "https://valmikiramayan.net/",
+  "visited": 29724,
+  "discovered_link_edges": 430224,
+  "pending": 0,
+  "crawl_exhausted": true,
+  "complete": true,
+  "failed_or_unvisited_seeds": [],
+  "incompletely_verified_books": [],
+  "unresolved_urls": [],
+  "discovery_scope": "Explicit index and frame seeds plus same-site links from fetched HTML and CSS. Unlinked, script-generated, and external pages may be absent.",
+  "statuses": {
+    "http_200": 27631,
+    "http_404": 2093
+  },
+  "methods": {
+    "GET": 11509,
+    "HEAD": 18215
+  },
+  "note": "GET limited to HTML-like paths; binary links are HEAD only. Hashes are of fetched raw HTML bytes."
+}
