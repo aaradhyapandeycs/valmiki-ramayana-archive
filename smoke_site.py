@@ -27,9 +27,10 @@ FONTS = [
 HTTP_RETRYABLE = {429, 500, 502, 503, 504}
 LAYOUT_ROUTES = (
     "", "baala/1/", "baala/25/", "yuddha/127/", "sources/", "sources/files/",
-    "english/", "english/aranya/56b/",
+    "english/", "english/aranya/56b/", "critical/", "critical/bala/",
+    "critical/bala/1/", "critical/uttara/", "critical/uttara/100/",
 )
-AXE_ROUTES = {"", "baala/1/", "sources/", "english/aranya/56b/"}
+AXE_ROUTES = {"", "baala/1/", "sources/", "english/aranya/56b/", "critical/", "critical/bala/1/"}
 
 
 def site_url(path):
@@ -119,10 +120,13 @@ async def inspect_home(page):
     assert ("83, 120, 149" in gradient or "#537895" in gradient.lower()), gradient
 
     search = page.get_by_role("searchbox")
+    jump_links = page.get_by_role("navigation", name="Kāṇḍas", exact=True, include_hidden=True)
+    await expect(jump_links).to_be_visible()
     matched = []
     for query in ("Rama", "Rāma"):
         await search.fill(query)
         await expect(page.locator('#results a[href$="/baala/1/"]')).to_be_visible()
+        await expect(jump_links).to_be_hidden()
         matched.append(await page.locator("#results a").all_text_contents())
     assert matched[0] == matched[1] and any("Rāma" in row for row in matched[0])
     await search.fill("2-119")
@@ -132,6 +136,7 @@ async def inspect_home(page):
     await expect(page.locator("#search-count")).to_have_text("0 matching sargas")
     await search.fill("")
     await expect(page.locator("#books")).to_be_visible()
+    await expect(jump_links).to_be_visible()
     return len(matched[0])
 
 
@@ -167,6 +172,25 @@ async def inspect_verse(page):
     await page.get_by_role("link", name="← Previous", exact=True).click()
     assert page.url == site_url("baala/1/")
     return tests
+
+
+async def inspect_critical_passage(page):
+    # This pair shares one English witness and has two independently linkable references.
+    fragment = "VRCE-1-1-19"
+    group = page.locator(".critical-passage").filter(has=page.locator(f"#{fragment}"))
+    await expect(group.locator("#VRCE-1-1-18")).to_be_visible()
+    await expect(group.locator(".critical-english-text")).to_have_count(1)
+    verse = group.get_by_role("link", name="1.1.19", exact=True)
+    await verse.click()
+    assert await page.evaluate("location.hash") == f"#{fragment}"
+    await page.reload(wait_until="domcontentloaded")
+    await expect(page.locator(f"#{fragment}:target")).to_be_visible()
+
+    navigation = page.get_by_role("navigation", name="Chapter sequence")
+    await navigation.get_by_role("link", name="Next →", exact=True).click()
+    assert page.url == site_url("critical/bala/2/")
+    await navigation.get_by_role("link", name="← Previous", exact=True).click()
+    assert page.url == site_url("critical/bala/1/")
 
 
 async def inspect_viewport(browser, width, height, label):
@@ -206,6 +230,24 @@ async def inspect_viewport(browser, width, height, label):
             elif route == "english/aranya/56b/":
                 await expect(page.locator("article")).to_be_visible()
                 await expect(page.get_by_role("heading", level=1)).to_contain_text("56b")
+            elif route == "critical/":
+                await expect(page.locator(".chapters a")).to_have_count(7)
+                await expect(page.locator('.chapters a[href="uttara/"]')).to_contain_text("Uttara Kāṇḍa")
+                await page.screenshot(path=str(OUT / f"{label}-critical-directory.png"))
+            elif route == "critical/bala/":
+                await expect(page.locator(".chapters a")).to_have_count(76)
+                await expect(page.locator('.chapters a[href="1/"]')).to_contain_text("Sarga 1")
+            elif route == "critical/bala/1/":
+                await inspect_critical_passage(page)
+                report["routes"][route]["grouped_verse_and_navigation"] = True
+            elif route == "critical/uttara/":
+                await expect(page.locator(".chapters a")).to_have_count(100)
+                await expect(page.locator('.chapters a[href="100/"]')).to_contain_text("Sarga 100")
+            elif route == "critical/uttara/100/":
+                await expect(page.get_by_role("heading", level=1)).to_have_text("Uttara Kāṇḍa · Sarga 100")
+                navigation = page.get_by_role("navigation", name="Chapter sequence")
+                await expect(navigation.get_by_role("link", name="Next →", exact=True)).to_have_count(0)
+                await expect(navigation.get_by_role("link", name="← Previous", exact=True)).to_have_attribute("href", "../99/")
         await open_page(page, "missing-audit-route/deep/path/", 404)
         await expect(page.get_by_role("heading", name="Page not found")).to_be_visible()
         assert await page.locator(".site-head").evaluate("(el) => getComputedStyle(el).backgroundImage") != "none"

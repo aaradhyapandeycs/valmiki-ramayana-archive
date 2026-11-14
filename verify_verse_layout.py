@@ -21,6 +21,46 @@ PROFILES = {
     "mobile-large-text": (390, 844, 1, True),
 }
 
+DIRECTORY_AUDIT = r"""() => {
+    const errors = [];
+    let entries = 0;
+    let counts = 0;
+    if (document.documentElement.scrollWidth > innerWidth + 1) {
+        errors.push(`directory width ${document.documentElement.scrollWidth} exceeds viewport ${innerWidth}`);
+    }
+    for (const list of document.querySelectorAll('.chapters, .search-results')) {
+        if (list.closest('[hidden]')) continue;
+        const rows = [];
+        for (const item of list.children) {
+            entries++;
+            const link = item.firstElementChild;
+            if (!link?.matches('a[href]') || item.children.length !== 1 ||
+                [...item.childNodes].some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim())) {
+                errors.push('entry title and metadata must share one link: ' + item.textContent.trim());
+                continue;
+            }
+            const box = item.getBoundingClientRect();
+            const hitArea = link.getBoundingClientRect();
+            const count = link.querySelector('.entry-count');
+            if (count?.textContent.trim()) counts++;
+            const range = new Range();
+            range.selectNodeContents(link);
+            const rectangles = [...range.getClientRects(), hitArea];
+            if (!box.width || !box.height || rectangles.some(rect => rect.width && rect.height && (
+                rect.top < box.top - 1 || rect.bottom > box.bottom + 1 ||
+                rect.left < box.left - 1 || rect.right > box.right + 1))) {
+                errors.push('entry content escapes the row: ' + link.textContent.trim());
+            }
+            if (rows.some(other => Math.min(box.right, other.right) - Math.max(box.left, other.left) > 1 &&
+                Math.min(box.bottom, other.bottom) - Math.max(box.top, other.top) > 1)) {
+                errors.push('directory rows overlap: ' + link.textContent.trim());
+            }
+            rows.push(box);
+        }
+    }
+    return {entries, counts, errors: errors.slice(0, 12)};
+}"""
+
 LINE_AUDIT = r"""() => {
     const stats = {
         lines: 0, devanagari: 0, iast: 0, verse_pairs: 0,
@@ -281,6 +321,34 @@ async def keyboard_check(page):
     }""")
 
 
+async def check_directories(context, base, archive_routes, large_text, screenshot):
+    critical_routes = ["critical/" + book + "/" for book in (
+        "bala", "ayodhya", "aranya", "kishkindha", "sundara", "yuddha", "uttara",
+    )]
+    directories = ["", *archive_routes, "english/", *("english/" + route for route in archive_routes),
+                   "critical/", *critical_routes]
+    checked = {}
+    page = await context.new_page()
+    try:
+        if large_text:
+            await page.set_viewport_size({"width": 320, "height": 844})
+        for route in directories:
+            await open_route(page, base, route, large_text)
+            result = await page.evaluate(DIRECTORY_AUDIT)
+            if (route.startswith("critical/") or route == "english/") and result["counts"] != result["entries"]:
+                result["errors"].append("some entries are missing their counts")
+            checked[route or "index.html"] = result
+            if route == "critical/":
+                await page.locator(".chapters").screenshot(path=screenshot)
+        await open_route(page, base, "", large_text)
+        await page.locator("#search").fill("Rāma")
+        await page.locator(".search-results li").first.wait_for()
+        checked["index.html (Rāma search)"] = await page.evaluate(DIRECTORY_AUDIT)
+    finally:
+        await page.close()
+    return checked
+
+
 async def inspect_actual_browser_zoom(playwright, base, output):
     """Use Chromium's native setZoom for representative source blocks."""
     with TemporaryDirectory(prefix="verse-zoom-") as workspace:
@@ -328,6 +396,8 @@ async def inspect_actual_browser_zoom(playwright, base, output):
                     await page.locator("#" + anchor).screenshot(
                         path=str(output / f"after-native-zoom-{anchor}.png")
                     )
+            await open_route(page, base, "critical/", False)
+            reports["critical/"] = await page.evaluate(DIRECTORY_AUDIT)
             return {"zoom_factor": zoom_factor, "before": unzoomed, "after": zoomed, "routes": reports}
         finally:
             await context.close()
@@ -411,6 +481,12 @@ async def main(args):
         elif total["overflowing_regions"] and args.profile in {"mobile", "mobile-large-text"}:
             failures.append({"route": "baala/1/", "problem": "expected a narrow scrolling example"})
         await key_page.close()
+        archive_routes = sorted({urlsplit(route).path.split("/")[-3] + "/" for route in routes})
+        directories = await check_directories(context, base, archive_routes, large_text,
+                                              output / f"after-{args.profile}-critical-directory.png")
+        for route, result in directories.items():
+            if not result["entries"] or result["errors"]:
+                failures.append({"route": route, "directory": result})
         await browser.close()
         zoom = None
         if args.actual_browser_zoom:
@@ -420,10 +496,15 @@ async def main(args):
                 # The native browser extension is supplemental. Keep the
                 # exhaustive CSS viewport and font-zoom measurements.
                 zoom = {"error": str(error)}
+            if zoom.get("routes", {}).get("critical/", {}).get("errors"):
+                failures.append({"route": "critical/ at native 200% zoom", "directory": zoom["routes"]["critical/"]})
     report = {
         "profile": args.profile, "viewport": [width, height],
         "device_pixel_ratio": ratio, "root_text_200_percent": large_text,
         "chapter_routes": len(checked), "metrics": dict(total),
+        "directory_views": len(directories),
+        "directory_entries": sum(result["entries"] for result in directories.values()),
+        "directory_viewport_width": 320 if large_text else width,
         "compared_text_with_frozen_baseline": args.baseline_dist is not None,
         "keyboard": keyboard, "failures": failures,
         "native_browser_zoom": zoom,

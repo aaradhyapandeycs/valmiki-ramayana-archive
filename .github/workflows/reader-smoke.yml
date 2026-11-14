@@ -16,6 +16,9 @@ jobs:
       AXE_PATH: .reader-checks/node_modules/axe-core/axe.min.js
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
       - name: Install Chromium and automated accessibility checks
         run: |
           python3 -m pip install playwright fonttools

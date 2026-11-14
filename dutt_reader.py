@@ -53,7 +53,10 @@ def render_dutt(page, write, data_dir=None):
             raise ValueError(f"Incomplete Dutt corpus: {slug}")
         source_texts.extend(section["text"] for section in sections)
         title = f"{book} Kāṇḍa"
-        summaries.append(f'<li><a href="{slug}/">{title}</a> · {count} sections</li>')
+        summaries.append(
+            f'<li><a class="counted-link" href="{slug}/"><span>{title}</span> '
+            f'<span class="entry-count">{count} sections</span></a></li>'
+        )
         links = []
         for i, section in enumerate(sections):
             identifier = section["id"]

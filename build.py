@@ -39,10 +39,11 @@ def esc(s):
 def page(title, body, depth=0, *, rooted=False):
     prefix = BASE if rooted else "../" * depth
     home = prefix + "index.html"
-    english = (f'<a href="{home.replace("index.html", "english/")}">Dutt’s English translation</a>'
+    english = (f'<a href="{prefix}english/">Dutt’s English by section</a>'
                if DUTT.is_dir() else "")
     critical = (f'<a href="{prefix}critical/">Critical Edition English</a>'
                 if (CRITICAL / "manifest-all.json").is_file() else "")
+    historical_credit = "<p>Historical English translation by Manmatha Nath Dutt.</p>" if english or critical else ""
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09203F">
@@ -50,16 +51,16 @@ def page(title, body, depth=0, *, rooted=False):
 <link rel="stylesheet" href="{prefix}style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-head">
 <a class="brand" href="{home}">Vālmīki Rāmāyaṇa</a>
-<p class="tagline">A searchable directory of the six kāṇḍas</p>
+<p class="tagline">Sanskrit and English reading editions</p>
 <nav aria-label="Main navigation">
 <a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
 <a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}{critical}</nav></header>
 <main id="main" class="wrap" tabindex="-1">{body}</main><footer class="wrap">
-<p>Source chapter indexes: <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>.
-Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
-K. M. K. Murthy (Ayodhyā, Sundara, Yuddha), as credited on the source homepage.
-The source introduction also credits Durga Naaga Devi and Vaasudeva Kishore for Sundara contributions.</p>
-<p>See the source edition for the modern translation and commentary.</p>
+<p>The six-book Sanskrit archive follows <a href="{HOST}/">Valmikiramayan.net</a>.
+The source credits Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā) and
+K. M. K. Murthy (Ayodhyā, Sundara, Yuddha) for its modern English translation.
+Its introduction also credits Durga Naaga Devi and Vaasudeva Kishore for Sundara contributions.</p>
+{historical_credit}
 </footer></body></html>"""
 
 
@@ -189,7 +190,7 @@ def main():
                 if not groups:
                     status = " Verse-level references could not be verified for this chapter."
                 translation_note = (
-                    f'<p class="source-note">English source credit: {credit}.{status} '
+                    f'<p class="source-note">Modern English at the source by {credit}.{status} '
                     f'<a href="{esc(evidence["source_url"])}" rel="external">Read the chapter’s English at the source ↗</a>.</p>'
                 )
             matched_english = inline_groups(crosswalk, key, record, additions, critical_rows) if crosswalk and record else []
@@ -211,10 +212,11 @@ def main():
                 heading_note = (f'<details class="chapter-sources"><summary>Editorial heading</summary>'
                                 f'<p>Original index heading: {esc(correction["source_index_heading"])}</p>'
                                 f'<p>{esc(correction["reason"])} {refs}</p></details>')
+            source_materials = "word meanings and commentary" if translation_note else "its English translation, word meanings, and commentary"
             body = f"""<p class="eyebrow">{esc(name)} Kāṇḍa · Sarga {n} of {len(rows)}</p>
 <h1>{esc(row['title'])}</h1>
 {heading_note}
-<p class="source-note">Open the source edition for its English translation, word meanings, and commentary.</p>
+<p class="source-note">Open the source edition for {source_materials}.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
 {passage}
@@ -298,8 +300,8 @@ where each URL was found and which responses were observed.</p></section>"""
     )
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
 <h1>Explore the Rāmāyaṇa, chapter by chapter.</h1>
-<p>All 534 sargas in the six-book index, in source order. Search chapter headings, then follow
-the source edition for translation and commentary.</p>{critical_intro}
+<p>Search all 534 sargas in the six-book Sanskrit archive. The source links include
+the modern English translation and commentary.</p>{critical_intro}
 <p class="coverage">{render_coverage(sanskrit)}{' · <a href="sanskrit-coverage.json">Capture record</a>' if snapshot.is_file() else ""}</p>
 <label class="search-label" for="search">Search chapter headings or sarga number</label>
 <input id="search" type="search" placeholder="Try Rāma, forest, or 2-119" autocomplete="off">
@@ -310,7 +312,7 @@ the source edition for translation and commentary.</p>{critical_intro}
     write("index.html", page("Chapter directory", body))
     if DUTT.is_dir():
         render_dutt(page, write, DUTT)
-    render_critical(page, write, CRITICAL, critical_manifest, critical_books)
+    render_critical(page, write, CRITICAL, critical_manifest, critical_books, has_crosswalk=bool(crosswalk))
     if crosswalk:
         write("critical/archive-matching-audit.json", json.dumps({
             "source_match_report": crosswalk,

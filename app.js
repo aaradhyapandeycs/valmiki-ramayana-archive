@@ -1,6 +1,7 @@
 const field = document.querySelector("#search");
 const output = document.querySelector("#results");
 const books = document.querySelector("#books");
+const bookLinks = document.querySelector(".book-links");
 const count = document.querySelector("#search-count");
 
 function normalize(text) {
@@ -10,6 +11,7 @@ function normalize(text) {
 function render(entries) {
   const query = normalize(field.value.trim());
   books.hidden = Boolean(query);
+  bookLinks.hidden = books.hidden;
   output.hidden = !query;
   output.replaceChildren();
   count.textContent = "";

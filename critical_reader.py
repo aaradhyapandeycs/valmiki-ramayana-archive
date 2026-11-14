@@ -84,7 +84,7 @@ def passage_key(row):
     return row["id"]
 
 
-def render_critical(page, write, source_dir, manifest, books):
+def render_critical(page, write, source_dir, manifest, books, *, has_crosswalk=False):
     if not manifest:
         return
     headings = []
@@ -92,11 +92,15 @@ def render_critical(page, write, source_dir, manifest, books):
         name = NAMES[slug]
         name = f"{name} Kāṇḍa"
         headings.append(
-            f'<li><a href="{slug}/">{name}</a> · {len(chapters)} sargas</li>'
+            f'<li><a class="counted-link" href="{slug}/"><span>{name}</span> '
+            f'<span class="entry-count">{len(chapters)} sargas</span></a></li>'
         )
         links = []
         for number, rows in chapters.items():
-            links.append(f'<li><a href="{number}/">Sarga {number}</a> · {len(rows)} coordinates</li>')
+            links.append(
+                f'<li><a class="counted-link" href="{number}/"><span>Sarga {number}</span> '
+                f'<span class="entry-count">{len(rows)} coordinates</span></a></li>'
+            )
             previous = f'<a href="../{number-1}/">← Previous</a>' if number > 1 else ""
             following = f'<a href="../{number+1}/">Next →</a>' if number < len(chapters) else ""
             title = f"{name} · Sarga {number}"
@@ -114,15 +118,20 @@ def render_critical(page, write, source_dir, manifest, books):
             name, f'<p class="eyebrow"><a href="../">Critical Edition English</a></p><h1>{name}</h1>'
                   f'<ol class="chapters">{"".join(links)}</ol>', 2,
         ))
+    matching_audit = (' · <a href="archive-matching-audit.json">Six-book archive matching audit</a>'
+                      if has_crosswalk else "")
     write("critical/index.html", page("Critical Edition English", (
         '<h1>Critical Edition English</h1>'
         f'<p>M. N. Dutt’s historical prose at {manifest["totalVerses"]:,} Critical Edition coordinates '
         f'in {manifest["totalSargas"]} sargas across seven kāṇḍas.</p>'
-        '<p class="source-note">The source’s automated alignment uses Baroda Critical Edition numbering. '
-        'Grouped, split, and approximate matches are identified on each page. The alignment is unreviewed.</p>'
+        '<p class="source-note">The source automatically aligned Dutt’s prose to the Baroda Critical Edition. '
+        'The alignment is unreviewed. A direct match pairs one coordinate with one Dutt reference. '
+        'Grouped matches share a Dutt reference across coordinates. Split matches draw on multiple Dutt '
+        'references for one coordinate. Approximate matches have uncertain correspondence. '
+        'The same English can appear at multiple coordinates in the source alignment.</p>'
         f'<p><a href="{ORIGIN}">Original Critical Edition reader ↗</a> · '
         '<a href="https://huggingface.co/datasets/rahular/itihasa">Itihāsa dataset and Apache 2.0 license ↗</a> · '
-        '<a href="capture-audit.json">Transfer audit</a></p>'
+        f'<a href="capture-audit.json">Transfer audit</a>{matching_audit}</p>'
         f'<ol class="chapters">{"".join(headings)}</ol>'
     ), 1))
     for item in ("capture-audit.json", "source-manifest.json", "LICENSE"):
