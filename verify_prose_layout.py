@@ -171,7 +171,8 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
         reviewed_chapters = (("baala/5", 12, 14), ("baala/6", 16, 16), ("baala/7", 20, 23),
                              ("baala/8", 20, 23), ("baala/12", 14, 20),
                              ("baala/19", 19, 20), ("baala/69", 13, 17), ("baala/77", 21, 24),
-                             ("kish/47", 14, 14), ("sundara/60", 5, 6))
+                             ("ayodhya/102", 7, 7), ("aranya/70", 19, 19), ("kish/47", 14, 14),
+                             ("sundara/60", 5, 6), ("yuddha/15", 14, 14))
         for chapter, translated, units in reviewed_chapters:
             await open_route(page, args.after, chapter + "/", enlarged)
             originals = page.locator(".original-translation")

@@ -619,5 +619,30 @@
         ]
       }
     ]
+  },
+  "ayodhya/102": {
+    "section": "102",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-cii",
+    "section_sha256": "896d3b84a7aba74f9032d7fa99ed19d2d9e46a0ca914d64591774c0178d20a2d",
+    "passages": [
+      {
+        "refs": [
+          "2-102-3"
+        ],
+        "units": [
+          "verse-3"
+        ],
+        "unit_sha256": [
+          "61ed34cfdc5525407f646a75341620ced22b8e1a943a17ba49e709bc22a97f69"
+        ],
+        "english_span": [
+          322,
+          456
+        ],
+        "replaces_critical_refs": [
+          "VRCE-2-95-3"
+        ]
+      }
+    ]
   }
 }

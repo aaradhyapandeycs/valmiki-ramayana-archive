@@ -1580,5 +1580,372 @@
       ],
       "original_english": "Jāmbavān, foremost among the forest creatures, was delighted by Aṅgada’s resolve. Understanding the matter, he gave this considered reply: “Prince, the plan you propose is within our powers. But see that we accomplish the task in the way Rāma intends.”"
     }
+  ],
+  "ayodhya/102": [
+    {
+      "refs": [
+        "2-102-1"
+      ],
+      "original_english": "Hearing Rāma’s words, Bharata replied, ‘What good can a king’s duties do me if I have forsaken what is right?’",
+      "unit_sha256": [
+        "3160b64b9eeee739429f7902881de026a23cab4bdc7eafd0a549ad5a365c1df1"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-2"
+      ],
+      "original_english": "‘Foremost of men, this has always been the rule among us: while the eldest son is alive, O king, a younger son may not reign.’",
+      "review_note": "The pinned Sanskrit has transposed or omitted characters in dhramaḥ, jeṣṭha, and sthte. The source’s own gloss confirms dharmaḥ, jyeṣṭha, and sthite, which supply the sense. The displayed Sanskrit is preserved.",
+      "unit_sha256": [
+        "b2d41163a3ac0651e69a016e1155e6f8ab5e849f3f5d0fbec7a344133e81195a"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-4"
+      ],
+      "original_english": "‘People call a king human, but I regard him as divine: conduct that joins right action to the good of the realm is said to be more than human.’",
+      "unit_sha256": [
+        "80117c783059dee01bac9fc11ed3a394fce8bb1720cae34ab92fe168f8d28549"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-5"
+      ],
+      "original_english": "‘While I was in Kekaya and you had gone to live in the forest, our revered father, the king, went to heaven. He performed sacrifices regularly and was esteemed by good people.’",
+      "unit_sha256": [
+        "3cdce3b45f4475bad58aeb3bcfa44c18f7e30de08adb8a29fd98415b1e5357cd"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-6"
+      ],
+      "original_english": "‘No sooner had you left with Sītā and Lakṣmaṇa than the king, overcome by sorrow and grief, went to heaven.’",
+      "unit_sha256": [
+        "858d28f845008120c803c9eb151bc5e3a28bf32e5d3047a7124cc28c24bfff1a"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-8"
+      ],
+      "original_english": "‘Descendant of Raghu, they say that what a beloved son offers endures forever in the world of the ancestors. And you were dear to our father.’",
+      "unit_sha256": [
+        "795df8d4cd5404a7b13641b0f325cbc7fcaf9176a23394da77ce3794064d58fc"
+      ]
+    },
+    {
+      "refs": [
+        "2-102-9"
+      ],
+      "original_english": "‘Your father grieved for you alone and longed to see you. His thoughts clung to you and would not turn away. Bereft of you and sunk in grief over you, he died with you still in his thoughts.’",
+      "unit_sha256": [
+        "e11c8cbdf62887c10c22a85c9ba1dd49ebef4e287b023db1ad0581002997a654"
+      ]
+    }
+  ],
+  "aranya/70": [
+    {
+      "refs": [
+        "3-70-1"
+      ],
+      "original_english": "When Kabandha saw the two brothers, Rāma and Lakṣmaṇa, caught in the coils of his arms, he addressed them.",
+      "unit_sha256": [
+        "e6b3ea9b4c74137a6b07279928baeb4a3ac9950d387d4e765e7db2b51e97fb6d"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-2"
+      ],
+      "original_english": "“Why do you stand there, you two foremost warriors, when you see how hungry I am? Fate has sent you here for my meal. Your lives are already lost.”",
+      "unit_sha256": [
+        "a661bca22f52670952c9ac2282359164bd128c5b9fadbdc5880cb2c090d46887"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-3"
+      ],
+      "original_english": "Distressed by those words, Lakṣmaṇa resolved to use his strength and gave Rāma advice suited to the moment.",
+      "unit_sha256": [
+        "ebcd1cc8173a05983708dd863a56f2b7f2d7112a0672e0347661baea25c30cf8"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-4"
+      ],
+      "original_english": "“Let us use our swords to cut off his great arms before this wretched rākṣasa snatches us both up.",
+      "unit_sha256": [
+        "c8f46d2313436b5a450c062af6ac1dda1e6e3620e27532fb48fb3cc3c6d7bc4a"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-5"
+      ],
+      "original_english": "“This enormous rākṣasa is fearsome. The strength of his arms has subdued the people, and now he wants to kill us both.",
+      "unit_sha256": [
+        "98f5b8f00338c99257cfce8fcab881c3245e61f94646dbdd18b6215abf6e9d86"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-6"
+      ],
+      "original_english": "“For a ruler, Rāghava, it is blameworthy to kill those who cannot resist, as it is to kill animals brought in midway through a sacrifice.”",
+      "unit_sha256": [
+        "f88896408ab1d41ac7f0a42b909b021ef998e31466ba435f3b2c7772e259f546"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-7"
+      ],
+      "original_english": "The rākṣasa heard them talking and grew furious. He stretched his dreadful mouth wide and set about devouring them.",
+      "unit_sha256": [
+        "013446b3337d26746dbf3bf9d663f1f32ad8cc32c0d7ac6a6d9c8930d883d59a"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-8"
+      ],
+      "original_english": "The two descendants of Raghu, seeing their chance, were overjoyed. With their swords they cut off both his arms at the shoulders.",
+      "unit_sha256": [
+        "0bb689f3884cc65ac730ed146cb6b6256a7d54286397411354d56e5a846c8efc"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-9"
+      ],
+      "original_english": "The dexterous Rāma struck swiftly and cleanly, severing the right arm with his sword. The brave Lakṣmaṇa cut off the left.",
+      "unit_sha256": [
+        "c6f9631b95268581a8c5d8d6480ea68a1c525bdbec66d0bcd2fdbdbd8752cd18"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-10"
+      ],
+      "original_english": "The giant-armed creature, now with both arms severed, fell with a roar like thunder, making the sky, earth, and all directions resound.",
+      "unit_sha256": [
+        "90148272ae9798ce1bfe574ed550912e809d1f7506b9f1e87b4c86b4c2d9b275"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-11"
+      ],
+      "original_english": "When the demon saw both his arms cut off and himself drenched in blood, he asked the two warriors wretchedly, “Who are you?”",
+      "unit_sha256": [
+        "d068dc1a8b09ff92467d39bf5b50e9a44033682758234e9ae06c7ef35059ac8a"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-12"
+      ],
+      "original_english": "In answer to Kabandha’s question, the mighty Lakṣmaṇa, who bore auspicious marks, told him who the descendant of Kakutstha was.",
+      "unit_sha256": [
+        "9a009660a084327376d079bcf26afe6251f6dc15eb28f13beaecafb34a3a996f"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-13"
+      ],
+      "original_english": "“This is the heir of Ikṣvāku, known to all as Rāma. I am his younger brother, Lakṣmaṇa.",
+      "unit_sha256": [
+        "25224520d099c7c26518665c9c84dceb3c839de6dd6ee47add0597ca9a99ba79"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-14"
+      ],
+      "original_english": "“Rāma’s stepmother kept him from the throne, and he was sent into the forest. He travels through this vast forest with me and his wife.",
+      "unit_sha256": [
+        "dcc47f66f81a6d16ceb2a086ee228df90ef3d02d75049d26fd7acc1e8647b6d2"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-15"
+      ],
+      "original_english": "“While this man of godlike power was living in a lonely part of the forest, a rākṣasa took his wife. We have come here in search of her.",
+      "unit_sha256": [
+        "ae9decad4e04559ba825697cc28d291888a6aae352a8ee36af16972b1395a3aa"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-16"
+      ],
+      "original_english": "“Who are you? Why do you writhe in the forest like a headless trunk, with broken legs and a blazing mouth in your chest?”",
+      "unit_sha256": [
+        "f52545d89716941f323fb3ebedc14139171e0f393e38eb3cde85df6b21cd50c7"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-17"
+      ],
+      "original_english": "When Lakṣmaṇa said this, Kabandha remembered Indra’s words. Delighted, he replied.",
+      "unit_sha256": [
+        "6e416e269c76bfb7f4874bdd43feeeb76ae70cb6e2946c03358c3a5cf06d1c59"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-18"
+      ],
+      "original_english": "“Welcome, tigers among men. How fortunate that I see you both, and that you two have cut away these arms that were my bonds.",
+      "unit_sha256": [
+        "a79263b04e3ac318dac12c014b91111c9866614cb8c8aee834d3db9b39fdf827"
+      ]
+    },
+    {
+      "refs": [
+        "3-70-19"
+      ],
+      "original_english": "“Tiger among men, listen as I tell you exactly how my own misconduct brought me to this misshapen form.”",
+      "unit_sha256": [
+        "44fcc32ed6e50328a4b479092907558bfe1edf2c594bd92662b9546f3b165b03"
+      ]
+    }
+  ],
+  "yuddha/15": [
+    {
+      "refs": [
+        "6-15-1"
+      ],
+      "unit_sha256": [
+        "adbca67dd0f28a4fd6bde881348784dd0b5c91d188085c29d7a97be0b14b9497"
+      ],
+      "original_english": "Indrajit, the high-spirited leader of the rākṣasa hosts, listened carefully to Vibhīṣaṇa, whose understanding equaled Bṛhaspati’s. Then he spoke."
+    },
+    {
+      "refs": [
+        "6-15-2"
+      ],
+      "unit_sha256": [
+        "c1a02a776a0e3554f1974469b0c285f55c762f17b23d1e6970b289caa9a83cf8"
+      ],
+      "original_english": "“My youngest uncle, what is this senseless talk? You sound terrified. Even someone born outside this family would never speak or act this way."
+    },
+    {
+      "refs": [
+        "6-15-3"
+      ],
+      "unit_sha256": [
+        "1cdf1f3e03860adf38277633323ea919102e29ca88bfb1bf2be95b2af46732ec"
+      ],
+      "original_english": "“There is only one man in our family who lacks strength, vigor, prowess, resolve, valor, and force of spirit. It is this Vibhīṣaṇa, my youngest uncle."
+    },
+    {
+      "refs": [
+        "6-15-4"
+      ],
+      "unit_sha256": [
+        "59d53aeddd75593d1976d3256a8619dfe4707fc7b80dc54e03ee49f641bdd149"
+      ],
+      "original_english": "“What are those two mortal princes to us? A single rākṣasa of ours, even the most ordinary, could kill them both. Why try to frighten us, coward?"
+    },
+    {
+      "refs": [
+        "6-15-5"
+      ],
+      "unit_sha256": [
+        "e83096d950130760cd43e32e4bae70d1cfd04f91d90c5d2e9c64229d94d3c2d5"
+      ],
+      "original_english": "“I brought the mighty king of the gods, lord of the three worlds, down to the ground. Then all the hosts of gods fled in terror in every direction."
+    },
+    {
+      "refs": [
+        "6-15-6"
+      ],
+      "unit_sha256": [
+        "981d7cd3202ebf21e7c39b4c98d567a6dcbf4f45ba54659825bac4db3fd52fda"
+      ],
+      "original_english": "“I hurled Airāvata to the ground as he gave a harsh cry. I tore out both his tusks by force and struck terror into all the hosts of gods."
+    },
+    {
+      "refs": [
+        "6-15-7"
+      ],
+      "unit_sha256": [
+        "1ade6fcc15cd058fc79506285d903a71e4e78ee8a2fb1ee41bd76cd3da21b915"
+      ],
+      "original_english": "“I have broken the pride of gods themselves and brought grief even to the greatest Daityas. How could I, with all my strength, be unable to overcome two princes who are ordinary mortals?”"
+    },
+    {
+      "refs": [
+        "6-15-8"
+      ],
+      "unit_sha256": [
+        "beb25a46155999449aaae7fd8825b3f381f6bb196958bb074543ca0b54e9ba76"
+      ],
+      "original_english": "Vibhīṣaṇa, foremost among warriors, heard these words from Indrajit, a man of great might who was Indra’s peer and dangerous to face. He gave this weighty reply."
+    },
+    {
+      "refs": [
+        "6-15-9"
+      ],
+      "unit_sha256": [
+        "9119b8b530fd2c6cf1fe9534c110267f12878cdee8f4afd7e0dc27913e81de2c"
+      ],
+      "original_english": "“My boy, your counsel shows no settled judgment. You are still a child and your understanding has not ripened. That is why you are talking so much nonsense, to your own ruin."
+    },
+    {
+      "refs": [
+        "6-15-10"
+      ],
+      "unit_sha256": [
+        "a8057f6ec27c2a7795264e7975997b273969ddd9b58b309aeb5848dca193fb91"
+      ],
+      "original_english": "“Indrajit, you are called Rāvaṇa’s son, yet you are an enemy with the face of a friend. You hear of the ruin he faces at Rāma’s hands and, in your delusion, still consent to it."
+    },
+    {
+      "refs": [
+        "6-15-11"
+      ],
+      "unit_sha256": [
+        "627e7285365d3f4d0d7188306604bc7868234ee56492400d465acfa0dcda71dd"
+      ],
+      "original_english": "“You deserve death, fool that you are, and so does the man who brought you here today. He ushered a thoroughly reckless child into the company of counselors."
+    },
+    {
+      "refs": [
+        "6-15-12"
+      ],
+      "unit_sha256": [
+        "a6d688d573b75e6c44eb02028f95ab2494477dd20e4df7170bca59cd7089edbd"
+      ],
+      "original_english": "“Indrajit, you are foolish and inexperienced, ill-mannered and harsh by nature, short-sighted and ill-intentioned. Your judgment is utterly unsound. It is childishness that makes you speak this way."
+    },
+    {
+      "refs": [
+        "6-15-13"
+      ],
+      "unit_sha256": [
+        "c7688f5382b0c5f14c4f720fd215e420fb9e1f6a1d920187add84f76cfb4f552"
+      ],
+      "original_english": "“Who could withstand the blazing arrows Rāma lets fly in battle at an enemy facing him? They gleam like Brahmā’s staff, look like Death itself, and are like Yama’s rod."
+    },
+    {
+      "refs": [
+        "6-15-14"
+      ],
+      "unit_sha256": [
+        "a37f11854e65e6f8b1f0d78830563181988d2bc9e01f64ffd6d3d86ef26dc980"
+      ],
+      "original_english": "“O king, let us give Rāma wealth, precious stones, fine ornaments, splendid garments, gems of many colors, and the lady Sītā. Then we can live here free of grief.”"
+    }
   ]
 }

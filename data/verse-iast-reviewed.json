@@ -1158,5 +1158,27 @@
         ]
       }
     ]
+  },
+  {
+    "book": 6,
+    "sarga": 15,
+    "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga15/yuddhasans15.htm",
+    "source_sha256": "f5a7c00f422c35aa892d718016519ebee82fba62adf05ce3824893cf284c203b",
+    "roman_witness_url": "https://sanskritdocuments.org/sites/valmikiramayan/yuddha/sarga15/yuddharoman15.htm#Verse11",
+    "verses": [
+      {
+        "ref": "6-15-11",
+        "unit_sha256": "8a87169eb4ff00d369ceadbe84de720bf86e2400182da747b4f90bf05cad9924",
+        "substitutions": [
+          {
+            "offset": 110,
+            "from": "क्ऱ्^",
+            "to": "कृ",
+            "original_token": "मन्त्रक्ऱ्^ताम्",
+            "roman_witness_token": "mantrakR^tām"
+          }
+        ]
+      }
+    ]
   }
 ]
