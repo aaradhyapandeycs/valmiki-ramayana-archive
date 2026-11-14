@@ -1,0 +1,59 @@
+{
+  "base": "https://valmikiramayan.net/",
+  "visited": 1084,
+  "discovered_link_edges": 7864,
+  "pending": 0,
+  "crawl_exhausted": true,
+  "complete": false,
+  "failed_or_unvisited_seeds": [
+    "https://valmikiramayan.net/",
+    "https://valmikiramayan.net/vr_index.htm",
+    "https://valmikiramayan.net/utf8/",
+    "https://valmikiramayan.net/utf8/ramayana.shtml",
+    "https://valmikiramayan.net/baala/",
+    "https://valmikiramayan.net/baala/baala_contents.htm",
+    "https://valmikiramayan.net/utf8/baala/",
+    "https://valmikiramayan.net/utf8/baala/baala_contents.htm",
+    "https://valmikiramayan.net/ayodhya/",
+    "https://valmikiramayan.net/ayodhya/ayodhya_contents.htm",
+    "https://valmikiramayan.net/utf8/ayodhya/",
+    "https://valmikiramayan.net/utf8/ayodhya/ayodhya_contents.htm",
+    "https://valmikiramayan.net/aranya/",
+    "https://valmikiramayan.net/aranya/aranya_contents.htm",
+    "https://valmikiramayan.net/utf8/aranya/",
+    "https://valmikiramayan.net/utf8/aranya/aranya_contents.htm",
+    "https://valmikiramayan.net/kish/",
+    "https://valmikiramayan.net/kish/kishkindha_contents.htm",
+    "https://valmikiramayan.net/utf8/kish/",
+    "https://valmikiramayan.net/utf8/kish/kishkindha_contents.htm",
+    "https://valmikiramayan.net/sundara/",
+    "https://valmikiramayan.net/sundara/sundara_contents.htm",
+    "https://valmikiramayan.net/utf8/sundara/",
+    "https://valmikiramayan.net/utf8/sundara/sundara_contents.htm",
+    "https://valmikiramayan.net/yuddha/",
+    "https://valmikiramayan.net/yuddha/yuddha_contents.htm",
+    "https://valmikiramayan.net/utf8/yuddha/",
+    "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm"
+  ],
+  "incompletely_verified_books": [
+    "baala",
+    "ayodhya",
+    "aranya",
+    "kish",
+    "sundara",
+    "yuddha"
+  ],
+  "unresolved_urls": [],
+  "discovery_scope": "Chapter directory listings only. Listed child files were not individually fetched.",
+  "statuses": {
+    "http_200": 1084
+  },
+  "methods": {
+    "GET": 1084
+  },
+  "note": "GET limited to HTML-like paths; binary links are HEAD only. Hashes are of fetched raw HTML bytes.",
+  "directories_with_child_links": 1084,
+  "directories_by_response": {
+    "http_200": 1084
+  }
+}
