@@ -1,0 +1,27 @@
+name: Valmiki markup sample
+on:
+  push:
+    paths: ['.github/workflows/valmiki-sample.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnose source responses and robots policy
+        run: |
+          python3 - <<'PY'
+          import urllib.request,re
+          urls=['https://valmikiramayan.net/robots.txt','https://valmikiramayan.net/baala/baala_contents.htm']
+          for url in urls:
+            for ua in (None,'ValmikiRamayanaInventory/1.0 (+academic preservation audit; no binary downloads)'):
+              try:
+                headers={'User-Agent':ua} if ua else {}
+                with urllib.request.urlopen(urllib.request.Request(url,headers=headers),timeout=20) as r:
+                  raw=r.read(100000)
+                s=raw.decode('utf-8',errors='replace')
+                print('URL',url,'UA',ua or 'default','bytes',len(raw),'href',len(re.findall('href=',s,re.I)))
+                print(re.sub(r'\\s+',' ',s[:450]))
+              except Exception as e: print('ERROR',url,ua,repr(e))
+          PY

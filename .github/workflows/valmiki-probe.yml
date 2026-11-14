@@ -1,0 +1,21 @@
+name: Valmiki source access probe
+on:
+  push:
+    paths: ['.github/workflows/valmiki-probe.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source and mirror HTTP availability
+        run: |
+          for url in \
+            https://valmikiramayan.net/ \
+            https://valmikiramayan.net/utf8/ \
+            https://valmikiramayan.net/utf8/baala/sarga1/balaitrans1.htm \
+            https://www.sanskritdocuments.org/sites/valmikiramayan/; do
+            echo "URL: $url"
+            curl -L --max-time 20 -sS -o /dev/null -w 'HTTP %{http_code}; final %{url_effective}; bytes %{size_download}\n' "$url" || true
+          done

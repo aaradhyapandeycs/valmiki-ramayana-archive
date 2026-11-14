@@ -1,0 +1,16 @@
+{
+  "base": "https://valmikiramayan.net/",
+  "visited": 28,
+  "discovered_link_edges": 0,
+  "pending": 0,
+  "crawl_exhausted": true,
+  "complete": true,
+  "failed_or_unvisited_seeds": [],
+  "statuses": {
+    "http_200": 28
+  },
+  "methods": {
+    "GET": 28
+  },
+  "note": "GET limited to HTML-like paths; binary links are HEAD only. Hashes are of fetched raw HTML bytes."
+}
