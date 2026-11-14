@@ -1051,5 +1051,347 @@
         "33b94972ed27ae21c6d8f2b1be79ad302580b7520f05387b9ff6bef403eb23c5"
       ]
     }
+  ],
+  "baala/8": [
+    {
+      "refs": [
+        "1-8-1"
+      ],
+      "unit_sha256": [
+        "67723261e6fef240f8bf5d9af2101bf40b7a7366da2add0cff64bcb0275d4127"
+      ],
+      "original_english": "Though Daśaratha was a mighty, high-minded king who knew dharma, he had no son to carry on his line, and the longing for one weighed heavily on him."
+    },
+    {
+      "refs": [
+        "1-8-3",
+        "1-8-4"
+      ],
+      "unit_sha256": [
+        "62a85f28b18c9403f6f78579f390e9279a7b60d4b4edb4981eac583d1f5b4512",
+        "9fdadaa5c60bcbb3065ad244708a1f1d25d26c6b8c4d451c2d7c4cff7a454169"
+      ],
+      "original_english": "After consulting all his upright ministers, the wise and virtuous king made up his mind to offer the sacrifice. He told Sumantra, foremost of his counselors, “Bring all my teachers and the royal priests here at once.”"
+    },
+    {
+      "refs": [
+        "1-8-5",
+        "1-8-6"
+      ],
+      "unit_sha256": [
+        "51c55b1b918411361749d3af638ca576da323bd9bc1f7ebb68fdba18c20a5b3d",
+        "6ed7d80ff84bbb69d31fb9f7670737a86bb0d3a9742a49f6c32cc1d8b83316fb"
+      ],
+      "original_english": "Sumantra, quick to act, went at once and brought them all, men thoroughly versed in the Vedas. Among them were Suyajña, Vāmadeva, Jābāli, Kāśyapa, the royal priest Vasiṣṭha, and other eminent men of the twice-born orders."
+    },
+    {
+      "refs": [
+        "1-8-7"
+      ],
+      "unit_sha256": [
+        "a9c39683565993ef1eff777531d97ef9282bd006113b75263e46ba230d30c6c4"
+      ],
+      "original_english": "The virtuous King Daśaratha welcomed them with due honor, then spoke gently of what was both right and fitting."
+    },
+    {
+      "refs": [
+        "1-8-8"
+      ],
+      "unit_sha256": [
+        "d2d66ff06b12a0e265f347e21e25c49be23f45b135910d03556b0101fbc0216d"
+      ],
+      "original_english": "“I can find no peace while I long so desperately for a son. I have decided to offer a horse sacrifice for that purpose."
+    },
+    {
+      "refs": [
+        "1-8-9"
+      ],
+      "unit_sha256": [
+        "9700407a21ecf6191bc5216c106aed3b29c9128b84905a5cd6008178e2d5ef1c"
+      ],
+      "original_english": "“I want to offer the sacrifice by the rites laid down in the sacred texts. Consider how my wish might be fulfilled.”"
+    },
+    {
+      "refs": [
+        "1-8-10"
+      ],
+      "unit_sha256": [
+        "25cb468806f0d728de52b567142ec5d543dbc4b00c3f9aeff069973c6271ffea"
+      ],
+      "original_english": "All the brahmins, led by Vasiṣṭha, welcomed the king’s words, saying that he had spoken well."
+    },
+    {
+      "refs": [
+        "1-8-11"
+      ],
+      "unit_sha256": [
+        "f64f7058130fb8a48eedd39ab2bc82653309e247ece45ff62e9a16c40493aed2"
+      ],
+      "original_english": "Delighted, they all answered Daśaratha, “Have the supplies for your sacrifice gathered and the horse set free."
+    },
+    {
+      "refs": [
+        "1-8-12",
+        "1-8-13a"
+      ],
+      "unit_sha256": [
+        "6adce16ca1c2d29c5a3cbba706a366eb38ab9668323e1b7448e3d749f407f085",
+        "e037854e669066d31e5901147adf8f33149a143d477bb62732be5a9ca5fa487c"
+      ],
+      "original_english": "“Prepare the sacrificial ground on the north bank of the Sarayū. You will surely have the sons you desire, O king, since this resolve in keeping with dharma has come to you in your longing for a son.”"
+    },
+    {
+      "refs": [
+        "1-8-13b",
+        "1-8-14"
+      ],
+      "unit_sha256": [
+        "e037854e669066d31e5901147adf8f33149a143d477bb62732be5a9ca5fa487c",
+        "f94389cc2e637d1a584ac2efb462adeec3d5b3c0abe4ae395a8f95d9db771528"
+      ],
+      "original_english": "The king was glad to hear the brahmins’ reply. His eyes filled with joy as he turned to his ministers and said, “Gather what I need for the sacrifice, as my teachers have directed."
+    },
+    {
+      "refs": [
+        "1-8-15"
+      ],
+      "unit_sha256": [
+        "b611822f0398e05b7a4ac67b196c7c2ce26cbf5d993d5d7c3835604d4094decb"
+      ],
+      "original_english": "“Release the horse under the guard of capable men, with the officiating teachers accompanying it. Prepare the sacrificial ground on the north bank of the Sarayū."
+    },
+    {
+      "refs": [
+        "1-8-16"
+      ],
+      "unit_sha256": [
+        "8c63a43df45aa16f3bb6cad9ee94f00a12d586242066ab893712a9913d0dcbf8"
+      ],
+      "original_english": "“Carry out the rites to ward off misfortune in the prescribed order and manner. Any king could accomplish this sacrifice, the greatest of rites, if no grave error were to occur."
+    },
+    {
+      "refs": [
+        "1-8-17"
+      ],
+      "unit_sha256": [
+        "6c3cc5c116dfec538436a8ebffeb9eb46ec529d1630dfe777208633ab2ee7316"
+      ],
+      "original_english": "“Learned brahmarākṣasas watch for any flaw in the rite. If the sacrifice is performed without observing its rules, the one who undertakes it meets immediate ruin."
+    },
+    {
+      "refs": [
+        "1-8-18"
+      ],
+      "unit_sha256": [
+        "61bd0e1656a5fd443438643b7f590439aae08b01a92c33adad1425f1cf2db230"
+      ],
+      "original_english": "“Make the arrangements so that my sacrifice is completed according to its rules. You know how to provide all that it requires.”"
+    },
+    {
+      "refs": [
+        "1-8-19"
+      ],
+      "unit_sha256": [
+        "572c58a4033d1e20aa3b41427df560f236c20662dfc034a7c6d544d72633fd18"
+      ],
+      "original_english": "The ministers, who had been duly honored, heard the king’s words. They all replied, “So be it. We will do as has been done before.”"
+    },
+    {
+      "refs": [
+        "1-8-20"
+      ],
+      "unit_sha256": [
+        "559054b76b0f4672b940ea2408252e31de6883a0462ebbacc4fd699bff512b50"
+      ],
+      "original_english": "The twice-born priests, versed in dharma, pronounced their blessings on the king. With his leave they went back the way they had come."
+    },
+    {
+      "refs": [
+        "1-8-21"
+      ],
+      "unit_sha256": [
+        "ca919a233869fcde48b41493c638c66c507f662a5c1a4a3ba21d5ff0a554155f"
+      ],
+      "original_english": "After dismissing the brahmins, the king told his ministers, “See that the sacrifice is carried out exactly as the officiating priests have directed.”"
+    },
+    {
+      "refs": [
+        "1-8-22"
+      ],
+      "unit_sha256": [
+        "391b60268b7565b9ec5a104e28d9dc0f79c1001ec76ceb1e1ae397072c4d0fbb"
+      ],
+      "original_english": "The wise king, a tiger among rulers, then dismissed the ministers who stood before him and went into his own residence."
+    },
+    {
+      "refs": [
+        "1-8-23"
+      ],
+      "unit_sha256": [
+        "e92c2ebb41be558c3c20d70116f293c55c14543fe284f71db067af3a000dc88a"
+      ],
+      "original_english": "The king went to the wives dear to his heart and said, “Enter the rites of consecration. I am going to offer a sacrifice to have sons.”"
+    },
+    {
+      "refs": [
+        "1-8-24"
+      ],
+      "unit_sha256": [
+        "746b289c27a78bfca3853a35c50a7291bbc50db285c76d8d93243cd046bdffe4"
+      ],
+      "original_english": "At these welcome words, the radiant queens’ lotus faces came to shine like lotuses when winter has passed."
+    }
+  ],
+  "baala/12": [
+    {
+      "refs": [
+        "1-12-1"
+      ],
+      "original_english": "Much time passed. Then, with the arrival of a lovely spring, the king decided to perform a sacrifice.",
+      "unit_sha256": [
+        "f245eeb63f03933495bc34804ffe910fe47d4c352ff67e12c693a88d09df1d7b"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-2"
+      ],
+      "original_english": "Bowing his head, he won the favor of that brahmin, who shone like a god. He chose him to officiate at the sacrifice so that his line might continue.",
+      "unit_sha256": [
+        "8d86dc87d2b6aeadce9dc08fea708f26644e89bc469872c60cd3f96ef4be9d8f"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-3",
+        "1-12-4a"
+      ],
+      "original_english": "Treated with great honor, the brahmin agreed. He told the king, ‘Gather the materials for your rite, let the horse be released, and prepare the ground for the sacrifice on the north bank of the Sarayū.’",
+      "unit_sha256": [
+        "fde0ccd5b39f9dc9875a494530de6bdc7d639ccc89a1439f9749023d27c7928f",
+        "840d94236a73318897b0cf4793a352ceb8c3ef74c07862cd0803ce409b951c95"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-4b",
+        "1-12-5",
+        "1-12-6a"
+      ],
+      "original_english": "Then the king told Sumantra, his foremost minister, ‘Sumantra, summon the officiating priests at once, those versed in the Vedas: Suyajña, Vāmadeva, Jābāli, Kāśyapa, our household priest Vasiṣṭha, and the other eminent twice-born men.’",
+      "unit_sha256": [
+        "840d94236a73318897b0cf4793a352ceb8c3ef74c07862cd0803ce409b951c95",
+        "72fffc1030a62b73dd1ffecea3b9747f80a7f0e6540b9c4528b61601eda4d27e",
+        "7c7aa52f355add0f29fc8255c8295224efa3cda0743e0b83e8ac0d4eb6f0ab11"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-6b",
+        "1-12-7a"
+      ],
+      "original_english": "Sumantra went at once, quick in his movements, and brought back all those men who had mastered the Vedas, gathering them together.",
+      "unit_sha256": [
+        "7c7aa52f355add0f29fc8255c8295224efa3cda0743e0b83e8ac0d4eb6f0ab11",
+        "89b29c217721fa54c6316b7bda10eb53abdf3c38a7c649f9a907636bc42afe6a"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-7b",
+        "1-12-8",
+        "1-12-9",
+        "1-12-10a"
+      ],
+      "original_english": "The righteous King Daśaratha honored them and addressed them gently, with well-chosen words appropriate to duty and the matter at hand: ‘I keep lamenting my lack of a son and find no happiness. For that reason I have resolved to offer the horse sacrifice. I wish to perform it according to the procedure laid down in the sacred texts. Through the power of the sage’s son I shall attain what I desire.’",
+      "unit_sha256": [
+        "89b29c217721fa54c6316b7bda10eb53abdf3c38a7c649f9a907636bc42afe6a",
+        "606cfb986d64962c62413ede5fad3830393442cb2295fa35f67047a9180a8ae8",
+        "b63b4d8bee657cb756d03031d74aded69d43c365f01be3f6e4cfa580d8cf615a",
+        "964f55851fcf7a8f11aeebe52b1de330e7699ebbefc03623cc86f957cc95722b"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-10b",
+        "1-12-11"
+      ],
+      "original_english": "The brahmins, led by Vasiṣṭha, all acclaimed the words their king had spoken. “Well said!” With Ṛśyaśṛṅga at their head, they answered him.",
+      "unit_sha256": [
+        "964f55851fcf7a8f11aeebe52b1de330e7699ebbefc03623cc86f957cc95722b",
+        "5a2a8e4269b2444cdac78499257c9106bd381a5076ae5de3254668d1da3e658b"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-12",
+        "1-12-13"
+      ],
+      "original_english": "‘Gather the materials for your rite, let the horse be released, and prepare the sacrificial ground on the north bank of the Sarayū. You will surely have four sons of immeasurable valor, for this righteous resolve has come to you as you seek sons.’",
+      "unit_sha256": [
+        "f6da4ddf277aa3c72c9fe394a0b20da5f5ddf8ffe8b587eac3250522ae168119",
+        "b1679e8e5db3671338bf574ffa13561449eec25b84179d8ff8fbb83604f4cbd2"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-14"
+      ],
+      "original_english": "The king was delighted to hear what the twice-born men said. In his joy, he addressed these auspicious words to his ministers.",
+      "unit_sha256": [
+        "63e0b48529bff04db51f1454596ff53c0f4c32a1e6ce29fbc78ecca853729a4d"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-15"
+      ],
+      "original_english": "‘On my teachers’ advice, have the materials for the sacrifice gathered at once. Release the horse in the care of capable guards and with the officiating priest accompanying it.’",
+      "unit_sha256": [
+        "a71ce93ccc5291234e0d44d82037eb7ecec10e6c967fcb7cdd3118b42fc29f6e"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-16"
+      ],
+      "original_english": "‘Prepare the ground for the sacrifice on the north bank of the Sarayū. Carry out the rites for averting disturbances in their proper order and according to the prescribed rules.’",
+      "unit_sha256": [
+        "63d32e33d93cf92cecb5b86d3063569b70837635ebb3770032894120716a168d"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-17",
+        "1-12-18"
+      ],
+      "original_english": "‘Any ruler can perform this sacrifice, provided no grave mistake occurs in this greatest of rites. Learned brahmarākṣasas search for flaws in it. If the sacrifice is disrupted, the one who performs it is ruined at once.’",
+      "unit_sha256": [
+        "0d425ee281142461f1b02843a64ea3d725f60e006fdc55e923d9ec438fd53231",
+        "304cf3153ac812c47472de9e74528895978f4f6a3e0f6d7ae35ffcc1f1faa024"
+      ]
+    },
+    {
+      "refs": [
+        "1-12-19"
+      ],
+      "original_english": "‘You are skilled in carrying out these rites. Make every arrangement so that this sacrifice of mine is completed in accordance with the prescribed rules.’",
+      "unit_sha256": [
+        "b59d6f53c2cc44cf0c525e6c1b72d2ed57d2dad7f6efaae4a091d4fe7597eabf"
+      ],
+      "replaces_critical_refs": [
+        "VRCE-1-11-18"
+      ],
+      "review_note": "The inherited excerpt omits the king’s acknowledgment of the ministers’ skill in performing the rites."
+    },
+    {
+      "refs": [
+        "1-12-22"
+      ],
+      "original_english": "When the foremost of the twice-born men had gone, the radiant king dismissed his ministers and entered his own residence.",
+      "unit_sha256": [
+        "71f09173d7668eeaf0fc8dc942a0f535d8b4a8f12a5179a7983a14f399b12bb1"
+      ]
+    }
   ]
 }

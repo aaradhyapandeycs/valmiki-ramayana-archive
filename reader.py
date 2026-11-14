@@ -97,15 +97,19 @@ def restore_iast(chapter, review):
             raise ValueError(f"Unverified witness text at {ref}")
         if transliterate(original) is not None:
             raise ValueError(f"Reviewed restoration overlaps generated IAST at {ref}")
-        letters = list(original)
-        for edit in entry["substitutions"]:
+        corrected = []
+        cursor = 0
+        for edit in sorted(entry["substitutions"], key=lambda edit: edit["offset"]):
             offset = edit["offset"]
-            if (not 0 <= offset < len(letters) or letters[offset] != edit["from"]
-                    or len(edit["to"]) != 1 or edit["from"] == edit["to"]
-                    or edit["from"].isspace() or edit["to"].isspace()):
+            before, after = edit["from"], edit["to"]
+            if (not cursor <= offset < len(original) or not original.startswith(before, offset)
+                    or not before or not after or before == after
+                    or any(char.isspace() for char in before + after)):
                 raise ValueError(f"Invalid reviewed glyph position at {ref}")
-            letters[offset] = edit["to"]
-        text = transliterate("".join(letters))
+            corrected.extend((original[cursor:offset], after))
+            cursor = offset + len(before)
+        corrected.append(original[cursor:])
+        text = transliterate("".join(corrected))
         if text is None or not entry["substitutions"]:
             raise ValueError(f"Invalid restored IAST at {ref}")
         roman[number] = text

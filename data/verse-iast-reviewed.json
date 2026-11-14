@@ -803,6 +803,26 @@
         ]
       },
       {
+        "ref": "6-42-18",
+        "unit_sha256": "5c80d290a222399a45f85d4d3f7a6ba96f6a21425056df2f0b58fc8f4974285a",
+        "substitutions": [
+          {
+            "offset": 13,
+            "from": "म्ऱ्",
+            "to": "मृ",
+            "original_token": "प्रम्ऱ्द्नन्तस्",
+            "roman_witness_token": "pramRdnantas"
+          },
+          {
+            "offset": 54,
+            "from": "ज़",
+            "to": "श",
+            "original_token": "ज़िखर",
+            "roman_witness_token": "zikhara"
+          }
+        ]
+      },
+      {
         "ref": "6-42-19",
         "anchor": "block-19",
         "source_fragment": "Verse19",
@@ -1115,32 +1135,27 @@
           }
         ]
       }
-    ],
-    "excluded": [
+    ]
+  },
+  {
+    "book": 2,
+    "sarga": 58,
+    "source_url": "https://valmikiramayan.net/utf8/ayodhya/sarga58/ayodhyasans58.htm",
+    "source_sha256": "20894dfb98ee5efd0e45a75dea853a3f739cc5cb543beb3ae1a291588cf68935",
+    "roman_witness_url": "https://mail.valmikiramayan.net/utf8/ayodhya/sarga58/ayodhyaitrans58.htm",
+    "verses": [
       {
-        "ref": "6-42-18",
-        "anchor": "block-18",
-        "source_fragment": "Verse18",
-        "unit_sha256": "5c80d290a222399a45f85d4d3f7a6ba96f6a21425056df2f0b58fc8f4974285a",
-        "printed_refs": [
-          "6-42-18"
-        ],
+        "ref": "2-58-7",
+        "unit_sha256": "8e41dc4f97a87457bd4aeb82b5c87b7016030d7b52e094b9bd6bd680e4c28a22",
         "substitutions": [
           {
-            "offset": 54,
-            "from": "ज़",
-            "to": "श",
-            "original_token": "ज़िखर",
-            "roman_witness_token": "zikhara"
+            "offset": 37,
+            "from": "ण्ज़्",
+            "to": "ञ्",
+            "original_token": "कुण्ज़्जराः",
+            "roman_witness_token": "kuNJjaraaH"
           }
-        ],
-        "reason": "Additional corruption requires a length-changing substitution, unsupported by the current renderer. No edits applied for this block.",
-        "damaged_sequence": "म्ऱ्",
-        "reviewed_sequence": "मृ",
-        "original_token": "प्रम्ऱ्द्नन्तस्",
-        "roman_witness_token": "pramRdnantas",
-        "independent_sanskrit_locator": "Critical Edition 6.32.11, Sanskrit token प्रमृद्नन्तस्",
-        "independent_sanskrit_url": "https://bombay.indology.info/ramayana/text/UD/Ram06.txt"
+        ]
       }
     ]
   }

@@ -462,5 +462,162 @@
         ]
       }
     ]
+  },
+  "baala/10": {
+    "section": "10",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-x",
+    "section_sha256": "7998099753c15fd3fdc41e1d714eb4cb14d1b29e472de62ecd242021617ff336",
+    "passages": [
+      {
+        "refs": [
+          "1-10-16"
+        ],
+        "units": [
+          "verse-16"
+        ],
+        "unit_sha256": [
+          "9a1647df16b5769469607af908601cbef8e8ac63a4bc88efd8915bb58649281b"
+        ],
+        "english_span": [
+          2005,
+          2104
+        ]
+      }
+    ]
+  },
+  "baala/11": {
+    "section": "11",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-xi",
+    "section_sha256": "3db58217e847f4c9caa36d4df20b252f6763f35f311b5a24675c966881eb72dc",
+    "passages": [
+      {
+        "refs": [
+          "1-11-29"
+        ],
+        "units": [
+          "verse-29"
+        ],
+        "unit_sha256": [
+          "dc92a3ef1b6427ea80c5320b0a2ac3c6afe458a6fa62bfc2778c0a6f981cd277"
+        ],
+        "english_span": [
+          3722,
+          3919
+        ]
+      }
+    ]
+  },
+  "baala/40": {
+    "section": "40",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-xl",
+    "section_sha256": "4aeac7f0c52c7fe064154e15d097074d52209edce69fbc289ad842e6ec275694",
+    "passages": [
+      {
+        "refs": [
+          "1-40-17",
+          "1-40-18"
+        ],
+        "units": [
+          "verse-17",
+          "verse-18"
+        ],
+        "unit_sha256": [
+          "d4d1d63eed3c6132237bd912992b51c3818af04c2d11ddfd3487f0905a63c3ac",
+          "86c758e67bf9acb1da84339ecc3cb13a88836aa52734cf9520f4bea3c0dd5c0f"
+        ],
+        "english_span": [
+          2162,
+          2395
+        ]
+      }
+    ]
+  },
+  "baala/62": {
+    "section": "62",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lxii",
+    "section_sha256": "e015fa4a9fd9d79a6165e9a7f77dd872bb3baf44946230a871f5e18898fe084e",
+    "passages": [
+      {
+        "refs": [
+          "1-62-23"
+        ],
+        "units": [
+          "verse-23"
+        ],
+        "unit_sha256": [
+          "f735f38919744b49e6026ff7525c54ce7e758a90fdb6452c1535df7c1a659b7c"
+        ],
+        "english_span": [
+          3163,
+          3287
+        ]
+      }
+    ]
+  },
+  "sundara/25": {
+    "section": "25",
+    "href": "https://www.gutenberg.org/cache/epub/57826/pg57826-images.html",
+    "section_sha256": "c08b2daf42092b957781928462530874f9bff7a44ac6d37342765bf65beaf388",
+    "passages": [
+      {
+        "refs": [
+          "5-25-6"
+        ],
+        "units": [
+          "verse-6"
+        ],
+        "unit_sha256": [
+          "544fc98081fc0d37f30d424cbd5f313ad6387668763a0f22b445b3ead3dedae7"
+        ],
+        "english_span": [
+          623,
+          718
+        ]
+      }
+    ]
+  },
+  "yuddha/65": {
+    "section": "65",
+    "href": "https://www.gutenberg.org/cache/epub/60188/pg60188-images.html",
+    "section_sha256": "f37c1bcea65af29a1b7be63a9f38df5a0cb2545006c5516a4c703b9a8c10ab5e",
+    "passages": [
+      {
+        "refs": [
+          "6-65-16"
+        ],
+        "units": [
+          "verse-16"
+        ],
+        "unit_sha256": [
+          "28d7863628ee291a119052e0a1fa16c0c10832db8ca5352f7f41f6c045d0300d"
+        ],
+        "english_span": [
+          1952,
+          2072
+        ]
+      }
+    ]
+  },
+  "yuddha/73": {
+    "section": "73",
+    "href": "https://www.gutenberg.org/cache/epub/60188/pg60188-images.html",
+    "section_sha256": "d662c6d39c196b2728f4a7c5e25ecdf84c191011f3560a156487fadc156941ee",
+    "passages": [
+      {
+        "refs": [
+          "6-73-45"
+        ],
+        "units": [
+          "verse-45"
+        ],
+        "unit_sha256": [
+          "5541c7ca6cedf4d359b1cd2997769058bcc8f28a480edf3af03d84430f8010a8"
+        ],
+        "english_span": [
+          6204,
+          6310
+        ]
+      }
+    ]
   }
 }

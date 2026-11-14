@@ -169,6 +169,7 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
             unmatched_result = {"chapter": no_link, "source_link": await gap.locator("a").get_attribute("href"),
                                 "checked_script_rows": usable["stats"]["lines"]}
         reviewed_chapters = (("baala/5", 12, 14), ("baala/6", 16, 16), ("baala/7", 20, 23),
+                             ("baala/8", 20, 23), ("baala/12", 14, 20),
                              ("baala/19", 19, 20), ("baala/69", 13, 17), ("baala/77", 21, 24))
         for chapter, translated, units in reviewed_chapters:
             await open_route(page, args.after, chapter + "/", enlarged)
