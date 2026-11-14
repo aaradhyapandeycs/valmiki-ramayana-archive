@@ -17,6 +17,8 @@ CONSONANTS = dict(zip("कखगघङचछजझञटठडढणतथदध
                         "m", "y", "r", "l", "v", "ś", "ṣ", "s", "h", "ḻ")))
 SIGNS = {"ं": "ṃ", "ः": "ḥ", "ँ": "m̐", "ऽ": "'", "ॐ": "oṃ", "।": "|", "॥": "||"}
 DIGITS = dict(zip("०१२३४५६७८९", "0123456789"))
+DEPENDENT_SIGNS = {"ं", "ः", "ँ"}
+VOWEL_ENDINGS = VOWELS.keys() | MATRAS.keys() | CONSONANTS.keys()
 JOINERS = {"\u200c", "\u200d"}
 PUNCTUATION = frozenset("0123456789 |-.–—,!?()[]:;'’‘“”\"…")
 
@@ -31,6 +33,8 @@ def transliterate(text):
             if previous != "्":
                 return None
             continue
+        if char in DEPENDENT_SIGNS and previous not in VOWEL_ENDINGS:
+            return None
         previous = char
         if char in MATRAS or char == "्":
             if not pending_vowel:

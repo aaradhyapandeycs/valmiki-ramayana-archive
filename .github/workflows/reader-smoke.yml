@@ -13,18 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
-      SMOKE_VIEWPORTS_ONLY: '1'
+      AXE_PATH: .reader-checks/node_modules/axe-core/axe.min.js
     steps:
       - uses: actions/checkout@v4
-      - name: Install Chromium test dependencies
+      - name: Install Chromium and automated accessibility checks
         run: |
           python3 -m pip install playwright
           python3 -m playwright install --with-deps chromium
-      - name: Check desktop and mobile search and typography
+          npm install --no-save --ignore-scripts --prefix .reader-checks axe-core@4.10.3
+      - name: Check browser routes, accessibility, typography and downloads
         run: python3 smoke_site.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: reader-layout
+          name: reader-browser-audit
           path: smoke-artifacts
           if-no-files-found: ignore

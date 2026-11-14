@@ -77,17 +77,26 @@ def sanskrit_inventory(data, base):
                 continue
             url = record["source_url"]
             chapter = f"{base}{slug}/{number}/"
-            chapters[url] = record
+            match = CHAPTER.match(source_path(url) or "")
+            if not match or (match["book"], int(match["number"])) != (slug, number):
+                raise ValueError(f"Unexpected Sanskrit source URL for {slug}/{number}: {url}")
+            if url in chapters:
+                raise ValueError(f"Duplicate Sanskrit witness URL: {url}")
+            chapters[url] = f"{chapter}#sanskrit"
             prefix = "verse" if record["status"] == "numbering_verified" else "block"
             for verse in record["verses"]:
                 src_fragment = verse.get("source_anchor")
+                first_number = verse["number"]
+                last_number = verse.get("last_number", first_number)
                 item = {
                     "source_url": url,
                     "source_anchor": src_fragment,
-                    "destination_url": f"{chapter}#{prefix}-{verse.get('last_number', verse['number'])}",
+                    "destination_url": f"{chapter}#{prefix}-{last_number}",
                     "type": prefix,
                     "source_glyph_anomaly": bool(verse.get("source_glyph_anomaly")),
                 }
+                if last_number > first_number:
+                    item["destination_aliases"] = [f"{chapter}#{prefix}-{n}" for n in range(first_number, last_number)]
                 if src_fragment:
                     item["source_locator_url"] = f"{url}#{src_fragment}"
                 blocks.append(item)
@@ -119,6 +128,11 @@ def asset_type(url):
     return file_kind(path)
 
 
+ACCESS_ISSUE = re.compile(
+    r"^(http_[45]|soft_block|unavailable|html_too_large|unsupported_content_type|no_child_listing|HTTP [45])"
+)
+
+
 def audit_source(data, dist, base, audits):
     mapping_rows = read_json(dist / "manifest.json")
     mapping = {row["source_url"]: row for row in mapping_rows}
@@ -142,14 +156,14 @@ def audit_source(data, dist, base, audits):
         observations = records.get(url, [])
         mapped = mapping.get(url, {})
         listed = catalog.get(url, {})
-        status = observations[-1]["status"] if observations else listed.get("status", mapped.get("status", "discovered_not_fetched"))
+        # A directory pass is a supplement. Prefer the recursive response as
+        # the main observation when there is one, and retain conflicting evidence.
+        status = observations[0]["status"] if observations else listed.get("status", mapped.get("status", "discovered_not_fetched"))
         kind = asset_type(url)
         destination = mapped.get("new_url")
         disposition = "navigation_or_source_reference"
         if url in chapters:
-            slug = CHAPTER.match(source_path(url))["book"]
-            record = chapters[url]
-            destination = f"{base}{slug}/{record['sarga']}/#sanskrit"
+            destination = chapters[url]
             disposition = "sanskrit_transcription_published"
         elif url in preserved:
             destination = preserved[url]
@@ -172,8 +186,11 @@ def audit_source(data, dist, base, audits):
             row["linked_from"] = parents
         elif listed.get("linked_from"):
             row["linked_from"] = [listed["linked_from"]]
-        if re.match(r"^(http_[45]|soft_block|unavailable|html_too_large|unsupported_content_type|no_child_listing|HTTP 404)", status):
-            row["source_access"] = "inaccessible_or_unverified"
+        access_issues = {item["status"] for item in observations if ACCESS_ISSUE.match(item["status"])}
+        access_issues.update(value for value in (status, listed.get("status"), mapped.get("status"))
+                             if value and ACCESS_ISSUE.match(value))
+        if access_issues:
+            row["source_access_issues"] = sorted(access_issues)
         if kind in {"devanagari", "roman", "itrans", "prose"}:
             row["content_coverage"] = {
                 "modern_english_translation": "source_link_only_where_present",
@@ -192,6 +209,7 @@ def audit_source(data, dist, base, audits):
         raise ValueError("Duplicate Sanskrit block destination anchor")
     anchors = {}
     destinations = {row["destination_url"] for row in resources + blocks if row["destination_url"]}
+    destinations.update(url for row in blocks for url in row.get("destination_aliases", ()))
     for url in destinations:
         target = urlsplit(url)
         path = target.path
@@ -207,7 +225,7 @@ def audit_source(data, dist, base, audits):
                 parser = Anchors()
                 parser.feed(file.read_text(encoding="utf-8"))
                 anchors[file] = parser.ids
-            if target.fragment not in anchors[file]:
+            if unquote(target.fragment) not in anchors[file]:
                 raise ValueError(f"Missing source manifest anchor: {url}")
 
     urls = Counter(r["disposition"] for r in resources)
@@ -216,7 +234,7 @@ def audit_source(data, dist, base, audits):
         "resource_kinds": Counter(r["kind"] for r in resources),
         "resource_outcomes": urls,
         "source_statuses": Counter(r["source_status"] for r in resources),
-        "explicit_access_issues": sum("source_access" in r for r in resources),
+        "explicit_access_issues": sum("source_access_issues" in r for r in resources),
         "sanskrit_chapters": len(chapters),
         "text_block_types": Counter(r["type"] for r in blocks),
         "text_blocks_with_source_anchor": sum("source_locator_url" in r for r in blocks),

@@ -36,5 +36,13 @@ class IastTests(unittest.TestCase):
                 self.assertIsNone(transliterate(text))
 
 
+    def test_dependent_mark_requires_a_vowel(self):
+        self.assertIsNone(transliterate("एवमुक्तो ंऽशुमान् सम्यक्सगरेण महात्मना"))
+        self.assertIsNone(transliterate("ः राम"))
+        self.assertIsNone(transliterate("राम् ँ"))
+        self.assertEqual(transliterate("अंशुमान् रामः चँद्र"), "aṃśumān rāmaḥ cam̐dra")
+        self.assertEqual(transliterate("रामां स्वयम्"), "rāmāṃ svayam")
+
+
 if __name__ == "__main__":
     unittest.main()
