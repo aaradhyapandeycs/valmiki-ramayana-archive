@@ -1,0 +1,22 @@
+{
+  "aranya/1": [
+    {
+      "placement": "before",
+      "kind": "Source invocation",
+      "sanskrit": "ॐ शान्ति शान्ति शान्तिः",
+      "source_url": "https://valmikiramayan.net/utf8/aranya/sarga1/aranyasans1.htm",
+      "source_paragraph": 1,
+      "source_normalized_text_sha256": "cd10257789cab46b91e068db590ce9291e6dc96dd6f6c21453969337a019cd72"
+    }
+  ],
+  "yuddha/127": [
+    {
+      "placement": "after",
+      "kind": "Source colophon",
+      "sanskrit": "इत्यार्षे श्रीमद्रामायने आदिकाव्ये युद्धकाण्डे सप्तविंशत्यधिकशततमः सर्गः",
+      "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga127/yuddhasans127.htm",
+      "source_paragraph": 108,
+      "source_normalized_text_sha256": "65a6ac0a39ff8d4b53f54e5936732f78b2e1bc0fc75b079d501207de2cb1952f"
+    }
+  ]
+}

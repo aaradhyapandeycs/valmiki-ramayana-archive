@@ -111,7 +111,7 @@ def outside_blocks(records, start, end, colophon):
     return entries
 
 
-def compare_to_primary(record, raw):
+def compare_to_primary(record, raw, reviewed=()):
     body = parse(raw)
     observed_anchors = Counter(
         identifier for a in body.iter("a")
@@ -137,17 +137,34 @@ def compare_to_primary(record, raw):
     else:
         end_colophon = end
     extras = outside_blocks(blocks, offset, end, colophon)
+    paratext = []
+    for item in reviewed:
+        eligible = [entry for entry in extras
+                    if entry["position"] == item["placement"]
+                    and entry["sha256_normalized_text"] == item["source_normalized_text_sha256"]]
+        matched = len(eligible) == 1 and clean(item["sanskrit"]) == dict(
+            (index, block) for index, block, _ in blocks
+        )[eligible[0]["source_paragraph"]]
+        paratext.append({"kind": item["kind"], "position": item["placement"],
+                         "status": "matched" if matched else "source_paratext_mismatch",
+                         "source_paragraph": eligible[0]["source_paragraph"] if matched else None})
+        if matched:
+            extras.remove(eligible[0])
     absent_anchors = sorted({verse["source_anchor"] for verse in record["verses"]
                              if verse.get("source_anchor") and not observed_anchors[verse["source_anchor"]]})
-    return {"status": "matched" if not absent_anchors else "source_anchor_mismatch",
-            "source_paragraphs": len(blocks), "duplicate_source_anchors": sorted(
+    status = "matched"
+    if absent_anchors:
+        status = "source_anchor_mismatch"
+    elif any(entry["status"] != "matched" for entry in paratext):
+        status = "source_paratext_mismatch"
+    return {"status": status, "reviewed_source_paratext": paratext, "source_paragraphs": len(blocks), "duplicate_source_anchors": sorted(
                 anchor for anchor, count in observed_anchors.items() if count > 1
             ), "missing_captured_anchors": absent_anchors,
             "outside_capture": extras, "colophon_matched": bool(colophon),
             "source_end_codepoints": len(stream) - end_colophon}
 
 
-def check_rendered(record, raw):
+def check_rendered(record, raw, reviewed=()):
     doc = parse(raw)
     sections = [section for section in doc.iter("section") if section.get("id") == "sanskrit"]
     if len(sections) != 1:
@@ -165,6 +182,13 @@ def check_rendered(record, raw):
         end = verse.get("last_number", start)
         if any(ids[f"{prefix}-{n}"] != 1 for n in range(start, end + 1)):
             return "missing_or_duplicate_rendered_verse_anchor"
+    sources = [node for node in doc.iter("aside") if "source-paratext" in node.get("class", "").split()]
+    if len(sources) != len(reviewed):
+        return "source_paratext_missing_or_unexpected"
+    for node, item in zip(sources, reviewed):
+        texts = [plain(child) for child in node.iter("div") if child.get("lang") == "sa-Deva"]
+        if texts != [item["sanskrit"]] or node.get("aria-label") != item["kind"]:
+            return "rendered_source_paratext_mismatch"
     source = record["source_url"]
     if not any(a.get("href") == source for a in sections[0].iter("a")):
         return "reader_source_link_mismatch"
@@ -195,12 +219,13 @@ def fetch(url, hosts, timeout):
     raise AssertionError("retry loop produced no response")
 
 
-def audit_chapter(item, snapshot_root, destination, build, timeout):
+def audit_chapter(item, snapshot_root, destination, build, timeout, paratext):
     slug, chapter = item
     record = json.loads((snapshot_root / slug / f"{chapter}.json").read_text(encoding="utf-8"))
     if record.get("kind") != "primary":
         raise ValueError(f"{slug}/{chapter} has no primary snapshot")
     url = record["source_url"]
+    reviewed = paratext.get(f"{slug}/{chapter}", [])
     row = {"chapter": f"{slug}/{chapter}", "source_url": url,
            "destination_url": f"{destination}{slug}/{chapter}/", "snapshot_sha256": record["source_sha256"],
            "captured_blocks": len(record["verses"]), "capture_status": record["status"]}
@@ -208,7 +233,7 @@ def audit_chapter(item, snapshot_root, destination, build, timeout):
         raw = fetch(url, PRIMARY_HOSTS, timeout)
         row["fetched_sha256"] = digest(raw)
         row["response_unchanged"] = row["fetched_sha256"] == row["snapshot_sha256"]
-        row.update(compare_to_primary(record, raw))
+        row.update(compare_to_primary(record, raw, reviewed))
         if row["status"] == "matched" and not row["response_unchanged"]:
             row["status"] = "matched_passages_html_changed"
     except (HTTPError, URLError, TimeoutError, ValueError) as error:
@@ -217,10 +242,10 @@ def audit_chapter(item, snapshot_root, destination, build, timeout):
         time.sleep(.12)
     if build:
         html = build / slug / str(chapter) / "index.html"
-        row["built_reader"] = check_rendered(record, html.read_bytes()) if html.is_file() else "missing_route"
+        row["built_reader"] = check_rendered(record, html.read_bytes(), reviewed) if html.is_file() else "missing_route"
     try:
         html = fetch(row["destination_url"], {urlsplit(destination).hostname}, timeout)
-        row["live_reader"] = check_rendered(record, html)
+        row["live_reader"] = check_rendered(record, html, reviewed)
     except (HTTPError, URLError, TimeoutError, ValueError) as error:
         row.update(live_reader="unavailable", live_detail=str(error))
     return row
@@ -232,6 +257,7 @@ def main():
     parser.add_argument("--destination", required=True)
     parser.add_argument("--build", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--paratext", type=Path, help="reviewed supplemental source entries")
     parser.add_argument("--workers", type=int, default=4, choices=range(1, 7))
     parser.add_argument("--timeout", type=float, default=18)
     args = parser.parse_args()
@@ -240,8 +266,9 @@ def main():
     summary = json.loads((args.snapshot / "summary.json").read_text(encoding="utf-8"))
     if [(r["slug"], r["sarga"]) for r in summary["chapters"]] != pairs:
         raise ValueError("The snapshot chapter list differs from the six primary tables of contents.")
+    paratext = json.loads(args.paratext.read_text(encoding="utf-8")) if args.paratext else {}
     def audit(pair):
-        return audit_chapter(pair, args.snapshot, destination, args.build, args.timeout)
+        return audit_chapter(pair, args.snapshot, destination, args.build, args.timeout, paratext)
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         rows = []
         for row in pool.map(audit, pairs):
@@ -253,6 +280,9 @@ def main():
         "source_comparison": dict(Counter(r["status"] for r in rows)),
         "source_blocks": sum(r["captured_blocks"] for r in rows),
         "response_hashes_matched": sum(r.get("response_unchanged", False) for r in rows),
+        "reviewed_source_paratext": dict(Counter(
+            entry["status"] for row in rows for entry in row.get("reviewed_source_paratext", [])
+        )),
         "uncaptured_paragraphs_by_review_category": dict(Counter(
             entry["category"] for row in rows for entry in row.get("outside_capture", [])
         )),
@@ -274,11 +304,12 @@ def main():
     print(json.dumps({k: v for k, v in output.items() if k != "chapters"}, ensure_ascii=False))
     for row in rows:
         extras = row.get("outside_capture", [])
-        if extras or row["status"] != "matched" or row["live_reader"] != "matched":
+        if extras or row.get("reviewed_source_paratext") or row["status"] != "matched" or row["live_reader"] != "matched":
             print(json.dumps({
                 "source_url": row["source_url"], "chapter": row["chapter"],
                 "primary_status": row["status"], "live_reader": row["live_reader"],
                 "additional_source_paragraphs": extras,
+                "reviewed_source_paratext": row.get("reviewed_source_paratext", []),
             }, ensure_ascii=False))
 
 

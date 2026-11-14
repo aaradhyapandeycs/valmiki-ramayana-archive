@@ -13,6 +13,7 @@ from pathlib import Path
 
 from chapter_iast import display_chapters, load_title_review, title_aliases
 from dutt_reader import render_dutt
+from sanskrit_paratext import load_paratext, render_paratext
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
 
@@ -71,6 +72,7 @@ def main():
     if corrections := title_review.get("editorial_heading_corrections"):
         write("heading-provenance.json", json.dumps(corrections, ensure_ascii=False, indent=2) + "\n")
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
+    paratext = load_paratext(sanskrit)
     snapshot = ROOT / "data" / "sanskrit" / "summary.json"
     if snapshot.is_file():
         write("sanskrit-coverage.json", snapshot.read_text(encoding="utf-8"))
@@ -122,12 +124,15 @@ def main():
             search.append({"book": name, "number": n, "book_number": book_number, "title": row["title"], "aliases": title_aliases(row["title"], glossary), "url": new})
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
+            additions = paratext.get((slug, n), {})
             body = f"""<p class="eyebrow">{esc(name)} Kāṇḍa · Sarga {n} of {len(rows)}</p>
 <h1>{esc(row['title'])}</h1>
 <p class="source-note">Open the source edition for its English translation, word meanings, and commentary.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
+{render_paratext(additions.get("before"))}
 {render_sanskrit(sanskrit.get((slug, n)))}
+{render_paratext(additions.get("after"))}
 <nav class="chapter-nav" aria-label="Chapter sequence">{before}
 <a href="../">All {esc(name)} chapters</a>{after}</nav>"""
             write(f"{slug}/{n}/index.html", page(f"{name} {n}: {row['title']}", body, 2))

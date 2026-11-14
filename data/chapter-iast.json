@@ -3,8 +3,8 @@
   "books": {
     "baala": {
       "1": "Nārada briefs Vālmīki about Rāma and the Rāmāyaṇa in a nutshell",
-      "2": "Vālmīki gets divine guidance to compile the epic",
-      "3": "Vālmīki gets divine guidance to compile the epic",
+      "2": "Brahmā asks Vālmīki to compose the Rāmāyaṇa",
+      "3": "Vālmīki plans the composition of the Rāmāyaṇa",
       "4": "Lava and Kuśa assigned to sing the epic & Rāma listens to it",
       "5": "City Ayodhyā detailed",
       "6": "Splendour of Ayodhyā city described",
@@ -253,7 +253,7 @@
       "49": "Sītā's abduction takes place now",
       "50": "Jaṭāyu's confrontation with Rāvaṇa",
       "51": "The combat of Jaṭāyu and Rāvaṇa",
-      "52": "The combat of Jaṭāyu and Rāvaṇa",
+      "52": "Rāvaṇa carries Sītā away",
       "53": "Sītā denounces Rāvaṇa's misdeeds",
       "54": "Sītā drops her ornaments toward Sugrīva and his companions",
       "55": "Rāvaṇa entices Sītā to marry him",
@@ -651,6 +651,24 @@
   "heading_provenance_note": "These editorial headings clarify incomplete or misleading index labels using the linked source evidence. The original index headings are preserved in chapters.json.",
   "editorial_heading_corrections": {
     "baala": {
+      "2": {
+        "source_index_heading": "vAlmIki gets divine guidance to compile the epic",
+        "display_heading": "Brahmā asks Vālmīki to compose the Rāmāyaṇa",
+        "reason": "This chapter recounts Brahmā’s instruction. The index duplicates the label for chapter 3.",
+        "sources": [
+          "https://www.valmikiramayan.net/utf8/baala/sarga2/balaroman2.htm",
+          "https://www.valmikiramayan.net/utf8/baala/sarga3/balaroman3.htm"
+        ]
+      },
+      "3": {
+        "source_index_heading": "vAlmIki gets divine guidance to compile the epic",
+        "display_heading": "Vālmīki plans the composition of the Rāmāyaṇa",
+        "reason": "The introduction describes the plan of composition, distinct from Brahmā’s instruction in chapter 2.",
+        "sources": [
+          "https://www.valmikiramayan.net/utf8/baala/sarga2/balaroman2.htm",
+          "https://www.valmikiramayan.net/utf8/baala/sarga3/balaroman3.htm"
+        ]
+      },
       "37": {
         "source_index_heading": "Legend of kaartikeya",
         "display_heading": "Legend of Kārtikeya",
@@ -671,6 +689,15 @@
       }
     },
     "aranya": {
+      "52": {
+        "source_index_heading": "The combat of Jataayu and Ravana",
+        "display_heading": "Rāvaṇa carries Sītā away",
+        "reason": "The index repeats the preceding chapter’s combat heading. This chapter begins after Jaṭāyu has been struck down and describes the abduction.",
+        "sources": [
+          "https://www.valmikiramayan.net/utf8/aranya/sarga51/aranyaroman51.htm",
+          "https://www.valmikiramayan.net/utf8/aranya/sarga52/aranyasans52.htm"
+        ]
+      },
       "54": {
         "source_index_heading": "Seetha drops jewellery at Sugreeva",
         "display_heading": "Sītā drops her ornaments toward Sugrīva and his companions",

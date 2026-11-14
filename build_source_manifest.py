@@ -82,7 +82,11 @@ def sanskrit_inventory(data, base):
                 raise ValueError(f"Unexpected Sanskrit source URL for {slug}/{number}: {url}")
             if url in chapters:
                 raise ValueError(f"Duplicate Sanskrit witness URL: {url}")
-            chapters[url] = f"{chapter}#sanskrit"
+            chapters[url] = {
+                "destination": f"{chapter}#sanskrit",
+                "source_status": record["status"],
+                "source_sha256": record["source_sha256"],
+            }
             prefix = "verse" if record["status"] == "numbering_verified" else "block"
             for verse in record["verses"]:
                 src_fragment = verse.get("source_anchor")
@@ -152,6 +156,7 @@ def audit_source(data, dist, base, audits):
         preserved[metadata["source"]] = f"{base}resources/vr_intro_ayyangar.pdf"
 
     resources = []
+    supplemental_exists = (dist / "sources/files/index.html").is_file()
     for url in sorted(set(mapping) | set(records) | set(links) | set(catalog) | set(chapters) | set(preserved)):
         observations = records.get(url, [])
         mapped = mapping.get(url, {})
@@ -163,14 +168,15 @@ def audit_source(data, dist, base, audits):
         destination = mapped.get("new_url")
         disposition = "navigation_or_source_reference"
         if url in chapters:
-            destination = chapters[url]
+            destination = chapters[url]["destination"]
+            status = chapters[url]["source_status"]
             disposition = "sanskrit_transcription_published"
         elif url in preserved:
             destination = preserved[url]
             disposition = "facsimile_published"
         elif kind in {"devanagari", "roman", "itrans", "prose", "download", "media", "image", "source_asset", "backup"}:
             disposition = "source_link_only"
-        if destination is None and (dist / "sources/files/index.html").is_file():
+        if destination is None and supplemental_exists:
             destination = f"{base}sources/files/" if url in catalog else None
         row = {
             "source_url": url,
@@ -181,6 +187,8 @@ def audit_source(data, dist, base, audits):
         }
         if observations:
             row["observations"] = observations
+        if url in chapters:
+            row["capture_source_sha256"] = chapters[url]["source_sha256"]
         parents = sorted(links.get(url, set()))
         if parents:
             row["linked_from"] = parents
@@ -236,6 +244,12 @@ def audit_source(data, dist, base, audits):
         "source_statuses": Counter(r["source_status"] for r in resources),
         "explicit_access_issues": sum("source_access_issues" in r for r in resources),
         "sanskrit_chapters": len(chapters),
+        "chapter_directory_coverage": {
+            name: {
+                key: values[key] for key in ("chapter_directories_with_observed_children",
+                                            "chapters_with_all_four_reading_panes")
+            } for name, values in variants.get("coverage", {}).items()
+        },
         "text_block_types": Counter(r["type"] for r in blocks),
         "text_blocks_with_source_anchor": sum("source_locator_url" in r for r in blocks),
         "text_blocks_without_source_anchor": sum(r["type"] != "colophon" and "source_locator_url" not in r for r in blocks),

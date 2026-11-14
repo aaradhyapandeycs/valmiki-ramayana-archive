@@ -2,7 +2,7 @@ name: Audit Sanskrit text against the original
 on:
   push:
     branches: [main]
-    paths: ['audit_source_text.py', '.github/workflows/text-fidelity.yml']
+    paths: ['audit_source_text.py', 'sanskrit_paratext.py', 'data/sanskrit-paratext-reviewed.json', '.github/workflows/text-fidelity.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,7 +27,11 @@ jobs:
         run: |
           python3 verify_capture.py data/sanskrit --commit 89e2ac54cb045ff189f5ea06abc0867dab85f010
           python3 build.py
-          python3 audit_source_text.py --snapshot data/sanskrit --build dist \
+          args=()
+          if [ -f data/sanskrit-paratext-reviewed.json ]; then
+            args+=(--paratext data/sanskrit-paratext-reviewed.json)
+          fi
+          python3 audit_source_text.py --snapshot data/sanskrit --build dist "${args[@]}" \
             --destination https://aaradhyapandeycs.github.io/valmiki-ramayana-archive/ \
             --output text-audit/primary-source-text.json
       - uses: actions/upload-artifact@v4
