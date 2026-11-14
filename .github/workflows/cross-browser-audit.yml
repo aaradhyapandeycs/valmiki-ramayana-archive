@@ -1,0 +1,32 @@
+name: Representative cross-browser verse audit
+on:
+  push:
+    branches: [cross-browser-audit]
+    paths: ['.github/workflows/cross-browser-audit.yml', 'cross_browser_audit.py']
+permissions:
+  contents: read
+jobs:
+  reader:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install browser
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps '${{ matrix.browser }}'
+      - name: Inspect the live reader
+        env:
+          BROWSER: ${{ matrix.browser }}
+        run: python3 cross_browser_audit.py
+      - name: Preserve geometry results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verse-layout-${{ matrix.browser }}
+          path: cross-browser-results.json
+          if-no-files-found: warn
