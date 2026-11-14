@@ -1,0 +1,38 @@
+name: Audit Sanskrit text against the original
+on:
+  push:
+    branches: [main]
+    paths: ['audit_source_text.py', '.github/workflows/text-fidelity.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: source-text-fidelity
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load the pinned Sanskrit text
+        uses: actions/checkout@v4
+        with:
+          ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
+          path: data/sanskrit
+          persist-credentials: false
+      - name: Install the independent HTML5 parser
+        run: python3 -m pip install html5lib==1.1
+      - name: Verify every captured and rendered chapter
+        run: |
+          python3 verify_capture.py data/sanskrit --commit 89e2ac54cb045ff189f5ea06abc0867dab85f010
+          python3 build.py
+          python3 audit_source_text.py --snapshot data/sanskrit --build dist \
+            --destination https://aaradhyapandeycs.github.io/valmiki-ramayana-archive/ \
+            --output text-audit/primary-source-text.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: primary-source-text-audit
+          path: text-audit/
+          if-no-files-found: error

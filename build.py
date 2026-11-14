@@ -48,7 +48,7 @@ def page(title, body, depth=0, *, rooted=False):
 <nav aria-label="Main navigation">
 <a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
 <a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}</nav></header>
-<main id="main" class="wrap">{body}</main><footer class="wrap">
+<main id="main" class="wrap" tabindex="-1">{body}</main><footer class="wrap">
 <p>Source chapter indexes: <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>.
 Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
 K. M. K. Murthy (Ayodhyā, Sundara, Yuddha), as credited on the source homepage.
