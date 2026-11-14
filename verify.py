@@ -33,9 +33,12 @@ class Audit(HTMLParser):
 
 
 failures = []
+documents = {}
 for file in DIST.rglob("*.html"):
     doc = Audit()
     doc.feed(file.read_text(encoding="utf-8"))
+    documents[file.resolve()] = doc
+for file, doc in documents.items():
     for link in doc.links:
         parsed = urlsplit(link)
         if parsed.scheme or parsed.netloc or link.startswith("//"):
@@ -46,9 +49,7 @@ for file in DIST.rglob("*.html"):
         if not target.is_file() or not target.is_relative_to(DIST.resolve()):
             failures.append(f"{file.relative_to(DIST)} → {link}: missing target")
         elif parsed.fragment and target.suffix == ".html":
-            other = Audit()
-            other.feed(target.read_text(encoding="utf-8"))
-            if unquote(parsed.fragment) not in other.ids:
+            if unquote(parsed.fragment) not in documents[target].ids:
                 failures.append(f"{file.relative_to(DIST)} → {link}: missing anchor")
 for row in manifest:
     path = urlsplit(row["new_url"]).path

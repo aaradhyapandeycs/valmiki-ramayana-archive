@@ -1,8 +1,8 @@
 # Vālmīki Rāmāyaṇa chapter directory
 
-A searchable, mobile-friendly static directory of the **534 sargas** listed in
-the six kāṇḍa indexes at [valmikiramayan.net](https://valmikiramayan.net/).
-This is an independent navigation project, **not a copy of the complete text**.
+A searchable archive of the **534 sargas** listed in the six kāṇḍa indexes
+at [valmikiramayan.net](https://valmikiramayan.net/). It includes the six-book
+Sanskrit reader, a source file guide, and a separate historical English reader.
 
 ## Build
 
@@ -24,14 +24,13 @@ including the literal `5F` filenames. `data/ancillary.json` catalogs files
 outside that index. The separate source inventory workflow checks linked
 files, directory listings, and available resources.
 
-The Sanskrit reader only displays validated records with a recorded textual
-witness. The primary site and Sanskrit Documents mirror can differ. Where
-the source's verse locators disagree, the reader identifies its source
-blocks. The modern English translations, glosses, commentary, and original
+All Sanskrit chapter records cite the primary textual witness and response
+hash. Where source verse locators disagree, the reader numbers the source
+blocks in reading order. Nine chapters preserve isolated damaged glyphs with
+explicit warnings. The modern English translations, glosses, commentary, and original
 media are linked from their sources. See [reuse and attribution](RIGHTS.md).
 
 The source homepage credits **Desiraju Hanumanta Rao** for Bāla, Araṇya,
 and Kiṣkindhā, and **K. M. K. Murthy** for Ayodhyā, Sundara, and Yuddha.
 Its introduction additionally credits Durga Naaga Devi and Vaasudeva Kishore
-for contributions to Sundara. The Ayyangar introduction PDF is linked, not
-redistributed.
+for contributions to Sundara. The 142-page Ayyangar introduction PDF is preserved with a provenance record.
