@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Valmiki source inventory", "Audit chapter directory listings"]
+    workflows: ["Preserve source inventory snapshots"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
@@ -44,29 +44,32 @@ jobs:
           ref: '57b40a93e97e6a17c1a7f361cf672c0255dc8b08'
           path: data/ayyangar
           persist-credentials: false
-      - name: Select an inventory snapshot
+      - name: Select a preserved inventory
         id: audit
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          run_id="$REQUESTED_INVENTORY"
-          artifact=primary-source-inventory
-          if [ -z "$run_id" ]; then
-            run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/valmiki-inventory.yml/runs?branch=main&status=success&per_page=10" --jq '[.workflow_runs[] | select(.id == 43560969413)][0].id // empty')
+          if [ -n "$REQUESTED_INVENTORY" ]; then
+            [[ "$REQUESTED_INVENTORY" =~ ^[0-9]+$ ]]
+            printf 'run_id=%s\n' "$REQUESTED_INVENTORY" >> "$GITHUB_OUTPUT"
+          else
+            ref=$(git ls-remote origin refs/heads/recursive-inventory-snapshot | cut -f1)
+            if [ -z "$ref" ]; then
+              ref=73199ff97ff058d1e932a990da2866f8acdd60d6
+            fi
+            [[ "$ref" =~ ^[0-9a-f]{40}$ ]]
+            printf 'ref=%s\n' "$ref" >> "$GITHUB_OUTPUT"
           fi
-          if [ -z "$run_id" ]; then
-            run_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/chapter-listings.yml/runs?branch=main&status=success&per_page=1" --jq '.workflow_runs[0].id // empty' 2>/dev/null || true)
-            artifact=chapter-directory-inventory
-          fi
-          if [ -n "$run_id" ]; then
-            [[ "$run_id" =~ ^[0-9]+$ ]]
-          fi
-          printf 'run_id=%s\nartifact=%s\n' "$run_id" "$artifact" >> "$GITHUB_OUTPUT"
-      - name: Load the source URL audit
+      - name: Load the preserved URL inventory
+        if: steps.audit.outputs.ref != ''
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.audit.outputs.ref }}
+          path: audit/primary
+          persist-credentials: false
+      - name: Load a manually selected recursive audit
         if: steps.audit.outputs.run_id != ''
         uses: actions/download-artifact@v4
         with:
-          name: ${{ steps.audit.outputs.artifact }}
+          name: primary-source-inventory
           path: audit/primary
           run-id: ${{ steps.audit.outputs.run_id }}
           github-token: ${{ github.token }}
