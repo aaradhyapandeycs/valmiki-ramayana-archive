@@ -8,6 +8,7 @@ Sanskrit reader, a source file guide, and a separate historical English reader.
 
 ```sh
 BASE_PATH=/ python3 build.py
+python3 verify_iast.py
 BASE_PATH=/ python3 verify.py
 python3 -m http.server 8000 --directory dist
 ```
@@ -34,3 +35,16 @@ The source homepage credits **Desiraju Hanumanta Rao** for Bāla, Araṇya,
 and Kiṣkindhā, and **K. M. K. Murthy** for Ayodhyā, Sundara, and Yuddha.
 Its introduction additionally credits Durga Naaga Devi and Vaasudeva Kishore
 for contributions to Sundara. The 142-page Ayyangar introduction PDF is preserved with a provenance record.
+
+## Reader spellings
+
+The original title data stays in `chapters.json`. The reviewed display titles
+and Sanskrit glossary are in `data/chapter-iast.json`, pinned to the original
+index by a content fingerprint. Diacritic-insensitive search uses displayed
+headings and reviewed aliases.
+
+The IAST verse display derives from Devanāgarī. Unsupported source bytes or
+characters remain in the Devanāgarī witness and are flagged beside the absent
+IAST. The separate Dutt reader changes only terms in its reviewed glossary.
+The two publicly available IAST audit files record the checks and the
+remaining exceptions.

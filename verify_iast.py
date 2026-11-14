@@ -23,9 +23,12 @@ class TextAudit(HTMLParser):
         self.parts = []
         self.fields = {name: [] for name in ("title", "h1", "sa-Deva", "sa-Latn")}
         self.unavailable = 0
+        self.description = None
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "meta" and attrs.get("name") == "description":
+            self.description = attrs["content"]
         if "iast-gap" in attrs.get("class", "").split():
             self.unavailable += 1
         name = attrs.get("lang") if tag == "p" else tag
@@ -71,6 +74,7 @@ def verify():
             document = TextAudit()
             document.feed((OUT / slug / str(n) / "index.html").read_text(encoding="utf-8"))
             if (document.fields["h1"] != [title] or title not in document.fields["title"][0]
+                    or not document.description or title not in document.description
                     or indexed[book_number, n] != title or LEGACY.search(title)):
                 raise ValueError(f"IAST mismatch in title, search, or metadata for {slug}/{n}")
             audit["chapter_titles"] += 1
