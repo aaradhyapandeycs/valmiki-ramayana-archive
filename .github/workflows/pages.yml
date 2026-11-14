@@ -30,7 +30,7 @@ jobs:
       - name: Load archived Sanskrit
         uses: actions/checkout@v4
         with:
-          ref: '086b7e0fa2823b4e628067c090f5f99761b8b260'
+          ref: 'b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad'
           path: data/sanskrit
           persist-credentials: false
       - name: Load the full URL audit
@@ -42,7 +42,7 @@ jobs:
           run-id: ${{ env.INVENTORY_RUN_ID }}
           github-token: ${{ github.token }}
       - name: Verify the recorded Sanskrit snapshot
-        run: python3 verify_capture.py data/sanskrit --commit f593b61f4d9689b0409d7d6e419abf9b75d99fe8
+        run: python3 verify_capture.py data/sanskrit --commit 89e2ac54cb045ff189f5ea06abc0867dab85f010
       - name: Reconcile observed source URLs
         run: |
           audit=audit/original
@@ -59,3 +59,7 @@ jobs:
           path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify all published chapter routes
+        env:
+          LIVE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python3 validate_live.py "$LIVE_URL" 534
