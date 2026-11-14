@@ -161,11 +161,10 @@ def link_metadata(document, book, chapter, source_sha256=None):
     units = chapter_units(document)
     alternate = printed_coordinates(book, chapter, source_sha256)
     if alternate:
-        # Strip unrelated appendices by using only verse-anchor units. In a
-        # few pages the final colophon or an editorial label also uses this
-        # class but has no full verse coordinate.
-        passages = (text for fragment, sanskrit, _ in units if fragment
-                    for _, text in sanskrit)
+        # Some original pages use a malformed verse anchor. Its Sanskrit
+        # must still corroborate the chapter sequence even if the surrounding
+        # English paragraph is not eligible for a deep link.
+        passages = (text for _, sanskrit, _ in units for _, text in sanskrit)
         alternate = verify_uniform_coordinates(book, chapter, source_sha256, passages)
     anchor_counts = Counter(fragment.casefold() for fragment, _, _ in units if fragment)
     groups, unresolved = [], []
