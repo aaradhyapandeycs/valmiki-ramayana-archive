@@ -277,3 +277,106 @@ footer p { max-width: 83ch; }
 }
 
 .skip { max-inline-size: calc(100% - 2rem); }
+/* Keep each translation with its source verses at every reading width. */
+.reader {
+  --translation-ink: #304838;
+  --translation-paper: #faf9f4;
+  --translation-rule: #bdc9be;
+  container: verse-reader / inline-size;
+  max-inline-size: 74rem;
+}
+
+main.wrap:has(.reader) {
+  width: min(calc(100% - 2.75rem), 74rem);
+}
+
+.verse-pair {
+  --translation-indent: calc(3.15rem + clamp(.55rem, 1.4vw, 1rem));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  border-block-end: 1px solid var(--line);
+}
+
+.verse-pair-source,
+.verse-translation {
+  min-inline-size: 0;
+}
+
+.verse-pair-source > .verse:last-child {
+  border-bottom: 0;
+}
+
+.verse-translation {
+  margin: 0 0 .8rem var(--translation-indent);
+  padding: .62rem .88rem .7rem;
+  border-inline-start: 1px solid var(--translation-rule);
+  background: var(--translation-paper);
+  color: var(--translation-ink);
+  font: 400 1rem / 1.6 var(--serif);
+  overflow-wrap: anywhere;
+}
+
+.verse-translation p {
+  margin: 0;
+}
+
+.verse-translation p + p {
+  margin-block-start: .55em;
+}
+
+.verse-translation-label {
+  color: var(--translation-ink);
+  font: 600 .87rem / 1.4 var(--sans);
+}
+
+.verse-translation-source {
+  font-family: var(--sans);
+  font-size: .9rem;
+}
+
+.verse-translation a {
+  color: inherit;
+}
+
+@container verse-reader (min-width: 65rem) {
+  .verse-pair {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: clamp(.9rem, 1.7vw, 1.5rem);
+  }
+
+  .verse-translation {
+    margin: .8rem 0;
+    padding-block-start: .26rem;
+  }
+}
+
+@media (max-width: 42rem) {
+  main.wrap:has(.reader) {
+    width: calc(100% - 1.5rem);
+  }
+
+  .verse-pair {
+    --translation-indent: calc(2rem + clamp(.55rem, 1.4vw, 1rem));
+  }
+}
+
+@container verse-reader (max-width: 18rem) {
+  .verse-translation {
+    margin-inline-start: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .verse-translation {
+    border-inline-start-color: CanvasText;
+  }
+}
+
+.verse-translation ul {
+  margin-block: .35em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.verse-translation li + li { margin-block-start: .3em; }

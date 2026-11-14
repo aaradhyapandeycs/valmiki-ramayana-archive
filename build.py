@@ -13,6 +13,7 @@ from pathlib import Path
 
 from chapter_iast import display_chapters, load_title_review, title_aliases
 from dutt_reader import render_dutt
+from prose_links import TRANSLATORS, local_units, prepare_links
 from sanskrit_paratext import load_paratext, render_paratext
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
@@ -74,6 +75,11 @@ def main():
         write("heading-provenance.json", json.dumps(corrections, ensure_ascii=False, indent=2) + "\n")
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
     paratext = load_paratext(sanskrit)
+    prose = load_catalog("prose-links.json", None)
+    prose_report = {}
+    expected_chapters = {f"{slug}/{n}" for slug, n in sanskrit}
+    if prose and (prose["schema_version"] != 1 or set(prose["chapters"]) != expected_chapters):
+        raise ValueError("English source reference snapshot does not cover the same chapters")
     layout = load_catalog("verse-layout.json", None)
     if layout:
         snapshot = load_catalog("sanskrit/summary.json", None)
@@ -105,7 +111,11 @@ def main():
             "local": True,
         })
     audit_summary = ROOT / "audit" / "primary" / "summary.json"
-    write("sources/index.html", page("Source files and editions", source_guide(ancillary, variants, audit_summary.is_file()), 1))
+    guide = source_guide(ancillary, variants, audit_summary.is_file())
+    if prose:
+        guide += ('<section class="sources"><h2>English translation reference audit</h2>'
+                  '<p><a href="../prose-links-audit.json">Verified links, verse groups, and mapping gaps</a>.</p></section>')
+    write("sources/index.html", page("Source files and editions", guide, 1))
     manifest = []
     cards = []
     search = []
@@ -147,8 +157,35 @@ def main():
                         or set(chapter_layout["supplements"]) != expected_supplements
                         or ("colophon" in chapter_layout) != bool(record.get("colophon"))):
                     raise ValueError(f"Verse layout differs from the Sanskrit witness for {slug}/{n}")
+            groups, translation_note = [], ""
+            key = f"{slug}/{n}"
+            if prose and record:
+                evidence = prose["chapters"][key]
+                groups, issues = prepare_links(record, additions, evidence)
+                covered = {anchor for group in groups for anchor in group["units"]}
+                units = [anchor for anchor, *_ in local_units(record, additions)]
+                unmatched = [anchor for anchor in units if anchor not in covered]
+                prose_report[key] = {
+                    "source_url": evidence["source_url"],
+                    "status": evidence["status"],
+                    "candidate_paragraphs": evidence.get("candidate_paragraphs", 0),
+                    "mapped_groups": groups,
+                    "unmatched_units": unmatched,
+                    "issues": dict(issues),
+                    "source_reference_issues": evidence.get("issues", []),
+                }
+                credit = esc(TRANSLATORS[book_number])
+                status = (" Verse-level links appear where the source reference could be verified."
+                          if unmatched else "")
+                if not groups:
+                    status = " Verse-level references could not be verified for this chapter."
+                translation_note = (
+                    f'<p class="source-note">English source credit: {credit}.{status} '
+                    f'<a href="{esc(evidence["source_url"])}" rel="external">Read the chapter’s English at the source ↗</a>.</p>'
+                )
             offsets = chapter_layout.get("supplements")
-            passage = render_sanskrit(record, layout=chapter_layout,
+            passage = render_sanskrit(record, layout=chapter_layout, groups=groups,
+                                      translation_note=translation_note,
                                       before=render_paratext(additions.get("before"), offsets),
                                       after=render_paratext(additions.get("after"), offsets))
             correction = corrections.get(slug, {}).get(str(n))
@@ -189,6 +226,13 @@ def main():
         cards.append(f'<section class="book" id="{slug}"><div class="book-heading"><div><p class="eyebrow">Book {len(cards)+1}</p>'
                      f'<h2><a href="{slug}/">{name} Kāṇḍa</a></h2></div><span>{len(rows)} sargas</span></div>'
                      f'<ol class="chapters">{items}</ol></section>')
+
+    if prose:
+        write("prose-links-audit.json", json.dumps({
+            "method": prose["method"],
+            "source_coverage": prose["coverage"],
+            "chapters": prose_report,
+        }, ensure_ascii=False, separators=(",", ":")) + "\n")
 
     mapped = {entry["source_url"]: entry for entry in manifest}
     if len(mapped) != len(manifest):

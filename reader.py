@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from prose_links import pair_units
 from transliterate_iast import transliterate
 from verse_lines import corresponding_breaks, line_break_offsets, render_lines, reviewed_verse_breaks
 
@@ -59,7 +60,7 @@ def load_sanskrit(books):
     return records
 
 
-def render_sanskrit(record, *, before="", after="", layout=None):
+def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), translation_note=""):
     if record is None:
         return ""
     layout = layout or {}
@@ -77,8 +78,8 @@ def render_sanskrit(record, *, before="", after="", layout=None):
     for verse in record["verses"]:
         number = verse["number"]
         last = verse.get("last_number", number)
-        for n in range(number, last):
-            items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
+        aliases = "".join(f'<span id="{anchor}-{n}" class="verse-anchor"></span>'
+                          for n in range(number, last))
         label = str(number) if last == number else f"{number}–{last}"
         source = verse["sanskrit"]
         breaks = layout.get("verses", {}).get(str(number))
@@ -88,10 +89,10 @@ def render_sanskrit(record, *, before="", after="", layout=None):
         roman = None if verse.get("source_glyph_anomaly") else transliterate(source)
         alternate = (f'<p lang="sa-Latn" class="iast">{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
                      '<p class="iast-gap">IAST unavailable for this source block.</p>')
-        items.append(f'<div class="verse" id="{anchor}-{last}">'
+        items.append((f"{anchor}-{last}", aliases + f'<div class="verse" id="{anchor}-{last}">'
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
                      f'<div class="verse-scroll" tabindex="0" role="group" aria-label="{anchor.capitalize()} {label} text">'
-                     f'<p lang="sa-Deva">{render_lines(source, breaks)}</p>{alternate}</div></div>')
+                     f'<p lang="sa-Deva">{render_lines(source, breaks)}</p>{alternate}</div></div>'))
     colophon = record.get("colophon")
     ending = ""
     if colophon:
@@ -108,7 +109,7 @@ def render_sanskrit(record, *, before="", after="", layout=None):
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
             f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'
-            f'{before}{"".join(items)}{after}{ending}</section>')
+            f'{translation_note}{pair_units([*before, *items, *after], groups)}{ending}</section>')
 
 
 def render_coverage(records):

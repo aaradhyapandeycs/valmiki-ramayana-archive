@@ -29,7 +29,7 @@ jobs:
       - name: Checkout frozen before snapshot
         uses: actions/checkout@v4
         with:
-          ref: 4d26c84680cd47fda6f0dadfdc0efd0656b39e57
+          ref: 74ef5c31b549ad61fb664181a0ab5786687cfff7
           path: .before
           persist-credentials: false
       - name: Check out the same Sanskrit data for both versions
@@ -43,6 +43,11 @@ jobs:
           ref=62c55ef21556e2d7d3716cd0f6a486e2f66c8823
           git fetch --no-tags --depth=1 origin "$ref"
           git show "$ref:verse-layout.json" > data/verse-layout.json
+      - name: Load the verified English source reference index
+        run: |
+          ref=a14bdb90b9ba1a6345d6693aaf5233790bcac203
+          git fetch --no-tags --depth=1 origin "$ref"
+          git show "$ref:prose-links.json" > data/prose-links.json
       - name: Install Chromium
         run: |
           python3 -m pip install playwright
@@ -50,6 +55,7 @@ jobs:
       - name: Build before and after with identical font files
         run: |
           cp -a data/sanskrit .before/data/
+          cp data/verse-layout.json .before/data/
           (cd .before && python3 build.py)
           python3 build.py
           bash iast_font_assets.sh dist

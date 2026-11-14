@@ -23,3 +23,10 @@ An HTTP 200 response or public availability is **not** a reuse license. A
 third-party site's copyright description is not permission from the source
 translators. If rights are clarified, record the specific grant and scope
 before changing a source-link-only status to hosted content.
+
+
+The verse reader links to the modern translation at its original source.
+The English source-reference index stores only verse references, anchor
+names, evidence hashes and audit findings. No modern English translation
+text is stored in this index or the generated chapter pages. The separate
+Dutt English edition retains its own chapter numbering.

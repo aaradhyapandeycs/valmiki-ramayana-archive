@@ -57,3 +57,19 @@ The separate [textual exception ledger](TEXTUAL_EXCEPTIONS.md) lists
 additional or malformed source material with direct links. The independent
 source-text workflow fetches the original Sanskrit HTML and compares every
 pinned and restored passage against both the generated and published readers.
+
+
+## Verse-level English source links
+
+The right-hand English panels link to original, reference-checked translation
+passages. The same panels follow IAST at narrower widths. A source translation
+can cover several verses or partial verses and is linked once as a group.
+Chapter-level source links cover pages where the exact verse correspondence
+cannot be established. The published `prose-links-audit.json` lists verified
+group locators, reader anchors, and unmatched passages.
+
+The source index is built by `collect_prose_links.py`, which recognizes the
+detailed panes’ `p.tat` translation paragraphs using their printed references
+or a uniquely anchored, complete Sanskrit passage. It excludes introductions,
+word meanings and commentary. The collector stores reference metadata and
+hashes only.

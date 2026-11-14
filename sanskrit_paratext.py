@@ -46,7 +46,7 @@ def load_paratext(source_records):
 
 def render_paratext(items, offsets=None):
     if not items:
-        return ""
+        return []
     html = []
     for i, item in enumerate(items):
         kind = item["kind"]
@@ -63,7 +63,7 @@ def render_paratext(items, offsets=None):
         alternate = (f'<div lang="sa-Latn" class="colophon iast">{render_lines(latin, corresponding_breaks(source, latin, breaks))}</div>'
                      if latin else '<div class="colophon">IAST unavailable for this source passage.</div>')
         permalink = f'<a class="source-paratext-permalink" href="#source-paragraph-{number}" aria-label="Link to source paragraph {number}">¶</a>'
-        html.append(f'<aside id="source-paragraph-{number}" class="colophon source-paratext" aria-label="{title}">'
+        html.append((f"source-paragraph-{number}", f'<aside id="source-paragraph-{number}" class="colophon source-paratext" aria-label="{title}">'
                     f'{caption}{permalink}<div class="verse-scroll" tabindex="0" role="group" aria-label="{title} text">'
-                    f'<div lang="sa-Deva">{text}</div>{alternate}</div></aside>')
-    return "".join(html)
+                    f'<div lang="sa-Deva">{text}</div>{alternate}</div></aside>'))
+    return html
