@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from transliterate_iast import transliterate
-from verse_lines import corresponding_breaks, line_break_offsets, render_lines
+from verse_lines import corresponding_breaks, line_break_offsets, render_lines, reviewed_verse_breaks
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
@@ -84,6 +84,7 @@ def render_sanskrit(record, *, before="", after="", layout=None):
         breaks = layout.get("verses", {}).get(str(number))
         if breaks is None:
             breaks = line_break_offsets(source)
+        breaks = reviewed_verse_breaks(source, breaks, record["book"], record["sarga"], number)
         roman = None if verse.get("source_glyph_anomaly") else transliterate(source)
         alternate = (f'<p lang="sa-Latn" class="iast">{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
                      '<p class="iast-gap">IAST unavailable for this source block.</p>')

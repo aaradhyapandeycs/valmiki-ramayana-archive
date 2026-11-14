@@ -1,6 +1,7 @@
 import unittest
 
-from verse_lines import corresponding_breaks, line_break_offsets, line_segments, render_lines
+from transliterate_iast import transliterate
+from verse_lines import corresponding_breaks, line_break_offsets, line_segments, render_lines, reviewed_verse_breaks
 
 
 class VerseRows(unittest.TestCase):
@@ -32,6 +33,19 @@ class VerseRows(unittest.TestCase):
         offsets = [source.index("\n")]
         self.assertEqual([roman.index("\n")], corresponding_breaks(source, roman, offsets))
         self.assertEqual(2, render_lines(roman, corresponding_breaks(source, roman, offsets)).count("<span"))
+
+    def test_reviewed_fused_half_verses_preserve_both_exact_texts(self):
+        source = "अमी पवन विक्षिप्ता विनन्दन्ती इव पादपाः |षट्पदैः अनुकूजद्भिः वनेषु मधु गन्धिषु || ४-१-१८"
+        roman = transliterate(source)
+        offsets = reviewed_verse_breaks(source, [], 4, 1, 18)
+        self.assertEqual([source.index("|ष") + 1], offsets)
+        self.assertEqual(2, render_lines(source, offsets).count("<span"))
+        for text, cuts in ((source, offsets), (roman, corresponding_breaks(source, roman, offsets))):
+            rows = list(line_segments(text, cuts))
+            self.assertEqual(text, "".join(row + separator for row, separator in rows))
+        self.assertEqual([], reviewed_verse_breaks(source, [], 4, 1, 19))
+        with self.assertRaises(ValueError):
+            reviewed_verse_breaks(source + " ", [], 4, 1, 18)
 
 
 if __name__ == "__main__":
