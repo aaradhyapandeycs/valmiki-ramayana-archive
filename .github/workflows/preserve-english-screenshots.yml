@@ -1,0 +1,35 @@
+name: Preserve English source layout screenshots
+on:
+  push:
+    branches: [english-source-layout-screenshots]
+    paths: ['.github/workflows/preserve-english-screenshots.yml']
+
+permissions:
+  actions: read
+  contents: write
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: verse-layout-desktop
+          path: ${{ runner.temp }}/layout
+          run-id: 43573055175
+          github-token: ${{ github.token }}
+      - name: Preserve the English source layout comparisons
+        run: |
+          shots=audit/english-source-layout
+          mkdir -p "$shots"
+          cp "$RUNNER_TEMP"/layout/english-source-panels/*.png "$shots/"
+          cp "$RUNNER_TEMP"/layout/english-source-panels/report.json "$shots/"
+          test -s "$shots/before-desktop-baala-opening-1.png"
+          test -s "$shots/after-desktop-baala-opening.png"
+          test -s "$shots/after-mobile-baala-opening.png"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$shots"
+          git commit -m "Preserve English source panels on desktop, mobile and at zoom"
+          git push origin HEAD:refs/heads/english-source-layout-screenshots
