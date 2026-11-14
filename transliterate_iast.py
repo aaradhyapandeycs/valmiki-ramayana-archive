@@ -50,7 +50,7 @@ def transliterate(text):
             result.append(SIGNS[char])
         elif char in DIGITS:
             result.append(DIGITS[char])
-        elif char in PUNCTUATION or char in "\n\t":
+        elif char.isspace() or char in PUNCTUATION:
             result.append(char)
         else:
             return None

@@ -54,6 +54,7 @@ def verify():
 
     audit = Counter()
     exceptions = []
+    exception_characters = Counter()
     for file in sorted(OUT.rglob("*.html")):
         document = TextAudit()
         document.feed(file.read_text(encoding="utf-8"))
@@ -94,11 +95,18 @@ def verify():
             audit["iast_blocks_and_colophons"] += len(roman) - len(gaps)
             audit["unsupported_blocks_and_colophons"] += len(gaps)
             if gaps:
+                for i in gaps:
+                    exception_characters.update(
+                        "U+%04X %s" % (ord(char), unicodedata.name(char, "Unassigned"))
+                        for char in set(devanagari[i - 1]) if transliterate(char) is None
+                        and not unicodedata.category(char).startswith("M")
+                    )
                 exceptions.append({"chapter": f"{slug}/{n}", "source_blocks": gaps})
 
-    report = {"counts": dict(audit), "iast_exceptions": exceptions}
+    report = {"counts": dict(audit), "unsupported_characters": dict(exception_characters), "iast_exceptions": exceptions}
     (OUT / "iast-audit.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report["counts"], ensure_ascii=False))
+    print(json.dumps(report["unsupported_characters"], ensure_ascii=False))
 
 
 if __name__ == "__main__":
