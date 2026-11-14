@@ -1,8 +1,10 @@
 from hashlib import sha256
 import json
 import unittest
+from unittest.mock import patch
 
 from collect_prose_links import link_metadata, parse, parse_reference_label
+from prose_coordinates import REVIEWED_COORDINATES, verify_uniform_coordinates
 
 
 def fake_page(units):
@@ -88,12 +90,18 @@ class ProseLinkMetadata(unittest.TestCase):
         self.assertEqual("printed_reference_disagrees_with_unit", missing[0]["reason"])
 
     def test_documented_source_chapter_number_malformations(self):
-        groups, issues, _ = link_metadata(fake_page("""
+        alternate = "f" * 64
+        document = fake_page("""
 <a name="Verse3"></a>
 <p class="SanSloka">प्रथमः | द्वितीयः || ९४-६-१<br>तृतीयः | चतुर्थः || ९४-६-२</p>
 <p class="SanSloka">प्रथमः | द्वितीयः || ९४-६-३</p>
 <p class="tat">One paragraph covering three verses.</p>
-"""), 6, 94)
+""")
+        with patch.dict(REVIEWED_COORDINATES, {(6, 94): ((94, 6), 3, alternate)}):
+            groups, issues, _ = link_metadata(document, 6, 94, alternate)
+            self.assertEqual([], link_metadata(document, 6, 94, "a" * 64)[0])
+            with self.assertRaisesRegex(ValueError, "no longer uniform"):
+                verify_uniform_coordinates(6, 94, alternate, ["पद || ९४-६-२"])
         self.assertEqual([], issues)
         self.assertEqual(["6-94-1", "6-94-2", "6-94-3"], groups[0]["refs"])
         groups, issues, _ = link_metadata(fake_page("""
@@ -105,6 +113,22 @@ class ProseLinkMetadata(unittest.TestCase):
         self.assertEqual([], issues)
         self.assertEqual("4543, 4, 5", groups[0]["label"])
         self.assertEqual(["4-54-3", "4-54-4", "4-54-5"], groups[0]["refs"])
+
+    def test_reviewed_chapter_prefix_retains_printed_label(self):
+        digest = "a" * 64
+        document = fake_page("""
+<a name="Verse1"></a>
+<p class="SanSloka">प्रथमः | द्वितीयः || ४-१६-१</p>
+<p class="tat">One statement. [4-16-1]</p>
+<a name="Verse2"></a>
+<p class="SanSloka">प्रथमः | द्वितीयः || ४-१६-२</p>
+<p class="tat">Two statements. [4-16-2]</p>
+""")
+        with patch.dict(REVIEWED_COORDINATES, {(3, 16): ((4, 16), 2, digest)}):
+            found, missing, _ = link_metadata(document, 3, 16, digest)
+        self.assertEqual([], missing)
+        self.assertEqual(["4-16-1", "4-16-2"], [item["label"] for item in found])
+        self.assertEqual([["3-16-1"], ["3-16-2"]], [item["refs"] for item in found])
 
     def test_reject_duplicate_anchors_and_opening_prose(self):
         found, missing, count = link_metadata(fake_page("""

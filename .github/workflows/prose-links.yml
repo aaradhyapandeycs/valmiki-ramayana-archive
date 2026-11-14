@@ -2,7 +2,7 @@ name: Verify English translation source locators
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/prose-links.yml', 'collect_prose_links.py']
+    paths: ['.github/workflows/prose-links.yml', 'collect_prose_links.py', 'prose_coordinates.py']
   workflow_dispatch:
 
 permissions:

@@ -11,6 +11,7 @@ from urllib.error import HTTPError, URLError
 
 from audit_source_text import AUXILIARY_SEPARATOR, PRIMARY_HOSTS, clean, fetch, parse, plain
 from ingest_sanskrit import BOOK_COUNTS, parsed_locators
+from prose_coordinates import printed_coordinates, verify_uniform_coordinates
 
 
 ANCHOR = re.compile(r"Verse[0-9]{1,3}", re.IGNORECASE)
@@ -35,11 +36,11 @@ def print_reference(book, chapter, point):
     return f"{book}-{chapter}-{point[0]}{point[1]}"
 
 
-def parse_reference_label(label, book, chapter):
+def parse_reference_label(label, book, chapter, alternate=None):
     """Return ordered, explicit references, and the verse numbers they cover."""
     label = label.strip()
     prefix = BOOK_CHAPTER.match(label)
-    if prefix is None or tuple(map(int, prefix.groups())) != (book, chapter):
+    if prefix is None or tuple(map(int, prefix.groups())) not in ((book, chapter), alternate):
         raise ValueError("wrong_chapter_reference")
     offset = prefix.end()
     points = []
@@ -116,7 +117,7 @@ def chapter_units(document):
     return units
 
 
-def source_evidence(paragraphs, book, chapter):
+def source_evidence(paragraphs, book, chapter, alternate=None):
     refs = []
     verse_numbers = set()
     hashes = []
@@ -133,7 +134,7 @@ def source_evidence(paragraphs, book, chapter):
             has_partial_tail = DEVANAGARI_LETTER.search(remaining) is not None
         if not found:
             continue
-        expected = (94, 6) if (book, chapter) == (6, 94) else (book, chapter)
+        expected = alternate or (book, chapter)
         for _, (kanda, sarga, first, last) in found:
             if (kanda, sarga) != expected:
                 foreign += 1
@@ -156,19 +157,27 @@ def issue(ordinal, fragment, reason, refs=None):
     return row
 
 
-def link_metadata(document, book, chapter):
+def link_metadata(document, book, chapter, source_sha256=None):
     units = chapter_units(document)
+    alternate = printed_coordinates(book, chapter, source_sha256)
+    if alternate:
+        # Strip unrelated appendices by using only verse-anchor units. In a
+        # few pages the final colophon or an editorial label also uses this
+        # class but has no full verse coordinate.
+        passages = (text for fragment, sanskrit, _ in units if fragment
+                    for _, text in sanskrit)
+        alternate = verify_uniform_coordinates(book, chapter, source_sha256, passages)
     anchor_counts = Counter(fragment.casefold() for fragment, _, _ in units if fragment)
     groups, unresolved = [], []
     seen_partial = False
     for fragment, sanskrit, translations in units:
         partial_start = seen_partial
         if fragment is not None:
-            seen_partial = source_evidence(sanskrit, book, chapter)[-1]
+            seen_partial = source_evidence(sanskrit, book, chapter, alternate)[-1]
         previous_prose = 0
         for ordinal, content in translations:
             preceding = [(position, text) for position, text in sanskrit if previous_prose < position < ordinal]
-            source_refs, source_numbers, source_hashes, foreign, partial_tail = source_evidence(preceding, book, chapter)
+            source_refs, source_numbers, source_hashes, foreign, partial_tail = source_evidence(preceding, book, chapter, alternate)
             previous_prose = ordinal
             has_partial_start = partial_start
             if preceding:
@@ -188,7 +197,7 @@ def link_metadata(document, book, chapter):
                 parsed_label = FUSED_KISH_54_PROSE.sub("4-54-", label, count=1)
             if parsed_label and BOOK_CHAPTER.match(parsed_label):
                 try:
-                    refs, numbers = parse_reference_label(parsed_label, book, chapter)
+                    refs, numbers = parse_reference_label(parsed_label, book, chapter, alternate)
                 except ValueError as error:
                     unresolved.append(issue(ordinal, fragment, str(error)))
                     continue
@@ -256,7 +265,7 @@ def capture_chapter(item, root, timeout):
     observed = sha256(raw).hexdigest()
     if observed != record["source_sha256"]:
         return item, result | {"status": "source_hash_changed", "observed_sha256": observed}
-    groups, issues, count = link_metadata(parse(raw), record["book"], record["sarga"])
+    groups, issues, count = link_metadata(parse(raw), record["book"], record["sarga"], observed)
     result.update(status="checked" if groups else "no_confirmed_group",
                   candidate_paragraphs=count, groups=groups, issues=issues)
     return item, result

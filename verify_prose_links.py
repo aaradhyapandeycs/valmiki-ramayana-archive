@@ -19,6 +19,21 @@ DIGEST = re.compile(r"[0-9a-f]{64}$")
 PRINTED_LOCATOR = re.compile(r"(?<![0-9-])([0-9]{1,3}) *[-–] *([0-9]{1,3}) *[-–] *([0-9]{1,3})"
                              r"(?: *[-–] *([0-9]{1,3}))?(?![0-9-])")
 DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
+# Independent observations from the pinned Sanskrit corpus and Yuddha's
+# restored paragraphs. Include the canonical book/chapter and source sequence.
+PRINTED_PREFIX = {
+    (3, 16): (4, 16, 43),
+    (3, 28): (4, 28, 33),
+    (3, 39): (4, 39, 25),
+    (3, 66): (4, 66, 21),
+    (6, 87): (87, 6, 30),
+    (6, 88): (88, 6, 79),
+    (6, 89): (89, 6, 54),
+    (6, 90): (90, 6, 97),
+    (6, 91): (91, 6, 28),
+    (6, 92): (92, 6, 68),
+    (6, 94): (94, 6, 41),
+}
 
 
 def require(condition, error):
@@ -94,7 +109,8 @@ def printed_verses(node, book, chapter):
     require(len(script) == 1, f"missing Sanskrit text in {node.get('id')}")
     text = meaningful(script[0]).translate(DEVANAGARI_DIGITS)
     witnesses = set()
-    order = (chapter, book) if (book, chapter) == (6, 94) else (book, chapter)
+    alternate = PRINTED_PREFIX.get((book, chapter))
+    order = alternate[:2] if alternate else (book, chapter)
     for b, s, first, final in PRINTED_LOCATOR.findall(text):
         if (int(b), int(s)) == order and 0 < int(first) <= int(final or first) <= int(first) + 75:
             witnesses.update(range(int(first), int(final or first) + 1))
@@ -107,6 +123,11 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
     ancestors = {child: parent for parent in reader.iter() for child in parent}
     positions = {node.get("id"): i for i, node in enumerate(nodes)}
     observed = {node.get("id"): printed_verses(node, book, chapter) for node in nodes}
+    alternate = PRINTED_PREFIX.get((book, chapter))
+    if alternate:
+        ordered = [number for witnesses in observed.values() for number in sorted(witnesses)]
+        require(ordered == list(range(1, alternate[2] + 1)),
+                f"reviewed printed sequence has changed in {book}.{chapter}")
     locations = {}
     for unit, witnesses in observed.items():
         for number in witnesses:

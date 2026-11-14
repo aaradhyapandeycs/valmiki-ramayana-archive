@@ -5,6 +5,8 @@ import hashlib
 from html import escape
 import re
 
+from prose_coordinates import printed_coordinates, verify_uniform_coordinates
+
 
 REF = re.compile(r"([1-6])-([1-9][0-9]{0,2})-([1-9][0-9]{0,2})([a-d]?)")
 SANSKRIT_REF = re.compile(
@@ -30,8 +32,7 @@ TRANSLATORS = {
 def sanskrit_numbers(record, text):
     """Use printed kāṇḍa, sarga, and verse locators, never local block ordinals."""
     book, chapter = record["book"], record["sarga"]
-    # Yuddha 94 swaps book and chapter in its archived Sanskrit locators.
-    expected = (chapter, book) if (book, chapter) == (6, 94) else (book, chapter)
+    expected = printed_coordinates(book, chapter, record["source_sha256"]) or (book, chapter)
     ascii_text = text.translate(DIGITS)
     numbers = set()
     for match in SANSKRIT_REF.finditer(ascii_text):
@@ -53,6 +54,8 @@ def local_units(record, additions):
                     for verse in record["verses"])
     sections.extend((f"source-paragraph-{item['source_paragraph']}", item["sanskrit"], None)
                     for item in additions.get("after", ()) if item["kind"] == "Source verse passage")
+    verify_uniform_coordinates(record["book"], record["sarga"], record["source_sha256"],
+                               (text for _, text, _ in sections))
     return [
         (anchor, sanskrit_numbers(record, text), fragment,
          hashlib.sha256(FORMAT_SPACE.sub(" ", text).strip().encode("utf-8")).hexdigest())

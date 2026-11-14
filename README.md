@@ -73,3 +73,9 @@ detailed panes’ `p.tat` translation paragraphs using their printed references
 or a uniquely anchored, complete Sanskrit passage. It excludes introductions,
 word meanings and commentary. The collector stores reference metadata and
 hashes only.
+
+
+The original chapter headers and indexes resolve 11 consistently misnumbered
+source prefixes. The mapping is tied to exact source response hashes and
+requires all printed verse numbers to form an uninterrupted sequence.
+The displayed Sanskrit and printed source labels are preserved.
