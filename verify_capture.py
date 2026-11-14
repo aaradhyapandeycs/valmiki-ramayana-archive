@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 from urllib.parse import urlsplit
 
-from ingest_sanskrit import BOOK_COUNTS, deva_only, parsed_locators
+from ingest_sanskrit import BOOK_COUNTS, deva_only, glyph_exception, parsed_locators
 
 
 def load_json(path):
@@ -28,6 +28,7 @@ def verify(root, commit=None):
     counts = Counter()
     statuses = Counter()
     blocks = Counter()
+    defect_chapters = []
     for row in summary["chapters"]:
         slug, number = row["slug"], row["sarga"]
         record = load_json(root / slug / f"{number}.json")
@@ -67,9 +68,18 @@ def verify(root, commit=None):
         numbered = status == "numbering_verified"
         prefix = "verse" if numbered else "block"
         expected = 1
+        defects = 0
         for verse in verses:
             text = verse["sanskrit"]
-            if not deva_only(text):
+            anomaly = verse.get("source_glyph_anomaly")
+            if anomaly is not None:
+                independently_checked = glyph_exception(text, book, number, verse["source_anchor"])
+                if numbered or kind != "primary" or anomaly != independently_checked:
+                    raise ValueError(f"{slug}/{number}: unrecognized glyph exception")
+                defects += 1
+                if defects > 1:
+                    raise ValueError(f"{slug}/{number}: multiple glyph exceptions")
+            elif not deva_only(text):
                 raise ValueError(f"{slug}/{number}: mixed-language verse/block")
             if verse["number"] != expected or verse["anchor"] != f"{prefix}-{book}-{number}-{expected}":
                 raise ValueError(f"{slug}/{number}: unexpected verse/block order")
@@ -83,12 +93,16 @@ def verify(root, commit=None):
             expected = last + 1
         counts[kind] += 1
         blocks[status] += len(verses)
+        if defects:
+            defect_chapters.append(f"{slug}/{number}")
 
     if counts != Counter(summary["counts"]) or statuses != Counter(summary["statuses"]):
         raise ValueError("Coverage totals disagree with per-chapter records")
     print(f"Verified capture citations and script containment: {dict(counts)}")
     print(f"Chapter verification status: {dict(statuses)}")
     print(f"Displayed Sanskrit records by status: {dict(blocks)}")
+    if defect_chapters:
+        print(f"Original glyph defects preserved: {len(defect_chapters)} chapter(s): {', '.join(defect_chapters)}")
 
 
 if __name__ == "__main__":

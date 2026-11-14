@@ -65,7 +65,8 @@ def main():
     frames = load_catalog("frames.json", None)["books"]
     variants = load_catalog("variants.json", {"chapters": {}})
     ancillary = load_catalog("ancillary.json", {"groups": []})
-    write("sources/index.html", page("Source files and editions", source_guide(ancillary, variants), 1))
+    audit_summary = ROOT / "audit" / "primary" / "summary.json"
+    write("sources/index.html", page("Source files and editions", source_guide(ancillary, variants, audit_summary.is_file()), 1))
     manifest = []
     cards = []
     search = []
@@ -129,6 +130,8 @@ Open the source edition for Sanskrit, transliteration, English translation, and 
                 mapped.add(entry["url"])
     if "coverage" in variants:
         write("source-variants.json", json.dumps(variants, ensure_ascii=False, separators=(",", ":")))
+    if audit_summary.is_file():
+        write("source-audit.json", audit_summary.read_text(encoding="utf-8"))
     manifest.sort(key=lambda x: x["source_url"])
     assert len({x["source_url"] for x in manifest}) == len(manifest)
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")

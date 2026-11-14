@@ -46,7 +46,7 @@ class SlokaPane(HTMLParser):
         self.anchors = []
         self.records = []
         self.ignored_tags = []
-        self.inside_title = False
+        self.identity_tag = None
         self.title = []
 
     def finish_block(self):
@@ -63,8 +63,9 @@ class SlokaPane(HTMLParser):
         if self.ignored_tags:
             return
         values = dict(attrs)
-        if tag == "title":
-            self.inside_title = True
+        if tag in {"title", "h2", "h3"}:
+            self.title.append(" ")
+            self.identity_tag = tag
         elif tag == "p":
             self.finish_block()
             if "sansloka" in (values.get("class") or "").lower().split():
@@ -86,11 +87,11 @@ class SlokaPane(HTMLParser):
             return
         if tag == "p":
             self.finish_block()
-        elif tag == "title":
-            self.inside_title = False
+        elif tag == self.identity_tag:
+            self.identity_tag = None
 
     def handle_data(self, data):
-        if self.inside_title:
+        if self.identity_tag:
             self.title.append(data)
         if self.parts is not None and not self.ignored_tags:
             self.parts.append(data)
@@ -132,11 +133,43 @@ TITLE_BOOKS = (
     re.compile(r"aranya", re.I), re.compile(r"kishkindha", re.I),
     re.compile(r"sundara", re.I), re.compile(r"yuddha", re.I),
 )
-TITLE_CHAPTER = re.compile(r"\bsarga\s*(?:\[|:)?\s*(\d+)\b", re.I)
+TITLE_CHAPTER = re.compile(r"\bsarga\s*\]?\s*:?\s*(\d+)\b", re.I)
 UNNUMBERED_SEPARATOR = re.compile(r"^[- |।॥]*(?:or)[- |।॥]*$", re.I)
 
 
-def decode_irregular(pane, book, sarga):
+# Exact anomalies independently observed in the primary UTF-8 panes. The tuple
+# records source block anchor, the block's printed verse numbers, and the
+# one anomalous token. No other mixed-language fragment may pass verification.
+GLYPH_EXCEPTIONS = {
+    (2, 6): ("Verse13", (11, 12, 13), "��"),
+    (2, 12): ("Verse110", (110,), "B"),
+    (2, 30): ("Verse36", (36,), r"\dapi"),
+    (2, 44): ("Verse24", (24,), "W"),
+    (5, 22): ("Verse2", (2,), "B"),
+    (6, 21): ("Verse24", (23, 24), "B"),
+    (6, 31): ("Verse34", (34,), "B"),
+    (6, 50): ("Verse57", (57,), r"\sakhitvam"),
+    (6, 77): ("Verse22", (22,), "P"),
+}
+ANOMALOUS_TOKEN = re.compile(r"\\?[A-Za-z]+|\ufffd+")
+
+
+def glyph_exception(text, book, sarga, anchor):
+    exception = GLYPH_EXCEPTIONS.get((book, sarga))
+    if exception is None:
+        return None
+    expected_anchor, numbers, token = exception
+    if anchor != expected_anchor or ANOMALOUS_TOKEN.findall(text) != [token]:
+        return None
+    locators = [locator for _, locator in parsed_locators(text)]
+    if locators != [(book, sarga, n, n) for n in numbers]:
+        return None
+    if not deva_only(text.replace(token, "", 1)):
+        return None
+    return {"token": token, "printed_verses": list(numbers)}
+
+
+def decode_irregular(pane, book, sarga, allow_glyph_exceptions=False):
     """Use matching title and colophon for panes with unreliable anchor markup."""
     title = " ".join(pane.title)
     heading = TITLE_CHAPTER.search(title)
@@ -168,15 +201,24 @@ def decode_irregular(pane, book, sarga):
     first = min(first, numbered[0][0])
     fragments = [
         (text, anchor) for text, anchor in records[first:end]
-        if not UNNUMBERED_SEPARATOR.fullmatch(text)
+        if not (book == 1 and sarga in {14, 73} and UNNUMBERED_SEPARATOR.fullmatch(text))
     ]
-    if not fragments or not all(deva_only(text) for text, _ in fragments):
-        return [], "needs_review", ["mixed-language or broken characters in Sanskrit blocks"], colophon
-    return ([verse_record(book, sarga, i, text, anchor, block=True)
-             for i, (text, anchor) in enumerate(fragments, 1)],
-            "source_blocks_verified",
-            ["source title and ending checked; verse numbers or anchor positions disagree"],
-            colophon)
+    if not fragments:
+        return [], "needs_review", ["empty chapter blocks"], colophon
+    verses = []
+    issues = ["source title and ending checked; verse numbers or anchor positions disagree"]
+    for i, (text, anchor) in enumerate(fragments, 1):
+        verse = verse_record(book, sarga, i, text, anchor, block=True)
+        if not deva_only(text):
+            defect = glyph_exception(text, book, sarga, anchor) if allow_glyph_exceptions else None
+            if defect is None:
+                return [], "needs_review", ["mixed-language or broken characters in Sanskrit blocks"], colophon
+            if any("source_glyph_anomaly" in item for item in verses):
+                return [], "needs_review", ["more than one anomalous source block"], colophon
+            verse["source_glyph_anomaly"] = defect
+            issues.append("one independently checked source glyph defect preserved verbatim")
+        verses.append(verse)
+    return verses, "source_blocks_verified", issues, colophon
 
 
 def decode_verses(raw, book, sarga):
@@ -302,7 +344,7 @@ def capture(book, slug, prefix, sarga, timeout, delay, allow_mirror):
             except UnicodeDecodeError:
                 pass
             else:
-                verses, status, second_issues, colophon = decode_irregular(pane, book, sarga)
+                verses, status, second_issues, colophon = decode_irregular(pane, book, sarga, allow_glyph_exceptions=kind == "primary")
                 issues += second_issues
         if status == "needs_review":
             diagnostics.append({"source_url": url, "final_url": final_url,

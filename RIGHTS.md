@@ -6,9 +6,10 @@ the modern English translation or commentary has been supplied.
 
 | Material | Provenance | Treatment in this project |
 | --- | --- | --- |
-| Sanskrit verses and verse locators | Ancient text, as transcribed in the source site's six-book edition | May be displayed only after exact source extraction and numbering checks; each chapter records the source URL and response hash. |
-| Romanized Sanskrit | Source site's UTF-8 Roman pages | May be displayed only alongside matching verified verse numbers; source spellings are preserved rather than silently normalized. |
+| Sanskrit verses and verse locators | Ancient text, as transcribed in the source site's six-book edition | Displayed from recorded source pages. The project checks verse numbering where source labels agree and displays source blocks in order where they disagree. Each chapter records the source URL and response hash. |
+| Romanized Sanskrit | Locally generated IAST and links to the original Roman pages | The generated display is identified as IAST and derived from the captured Devanagari. It omits blocks with unsupported glyphs. |
 | English translations and word meanings | Modern work credited to Desiraju Hanumanta Rao, K. M. K. Murthy, and contributors | Direct links to original pages. No local copy absent a verified permission or license. |
+| M. N. Dutt English translation | Historical public-domain translation, Project Gutenberg 57265, 57826, and 60188 | Separate reader with the edition’s own numbering. |
 | Prose summaries and commentary | Modern source-site pages, some bearing copyright notices | Direct links only. |
 | Fonts, images, audio, PDFs, ZIP downloads | Source-linked files with differing rights and provenance | Direct links only unless independently licensed and checked. |
 | Chapter titles and order | Six source chapter indexes | Indexed locally with original links and audit status. |

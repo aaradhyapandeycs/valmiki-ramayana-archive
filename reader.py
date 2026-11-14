@@ -68,6 +68,8 @@ def render_sanskrit(record):
             "Passages appear in source order. The numbers mark reading blocks where source verse labels disagree.")
     if record["kind"] == "mirror":
         note += " This witness may differ from the current Valmikiramayan.net wording."
+    if any(verse.get("source_glyph_anomaly") for verse in record["verses"]):
+        note += " The original contains a few damaged glyphs. They are preserved as printed."
     anchor = "verse" if numbered else "block"
     items = []
     for verse in record["verses"]:
@@ -76,7 +78,7 @@ def render_sanskrit(record):
         for n in range(number, last):
             items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
         label = str(number) if last == number else f"{number}–{last}"
-        roman = transliterate(verse["sanskrit"])
+        roman = None if verse.get("source_glyph_anomaly") else transliterate(verse["sanskrit"])
         alternate = f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else ""
         items.append(f'<div class="verse" id="{anchor}-{last}">' 
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
@@ -125,7 +127,7 @@ def chapter_sources(slug, number, original, frames, variants):
     return f'<details class="chapter-sources"><summary>Source editions and files</summary><ul class="variant-list">{"".join(links)}</ul></details>'
 
 
-def source_guide(catalog, variants):
+def source_guide(catalog, variants, has_audit=False):
     sections = []
     if variants.get("coverage"):
         cover = variants["coverage"]
@@ -144,5 +146,8 @@ def source_guide(catalog, variants):
         )
         sections.append(f'<section class="sources"><h2>{escape(group["title"])}</h2>'
                         f'<p>{escape(group["description"])}</p><ul class="variant-list">{links}</ul></section>')
+    if has_audit:
+        sections.append('<section class="sources"><h2>Recursive inventory</h2>'
+                        '<p><a href="../source-audit.json">Audit totals, unresolved URLs, and crawl scope</a></p></section>')
     return (f'<h1>Source files and editions</h1><p>Resources found on the original site, including both chapter trees '
             f'and files outside the editorial chapter index.</p>{"".join(sections)}')
