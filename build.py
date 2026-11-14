@@ -126,6 +126,9 @@ def main():
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
             additions = paratext.get((slug, n), {})
+            passage = render_sanskrit(sanskrit.get((slug, n)),
+                                      before=render_paratext(additions.get("before")),
+                                      after=render_paratext(additions.get("after")))
             correction = corrections.get(slug, {}).get(str(n))
             heading_note = ""
             if correction:
@@ -142,9 +145,7 @@ def main():
 <p class="source-note">Open the source edition for its English translation, word meanings, and commentary.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
-{render_paratext(additions.get("before"))}
-{render_sanskrit(sanskrit.get((slug, n)))}
-{render_paratext(additions.get("after"))}
+{passage}
 <nav class="chapter-nav" aria-label="Chapter sequence">{before}
 <a href="../">All {esc(name)} chapters</a>{after}</nav>"""
             write(f"{slug}/{n}/index.html", page(f"{name} {n}: {row['title']}", body, 2))
@@ -201,7 +202,7 @@ def main():
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     write("search.json", json.dumps(search, ensure_ascii=False, separators=(",", ":")))
     heading_audit = ' · <a href="heading-provenance.json">Editorial heading sources</a>' if corrections else ""
-    text_audit = '<a href="https://github.com/aaradhyapandeycs/valmiki-ramayana-archive/blob/main/TEXTUAL_EXCEPTIONS.md">Textual exceptions</a>' 
+    text_audit = '<a href="https://github.com/aaradhyapandeycs/valmiki-ramayana-archive/blob/main/TEXTUAL_EXCEPTIONS.md">Textual exceptions</a>'
     sources = f"""<section class="sources" id="sources"><h2>Sources &amp; rights</h2>
 <p>Chapter headings use reviewed IAST. They follow the six kāṇḍa indexes of
 <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>. The source describes its six-book presentation

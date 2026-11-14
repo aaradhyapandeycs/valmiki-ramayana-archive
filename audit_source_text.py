@@ -182,10 +182,22 @@ def check_rendered(record, raw, reviewed=()):
         end = verse.get("last_number", start)
         if any(ids[f"{prefix}-{n}"] != 1 for n in range(start, end + 1)):
             return "missing_or_duplicate_rendered_verse_anchor"
-    sources = [node for node in doc.iter("aside") if "source-paratext" in node.get("class", "").split()]
+    nodes = list(doc.iter())
+    sources = [(i, node) for i, node in enumerate(nodes)
+               if node.tag == "aside" and "source-paratext" in node.get("class", "").split()]
     if len(sources) != len(reviewed):
         return "source_paratext_missing_or_unexpected"
-    for node, item in zip(sources, reviewed):
+    verse_positions = [i for i, node in enumerate(nodes)
+                       if node.tag == "p" and node.get("lang") == "sa-Deva"
+                       and "colophon" not in node.get("class", "").split()]
+    closing = [i for i, node in enumerate(nodes)
+               if node.tag == "p" and node.get("lang") == "sa-Deva"
+               and "colophon" in node.get("class", "").split()]
+    for (position, node), item in zip(sources, reviewed):
+        if (item["placement"] == "before" and position >= verse_positions[0]
+                or item["placement"] == "after" and position <= verse_positions[-1]
+                or closing and position >= closing[0]):
+            return "source_paratext_rendered_out_of_order"
         texts = [plain(child) for child in node.iter("div") if child.get("lang") == "sa-Deva"]
         if (texts != [item["sanskrit"]] or node.get("aria-label") != item["kind"]
                 or node.get("id") != f'source-paragraph-{item["source_paragraph"]}'):

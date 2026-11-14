@@ -58,7 +58,7 @@ def load_sanskrit(books):
     return records
 
 
-def render_sanskrit(record):
+def render_sanskrit(record, *, before="", after=""):
     if record is None:
         return ""
     provenance = source_url(record["source_url"])
@@ -96,7 +96,7 @@ def render_sanskrit(record):
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
             f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'
-            f'{"".join(items)}{ending}</section>')
+            f'{before}{"".join(items)}{after}{ending}</section>')
 
 
 def render_coverage(records):
