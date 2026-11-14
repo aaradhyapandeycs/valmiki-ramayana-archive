@@ -87,6 +87,39 @@ def read_audit(path):
     return records, from_to
 
 
+def add_listing_samples(path, records, links):
+    """Preserve child links from an independently retrieved directory listing."""
+    listings = json.loads(path.read_text(encoding="utf-8"))
+    for listing in listings:
+        url = listing["url"]
+        directory = source_path(url)
+        if not directory or not directory.endswith("/"):
+            raise ValueError(f"Invalid source listing {url}")
+        source_record = records.setdefault(url, {"source_url": url, "status": "listing_observed"})
+        source_record["listing_observed"] = True
+        for target in listing["links"]:
+            target_path = source_path(target)
+            if not target_path or target_path == directory or not target_path.startswith(directory):
+                raise ValueError(f"Invalid child {target!r} under {url}")
+            links[target].add(url)
+
+
+def file_row(url, path, record, origins):
+    kind = file_kind(path)
+    row = {
+        "url": url,
+        "kind": kind,
+        "label": LABELS[kind],
+        "status": record.get("status", "listed_not_fetched"),
+    }
+    origins = sorted(origins)
+    if origins:
+        row["linked_from"] = origins[0]
+    if record.get("final_url") and record["final_url"] != url:
+        row["final_url"] = record["final_url"]
+    return row
+
+
 def make_inventory(records, links, frames):
     chapter_frames = frames["books"]
     indexed = {
@@ -95,15 +128,22 @@ def make_inventory(records, links, frames):
         for number, row in item["chapters"].items()
     }
     groups = defaultdict(list)
+    other_files = []
     directories = set()
     current_panes = defaultdict(set)
     # A failed guessed request has no discovery evidence unless it also appeared
     # in an actual source link. This avoids treating absent guesses as content.
-    checked = {url for url, row in records.items() if row["status"] == "http_200"}
+    checked = {
+        url for url, row in records.items()
+        if row["status"] == "http_200" or row.get("listing_observed")
+    }
     for url in sorted(set(links) | checked):
         path = source_path(url)
-        match = CHAPTER.match(path) if path else None
+        if not path:
+            continue
+        match = CHAPTER.match(path)
         if not match:
+            other_files.append(file_row(url, path, records.get(url, {}), links.get(url, ())))
             continue
         tree = "utf8" if match["utf8"] else "original"
         key = f"{match['book']}/{int(match['number'])}"
@@ -115,22 +155,15 @@ def make_inventory(records, links, frames):
             if (directory := source_path(source)) and directory.endswith("/")
             and (path.startswith(directory) or directory == path)
         )
-        row = {
-            "url": url,
-            "tree": placement,
-            "kind": kind,
-            "label": LABELS[kind],
-            "status": record.get("status", "listed_not_fetched"),
-        }
-        if listed_from or url in links:
-            row["linked_from"] = (listed_from or sorted(links[url]))[0]
-        if record.get("final_url") and record["final_url"] != url:
-            row["final_url"] = record["final_url"]
+        row = file_row(url, path, record, listed_from or links.get(url, ()))
+        row["tree"] = placement
+        if match["nested"]:
+            row["source_tree"] = tree
         groups[key].append(row)
         if kind == "directory" and SARGA_DIRECTORY.search(path) and placement == tree:
             # A directory response without any child links may be an HTTP 200
             # soft block. Coverage therefore requires actual listing evidence.
-            if record.get("status") == "http_200":
+            if record.get("status") == "http_200" or record.get("listing_observed"):
                 directories.add((placement, key, url))
         if kind in CURRENT_PANES and (listed_from or record.get("status") == "http_200"):
             current_panes[(placement, key)].add(kind)
@@ -159,6 +192,7 @@ def make_inventory(records, links, frames):
         "coverage": coverage,
         "chapters": dict(groups),
         "auxiliary_chapters": sorted(set(groups) - set(indexed)),
+        "other_source_files": other_files,
     }
 
 
@@ -167,8 +201,11 @@ def main():
     parser.add_argument("audit", type=Path)
     parser.add_argument("frames", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--listing-samples", type=Path, help="Merge observed source directory listings")
     args = parser.parse_args()
     records, links = read_audit(args.audit)
+    if args.listing_samples:
+        add_listing_samples(args.listing_samples, records, links)
     frames = json.loads(args.frames.read_text(encoding="utf-8"))
     inventory = make_inventory(records, links, frames)
     args.output.parent.mkdir(parents=True, exist_ok=True)

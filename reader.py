@@ -3,7 +3,9 @@ import html
 import json
 import re
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
+
+from transliterate_iast import transliterate
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
@@ -74,12 +76,17 @@ def render_sanskrit(record):
         for n in range(number, last):
             items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
         label = str(number) if last == number else f"{number}–{last}"
-        items.append(f'<div class="verse" id="{anchor}-{last}">'
+        roman = transliterate(verse["sanskrit"])
+        alternate = f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else ""
+        items.append(f'<div class="verse" id="{anchor}-{last}">' 
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
-                     f'<p lang="sa-Deva">{escape(verse["sanskrit"])}</p></div>')
+                     f'<div><p lang="sa-Deva">{escape(verse["sanskrit"])}</p>{alternate}</div></div>')
+    colophon = record.get("colophon")
+    ending = f'<p class="colophon" lang="sa-Deva">{escape(colophon)}</p>' if colophon else ""
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
-            f'{"".join(items)}</section>')
+            f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'
+            f'{"".join(items)}{ending}</section>')
 
 
 def render_coverage(records):
@@ -100,7 +107,11 @@ def chapter_sources(slug, number, original, frames, variants):
         ("original", "Original chapter viewer"), ("utf8", "UTF-8 chapter viewer"),
         ("mirror", "Sanskrit Documents mirror"),
     ]]
-    entries.extend((entry["url"], entry["label"], entry["status"]) for entry in variants)
+    entries.extend(
+        (entry["url"], f'{entry["label"]} · {unquote(urlsplit(entry["url"]).path.rstrip("/").rsplit("/", 1)[-1])}',
+         entry["status"])
+        for entry in variants
+    )
     seen = {original}
     links = []
     for url, label, status in entries:

@@ -165,3 +165,6 @@ footer p { max-width: 83ch; }
 .chapter-sources summary { cursor: pointer; font-weight: 650; }
 .chapter-sources summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .coverage { font-variant-numeric: tabular-nums; }
+.verse p.iast { margin-top: .3rem; font-size: .96rem; color: var(--muted); }
+.iast-note, .colophon { color: var(--muted); }
+.colophon { white-space: pre-wrap; }
