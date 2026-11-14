@@ -3,7 +3,10 @@ import gzip
 import html
 import json
 import re
+import unicodedata
 from pathlib import Path
+
+from dutt_iast import build_audit, normalize_dutt
 
 BOOKS = (
     ("baala", 77), ("ayodhya", 119), ("aranya", 76),
@@ -19,7 +22,8 @@ EDITION_NOTE = (
 SOURCE_NOTE = (
     "This transcription preserves Dutt’s prose and translator’s notes. Four "
     "unlabelled section boundaries have been restored. In Araṇya, two sections "
-    "printed as LVI are shown as 56a and 56b."
+    "printed as LVI are shown as 56a and 56b. The reader uses a reviewed IAST glossary "
+    "for Sanskrit names and terms. Historical spellings requiring further review remain visible."
 )
 
 
@@ -33,6 +37,7 @@ def render_dutt(page, write, data_dir=None):
     """Render the edition using the parent build's page and write functions."""
     data_dir = data_dir or Path(__file__).resolve().with_name("dutt-corpus")
     summaries = []
+    source_texts = []
     for slug, count in BOOKS:
         files = sorted(data_dir.glob(f"{slug}*.json.gz"))
         chunks = [json.loads(gzip.decompress(file.read_bytes())) for file in files]
@@ -46,6 +51,7 @@ def render_dutt(page, write, data_dir=None):
             expected = expected[:55] + ["56a", "56b"] + expected[56:-1]
         if [s["id"] for s in sections] != expected:
             raise ValueError(f"Incomplete Dutt corpus: {slug}")
+        source_texts.extend(section["text"] for section in sections)
         title = f"{book} Kāṇḍa"
         summaries.append(f'<li><a href="{slug}/">{title}</a> · {count} sections</li>')
         links = []
@@ -61,7 +67,8 @@ def render_dutt(page, write, data_dir=None):
                 '<nav class="chapter-nav" aria-label="Dutt section sequence">'
                 f'{before}<a href="../">All {title} sections</a>{after}</nav>'
             )
-            text = "".join(paragraphs(section["text"]))
+            display = unicodedata.normalize("NFC", normalize_dutt(section["text"]))
+            text = "".join(paragraphs(display))
             write(f"english/{slug}/{identifier}/index.html", page(
                 f"{title} · {name} · M. N. Dutt",
                 f'<p class="eyebrow"><a href="../../">M. N. Dutt’s English translation</a></p>'
@@ -76,9 +83,14 @@ def render_dutt(page, write, data_dir=None):
             f'<h1>{title}</h1><p>{EDITION_NOTE}</p><ol class="chapters">{"".join(links)}</ol>',
             2,
         ))
+    audit = build_audit(source_texts)
+    if audit["section_count"] != 537:
+        raise ValueError("Dutt corpus must retain 537 published sections")
+    write("english/iast-audit.json", json.dumps(audit, ensure_ascii=False, indent=2) + "\n")
     write("english/index.html", page(
         "M. N. Dutt’s English translation",
         f'<h1>M. N. Dutt’s English translation</h1><p>{EDITION_NOTE}</p><p>{SOURCE_NOTE}</p>'
+        f'<p><a href="iast-audit.json">IAST glossary review and unresolved spellings</a></p>'
         f'<ol class="chapters">{"".join(summaries)}</ol>',
         1,
     ))
