@@ -202,8 +202,16 @@ def main():
     parser.add_argument("frames", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--listing-samples", type=Path, help="Merge observed source directory listings")
+    parser.add_argument("--directory-audit", type=Path, help="Supplement recursive results with direct directory listings")
     args = parser.parse_args()
     records, links = read_audit(args.audit)
+    if args.directory_audit:
+        directory_records, directory_links = read_audit(args.directory_audit)
+        for url, record in directory_records.items():
+            if record["status"] == "http_200":
+                records.setdefault(url, record)["listing_observed"] = True
+        for target, sources in directory_links.items():
+            links[target].update(sources)
     if args.listing_samples:
         add_listing_samples(args.listing_samples, records, links)
     frames = json.loads(args.frames.read_text(encoding="utf-8"))

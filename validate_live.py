@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify an already deployed archive over HTTP."""
 from concurrent.futures import ThreadPoolExecutor
+from hashlib import sha256
 from html import unescape
 import json
 import sys
@@ -35,6 +36,13 @@ def main():
         raise ValueError(f"Expected {expected_text} Sanskrit chapter pages, found {pages_with_text}")
     for path in ["sources/", "manifest.json", "english/", "english/yuddha/130/"]:
         read(urljoin(base, path))
+    inventory = json.loads(read(urljoin(base, "source-variants.json")))
+    for tree in ("original", "utf8"):
+        assert inventory["coverage"][tree]["chapter_directories_with_observed_children"] == 534
+    intro = urljoin(base, "resources/vr_intro_ayyangar.pdf")
+    metadata = json.loads(read(intro[:-4] + ".json"))
+    with urlopen(intro, timeout=30) as response:
+        assert sha256(response.read()).hexdigest() == metadata["sha256"]
     print(f"Live delivery verified: {len(headings)} chapter pages, {pages_with_text} with Sanskrit.")
 
 

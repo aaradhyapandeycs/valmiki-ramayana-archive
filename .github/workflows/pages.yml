@@ -73,6 +73,12 @@ jobs:
           path: audit/primary
           run-id: ${{ steps.audit.outputs.run_id }}
           github-token: ${{ github.token }}
+      - name: Load verified chapter directory listings
+        uses: actions/checkout@v4
+        with:
+          ref: '73199ff97ff058d1e932a990da2866f8acdd60d6'
+          path: audit/directories
+          persist-credentials: false
       - name: Verify the recorded Sanskrit snapshot
         run: python3 verify_capture.py data/sanskrit --commit 89e2ac54cb045ff189f5ea06abc0867dab85f010
       - name: Reconcile observed source URLs
@@ -81,7 +87,7 @@ jobs:
           if [ -f audit/primary/summary.json ]; then
             audit=audit/primary
           fi
-          python3 build_variant_inventory.py "$audit" data/frames.json data/variants.json --listing-samples data/listing-samples.json
+          python3 build_variant_inventory.py "$audit" data/frames.json data/variants.json --listing-samples data/listing-samples.json --directory-audit audit/directories
       - name: Build and validate
         run: |
           python3 build.py
