@@ -38,12 +38,25 @@ LINE_AUDIT = r"""() => {
     const texts = [...document.querySelectorAll(passageSelector)];
     if (texts.length === 0) errors.push({problem: 'Sanskrit reader is empty'});
     if (document.documentElement.scrollWidth > innerWidth + 1) {
+        const offenders = [...document.querySelectorAll('body *')].filter(node => !node.closest('.verse-scroll'))
+            .map(node => {
+                const box = node.getBoundingClientRect();
+                const css = getComputedStyle(node);
+                const range = new Range();
+                range.selectNodeContents(node);
+                const textRight = node.children.length ? 0 : range.getBoundingClientRect().right;
+                return {selector: node.tagName + (node.id ? '#' + node.id : '') +
+                    (typeof node.className === 'string' && node.className ? '.' + node.className : ''),
+                    right: Math.round(Math.max(box.right, textRight)),
+                    boxRight: Math.round(box.right), left: Math.round(box.left),
+                    width: Math.round(box.width), scroll: node.scrollWidth,
+                    fontSize: css.fontSize, wrap: css.overflowWrap};
+            })
+            .filter(node => node.right > innerWidth + 1)
+            .sort((a, b) => b.right - a.right).slice(0, 12);
         errors.push({
             problem: 'page-wide horizontal overflow',
-            viewport: innerWidth, width: document.documentElement.scrollWidth,
-            protrusions: [...document.querySelectorAll('body *')]
-                .filter(el => !el.closest('.verse-scroll') && el.getBoundingClientRect().right > innerWidth + 1)
-                .slice(0, 8).map(el => [el.tagName, el.className, Math.round(el.getBoundingClientRect().right)])
+            viewport: innerWidth, width: document.documentElement.scrollWidth, offenders
         });
     }
     const scrollRegions = new Set();
@@ -192,19 +205,30 @@ async def open_route(page, base, route, large_text):
         raise RuntimeError(f"HTTP {response.status if response else 'missing response'}")
     if large_text:
         await page.evaluate("document.documentElement.style.fontSize = '200%'")
-    await page.evaluate("""async () => {
-        await document.fonts.ready;
-        for (const [font, sample] of [
-            ['Noto Serif Devanagari', 'राम'],
-            ['Noto Serif', 'Rāma']
-        ]) {
-            const faces = await document.fonts.load('16px "' + font + '"', sample);
-            if (!faces.some(face => face.status === 'loaded')) {
-                throw new Error('reader font not loaded: ' + font);
-            }
-        }
-        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    }""")
+    for retry in range(3):
+        try:
+            await page.evaluate("""async () => {
+                await document.fonts.ready;
+                for (const [font, sample] of [
+                    ['Noto Serif Devanagari', 'राम'], ['Noto Serif', 'Rāma']
+                ]) {
+                    const faces = await document.fonts.load('16px "' + font + '"', sample);
+                    if (!faces.some(face => face.status === 'loaded')) {
+                        throw new Error('reader font not loaded: ' + font);
+                    }
+                }
+                await document.fonts.ready;
+                await new Promise(resolve => requestAnimationFrame(
+                    () => requestAnimationFrame(resolve)));
+            }""")
+            return
+        except Exception:
+            if retry == 2:
+                raise
+            await asyncio.sleep(0.4 * (retry + 1))
+            await page.reload(wait_until="load", timeout=40_000)
+            if large_text:
+                await page.evaluate("document.documentElement.style.fontSize = '200%'")
 
 
 async def screenshot_examples(context, base, output, label, profile, baseline):

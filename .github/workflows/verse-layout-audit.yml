@@ -53,7 +53,12 @@ jobs:
           (cd .before && python3 build.py)
           python3 build.py
           bash iast_font_assets.sh dist
-          cp -a dist/fonts .before/dist/
+          mkdir -p .before/dist/fonts
+          cp -a dist/fonts/. .before/dist/fonts/
+          for site in dist .before/dist; do
+            test -s "$site/fonts/noto-serif-devanagari.ttf"
+            test -s "$site/fonts/noto-serif.ttf"
+          done
           mkdir -p "$RUNNER_TEMP/before" "$RUNNER_TEMP/after"
           ln -s "$PWD/.before/dist" "$RUNNER_TEMP/before/valmiki-ramayana-archive"
           ln -s "$PWD/dist" "$RUNNER_TEMP/after/valmiki-ramayana-archive"
@@ -64,9 +69,12 @@ jobs:
           python3 -m http.server 8765 --bind 127.0.0.1 --directory "$RUNNER_TEMP/after" > /tmp/verse-after-server.log 2>&1 &
           after_pid=$!
           trap 'kill "$before_pid" "$after_pid" || true' EXIT
-          curl --fail --silent --retry 5 --retry-connrefused http://127.0.0.1:8764/valmiki-ramayana-archive/search.json > /dev/null
+          curl --fail --silent --retry 5 --retry-connrefused http://127.0.0.1:8764/valmiki-ramayana-archive/fonts/noto-serif-devanagari.ttf > /dev/null
           curl --fail --silent --retry 5 --retry-connrefused http://127.0.0.1:8765/valmiki-ramayana-archive/search.json > /dev/null
-          python3 verify_verse_layout.py http://127.0.0.1:8764/valmiki-ramayana-archive "${{ matrix.profile }}" --baseline
+          python3 verify_verse_layout.py http://127.0.0.1:8764/valmiki-ramayana-archive "${{ matrix.profile }}" --baseline || {
+            tail -50 /tmp/verse-before-server.log
+            exit 1
+          }
           zoom=()
           if [ "${{ matrix.profile }}" = zoom-200 ]; then zoom+=(--actual-browser-zoom); fi
           python3 verify_verse_layout.py http://127.0.0.1:8765/valmiki-ramayana-archive "${{ matrix.profile }}" --baseline-dist .before/dist "${zoom[@]}"
