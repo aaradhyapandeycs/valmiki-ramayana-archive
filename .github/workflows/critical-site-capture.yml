@@ -1,0 +1,33 @@
+name: Capture the Critical Edition English reader
+on:
+  push:
+    branches: [main]
+    paths: ["capture_critical_site.py", ".github/workflows/critical-site-capture.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture the public edition data and check every coordinate
+        run: python3 capture_critical_site.py --output "$RUNNER_TEMP/critical-site"
+      - name: Preserve the checked English translation and alignment snapshot
+        run: |
+          branch=critical-english-snapshot
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null; then
+            git fetch --no-tags origin "refs/heads/$branch"
+            git switch --detach FETCH_HEAD
+          else
+            rc=$?
+            test "$rc" -eq 2
+            git switch --orphan "$branch"
+          fi
+          cp -a "$RUNNER_TEMP/critical-site/." .
+          git add .
+          if ! git diff --cached --quiet; then git commit -m "Preserve the checked Critical Edition English alignment"; fi
+          git push origin "HEAD:refs/heads/$branch"
