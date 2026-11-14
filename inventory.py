@@ -174,6 +174,7 @@ def fetch(url: str, *, max_html_bytes: int) -> tuple[Record, bytes | None, str |
         result.final_url = exc.url
         result.content_type = exc.headers.get_content_type() if exc.headers else None
     except (URLError, TimeoutError, OSError, ValueError, HTTPException, UnicodeError) as exc:
+        result.status = "unavailable"
         result.error = str(exc)[:400]
     return result, None, None
 
@@ -336,9 +337,17 @@ def crawl(base: str, output: Path, max_pages: int, max_seconds: int, delay: floa
             else:
                 parser.feed(decoded)
                 discovered = parser.links
-            document_url = urljoin(record.final_url or url, parser.base_href or "")
+            response_url = record.final_url or url
+            try:
+                document_url = urljoin(response_url, parser.base_href or "")
+            except ValueError:
+                document_url = response_url
             for raw in discovered:
-                target = canonical(urljoin(document_url, raw), base)
+                try:
+                    target = canonical(urljoin(document_url, raw), base)
+                except ValueError:
+                    print(f"Invalid link at {url}: {raw[:200]!r}", flush=True)
+                    continue
                 if target is not None:
                     edges.append((url, target))
                     if target not in seen and target not in queued:

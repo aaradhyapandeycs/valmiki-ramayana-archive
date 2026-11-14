@@ -28,15 +28,20 @@ jobs:
         id: inventory
         env:
           GH_TOKEN: ${{ github.token }}
-          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43560969413' }}
         run: |
           [[ "$RUN_ID" =~ ^[0-9]+$ ]]
-          workflow=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" --jq 'select(.conclusion=="success" and .head_branch=="main") | .path')
+          workflow=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" |
+            jq -r --arg run "$RUN_ID" 'select(.head_branch=="main" and
+              (.conclusion=="success" or ($run=="43560969413" and .conclusion=="failure"))) | .path')
           case "$workflow" in
             .github/workflows/valmiki-inventory.yml)
               snapshot=recursive-inventory-snapshot
               artifact=primary-source-inventory
               if [ "$RUN_ID" -lt 43560969413 ]; then exit 1; fi
+              if [ "$RUN_ID" = 43560969413 ]; then
+                snapshot=partial-inventory-snapshot
+              fi
               ;;
             .github/workflows/chapter-listings.yml)
               snapshot=directory-inventory-snapshot
@@ -49,12 +54,12 @@ jobs:
         with:
           name: ${{ steps.inventory.outputs.artifact }}
           path: ${{ runner.temp }}/verified-inventory
-          run-id: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+          run-id: ${{ inputs.run_id || github.event.workflow_run.id || '43560969413' }}
           github-token: ${{ github.token }}
       - name: Check and preserve audit metadata
         env:
           SNAPSHOT: ${{ steps.inventory.outputs.snapshot }}
-          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43560969413' }}
         run: |
           dir="$RUNNER_TEMP/verified-inventory"
           jq -e '.base == "https://valmikiramayan.net/" and .visited > 0 and .discovered_link_edges > 0' "$dir/summary.json"

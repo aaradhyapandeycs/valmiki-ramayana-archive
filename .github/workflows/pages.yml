@@ -53,6 +53,9 @@ jobs:
           else
             ref=$(git ls-remote origin refs/heads/recursive-inventory-snapshot | cut -f1)
             if [ -z "$ref" ]; then
+              ref=$(git ls-remote origin refs/heads/partial-inventory-snapshot | cut -f1)
+            fi
+            if [ -z "$ref" ]; then
               ref=73199ff97ff058d1e932a990da2866f8acdd60d6
             fi
             [[ "$ref" =~ ^[0-9a-f]{40}$ ]]
