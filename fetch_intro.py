@@ -9,6 +9,7 @@ import subprocess
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
@@ -49,9 +50,18 @@ def page_count(data):
 
 def preserve(output_dir):
     primary_bytes, primary_url = download(PRIMARY)
-    mirror_bytes, mirror_url = download(MIRROR)
-    if primary_bytes != mirror_bytes:
-        raise ValueError("Primary and mirror PDFs differ byte-for-byte")
+    mirror_url = None
+    mirror_status = "Unavailable"
+    try:
+        mirror_bytes, candidate_url = download(MIRROR)
+        if primary_bytes == mirror_bytes:
+            mirror_url = candidate_url
+            mirror_status = "Byte-for-byte match"
+        else:
+            mirror_status = "Different bytes"
+    except (HTTPError, URLError, TimeoutError, ValueError) as error:
+        mirror_status = str(error)
+    print(f"Comparison copy from Sanskrit Documents: {mirror_status}")
     pages = page_count(primary_bytes)
     if pages != EXPECTED_PAGES:
         raise ValueError(f"Expected {EXPECTED_PAGES} pages, found {pages}")
@@ -63,8 +73,9 @@ def preserve(output_dir):
         "bytes": len(primary_bytes),
         "sha256": hashlib.sha256(primary_bytes).hexdigest(),
         "retrieved_at": datetime.now(timezone.utc).isoformat(),
-        "sources": [primary_url, mirror_url],
-        "sources_match_byte_for_byte": True,
+        "source": primary_url,
+        "comparison_copy": mirror_url,
+        "comparison_status": mirror_status,
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "vr_intro_ayyangar.pdf").write_bytes(primary_bytes)

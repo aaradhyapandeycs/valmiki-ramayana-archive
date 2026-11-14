@@ -2,7 +2,7 @@ name: Preserve the 1910 Ayyangar introduction
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/preserve-intro.yml']
+    paths: ['.github/workflows/preserve-intro.yml', 'fetch_intro.py']
   workflow_dispatch:
 permissions:
   contents: write
