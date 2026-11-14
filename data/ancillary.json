@@ -1,0 +1,882 @@
+{
+  "source": "https://valmikiramayan.net",
+  "groups": [
+    {
+      "title": "Edition and downloads",
+      "description": "The original landing pages, introduction, and downloads.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/",
+          "label": "Original homepage",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/",
+          "label": "UTF-8 directory",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/default.htm",
+          "label": "Legacy UTF-8 homepage",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ramayana.shtml",
+          "label": "Translation and editorial introduction",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/vr_index.htm.old",
+          "label": "Legacy UTF-8 index backup",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/vr_intro_ayyangar.pdf",
+          "label": "Ayyangar’s 1910 introduction (PDF)",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/vr_intro_ayyangar.pdf",
+          "label": "Ayyangar introduction, UTF-8 tree (PDF)",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/sans2003.zip",
+          "label": "Original font package (ZIP)",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/sans2003.zip",
+          "label": "Font package, UTF-8 tree (ZIP)",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala.zip",
+          "label": "Bāla source archive (ZIP)",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ramayana.shtml.orig",
+          "label": "Introduction backup",
+          "status": "Listed by source"
+        }
+      ]
+    },
+    {
+      "title": "Kāṇḍa source directories",
+      "description": "Both trees contain the same 539 direct numbered directories. The editorial indices link 534 chapters.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/baala/",
+          "label": "Bāla · legacy · 77 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/",
+          "label": "Ayodhyā · legacy · 121 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/aranya/",
+          "label": "Araṇya · legacy · 75 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/",
+          "label": "Kiṣkindhā · legacy · 68 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/sundara/",
+          "label": "Sundara · legacy · 68 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/",
+          "label": "Yuddha · legacy · 130 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala/",
+          "label": "Bāla · UTF-8 · 77 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/",
+          "label": "Ayodhyā · UTF-8 · 121 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/aranya/",
+          "label": "Araṇya · UTF-8 · 75 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/",
+          "label": "Kiṣkindhā · UTF-8 · 68 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/sundara/",
+          "label": "Sundara · UTF-8 · 68 directories",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/",
+          "label": "Yuddha · UTF-8 · 130 directories",
+          "status": "Directory response observed"
+        }
+      ]
+    },
+    {
+      "title": "Additional numbered directories",
+      "description": "The source has five numbered directories beyond the editorial indices in each tree. Each contains a frame and a directory metadata file.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/ayodhya/sarga0/",
+          "label": "/ayodhya/sarga0/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/sarga0/ayodhya_0_frame.htm",
+          "label": "/ayodhya/sarga0/ayodhya_0_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/sarga120/",
+          "label": "/ayodhya/sarga120/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/sarga120/ayodhya_120_frame.htm",
+          "label": "/ayodhya/sarga120/ayodhya_120_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/sarga68/",
+          "label": "/kish/sarga68/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/sarga68/kishkindha_68_frame.htm",
+          "label": "/kish/sarga68/kishkindha_68_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/sarga0/",
+          "label": "/yuddha/sarga0/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/sarga0/yuddha_0_frame.htm",
+          "label": "/yuddha/sarga0/yuddha_0_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/sarga129/",
+          "label": "/yuddha/sarga129/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/sarga129/yuddha_129_frame.htm",
+          "label": "/yuddha/sarga129/yuddha_129_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/sarga0/",
+          "label": "/utf8/ayodhya/sarga0/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/sarga0/ayodhya_0_frame.htm",
+          "label": "/utf8/ayodhya/sarga0/ayodhya_0_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/sarga120/",
+          "label": "/utf8/ayodhya/sarga120/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/sarga120/ayodhya_120_frame.htm",
+          "label": "/utf8/ayodhya/sarga120/ayodhya_120_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/sarga68/",
+          "label": "/utf8/kish/sarga68/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/sarga68/kishkindha_68_frame.htm",
+          "label": "/utf8/kish/sarga68/kishkindha_68_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/sarga0/",
+          "label": "/utf8/yuddha/sarga0/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/sarga0/yuddha_0_frame.htm",
+          "label": "/utf8/yuddha/sarga0/yuddha_0_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/sarga129/",
+          "label": "/utf8/yuddha/sarga129/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/sarga129/yuddha_129_frame.htm",
+          "label": "/utf8/yuddha/sarga129/yuddha_129_frame.htm",
+          "status": "Listed by source"
+        }
+      ]
+    },
+    {
+      "title": "Alternate Ayodhyā and Yuddha files",
+      "description": "Nested variants and index backups appear in both trees.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/",
+          "label": "/ayodhya/ayodhya/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/",
+          "label": "/utf8/ayodhya/ayodhya/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.dir/",
+          "label": "/yuddha/yuddha_contents.htm.dir/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm",
+          "label": "/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm.bad",
+          "label": "/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm.bad",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.dir/yuhd.jpg",
+          "label": "/yuddha/yuddha_contents.htm.dir/yuhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.dir/",
+          "label": "/utf8/yuddha/yuddha_contents.htm.dir/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm",
+          "label": "/utf8/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm.bad",
+          "label": "/utf8/yuddha/yuddha_contents.htm.dir/yuddha_contents.htm.bad",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.dir/yuhd.jpg",
+          "label": "/utf8/yuddha/yuddha_contents.htm.dir/yuhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga47/",
+          "label": "/ayodhya/ayodhya/sarga47/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "label": "/ayodhya/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga48/",
+          "label": "/ayodhya/ayodhya/sarga48/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga48/ayodhya_48_prose.htm",
+          "label": "/ayodhya/ayodhya/sarga48/ayodhya_48_prose.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga49/",
+          "label": "/ayodhya/ayodhya/sarga49/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "label": "/ayodhya/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga47/",
+          "label": "/utf8/ayodhya/ayodhya/sarga47/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "label": "/utf8/ayodhya/ayodhya/sarga47/ayodhya_47_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga48/",
+          "label": "/utf8/ayodhya/ayodhya/sarga48/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga48/ayodhya_48_prose.htm",
+          "label": "/utf8/ayodhya/ayodhya/sarga48/ayodhya_48_prose.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga49/",
+          "label": "/utf8/ayodhya/ayodhya/sarga49/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "label": "/utf8/ayodhya/ayodhya/sarga49/ayodhya_49_frame.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/yuddha_contents.htm",
+          "label": "/ayodhya/yuddha_contents.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.bad",
+          "label": "/yuddha/yuddha_contents.htm.bad",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_contents.htm.orig",
+          "label": "/yuddha/yuddha_contents.htm.orig",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/yuddha_contents.htm",
+          "label": "/utf8/ayodhya/yuddha_contents.htm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.bad",
+          "label": "/utf8/yuddha/yuddha_contents.htm.bad",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_contents.htm.orig",
+          "label": "/utf8/yuddha/yuddha_contents.htm.orig",
+          "status": "Listed by source"
+        }
+      ]
+    },
+    {
+      "title": "Source illustrations and styles",
+      "description": "Source assets include book illustrations, background images, and legacy styles.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/baala/baala_rss.css",
+          "label": "/baala/baala_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/baala/bahd.jpg",
+          "label": "/baala/bahd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/baala/rbg.jpg",
+          "label": "/baala/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/baala/rss.css",
+          "label": "/baala/rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayodhya_rss.css",
+          "label": "/ayodhya/ayodhya_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/ayohd.jpg",
+          "label": "/ayodhya/ayohd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/ayodhya/rbg.jpg",
+          "label": "/ayodhya/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/aranya/aranya_rss.css",
+          "label": "/aranya/aranya_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/aranya/arhd.jpg",
+          "label": "/aranya/arhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/aranya/rbg.jpg",
+          "label": "/aranya/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/aranya/rss.css",
+          "label": "/aranya/rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/kishkindha_rss.css",
+          "label": "/kish/kishkindha_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/kshd.jpg",
+          "label": "/kish/kshd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/kish/rbg.jpg",
+          "label": "/kish/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/sundara/rbg.jpg",
+          "label": "/sundara/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/sundara/sundara_heading.jpg",
+          "label": "/sundara/sundara_heading.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/sundara/sundara_rss.css",
+          "label": "/sundara/sundara_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/rbg.jpg",
+          "label": "/yuddha/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuddha_rss.css",
+          "label": "/yuddha/yuddha_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/yuddha/yuhd.jpg",
+          "label": "/yuddha/yuhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala/baala_rss.css",
+          "label": "/utf8/baala/baala_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala/bahd.jpg",
+          "label": "/utf8/baala/bahd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala/rbg.jpg",
+          "label": "/utf8/baala/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/baala/rss.css",
+          "label": "/utf8/baala/rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayodhya_rss.css",
+          "label": "/utf8/ayodhya/ayodhya_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/ayohd.jpg",
+          "label": "/utf8/ayodhya/ayohd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/ayodhya/rbg.jpg",
+          "label": "/utf8/ayodhya/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/aranya/aranya_rss.css",
+          "label": "/utf8/aranya/aranya_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/aranya/arhd.jpg",
+          "label": "/utf8/aranya/arhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/aranya/rbg.jpg",
+          "label": "/utf8/aranya/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/aranya/rss.css",
+          "label": "/utf8/aranya/rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/kishkindha_rss.css",
+          "label": "/utf8/kish/kishkindha_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/kshd.jpg",
+          "label": "/utf8/kish/kshd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/kish/rbg.jpg",
+          "label": "/utf8/kish/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/sundara/rbg.jpg",
+          "label": "/utf8/sundara/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/sundara/sundara_heading.jpg",
+          "label": "/utf8/sundara/sundara_heading.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/sundara/sundara_rss.css",
+          "label": "/utf8/sundara/sundara_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/rbg.jpg",
+          "label": "/utf8/yuddha/rbg.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuddha_rss.css",
+          "label": "/utf8/yuddha/yuddha_rss.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/yuddha/yuhd.jpg",
+          "label": "/utf8/yuddha/yuhd.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/images/pattabhi.jpg",
+          "label": "/images/pattabhi.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/images/vback.gif",
+          "label": "/images/vback.gif",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/images/vr_letters.jpg",
+          "label": "/images/vr_letters.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/images/vr_pic.jpg",
+          "label": "/images/vr_pic.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/images/vtab.gif",
+          "label": "/images/vtab.gif",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/images/pattabhi.jpg",
+          "label": "/utf8/images/pattabhi.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/images/vback.gif",
+          "label": "/utf8/images/vback.gif",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/images/vr_letters.jpg",
+          "label": "/utf8/images/vr_letters.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/images/vr_pic.jpg",
+          "label": "/utf8/images/vr_pic.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/images/vtab.gif",
+          "label": "/utf8/images/vtab.gif",
+          "status": "Listed by source"
+        }
+      ]
+    },
+    {
+      "title": "Media player bundle and demos",
+      "description": "The source hosts MediaElement.js examples and sample media.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/utf8/build/",
+          "label": "/utf8/build/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/background.png",
+          "label": "/utf8/build/background.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/bigplay.png",
+          "label": "/utf8/build/bigplay.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/bigplay.svg",
+          "label": "/utf8/build/bigplay.svg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/controls-ted.png",
+          "label": "/utf8/build/controls-ted.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/controls-wmp-bg.png",
+          "label": "/utf8/build/controls-wmp-bg.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/controls-wmp.png",
+          "label": "/utf8/build/controls-wmp.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/controls.png",
+          "label": "/utf8/build/controls.png",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/controls.svg",
+          "label": "/utf8/build/controls.svg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/flashmediaelement.swf",
+          "label": "/utf8/build/flashmediaelement.swf",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/jquery.js",
+          "label": "/utf8/build/jquery.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/loading.gif",
+          "label": "/utf8/build/loading.gif",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelement-and-player.js",
+          "label": "/utf8/build/mediaelement-and-player.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelement-and-player.min.js",
+          "label": "/utf8/build/mediaelement-and-player.min.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelement.js",
+          "label": "/utf8/build/mediaelement.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelement.min.js",
+          "label": "/utf8/build/mediaelement.min.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelementplayer.css",
+          "label": "/utf8/build/mediaelementplayer.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelementplayer.js",
+          "label": "/utf8/build/mediaelementplayer.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelementplayer.min.css",
+          "label": "/utf8/build/mediaelementplayer.min.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mediaelementplayer.min.js",
+          "label": "/utf8/build/mediaelementplayer.min.js",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/mejs-skins.css",
+          "label": "/utf8/build/mejs-skins.css",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/build/silverlightmediaelement.xap",
+          "label": "/utf8/build/silverlightmediaelement.xap",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/",
+          "label": "/utf8/demo/",
+          "status": "Response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelement.html",
+          "label": "/utf8/demo/mediaelement.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer.html",
+          "label": "/utf8/demo/mediaelementplayer.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-audio.html",
+          "label": "/utf8/demo/mediaelementplayer-audio.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-skins.html",
+          "label": "/utf8/demo/mediaelementplayer-skins.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-track.html",
+          "label": "/utf8/demo/mediaelementplayer-track.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-sourcechooser.html",
+          "label": "/utf8/demo/mediaelementplayer-sourcechooser.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-frameaccurate.html",
+          "label": "/utf8/demo/mediaelementplayer-frameaccurate.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-youtube.html",
+          "label": "/utf8/demo/mediaelementplayer-youtube.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-responsive.html",
+          "label": "/utf8/demo/mediaelementplayer-responsive.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-events.html",
+          "label": "/utf8/demo/mediaelementplayer-events.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/demo/mediaelementplayer-postroll.html",
+          "label": "/utf8/demo/mediaelementplayer-postroll.html",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/",
+          "label": "/utf8/media/",
+          "status": "Directory response observed"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/AirReview-Landmarks-02-ChasingCorporate.mp3",
+          "label": "/utf8/media/AirReview-Landmarks-02-ChasingCorporate.mp3",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/echo-hereweare.jpg",
+          "label": "/utf8/media/echo-hereweare.jpg",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/echo-hereweare.mp4",
+          "label": "/utf8/media/echo-hereweare.mp4",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/echo-hereweare.webm",
+          "label": "/utf8/media/echo-hereweare.webm",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/mediaelement.srt",
+          "label": "/utf8/media/mediaelement.srt",
+          "status": "Listed by source"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/media/sample.mp3",
+          "label": "/utf8/media/sample.mp3",
+          "status": "Listed by source"
+        }
+      ]
+    },
+    {
+      "title": "Unavailable links from the UTF-8 introduction",
+      "description": "The original introduction still points to these resources.",
+      "entries": [
+        {
+          "url": "https://valmikiramayan.net/utf8/fonts.html",
+          "label": "/utf8/fonts.html",
+          "status": "HTTP 404"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/DHp.htm",
+          "label": "/utf8/DHp.htm",
+          "status": "HTTP 404"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/MHp.htm",
+          "label": "/utf8/MHp.htm",
+          "status": "HTTP 404"
+        },
+        {
+          "url": "https://valmikiramayan.net/giirvaani/default.htm",
+          "label": "/giirvaani/default.htm",
+          "status": "HTTP 404"
+        },
+        {
+          "url": "https://valmikiramayan.net/utf8/bala_kanda_contents.html",
+          "label": "/utf8/bala_kanda_contents.html",
+          "status": "HTTP 404"
+        }
+      ]
+    }
+  ]
+}

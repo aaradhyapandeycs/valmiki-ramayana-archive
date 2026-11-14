@@ -152,3 +152,16 @@ footer p { max-width: 83ch; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.reader { max-width: 58rem; margin-top: 2.5rem; }
+.verse { display: grid; grid-template-columns: minmax(2.8rem, auto) 1fr; align-items: baseline; gap: .8rem; padding: .65rem 0; border-bottom: 1px solid var(--line); }
+.verse > a { font-size: .87rem; font-variant-numeric: tabular-nums; }
+.verse p { margin: 0; font-size: clamp(1.05rem, 3vw, 1.35rem); line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; }
+.verse:target { background: var(--surface); }
+.verse-anchor { display: block; }
+.variant-list { padding-left: 1.35rem; }
+.variant-list li { margin-block: .25rem; overflow-wrap: anywhere; }
+.chapter-sources { max-width: 55rem; margin-block: 1.5rem; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: .375rem; }
+.chapter-sources summary { cursor: pointer; font-weight: 650; }
+.chapter-sources summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.coverage { font-variant-numeric: tabular-nums; }

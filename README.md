@@ -7,8 +7,6 @@ This is an independent navigation project, **not a copy of the complete text**.
 ## Build
 
 ```sh
-python3 build.py
-python3 verify.py
 BASE_PATH=/ python3 build.py
 BASE_PATH=/ python3 verify.py
 python3 -m http.server 8000 --directory dist
@@ -20,26 +18,17 @@ as shown above.
 
 ## Provenance and limits
 
-`chapters.json` records titles and chapter order transcribed from six live
-source indexes on November 13, 2026 (America/New_York). `dist/manifest.json`
-maps the indexed frame URLs and a few discovered variants and downloads to
-local routes with honest status labels. The frame URL patterns were sampled
-at the first/last chapters; each individual response was not checked. The
-source's UTF-8 introduction links to five indexes that returned 404.
+`chapters.json` records the source chapter headings and order. The chapter
+viewer links in `data/frames.json` come from the source tables of contents,
+including the literal `5F` filenames. `data/ancillary.json` catalogs files
+outside that index. The separate source inventory workflow checks linked
+files, directory listings, and available resources.
 
-`crawl.py` inventories links, legacy frames, variant pages, downloads, and
-response statuses when network access permits, writing `crawl-report.json`.
-Its output must be reviewed and reconciled with `chapters.json`; it does
-not copy original page text. The current environment blocks direct source
-fetches with HTTP 403, so a complete recursive inventory has **not** run.
-
-The Sanskrit epic is ancient, but reuse rights for this site's English
-translations, commentary, PDF files, fonts, and editorial presentation
-have not been established. These remain linked to the source. No Sanskrit
-verses, transliterations, English translations, commentary, or verse
-anchors have been reconstructed here; none should be inferred from chapter
-titles. See the source [introduction](https://valmikiramayan.net/utf8/ramayana.shtml)
-and home page for edition details and contributor credits.
+The Sanskrit reader only displays validated records with a recorded textual
+witness. The primary site and Sanskrit Documents mirror can differ. Where
+the source's verse locators disagree, the reader identifies its source
+blocks. The modern English translations, glosses, commentary, and original
+media are linked from their sources. See [reuse and attribution](RIGHTS.md).
 
 The source homepage credits **Desiraju Hanumanta Rao** for Bāla, Araṇya,
 and Kiṣkindhā, and **K. M. K. Murthy** for Ayodhyā, Sundara, and Yuddha.

@@ -2,13 +2,16 @@
 """Build a rights-conscious static index of the source edition.
 
 Source titles are transcribed from the six kanda indexes in chapters.json.
-Text is deliberately linked at the source until permission and exact bytes
-can be verified. No verses are generated or inferred.
+Sanskrit snapshots retain their source witness. Modern translations and
+commentary are linked to the original pages.
 """
 import html
 import json
 import os
 from pathlib import Path
+
+from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
+                    render_sanskrit, source_guide)
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "dist"
@@ -35,14 +38,14 @@ def page(title, body, depth=0):
 <a class="brand" href="{home}">Vālmīki Rāmāyaṇa</a>
 <p class="tagline">A searchable directory of the six kāṇḍas</p>
 <nav aria-label="Main navigation">
-<a href="{home}">Chapters</a><a href="{home}#sources">Sources &amp; rights</a>
+<a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
 <a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a></nav></header>
 <main id="main" class="wrap">{body}</main><footer class="wrap">
 <p>Chapter titles and order: <a href="{HOST}/">Valmiki Ramayana</a>.
 Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
 K. M. K. Murthy (Ayodhyā, Sundara, Yuddha), as credited on the source homepage.
 The source introduction also credits Durga Naaga Devi and Vaasudeva Kishore for Sundara contributions.</p>
-<p>The original edition hosts the verses, translation, and commentary.</p>
+<p>See the source edition for the modern translation and commentary.</p>
 </footer></body></html>"""
 
 
@@ -52,13 +55,13 @@ def write(path, contents):
     dest.write_text(contents, encoding="utf-8")
 
 
-def chapter_url(book, row):
-    n = row["n"]
-    return f"{HOST}/{book['slug']}/sarga{n}/{book['frameprefix']}_{n}_frame.htm"
-
-
 def main():
     OUT.mkdir(exist_ok=True)
+    sanskrit = load_sanskrit(CHAPTERS)
+    frames = load_catalog("frames.json", None)["books"]
+    variants = load_catalog("variants.json", {"chapters": {}})
+    ancillary = load_catalog("ancillary.json", {"groups": []})
+    write("sources/index.html", page("Source files and editions", source_guide(ancillary, variants), 1))
     manifest = []
     cards = []
     search = []
@@ -66,16 +69,22 @@ def main():
         slug, rows = book["slug"], book["rows"]
         assert [x["n"] for x in rows] == list(range(1, len(rows) + 1))
         name = NAMES[slug]
-        index_src = f"{HOST}/{slug}/" + ({"baala":"baala", "ayodhya":"ayodhya", "aranya":"aranya", "kish":"kishkindha", "sundara":"sundara", "yuddha":"yuddha"}[slug]) + "_contents.htm"
-        manifest.append({"source_url": index_src, "new_url": f"{BASE}index.html#{slug}",
-                         "status": "index_transcribed", "note": f"{len(rows)} chapter entries"})
+        for source in frames[slug]["indexes"].values():
+            manifest.append({"source_url": source, "new_url": f"{BASE}{slug}/",
+                             "status": "index_transcribed", "note": f"{len(rows)} chapter entries"})
         for row in rows:
             n = row["n"]
             new = f"{BASE}{slug}/{n}/"
-            source = chapter_url(book, row)
-            manifest.append({"source_url": source, "new_url": new,
-                             "status": "source_link_only_unverified",
-                             "note": "Frame URL pattern sampled at first/last chapters; individual response and rights not verified"})
+            links = frames[slug]["chapters"][str(n)]
+            source = links["original"]
+            for entry in links.values():
+                manifest.append({"source_url": entry, "new_url": new,
+                                 "status": "toc_link", "note": "Recorded from the chapter table of contents"})
+            pane_links = variants["chapters"].get(f"{slug}/{n}", [])
+            for pane in pane_links:
+                if pane["url"] not in links.values():
+                    manifest.append({"source_url": pane["url"], "new_url": new,
+                                     "status": pane["status"], "note": pane["label"]})
             search.append({"book": name, "number": n, "book_number": book_number, "title": row["title"], "url": new})
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
@@ -84,6 +93,8 @@ def main():
 <p class="source-note">The source chapter is available through its original frame page.
 Open the source edition for Sanskrit, transliteration, English translation, and commentary.</p>
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
+{chapter_sources(slug, n, source, frames, pane_links)}
+{render_sanskrit(sanskrit.get((slug, n)))}
 <nav class="chapter-nav" aria-label="Chapter sequence">{before}
 <a href="../">All {esc(name)} chapters</a>{after}</nav>"""
             write(f"{slug}/{n}/index.html", page(f"{name} {n}: {row['title']}", body, 2))
@@ -105,26 +116,15 @@ Open the source edition for Sanskrit, transliteration, English translation, and 
                      f'<h2><a href="{slug}/">{name} Kāṇḍa</a></h2></div><span>{len(rows)} sargas</span></div>'
                      f'<ol class="chapters">{items}</ol></section>')
 
-    extras = [
-        (f"{HOST}/", "index.html", "source_link_only", "Original landing page"),
-        (f"{HOST}/utf8/ramayana.shtml", "index.html#sources", "source_link_only", "UTF-8 introduction"),
-        (f"{HOST}/utf8/vr_intro_ayyangar.pdf", "index.html#sources", "external_download", "C. R. Srinivasa Ayyangar introduction PDF"),
-        (f"{HOST}/ValmikiRamayanFNL.pdf", "index.html#sources", "external_download", "Additional linked PDF; rights unverified"),
-        (f"{HOST}/sans2003.zip", "index.html#sources", "external_download", "Source font archive; binary not retrieved or redistributed"),
-        (f"{HOST}/utf8/baala/baala_contents.htm", "index.html#baala", "index_variant", "UTF-8 chapter index"),
-        (f"{HOST}/utf8/baala/sarga1/balaitrans1.htm", "baala/1/", "text_variant_link_only", "ITRANS and English"),
-        (f"{HOST}/utf8/baala/sarga1/balaroman1.htm", "baala/1/", "text_variant_link_only", "Romanized Sanskrit"),
-        (f"{HOST}/utf8/baala/sarga1/balasans1.htm.old", "baala/1/", "text_variant_link_only", "Legacy Devanagari"),
-        (f"{HOST}/utf8/baala/sarga4/bala_4_prose.htm", "baala/4/", "prose_link_only", "Prose variant"),
-        (f"{HOST}/utf8/baala/sarga4/balasans4.htm", "baala/4/", "text_variant_link_only", "Devanagari variant"),
-    ]
-    for src, target, status, note in extras:
-        manifest.append({"source_url": src, "new_url": BASE + target, "status": status, "note": note})
-    for slug, full in [("ayodhya", "ayodhya"), ("aranya", "aranya"),
-                       ("kish", "kishkindha"), ("sundara", "sundara"), ("yuddha", "yuddha")]:
-        manifest.append({"source_url": f"https://www.valmikiramayan.net/utf8/{full}_kanda_contents.html",
-                         "new_url": f"{BASE}index.html#{slug}", "status": "source_404",
-                         "note": "Linked from UTF-8 introduction; web retrieval returned 404"})
+    mapped = {entry["source_url"] for entry in manifest}
+    for group in ancillary["groups"]:
+        for entry in group["entries"]:
+            if entry["url"] not in mapped:
+                manifest.append({"source_url": entry["url"], "new_url": f"{BASE}sources/",
+                                 "status": entry["status"], "note": entry["label"]})
+                mapped.add(entry["url"])
+    if "coverage" in variants:
+        write("source-variants.json", json.dumps(variants, ensure_ascii=False, separators=(",", ":")))
     manifest.sort(key=lambda x: x["source_url"])
     assert len({x["source_url"] for x in manifest}) == len(manifest)
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
@@ -135,16 +135,14 @@ Open the source edition for Sanskrit, transliteration, English translation, and 
 and verse numbering in its <a href="{HOST}/utf8/ramayana.shtml">introduction</a>.
 The Sanskrit epic is ancient; the particular translation, commentary, editorial layout,
 fonts, and downloads have no verified reuse grant for this project. Follow the original links for those materials.</p>
-<p><a href="{HOST}/utf8/vr_intro_ayyangar.pdf">Ayyangar introduction (PDF) ↗</a> ·
-<a href="{HOST}/ValmikiRamayanFNL.pdf">Additional source PDF ↗</a> ·
-<a href="{HOST}/sans2003.zip">Source font archive ↗</a> ·
-<a href="manifest.json">Source URL manifest</a></p>
+<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a></p>
 <p>Source availability can change. A source link may fail or redirect; the manifest records
-which individual responses have yet to be verified.</p></section>"""
+where each URL was found and which responses were observed.</p></section>"""
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
 <h1>Explore the Rāmāyaṇa, chapter by chapter.</h1>
 <p>All 534 sargas in the six-book index, in source order. Search chapter headings, then follow
-the source edition for exact verses, translation, and commentary.</p>
+the source edition for translation and commentary.</p>
+<p class="coverage">{render_coverage(sanskrit)}</p>
 <label class="search-label" for="search">Search chapter headings or sarga number</label>
 <input id="search" type="search" placeholder="Try Hanuma, forest, or 2-119" autocomplete="off">
 <p id="search-count" aria-live="polite"></p></section>
