@@ -1,20 +1,24 @@
 name: Audit Sanskrit text against the original
 on:
-  push:
+  workflow_run:
+    workflows: ["Build and deploy"]
+    types: [completed]
     branches: [main]
-    paths: ['audit_source_text.py', 'sanskrit_paratext.py', 'data/sanskrit-paratext-reviewed.json', '.github/workflows/text-fidelity.yml']
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
   group: source-text-fidelity
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - name: Load the pinned Sanskrit text
         uses: actions/checkout@v4
         with:
