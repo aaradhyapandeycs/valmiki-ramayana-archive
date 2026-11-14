@@ -5,15 +5,31 @@ from hashlib import sha256
 from html import unescape
 import json
 import sys
+import time
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin
 from urllib.request import urlopen
 
 
+def read_bytes(url):
+    for delay in (0, 0.5, 2, 5):
+        time.sleep(delay)
+        try:
+            with urlopen(url, timeout=30) as response:
+                if response.status != 200:
+                    raise ValueError(f"{response.status}: {url}")
+                return response.read()
+        except HTTPError as error:
+            if error.code not in (429, 500, 502, 503, 504) or delay == 5:
+                raise
+        except (URLError, TimeoutError):
+            if delay == 5:
+                raise
+    raise RuntimeError(f"Could not read {url}")
+
+
 def read(url):
-    with urlopen(url, timeout=30) as response:
-        if response.status != 200:
-            raise ValueError(f"{response.status}: {url}")
-        return response.read().decode("utf-8")
+    return read_bytes(url).decode("utf-8")
 
 
 def main():
@@ -41,8 +57,7 @@ def main():
         assert inventory["coverage"][tree]["chapter_directories_with_observed_children"] == 534
     intro = urljoin(base, "resources/vr_intro_ayyangar.pdf")
     metadata = json.loads(read(intro[:-4] + ".json"))
-    with urlopen(intro, timeout=30) as response:
-        assert sha256(response.read()).hexdigest() == metadata["sha256"]
+    assert sha256(read_bytes(intro)).hexdigest() == metadata["sha256"]
     print(f"Live delivery verified: {len(headings)} chapter pages, {pages_with_text} with Sanskrit.")
 
 
