@@ -43,6 +43,12 @@ jobs:
           ref=62c55ef21556e2d7d3716cd0f6a486e2f66c8823
           git fetch --no-tags --depth=1 origin "$ref"
           git show "$ref:verse-layout.json" > data/verse-layout.json
+      - name: Load the verified Critical Edition English snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: "a2f4a316dd1208a3aec205995608557fb2ee27f5"
+          path: data/critical-site
+          persist-credentials: false
       - name: Load the verified English source reference index
         run: |
           ref=67e4e51efc9e22cfd24ed6dae13fa4fdce9ecb91
@@ -105,12 +111,13 @@ jobs:
         run: |
           python3 -m pip install html5lib==1.1
           python3 build.py
-          python3 -m unittest test_transliterate_iast test_verse_lines test_collect_prose_links test_prose_links
+          python3 -m unittest test_transliterate_iast test_verse_lines test_collect_prose_links test_prose_links test_critical_crosswalk
           python3 verify_iast.py
           python3 verify_dutt_render.py
           python3 build_source_manifest.py
           python3 verify.py
           python3 verify_prose_links.py
+          python3 verify_critical_transfer.py --crosswalk data/critical-site/archive-links.json
           bash iast_font_assets.sh dist
       - uses: actions/upload-pages-artifact@v3
         with:

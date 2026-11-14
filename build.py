@@ -13,6 +13,7 @@ from pathlib import Path
 
 from chapter_iast import display_chapters, load_title_review, title_aliases
 from dutt_reader import render_dutt
+from critical_reader import inline_groups, read_critical, render_critical
 from prose_links import TRANSLATORS, local_units, prepare_links
 from sanskrit_paratext import load_paratext, render_paratext
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
@@ -23,6 +24,7 @@ OUT = ROOT / "dist"
 BASE = os.environ.get("BASE_PATH", "/valmiki-ramayana-archive/").rstrip("/") + "/"
 HOST = "https://valmikiramayan.net"
 DUTT = ROOT / "dutt-corpus"
+CRITICAL = ROOT / "data" / "critical-site"
 NAMES = {
     "baala": "Bāla", "ayodhya": "Ayodhyā", "aranya": "Araṇya",
     "kish": "Kiṣkindhā", "sundara": "Sundara", "yuddha": "Yuddha",
@@ -39,6 +41,8 @@ def page(title, body, depth=0, *, rooted=False):
     home = prefix + "index.html"
     english = (f'<a href="{home.replace("index.html", "english/")}">Dutt’s English translation</a>'
                if DUTT.is_dir() else "")
+    critical = (f'<a href="{prefix}critical/">Critical Edition English</a>'
+                if (CRITICAL / "manifest-all.json").is_file() else "")
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09203F">
@@ -49,7 +53,7 @@ def page(title, body, depth=0, *, rooted=False):
 <p class="tagline">A searchable directory of the six kāṇḍas</p>
 <nav aria-label="Main navigation">
 <a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
-<a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}</nav></header>
+<a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}{critical}</nav></header>
 <main id="main" class="wrap" tabindex="-1">{body}</main><footer class="wrap">
 <p>Source chapter indexes: <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>.
 Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
@@ -77,6 +81,11 @@ def main():
     paratext = load_paratext(sanskrit)
     prose = load_catalog("prose-links.json", None)
     prose_report = {}
+    critical_manifest, critical_books = read_critical(CRITICAL)
+    crosswalk = load_catalog("critical-site/archive-links.json", None)
+    critical_rows = {row["id"]: row for chapters in critical_books.values()
+                     for rows in chapters.values() for row in rows}
+    shown_english = {}
     expected_chapters = {f"{slug}/{n}" for slug, n in sanskrit}
     if prose and (prose["schema_version"] != 1 or set(prose["chapters"]) != expected_chapters):
         raise ValueError("English source reference snapshot does not cover the same chapters")
@@ -183,8 +192,12 @@ def main():
                     f'<p class="source-note">English source credit: {credit}.{status} '
                     f'<a href="{esc(evidence["source_url"])}" rel="external">Read the chapter’s English at the source ↗</a>.</p>'
                 )
+            matched_english = inline_groups(crosswalk, key, record, additions, critical_rows) if crosswalk and record else []
+            if matched_english:
+                shown_english[key] = [{name: value for name, value in passage.items() if name != "row"}
+                                      for passage in matched_english]
             offsets = chapter_layout.get("supplements")
-            passage = render_sanskrit(record, layout=chapter_layout, groups=groups,
+            passage = render_sanskrit(record, layout=chapter_layout, groups=groups + matched_english,
                                       translation_note=translation_note,
                                       before=render_paratext(additions.get("before"), offsets),
                                       after=render_paratext(additions.get("after"), offsets))
@@ -279,10 +292,14 @@ fonts, and downloads have no verified reuse grant for this project. Follow the o
 <p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a> · <a href="source-manifest.json">Source coverage manifest</a>{heading_audit} · {text_audit}</p>
 <p>Source availability can change. A source link may fail or redirect; the manifest records
 where each URL was found and which responses were observed.</p></section>"""
+    critical_intro = (
+        '<p><a href="critical/">Read M. N. Dutt’s English by Critical Edition verse</a>. '
+        'The seven-book Critical Edition uses its own numbering.</p>' if critical_manifest else ""
+    )
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
 <h1>Explore the Rāmāyaṇa, chapter by chapter.</h1>
 <p>All 534 sargas in the six-book index, in source order. Search chapter headings, then follow
-the source edition for translation and commentary.</p>
+the source edition for translation and commentary.</p>{critical_intro}
 <p class="coverage">{render_coverage(sanskrit)}{' · <a href="sanskrit-coverage.json">Capture record</a>' if snapshot.is_file() else ""}</p>
 <label class="search-label" for="search">Search chapter headings or sarga number</label>
 <input id="search" type="search" placeholder="Try Rāma, forest, or 2-119" autocomplete="off">
@@ -293,6 +310,12 @@ the source edition for translation and commentary.</p>
     write("index.html", page("Chapter directory", body))
     if DUTT.is_dir():
         render_dutt(page, write, DUTT)
+    render_critical(page, write, CRITICAL, critical_manifest, critical_books)
+    if crosswalk:
+        write("critical/archive-matching-audit.json", json.dumps({
+            "source_match_report": crosswalk,
+            "displayed_inline": shown_english,
+        }, ensure_ascii=False, separators=(",", ":")) + "\n")
     write(".nojekyll", "")
     write("404.html", page("Page not found",
                            f'<h1>Page not found</h1><p><a href="{BASE}">Return to the chapter directory</a>.</p>',

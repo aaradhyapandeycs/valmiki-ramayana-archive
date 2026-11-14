@@ -152,16 +152,20 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
         pair = ancestors[card]
         require("verse-pair" in classes(pair) and len(pair) == 2 and pair[1] == card
                 and "verse-pair-source" in classes(pair[0]), "Sanskrit must precede its English card")
-        require(card.get("lang") == "en" and len(card) == 2
+        require(card.get("lang") == "en" and len(card) >= 2
                 and card[0].tag == "p" and "verse-translation-label" in classes(card[0])
-                and meaningful(card[0]) == "English translation" and card[1].tag == "ul",
+                and meaningful(card[0]) == "English translation",
                 "English card contains unexpected content")
-        require(not (card.text or "").strip() and not (card[0].tail or "").strip()
-                and not (card[1].text or "").strip(), "unexpected card prose")
+        lists = [child for child in list(card)[1:] if child.tag == "ul"]
+        require(len(lists) <= 1 and all(child.tag == "ul" or "critical-inline" in classes(child)
+                                      for child in list(card)[1:]), "Unexpected English panel content")
+        if not lists:
+            continue
+        link_list = lists[0]
         pair_units = checked_units(pair[0])
         require(bool(pair_units), "empty local Sanskrit side")
         local = [node.get("id") for node in pair_units]
-        for li in card[1]:
+        for li in link_list:
             require(li.tag == "li" and len(li) == 1 and li[0].tag == "a" and not li[0]
                     and not (li.text or "").strip() and not (li[0].tail or "").strip()
                     and not (li.tail or "").strip(),
@@ -192,6 +196,10 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
                     and set(other["units"]) & set(intended)
                     and set(other["units"]) <= connected
                     for other in groups
+                ) or any(
+                    set(candidate.get("data-critical-local-units", "").split()) & set(intended)
+                    for candidate in ancestors[pair].iter()
+                    if "critical-inline" in classes(candidate)
                 )
                 require(set(intended) <= connected and overlap,
                         f"short visual group has no overlapping source coverage {key}")

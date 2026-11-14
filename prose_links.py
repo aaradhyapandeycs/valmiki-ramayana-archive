@@ -138,10 +138,16 @@ def prepare_links(record, additions, source):
 
 
 def translation_panel(groups):
+    from critical_reader import inline_panel
+
     if not groups:
         return ""
     links = []
+    translations = []
     for group in groups:
+        if "row" in group:
+            translations.append(inline_panel(group))
+            continue
         labels = ", ".join(group["refs"])
         url = escape(group["href"], quote=True)
         refs = escape(" ".join(group["refs"]), quote=True)
@@ -149,9 +155,10 @@ def translation_panel(groups):
         caption = "Source passage" if group["basis"] == "anchored_sanskrit_reference" else "Read at the source"
         links.append(f'<li><a href="{url}" rel="external" data-source-refs="{refs}" '
                      f'data-prose-basis="{basis}">{escape(labels)} · {caption} ↗</a></li>')
-    return ('<div class="verse-translation" lang="en">'
+    original_links = f'<ul role="list">{"".join(links)}</ul>' if links else ""
+    return ('<div class="verse-translation" lang="en">' 
             '<p class="verse-translation-label">English translation</p>'
-            f'<ul role="list">{"".join(links)}</ul></div>')
+            f'{"".join(translations)}{original_links}</div>')
 
 
 def pair_units(units, groups):

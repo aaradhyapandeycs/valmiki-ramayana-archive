@@ -380,3 +380,15 @@ main.wrap:has(.reader) {
 }
 
 .verse-translation li + li { margin-block-start: .3em; }
+
+.critical-reader { max-width: 74ch; margin-block-start: 2rem; }
+.critical-passage { padding-block: .95rem; border-block-end: 1px solid var(--line); }
+.critical-passage header, .critical-refs { color: var(--muted); font-size: .9rem; }
+.critical-coordinates { font-variant-numeric: tabular-nums; }
+.critical-passage .critical-english-text { font: 1.075rem/1.7 var(--serif); margin-block: .45rem; }
+.critical-refs { margin: 0; overflow-wrap: anywhere; }
+.critical-coordinates a:target { background: var(--surface); outline: 1px solid var(--line); }
+.verse-translation .critical-english-text { white-space: pre-line; }
+.verse-translation .critical-english-text { margin-block: .38rem .48rem; }
+.verse-translation .critical-inline + .critical-inline { margin-block-start: .9rem; }
+.verse-translation .critical-refs { font-family: var(--sans); font-size: .84rem; }

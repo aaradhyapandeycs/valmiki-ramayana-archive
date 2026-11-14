@@ -43,6 +43,12 @@ jobs:
           ref=62c55ef21556e2d7d3716cd0f6a486e2f66c8823
           git fetch --no-tags --depth=1 origin "$ref"
           git show "$ref:verse-layout.json" > data/verse-layout.json
+      - name: Load the verified Critical Edition English snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: "a2f4a316dd1208a3aec205995608557fb2ee27f5"
+          path: data/critical-site
+          persist-credentials: false
       - name: Load the verified English source reference index
         run: |
           ref=67e4e51efc9e22cfd24ed6dae13fa4fdce9ecb91

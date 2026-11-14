@@ -25,6 +25,12 @@ jobs:
           ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
           path: data/sanskrit
           persist-credentials: false
+      - name: Load the verified Critical Edition English snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: "a2f4a316dd1208a3aec205995608557fb2ee27f5"
+          path: data/critical-site
+          persist-credentials: false
       - name: Load the verified English source reference index
         run: |
           ref=67e4e51efc9e22cfd24ed6dae13fa4fdce9ecb91

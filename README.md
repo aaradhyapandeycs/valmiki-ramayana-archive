@@ -79,3 +79,18 @@ The original chapter headers and indexes resolve 11 consistently misnumbered
 source prefixes. The mapping is tied to exact source response hashes and
 requires all printed verse numbers to form an uninterrupted sequence.
 The displayed Sanskrit and printed source labels are preserved.
+
+
+## Critical Edition English
+
+The archive includes a separate Critical Edition English reader at `critical/`.
+It preserves the ChatGPT reader’s public-domain Dutt prose, Baroda Edition
+coordinates, and original alignment classifications across all seven kāṇḍas.
+The original alignment is automated and remains unreviewed. Itihāsa
+attribution and its Apache 2.0 license are included with the snapshot.
+
+The six-book archive retains its own edition. Historical English appears next
+to a reading block only where the editions can be matched by the actual
+Sanskrit text, with a separate label for the reviewed normalization rule for
+homorganic nasals. The report retains unresolved mappings and distinguishes
+the Indian archive’s numbering from the Baroda Critical Edition.

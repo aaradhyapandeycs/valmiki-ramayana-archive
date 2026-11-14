@@ -151,7 +151,7 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
             gap = page.locator("#sanskrit .source-note").filter(
                 has_text="Verse-level references could not be verified for this chapter."
             )
-            if (await page.locator(".verse-translation").count() or await gap.count() != 1
+            if (await page.locator("a[data-source-refs]").count() or await gap.count() != 1
                     or await gap.get_by_role("link", name="Read the chapter’s English at the source ↗").count() != 1):
                 raise ValueError(f"{no_link}: source-link gap has an unexpected presentation")
             usable = await page.evaluate(line_audit)
