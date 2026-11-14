@@ -106,10 +106,12 @@ def main():
             new = f"{BASE}{slug}/{n}/"
             links = frames[slug]["chapters"][str(n)]
             source = links["original"]
+            pane_links = variants["chapters"].get(f"{slug}/{n}", [])
+            observed = {entry["url"]: entry["status"] for entry in pane_links}
             for entry in links.values():
                 manifest.append({"source_url": entry, "new_url": new,
-                                 "status": "toc_link", "note": "Recorded from the chapter table of contents"})
-            pane_links = variants["chapters"].get(f"{slug}/{n}", [])
+                                 "status": observed.get(entry, "toc_link"),
+                                 "note": "Recorded from the chapter table of contents"})
             for pane in pane_links:
                 if pane["url"] not in links.values():
                     manifest.append({"source_url": pane["url"], "new_url": new,
@@ -144,13 +146,29 @@ def main():
                      f'<h2><a href="{slug}/">{name} Kāṇḍa</a></h2></div><span>{len(rows)} sargas</span></div>'
                      f'<ol class="chapters">{items}</ol></section>')
 
-    mapped = {entry["source_url"] for entry in manifest}
+    mapped = {entry["source_url"]: entry for entry in manifest}
+    original_pdf = f"{HOST}/vr_intro_ayyangar.pdf"
     for group in ancillary["groups"]:
         for entry in group["entries"]:
-            if not entry.get("local") and entry["url"] not in mapped:
-                manifest.append({"source_url": entry["url"], "new_url": f"{BASE}sources/",
-                                 "status": entry["status"], "note": entry["label"]})
-                mapped.add(entry["url"])
+            src = entry["url"]
+            if entry.get("local") or src in mapped:
+                continue
+            hosted = src == original_pdf and introduction.is_file()
+            mapped[src] = {"source_url": src,
+                           "new_url": (f"{BASE}resources/{introduction.name}" if hosted
+                                       else f"{BASE}sources/"),
+                           "status": "hosted_facsimile" if hosted else entry["status"],
+                           "note": entry["label"]}
+    extra_rows = variants.get("other_source_files", []) + [
+        entry for key in variants.get("auxiliary_chapters", []) for entry in variants["chapters"][key]
+    ]
+    if audit_summary.is_file():
+        for entry in extra_rows:
+            mapped.setdefault(entry["url"], {
+                "source_url": entry["url"], "new_url": f"{BASE}sources/files/",
+                "status": entry["status"], "note": entry["label"],
+            })
+    manifest = list(mapped.values())
     if "coverage" in variants:
         write("source-variants.json", json.dumps(variants, ensure_ascii=False, separators=(",", ":")))
     if audit_summary.is_file():
@@ -166,7 +184,7 @@ def main():
 and verse numbering in its <a href="{HOST}/utf8/ramayana.shtml">introduction</a>.
 The Sanskrit epic is ancient; the particular translation, commentary, editorial layout,
 fonts, and downloads have no verified reuse grant for this project. Follow the original links for those materials.</p>
-<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a></p>
+<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a> · <a href="source-manifest.json">Source coverage manifest</a></p>
 <p>Source availability can change. A source link may fail or redirect; the manifest records
 where each URL was found and which responses were observed.</p></section>"""
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
