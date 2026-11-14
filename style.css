@@ -191,3 +191,4 @@ footer p { max-width: 83ch; }
 [lang="sa-Deva"] { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", "Nirmala UI", serif; }
 [lang="sa-Latn"] { font-family: var(--serif); }
 .verse p.iast-gap, .iast-gap { font-size: .875rem; color: var(--muted); }
+.source-paratext > [lang] { white-space: pre-line; }

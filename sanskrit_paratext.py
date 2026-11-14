@@ -11,7 +11,8 @@ from transliterate_iast import transliterate
 
 DATA = Path(__file__).with_name("data")
 POSITIONS = {"Source invocation": {"before"}, "Source colophon": {"after"},
-             "Source verse passage": {"before", "after"}}
+             "Source verse passage": {"before", "after"},
+             "Source Gāyatrī Rāmāyaṇa appendix": {"after"}}
 DEVANAGARI = re.compile(r"[\u0904-\u0939]")
 
 
@@ -32,7 +33,8 @@ def load_paratext(source_records):
                     or any(c.isalpha() and not "\u0900" <= c <= "\u097f" for c in text)):
                 raise ValueError(f"Invalid reviewed Sanskrit supplement: {key}")
             previous = item["source_paragraph"]
-            actual = sha256(text.encode("utf-8")).hexdigest()
+            normalized = re.sub(r"[\t\r\n\f \u00a0]+", " ", text).strip()
+            actual = sha256(normalized.encode("utf-8")).hexdigest()
             if item["source_normalized_text_sha256"] != actual:
                 raise ValueError(f"Invalid Sanskrit supplement checksum: {key}")
             if kind == "Source colophon" and record.get("colophon"):
