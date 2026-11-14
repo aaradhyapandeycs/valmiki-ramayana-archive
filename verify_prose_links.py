@@ -289,13 +289,13 @@ def verify(args):
         crosswalk_prose = [node for node in reader.iter() if "critical-inline" in classes(node)]
         for node in crosswalk_prose:
             inline.update(node.get("data-critical-local-units", "").split())
-        audit = english_audit[chapter_path]
-        unresolved = {gap["anchor"]: gap for gap in audit["unresolved"]}
-        require(audit["reading_units"] == len(unit_ids) and inline <= unit_ids
-                and audit["inline_dutt_reading_units"] == len(inline)
+        english = english_audit[chapter_path]
+        unresolved = {gap["anchor"]: gap for gap in english["unresolved"]}
+        require(english["reading_units"] == len(unit_ids) and inline <= unit_ids
+                and english["inline_dutt_reading_units"] == len(inline)
                 and set(unresolved) == unit_ids - inline, f"English coverage disagrees with HTML at {chapter_path}")
-        require(audit["crosswalk_dutt_passages"] == len(crosswalk_prose)
-                and len(audit["reviewed_dutt_passages"]) == len(historical), f"Dutt counts disagree at {chapter_path}")
+        require(english["crosswalk_dutt_passages"] == len(crosswalk_prose)
+                and len(english["reviewed_dutt_passages"]) == len(historical), f"Dutt counts disagree at {chapter_path}")
         for node in nodes:
             unit = node.get("id")
             if unit not in inline:
