@@ -2,6 +2,7 @@
 import html
 import json
 import re
+from hashlib import sha256
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -60,7 +61,55 @@ def load_sanskrit(books):
     return records
 
 
-def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), translation_note=""):
+def load_reviewed_iast(records):
+    """Derive IAST for damaged verse blocks using exact, witness-checked substitutions."""
+    review = load_catalog("verse-iast-reviewed.json", None)
+    if review is None:
+        return {}
+    chapter = next((record for record in records.values()
+                    if (record["book"], record["sarga"]) == (review["book"], review["sarga"])), None)
+    if chapter is None:
+        return {}
+    if any(chapter[key] != review[key] for key in ("source_url", "source_sha256")):
+        raise ValueError("The reviewed IAST source witness changed")
+    witness = review["roman_witness_url"]
+    parsed = urlsplit(witness)
+    if parsed.scheme != "https" or parsed.netloc not in HOSTS | {"mail.valmikiramayan.net"}:
+        raise ValueError("Unrecognized Roman witness URL")
+    entries = {v["ref"]: v for v in review["verses"]}
+    if len(entries) != len(review["verses"]):
+        raise ValueError("Duplicate IAST restoration reference")
+    roman = {}
+    for verse in chapter["verses"]:
+        number = verse["number"]
+        ref = f'{chapter["book"]}-{chapter["sarga"]}-{number}'
+        entry = entries.pop(ref, None)
+        if entry is None:
+            continue
+        original = verse["sanskrit"]
+        if sha256(original.encode("utf-8")).hexdigest() != entry["unit_sha256"]:
+            raise ValueError(f"Unverified witness text at {ref}")
+        if transliterate(original) is not None:
+            raise ValueError(f"Reviewed restoration overlaps generated IAST at {ref}")
+        letters = list(original)
+        for edit in entry["substitutions"]:
+            offset = edit["offset"]
+            if (not 0 <= offset < len(letters) or letters[offset] != edit["from"]
+                    or len(edit["to"]) != 1 or edit["from"] == edit["to"]
+                    or edit["from"].isspace() or edit["to"].isspace()):
+                raise ValueError(f"Invalid reviewed glyph position at {ref}")
+            letters[offset] = edit["to"]
+        text = transliterate("".join(letters))
+        if text is None or not entry["substitutions"]:
+            raise ValueError(f"Invalid restored IAST at {ref}")
+        roman[number] = text
+    if entries:
+        raise ValueError(f"Reviewed IAST references missing from witness: {', '.join(entries)}")
+    return {(chapter["book"], chapter["sarga"]): (roman, witness)}
+
+
+def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), translation_note="",
+                    reviewed_iast=None):
     if record is None:
         return ""
     layout = layout or {}
@@ -74,6 +123,11 @@ def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), tran
     if any(verse.get("source_glyph_anomaly") for verse in record["verses"]):
         note += " The original contains a few damaged glyphs. They are preserved as printed."
     anchor = "verse" if numbered else "block"
+    restored, roman_witness = reviewed_iast or ({}, "")
+    iast_note = "IAST is generated from the displayed Devanagari."
+    if restored:
+        iast_note += (f' For {len(restored)} verses, damaged glyphs were resolved against the '
+                      f'<a href="{escape(roman_witness)}">source’s Roman witness ↗</a>.')
     items = []
     for verse in record["verses"]:
         number = verse["number"]
@@ -86,8 +140,10 @@ def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), tran
         if breaks is None:
             breaks = line_break_offsets(source)
         breaks = reviewed_verse_breaks(source, breaks, record["book"], record["sarga"], number)
-        roman = None if verse.get("source_glyph_anomaly") else transliterate(source)
-        alternate = (f'<p lang="sa-Latn" class="iast">{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
+        restored_text = restored.get(number)
+        roman = restored_text or (None if verse.get("source_glyph_anomaly") else transliterate(source))
+        restoration = ' data-iast-restored="true"' if restored_text else ""
+        alternate = (f'<p lang="sa-Latn" class="iast"{restoration}>{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
                      '<p class="iast-gap">IAST unavailable for this source block.</p>')
         items.append((f"{anchor}-{last}", aliases + f'<div class="verse" id="{anchor}-{last}">'
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
@@ -108,7 +164,7 @@ def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), tran
         ending = (f'<div class="verse-scroll verse-closing" tabindex="0" role="group" aria-label="Chapter colophon">{ending}</div>')
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
-            f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'
+            f'<p class="iast-note">{iast_note}</p>'
             f'{translation_note}{pair_units([*before, *items, *after], groups)}{ending}</section>')
 
 

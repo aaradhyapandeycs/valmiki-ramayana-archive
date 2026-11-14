@@ -1,0 +1,282 @@
+{
+  "source_url": "https://valmikiramayan.net/utf8/yuddha/sarga36/yuddhasans36.htm",
+  "source_sha256": "c298dea9950ed1a4ebed61dbec62b58228f0d8003549f3ec0d7823ba91754b76",
+  "roman_witness_url": "https://mail.valmikiramayan.net/utf8/yuddha/sarga36/yuddhaitrans36.htm",
+  "note": "Apply only while deriving IAST. Offsets are zero-based Unicode code-point indices in the pinned original Devanāgarī verse string.",
+  "verses": [
+    {
+      "ref": "6-36-1",
+      "unit_sha256": "b8a5baf393a9a3aa02dad876c8ff539706235968c7988657cf9888f04af8ba7c",
+      "substitutions": [
+        {
+          "offset": 37,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "दज़",
+          "roman_witness_token": "daza"
+        },
+        {
+          "offset": 76,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "वज़म्",
+          "roman_witness_token": "vazam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-2",
+      "unit_sha256": "713b58b9bbb08e94683a6df7573cc4f22d12df99af90d8bd2d55b88ce53ab141",
+      "substitutions": [
+        {
+          "offset": 40,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "वज़म्",
+          "roman_witness_token": "vazam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-3",
+      "unit_sha256": "d31b56d306a132e361a491450b2de8385257100b39707847fe39f064a02046d0",
+      "substitutions": [
+        {
+          "offset": 60,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "प्रविज़्य",
+          "roman_witness_token": "pravizya"
+        },
+        {
+          "offset": 74,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़्रोत्र",
+          "roman_witness_token": "zrotra"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-4",
+      "unit_sha256": "816c57ec6c78befcee84794e16d027dde7e9d7b6e350a0c488fb747a44303f26",
+      "substitutions": [
+        {
+          "offset": 26,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़ाखा",
+          "roman_witness_token": "zaakhaa"
+        },
+        {
+          "offset": 36,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "आज़्रयम्",
+          "roman_witness_token": "aazrayam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-5",
+      "unit_sha256": "86813fe59fa73205db46b45c546bacd26ea43925a7c25df4033ddb0f78590c97",
+      "substitutions": [
+        {
+          "offset": 10,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ईज़्वरम्",
+          "roman_witness_token": "iizvaram"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-6",
+      "unit_sha256": "105b7f65eadca266c8a6d25c070d0aacc43c0fd0570d44943506a558bce044dc",
+      "substitutions": [
+        {
+          "offset": 15,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़न्के",
+          "roman_witness_token": "zanke"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-7",
+      "unit_sha256": "022438b4c282bc40931abb4eef932df5fca33bffd1fb9cec52fb7a0a4bf422c5",
+      "substitutions": [
+        {
+          "offset": 56,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़ास्त्र",
+          "roman_witness_token": "zaastra"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-8",
+      "unit_sha256": "74d2d108d691b4b596b7fbb12402cfd909714fbd755a37515a9ddac293f2880f",
+      "substitutions": [
+        {
+          "offset": 35,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़्रियम्",
+          "roman_witness_token": "zriyam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-9",
+      "unit_sha256": "80ae81b056f0120669c43706a65ab94228b95d626332b6d40b16766cbb5ecf41",
+      "substitutions": [
+        {
+          "offset": 44,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "पज़्य",
+          "roman_witness_token": "pazya"
+        },
+        {
+          "offset": 50,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "कैज़्चिद्",
+          "roman_witness_token": "kaizcid"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-15",
+      "unit_sha256": "8625f8d9b60bc932e6c8531895a2cdc366e28709788f70a1f36a472f169c7ef8",
+      "substitutions": [
+        {
+          "offset": 4,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "आज़िषा",
+          "roman_witness_token": "aaziShaa"
+        },
+        {
+          "offset": 81,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "निवेज़नम्",
+          "roman_witness_token": "nivezanam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-16",
+      "unit_sha256": "8ef24735457098ece82b1e2bb5534079ffdb3620357129d92f47761330e6b912",
+      "substitutions": [
+        {
+          "offset": 38,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "विमृज़्य",
+          "roman_witness_token": "vimR^izya"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-17",
+      "unit_sha256": "c269a6c291952a4c2bd4611b3a219efd0589c62ee7864e7955e58ad1de5cf2a7",
+      "substitutions": [
+        {
+          "offset": 8,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "व्यादिदेज़",
+          "roman_witness_token": "vyaadideza"
+        },
+        {
+          "offset": 84,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "पार्ज़्व",
+          "roman_witness_token": "paarzva"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-18",
+      "unit_sha256": "96f25b0dff1991419b8e34677efc0b784999a0105cfa98d4b6d5c7c9d0b97345",
+      "substitutions": [
+        {
+          "offset": 1,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "पज़्चिमायाम्",
+          "roman_witness_token": "pazcimaayaam"
+        },
+        {
+          "offset": 57,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "व्यादिदेज़",
+          "roman_witness_token": "vyaadideza"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-19",
+      "unit_sha256": "7daff17301912c70a8fa5b4336eed73a4b4a47c934a1f1c71fb46051c3c6b42c",
+      "substitutions": [
+        {
+          "offset": 29,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "व्यादिज़्य",
+          "roman_witness_token": "vyaadizya"
+        },
+        {
+          "offset": 33,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "ज़ुक",
+          "roman_witness_token": "zuka"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-21",
+      "unit_sha256": "eb42d14fdccc2b8882dd17707533c95d08dfacffef02ae4e62619eb8c3d395a7",
+      "substitutions": [
+        {
+          "offset": 82,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "वज़म्",
+          "roman_witness_token": "vazam"
+        }
+      ]
+    },
+    {
+      "ref": "6-36-22",
+      "unit_sha256": "0a81c3e77e3bebcec64766b1618b37973f126a7f6420ef675e648d39ebbf7360",
+      "substitutions": [
+        {
+          "offset": 72,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "आज़िषा",
+          "roman_witness_token": "aaziShaa"
+        },
+        {
+          "offset": 102,
+          "from": "ज़",
+          "to": "श",
+          "original_token": "विवेज़",
+          "roman_witness_token": "viveza"
+        }
+      ]
+    }
+  ],
+  "unaffected_requested_verse": "6-36-20",
+  "book": 6,
+  "sarga": 36
+}

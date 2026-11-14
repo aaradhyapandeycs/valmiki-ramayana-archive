@@ -16,7 +16,7 @@ from dutt_reader import render_dutt, reviewed_passages
 from critical_reader import inline_groups, read_critical, render_critical
 from prose_links import REF, TRANSLATORS, local_units, original_passages, prepare_links
 from sanskrit_paratext import load_paratext, render_paratext
-from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
+from reader import (chapter_sources, load_catalog, load_reviewed_iast, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
 
 ROOT = Path(__file__).parent
@@ -79,6 +79,7 @@ def main():
     if corrections:
         write("heading-provenance.json", json.dumps(corrections, ensure_ascii=False, indent=2) + "\n")
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
+    reviewed_iast = load_reviewed_iast(sanskrit)
     paratext = load_paratext(sanskrit)
     prose = load_catalog("prose-links.json", None)
     prose_report = {}
@@ -271,6 +272,7 @@ def main():
             passage = render_sanskrit(record, layout=chapter_layout,
                                       groups=groups + matched_english + restored_english + additional_english + gaps,
                                       translation_note=translation_note,
+                                      reviewed_iast=reviewed_iast.get((book_number, n)),
                                       before=render_paratext(additions.get("before"), offsets),
                                       after=render_paratext(additions.get("after"), offsets))
             correction = corrections.get(slug, {}).get(str(n))

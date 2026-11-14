@@ -46,6 +46,9 @@ headings and reviewed aliases.
 The IAST verse display derives from Devanāgarī. Unsupported source bytes or
 characters remain in the Devanāgarī witness and are flagged beside the absent
 IAST. The separate Dutt reader changes only terms in its reviewed glossary.
+The [reviewed IAST corrections](data/verse-iast-reviewed.json) restore damaged
+glyphs in the Roman display only, at exact Sanskrit offsets verified against the
+alternate Roman witness. The archival Devanāgarī is unchanged.
 The two publicly available IAST audit files record the checks and the
 remaining exceptions.
 

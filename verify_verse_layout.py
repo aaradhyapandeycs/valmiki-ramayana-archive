@@ -190,7 +190,7 @@ LINE_AUDIT = r"""() => {
         }
     }
     return {stats, errors, overflowing, passages: texts.map(node => [
-        node.getAttribute('lang'), node.textContent
+        node.getAttribute('lang'), node.textContent, node.dataset.iastRestored === 'true'
     ])};
 }"""
 
@@ -445,7 +445,8 @@ async def main(args):
                         if args.baseline_dist:
                             old_text = baseline_passages(args.baseline_dist, route, base)
                             new_text = [(lang, " ".join(content.split()))
-                                        for lang, content in report["passages"]]
+                                        for lang, content, restored in report["passages"]
+                                        if not (lang == "sa-Latn" and restored)]
                             if old_text != new_text:
                                 first = next((i for i, (old, new) in enumerate(zip(old_text, new_text), 1)
                                               if old != new), None)

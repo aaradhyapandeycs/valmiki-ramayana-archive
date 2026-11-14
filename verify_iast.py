@@ -8,7 +8,7 @@ import re
 import unicodedata
 
 from chapter_iast import display_chapters
-from reader import load_sanskrit
+from reader import load_reviewed_iast, load_sanskrit
 from sanskrit_paratext import load_paratext
 from transliterate_iast import transliterate
 
@@ -24,6 +24,7 @@ class TextAudit(HTMLParser):
         self.parts = []
         self.fields = {name: [] for name in ("title", "h1", "sa-Deva", "sa-Latn")}
         self.unavailable = 0
+        self.restored = 0
         self.description = None
         self.supplements = {}
         self.supplement = None
@@ -44,6 +45,8 @@ class TextAudit(HTMLParser):
             self.description = attrs["content"]
         if "iast-gap" in attrs.get("class", "").split():
             self.unavailable += 1
+        if tag == "p" and attrs.get("lang") == "sa-Latn" and attrs.get("data-iast-restored") == "true":
+            self.restored += 1
         name = attrs.get("lang") if tag == "p" else tag
         if name in self.fields:
             self.current = (name, tag)
@@ -69,6 +72,7 @@ def verify():
     raw = json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))
     reviewed = display_chapters(raw)
     records = load_sanskrit(raw)
+    restorations = load_reviewed_iast(records)
     supplements = load_paratext(records)
     search = json.loads((OUT / "search.json").read_text(encoding="utf-8"))
     indexed = {(row["book_number"], row["number"]): row["title"] for row in search}
@@ -93,7 +97,8 @@ def verify():
             n = row["n"]
             title = row["title"]
             document = TextAudit()
-            document.feed((OUT / slug / str(n) / "index.html").read_text(encoding="utf-8"))
+            chapter_html = (OUT / slug / str(n) / "index.html").read_text(encoding="utf-8")
+            document.feed(chapter_html)
             if (document.fields["h1"] != [title] or title not in document.fields["title"][0]
                     or not document.description or title not in document.description
                     or indexed[book_number, n] != title or LEGACY.search(title)):
@@ -119,7 +124,8 @@ def verify():
             if not record:
                 continue
             devanagari = [v["sanskrit"] for v in record["verses"]]
-            roman = [None if v.get("source_glyph_anomaly") else transliterate(v["sanskrit"])
+            restored, witness = restorations.get((book_number, n), ({}, ""))
+            roman = [restored.get(v["number"]) or (None if v.get("source_glyph_anomaly") else transliterate(v["sanskrit"]))
                      for v in record["verses"]]
             if record.get("colophon"):
                 devanagari.append(record["colophon"])
@@ -131,9 +137,12 @@ def verify():
             gaps = [i for i, block in enumerate(roman, 1) if not block]
             if document.unavailable != len(gaps):
                 raise ValueError(f"Missing unavailable notice for {slug}/{n}")
+            if document.restored != len(restored) or (witness and witness not in chapter_html):
+                raise ValueError(f"Missing reviewed IAST attribution for {slug}/{n}")
             audit["sanskrit_chapters"] += 1
             audit["verse_or_source_blocks"] += len(record["verses"])
             audit["iast_blocks_and_colophons"] += len(roman) - len(gaps)
+            audit["restored_iast_blocks"] += len(restored)
             audit["unsupported_blocks_and_colophons"] += len(gaps)
             if gaps:
                 for i in gaps:

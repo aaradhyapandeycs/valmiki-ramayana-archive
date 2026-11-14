@@ -328,5 +328,139 @@
         ]
       }
     ]
+  },
+  "baala/71": {
+    "section": "71",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lxxi",
+    "section_sha256": "55e902bbe58d8dbcefaa03f2305b8ac4d25d1e63ca0a7886a61051075bb31fc1",
+    "passages": [
+      {
+        "refs": [
+          "1-71-13",
+          "1-71-14"
+        ],
+        "units": [
+          "verse-13",
+          "verse-14"
+        ],
+        "unit_sha256": [
+          "58e6a8a81ada1b1ed973379d3b606959d0e41b09bedd5a1c0107689332a95eaf",
+          "8a4d748bbfa0163a85dd89cebee2f477468712dd735df4ed099c1ee8bfeb9f56"
+        ],
+        "english_span": [
+          1556,
+          1823
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-70-13",
+          "VRCE-1-70-14"
+        ],
+        "review_note": "Dutt identifies Janaka as the elder son and Kuśadhvaja as the younger. The same passage records their father’s anointing of Janaka before retirement."
+      },
+      {
+        "refs": [
+          "1-71-20",
+          "1-71-21",
+          "1-71-22"
+        ],
+        "units": [
+          "verse-20",
+          "verse-21",
+          "verse-22"
+        ],
+        "unit_sha256": [
+          "7c39b43325f7304701aa7c1aaee25f640ccd414300ea30f8026526c6b710626d",
+          "b6aa1b3d810d6ba8ab46c4edfb2429293ef66613d3776bcdf41bd97641f16239",
+          "42aaf7162f04935a417d973cd4497573c17e2bec9611d11dc6125126ac046bc9"
+        ],
+        "english_span": [
+          2544,
+          3008
+        ],
+        "excluded_split_refs": [
+          "VRCE-1-70-20"
+        ],
+        "review_note": "Dutt groups the fight and defeat of Sudhanvan, Kuśadhvaja’s installation as king of Sāṅkāśyā, and Janaka’s pledge of his two daughters."
+      }
+    ]
+  },
+  "baala/6": {
+    "section": "6",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-vi",
+    "section_sha256": "4b18a33a814d084fa13de349ae0463a87e574b57bbd34346df6ac00d8a878ad8",
+    "passages": [
+      {
+        "refs": [
+          "1-6-14"
+        ],
+        "units": [
+          "block-11"
+        ],
+        "unit_sha256": [
+          "b7ccbb25c9b4561fb8d2fdb201b77013c1c9382501aa3365a15ba7a1d8b4d676"
+        ],
+        "english_span": [
+          2076,
+          2185
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-6-14"
+        ]
+      },
+      {
+        "refs": [
+          "1-6-19"
+        ],
+        "units": [
+          "block-16"
+        ],
+        "unit_sha256": [
+          "170959c0677e1891d661341c7544300a92b09a514e75d9db9ae84450e8536b8b"
+        ],
+        "english_span": [
+          2787,
+          2971
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-6-17"
+        ]
+      },
+      {
+        "refs": [
+          "1-6-20"
+        ],
+        "units": [
+          "block-17"
+        ],
+        "unit_sha256": [
+          "dd84d2bcc8f813cbf52f953628dab8345afb6d27fed15aaa382deb229cfdeedd"
+        ],
+        "english_span": [
+          2971,
+          3116
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-6-18"
+        ]
+      },
+      {
+        "refs": [
+          "1-6-21"
+        ],
+        "units": [
+          "block-18"
+        ],
+        "unit_sha256": [
+          "6e1763fe1370b02a28314c42d31c02775e0e82086f68dd6cefa11fd18c3b21f6"
+        ],
+        "english_span": [
+          3116,
+          3276
+        ],
+        "replaces_critical_refs": [
+          "VRCE-1-6-19"
+        ]
+      }
+    ]
   }
 }
