@@ -6,7 +6,13 @@ on:
       - 'ingest_sanskrit.py'
       - '.github/workflows/sanskrit-capture.yml'
   workflow_dispatch:
+    inputs:
+      previous_run_id:
+        description: 'Reuse verified primary records from this completed capture run'
+        required: false
+        type: string
 permissions:
+  actions: read
   contents: read
 concurrency:
   group: capture-sanskrit
@@ -17,8 +23,23 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-sanskrit
+          path: ${{ runner.temp }}/previous-sanskrit
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.previous_run_id || '43561258233' }}
       - name: Capture numbered Sanskrit verses
-        run: python3 ingest_sanskrit.py --output sanskrit --commit "$GITHUB_SHA"
+        env:
+          PREVIOUS_RUN_ID: ${{ inputs.previous_run_id || '43561258233' }}
+        run: |
+          extra=()
+          if [[ -n "$PREVIOUS_RUN_ID" ]]; then
+            python3 verify_capture.py "$RUNNER_TEMP/previous-sanskrit"
+            extra+=(--previous "$RUNNER_TEMP/previous-sanskrit")
+          fi
+          python3 ingest_sanskrit.py --output sanskrit --commit "$GITHUB_SHA" "${extra[@]}"
+          python3 verify_capture.py sanskrit --commit "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
           name: source-sanskrit

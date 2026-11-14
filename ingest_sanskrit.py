@@ -46,6 +46,8 @@ class SlokaPane(HTMLParser):
         self.anchors = []
         self.records = []
         self.ignored_tags = []
+        self.inside_title = False
+        self.title = []
 
     def finish_block(self):
         if self.parts is not None:
@@ -61,7 +63,9 @@ class SlokaPane(HTMLParser):
         if self.ignored_tags:
             return
         values = dict(attrs)
-        if tag == "p":
+        if tag == "title":
+            self.inside_title = True
+        elif tag == "p":
             self.finish_block()
             if "sansloka" in (values.get("class") or "").lower().split():
                 self.parts = []
@@ -82,8 +86,12 @@ class SlokaPane(HTMLParser):
             return
         if tag == "p":
             self.finish_block()
+        elif tag == "title":
+            self.inside_title = False
 
     def handle_data(self, data):
+        if self.inside_title:
+            self.title.append(data)
         if self.parts is not None and not self.ignored_tags:
             self.parts.append(data)
 
@@ -117,6 +125,58 @@ def verse_record(book, sarga, number, sanskrit, source_anchor, block=False):
     label = "block" if block else "verse"
     return {"number": number, "sanskrit": sanskrit,
             "anchor": f"{label}-{book}-{sarga}-{number}", "source_anchor": source_anchor}
+
+
+TITLE_BOOKS = (
+    re.compile(r"baa?la", re.I), re.compile(r"ayodhya", re.I),
+    re.compile(r"aranya", re.I), re.compile(r"kishkindha", re.I),
+    re.compile(r"sundara", re.I), re.compile(r"yuddha", re.I),
+)
+TITLE_CHAPTER = re.compile(r"\bsarga\s*(?:\[|:)?\s*(\d+)\b", re.I)
+UNNUMBERED_SEPARATOR = re.compile(r"^[- |।॥]*(?:or)[- |।॥]*$", re.I)
+
+
+def decode_irregular(pane, book, sarga):
+    """Use matching title and colophon for panes with unreliable anchor markup."""
+    title = " ".join(pane.title)
+    heading = TITLE_CHAPTER.search(title)
+    if not heading or int(heading[1]) != sarga or not TITLE_BOOKS[book - 1].search(title):
+        return [], "needs_review", ["source title did not corroborate the indexed chapter"], None
+
+    records = [(normalize_lines(text), anchor) for text, anchor in pane.records]
+    colophons = [
+        (i, text) for i, (text, _) in enumerate(records)
+        if re.search(r"^[ |।॥]*(?:इति|इत्य)", text)
+        and re.search(r"स(?:रग|र्ग)", text)
+        and deva_only(text)
+        and not any(parsed_locators(text))
+    ]
+    if len(colophons) != 1:
+        return [], "needs_review", ["unique chapter colophon unavailable"], None
+    end, colophon = colophons[0]
+    numbered = [(i, number) for i, (text, _) in enumerate(records[:end])
+                for _, (_, _, number, _) in parsed_locators(text)]
+    if not numbered:
+        # Kiṣkindhā 54 omits all separators in its printed identifiers.
+        lookup = re.compile(r"(?<=[|।॥])\s*" + str(book) + str(sarga) + r"(\d{1,3})(?!\d)")
+        numbered = [(i, int(hit[1])) for i, (text, _) in enumerate(records[:end])
+                    for hit in lookup.finditer(text.translate(DIGITS))]
+    if not numbered or numbered[0][1] != 1:
+        return [], "needs_review", ["no source verse sequence beginning at one"], colophon
+
+    first = next((i for i, (_, anchor) in enumerate(records[:end]) if anchor), numbered[0][0])
+    first = min(first, numbered[0][0])
+    fragments = [
+        (text, anchor) for text, anchor in records[first:end]
+        if not UNNUMBERED_SEPARATOR.fullmatch(text)
+    ]
+    if not fragments or not all(deva_only(text) for text, _ in fragments):
+        return [], "needs_review", ["mixed-language or broken characters in Sanskrit blocks"], colophon
+    return ([verse_record(book, sarga, i, text, anchor, block=True)
+             for i, (text, anchor) in enumerate(fragments, 1)],
+            "source_blocks_verified",
+            ["source title and ending checked; verse numbers or anchor positions disagree"],
+            colophon)
 
 
 def decode_verses(raw, book, sarga):
@@ -235,6 +295,16 @@ def capture(book, slug, prefix, sarga, timeout, delay, allow_mirror):
         digest = hashlib.sha256(raw).hexdigest()
         verses, status, issues, colophon = decode_verses(raw, book, sarga)
         if status == "needs_review":
+            pane = SlokaPane()
+            try:
+                pane.feed(raw.decode("utf-8-sig"))
+                pane.close()
+            except UnicodeDecodeError:
+                pass
+            else:
+                verses, status, second_issues, colophon = decode_irregular(pane, book, sarga)
+                issues += second_issues
+        if status == "needs_review":
             diagnostics.append({"source_url": url, "final_url": final_url,
                                 "source_sha256": digest,
                                 "candidate_blocks": len(verses), "issues": issues})
@@ -259,6 +329,8 @@ def write_json(path, value):
 
 
 def fetch_corpus(args):
+    if args.previous and (args.book or args.sarga):
+        raise ValueError("Previous full capture cannot be used for selected chapters")
     if args.output.exists() and any(args.output.iterdir()):
         raise ValueError("Output directory must be empty for a new acquisition")
     indexes = json.loads(args.chapters.read_text(encoding="utf-8"))
@@ -277,8 +349,16 @@ def fetch_corpus(args):
     if not entries:
         raise ValueError("Selected chapter does not exist")
 
+    previous = json.loads((args.previous / "summary.json").read_text(encoding="utf-8")) if args.previous else None
+
     def task(entry):
         book, slug, prefix, sarga = entry
+        if args.previous:
+            old = json.loads((args.previous / slug / f"{sarga}.json").read_text(encoding="utf-8"))
+            if old["status"] == "numbering_verified" or (
+                old["status"] == "source_blocks_verified" and old["kind"] == "primary"
+            ):
+                return slug, old
         record = capture(book, slug, prefix, sarga, args.timeout, args.delay, not args.primary_only)
         return slug, record
 
@@ -299,6 +379,7 @@ def fetch_corpus(args):
     write_json(args.output / "summary.json", {
         "schema_version": 1,
         "commit": args.commit,
+        "previous_commit": previous["commit"] if previous else None,
         "scope": len(entries),
         "counts": totals,
         "statuses": statuses,
@@ -318,6 +399,7 @@ def main():
     parser.add_argument("--timeout", type=float, default=12)
     parser.add_argument("--primary-only", action="store_true")
     parser.add_argument("--commit")
+    parser.add_argument("--previous", type=Path, help="previously verified full capture to reuse")
     args = parser.parse_args()
     if args.delay < 0 or args.timeout <= 0 or (args.sarga is not None and args.sarga < 1):
         parser.error("Invalid delay, timeout, or chapter number")
