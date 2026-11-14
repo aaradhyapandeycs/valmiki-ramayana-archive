@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from transliterate_iast import transliterate
+from verse_lines import corresponding_breaks, line_break_offsets, render_lines
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
@@ -78,21 +79,26 @@ def render_sanskrit(record, *, before="", after=""):
         for n in range(number, last):
             items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
         label = str(number) if last == number else f"{number}–{last}"
-        roman = None if verse.get("source_glyph_anomaly") else transliterate(verse["sanskrit"])
-        alternate = (f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else
+        source = verse["sanskrit"]
+        breaks = line_break_offsets(source)
+        roman = None if verse.get("source_glyph_anomaly") else transliterate(source)
+        alternate = (f'<p lang="sa-Latn" class="iast">{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
                      '<p class="iast-gap">IAST unavailable for this source block.</p>')
         items.append(f'<div class="verse" id="{anchor}-{last}">'
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
-                     f'<div><p lang="sa-Deva">{escape(verse["sanskrit"])}</p>{alternate}</div></div>')
+                     f'<div class="verse-scroll" tabindex="0" role="group" aria-label="{anchor.capitalize()} {label} text">'
+                     f'<p lang="sa-Deva">{render_lines(source, breaks)}</p>{alternate}</div></div>')
     colophon = record.get("colophon")
     ending = ""
     if colophon:
         colophon_iast = transliterate(colophon)
-        ending = f'<p class="colophon" lang="sa-Deva">{escape(colophon)}</p>'
+        breaks = line_break_offsets(colophon)
+        ending = f'<p class="colophon" lang="sa-Deva">{render_lines(colophon, breaks)}</p>' 
         if colophon_iast:
-            ending += f'<p class="colophon iast" lang="sa-Latn">{escape(colophon_iast)}</p>'
+            ending += f'<p class="colophon iast" lang="sa-Latn">{render_lines(colophon_iast, corresponding_breaks(colophon, colophon_iast, breaks))}</p>'
         else:
             ending += '<p class="iast-gap">IAST unavailable for this source colophon.</p>' 
+        ending = (f'<div class="verse-scroll verse-closing" tabindex="0" role="group" aria-label="Chapter colophon">{ending}</div>')
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
             f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'

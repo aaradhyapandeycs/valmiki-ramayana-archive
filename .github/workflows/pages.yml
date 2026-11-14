@@ -94,7 +94,7 @@ jobs:
       - name: Build and validate
         run: |
           python3 build.py
-          python3 -m unittest test_transliterate_iast
+          python3 -m unittest test_transliterate_iast test_verse_lines
           python3 verify_iast.py
           python3 verify_dutt_render.py
           python3 build_source_manifest.py

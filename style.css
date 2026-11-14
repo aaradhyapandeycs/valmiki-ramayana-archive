@@ -172,10 +172,10 @@ footer p { max-width: 83ch; }
   html { scroll-behavior: auto; }
 }
 
-.reader { max-width: 58rem; margin-top: 2.5rem; }
-.verse { display: grid; grid-template-columns: minmax(2.8rem, auto) 1fr; align-items: baseline; gap: .8rem; padding: .65rem 0; border-bottom: 1px solid var(--line); }
+.reader { margin-top: 2.5rem; }
+.verse { display: grid; border-bottom: 1px solid var(--line); }
 .verse > a { font-size: .87rem; font-variant-numeric: tabular-nums; }
-.verse p { margin: 0; font-size: clamp(1.05rem, 3vw, 1.35rem); line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; }
+.verse p { margin: 0; }
 .verse:target { background: var(--surface); }
 .verse-anchor { display: block; }
 .variant-list { padding-left: 1.35rem; }
@@ -184,11 +184,84 @@ footer p { max-width: 83ch; }
 .chapter-sources summary { cursor: pointer; font-weight: 650; }
 .chapter-sources summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .coverage { font-variant-numeric: tabular-nums; }
-.verse p.iast { margin-top: .3rem; font-size: .96rem; color: var(--muted); }
 .iast-note, .colophon { color: var(--muted); }
 .colophon { white-space: pre-wrap; }
 
 [lang="sa-Deva"] { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", "Nirmala UI", serif; }
 [lang="sa-Latn"] { font-family: var(--serif); }
 .verse p.iast-gap, .iast-gap { font-size: .875rem; color: var(--muted); }
-.source-paratext > [lang] { white-space: pre-line; }
+
+/* Verse lines set their own reading measure. The scroll area stays within the page. */
+.reader {
+  --devanagari-ink: #20364a;
+  --iast-ink: #744552;
+  max-inline-size: 68rem;
+}
+
+.verse {
+  grid-template-columns: minmax(3.15rem, max-content) minmax(0, 1fr);
+  column-gap: clamp(.55rem, 1.4vw, 1rem);
+  align-items: start;
+  padding-block: .8rem;
+}
+
+.verse > a {
+  align-self: start;
+  padding-block-start: .15rem;
+}
+
+.verse-scroll {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding-block: .18rem .3rem;
+}
+
+.verse-scroll:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: .2rem;
+}
+
+.reader .verse-line {
+  display: block;
+  inline-size: max-content;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.reader [lang="sa-Deva"] {
+  color: var(--devanagari-ink);
+  font-size: clamp(1.18rem, 1.05rem + .35vw, 1.36rem);
+  line-height: 1.78;
+}
+
+.reader [lang="sa-Latn"],
+.reader .verse p.iast {
+  color: var(--iast-ink);
+  font-size: clamp(1.02rem, .98rem + .18vw, 1.14rem);
+  line-height: 1.68;
+}
+
+.reader .iast {
+  margin-block-start: .3rem;
+}
+
+@media (max-width: 42rem) {
+  main.wrap:has(.reader) {
+    width: calc(100% - 1.5rem);
+  }
+
+  .verse {
+    grid-template-columns: minmax(2rem, max-content) minmax(0, 1fr);
+  }
+}
+
+@media (forced-colors: active) {
+  .verse-scroll:focus-visible { outline-color: Highlight; }
+}
+
+.verse-line:empty { min-block-size: 1em; }
+.verse-scroll > p.colophon { margin-block: .35rem; }

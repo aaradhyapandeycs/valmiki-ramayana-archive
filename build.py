@@ -146,6 +146,7 @@ def main():
 <p><a class="button" href="{esc(source)}" rel="external">Read the original chapter ↗</a></p>
 {chapter_sources(slug, n, source, frames, pane_links)}
 {passage}
+<script src="../../verse-scroll.js" defer></script>
 <nav class="chapter-nav" aria-label="Chapter sequence">{before}
 <a href="../">All {esc(name)} chapters</a>{after}</nav>"""
             write(f"{slug}/{n}/index.html", page(f"{name} {n}: {row['title']}", body, 2))
@@ -231,6 +232,7 @@ the source edition for translation and commentary.</p>
                            f'<h1>Page not found</h1><p><a href="{BASE}">Return to the chapter directory</a>.</p>',
                            rooted=True))
     write("style.css", (ROOT / "style.css").read_text())
+    write("verse-scroll.js", (ROOT / "verse-scroll.js").read_text(encoding="utf-8"))
     write("app.js", (ROOT / "app.js").read_text().replace("__BASE__", BASE))
     print(f"Built {len(search)} chapter pages and {len(manifest)} source mappings in {OUT}")
 

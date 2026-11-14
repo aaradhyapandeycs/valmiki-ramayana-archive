@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 
 from transliterate_iast import transliterate
+from verse_lines import corresponding_breaks, line_break_offsets, render_lines
 
 
 DATA = Path(__file__).with_name("data")
@@ -50,14 +51,17 @@ def render_paratext(items):
     for i, item in enumerate(items):
         kind = item["kind"]
         title = escape(kind)
-        text = escape(item["sanskrit"])
-        latin = transliterate(item["sanskrit"])
+        source = item["sanskrit"]
+        breaks = line_break_offsets(source)
+        latin = transliterate(source)
+        text = render_lines(source, breaks)
         cite = escape(item["source_url"], quote=True)
         caption = f'<p><a href="{cite}">{title} ↗</a></p>' if i == 0 or kind != items[i - 1]["kind"] else ""
-        alternate = (f'<div lang="sa-Latn" class="colophon iast">{escape(latin)}</div>'
+        alternate = (f'<div lang="sa-Latn" class="colophon iast">{render_lines(latin, corresponding_breaks(source, latin, breaks))}</div>'
                      if latin else '<div class="colophon">IAST unavailable for this source passage.</div>')
         number = item["source_paragraph"]
         permalink = f'<a class="source-paratext-permalink" href="#source-paragraph-{number}" aria-label="Link to source paragraph {number}">¶</a>'
         html.append(f'<aside id="source-paragraph-{number}" class="colophon source-paratext" aria-label="{title}">'
-                    f'{caption}{permalink}<div lang="sa-Deva">{text}</div>{alternate}</aside>')
+                    f'{caption}{permalink}<div class="verse-scroll" tabindex="0" role="group" aria-label="{title} text">'
+                    f'<div lang="sa-Deva">{text}</div>{alternate}</div></aside>')
     return "".join(html)
