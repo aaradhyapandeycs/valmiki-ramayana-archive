@@ -17,12 +17,13 @@ jobs:
         with:
           name: verse-layout-desktop
           path: ${{ runner.temp }}/layout
-          run-id: 43573055175
+          run-id: 43573592793
           github-token: ${{ github.token }}
       - name: Preserve the English source layout comparisons
         run: |
           shots=audit/english-source-layout
           mkdir -p "$shots"
+          rm -f "$shots/after-native-200-percent.png"
           cp "$RUNNER_TEMP"/layout/english-source-panels/*.png "$shots/"
           cp "$RUNNER_TEMP"/layout/english-source-panels/report.json "$shots/"
           test -s "$shots/before-desktop-baala-opening-1.png"
