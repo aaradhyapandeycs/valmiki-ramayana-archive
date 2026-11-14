@@ -32,15 +32,16 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def page(title, body, depth=0):
-    home = "../" * depth + "index.html"
+def page(title, body, depth=0, *, rooted=False):
+    prefix = BASE if rooted else "../" * depth
+    home = prefix + "index.html"
     english = (f'<a href="{home.replace("index.html", "english/")}">Dutt’s English translation</a>'
                if DUTT.is_dir() else "")
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09203F">
 <meta name="description" content="{esc(title)} · Vālmīki Rāmāyaṇa reader"><title>{esc(title)} · Vālmīki Rāmāyaṇa</title>
-<link rel="stylesheet" href="{'../' * depth}style.css"></head>
+<link rel="stylesheet" href="{prefix}style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-head">
 <a class="brand" href="{home}">Vālmīki Rāmāyaṇa</a>
 <p class="tagline">A searchable directory of the six kāṇḍas</p>
@@ -183,7 +184,9 @@ the source edition for translation and commentary.</p>
     if DUTT.is_dir():
         render_dutt(page, write, DUTT)
     write(".nojekyll", "")
-    write("404.html", page("Page not found", '<h1>Page not found</h1><p><a href="index.html">Return to the chapter directory</a>.</p>'))
+    write("404.html", page("Page not found",
+                           f'<h1>Page not found</h1><p><a href="{BASE}">Return to the chapter directory</a>.</p>',
+                           rooted=True))
     write("style.css", (ROOT / "style.css").read_text())
     write("app.js", (ROOT / "app.js").read_text().replace("__BASE__", BASE))
     print(f"Built {len(search)} chapter pages and {len(manifest)} source mappings in {OUT}")

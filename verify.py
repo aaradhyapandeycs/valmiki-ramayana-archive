@@ -26,6 +26,8 @@ class Audit(HTMLParser):
     def handle_starttag(self, tag, attrs):
         d = dict(attrs)
         if d.get("id"):
+            if d["id"] in self.ids:
+                raise ValueError(f"Duplicate HTML ID {d['id']!r}")
             self.ids.add(d["id"])
         for key in ("href", "src"):
             if d.get(key):
@@ -43,7 +45,14 @@ for file, doc in documents.items():
         parsed = urlsplit(link)
         if parsed.scheme or parsed.netloc or link.startswith("//"):
             continue
-        target = (file.parent / unquote(parsed.path)).resolve() if parsed.path else file
+        path = unquote(parsed.path)
+        if path.startswith(base):
+            target = (DIST / path.removeprefix(base)).resolve()
+        elif path.startswith("/"):
+            failures.append(f"{file.relative_to(DIST)} → {link}: outside the site's base path")
+            continue
+        else:
+            target = (file.parent / path).resolve() if path else file
         if target.is_dir():
             target /= "index.html"
         if not target.is_file() or not target.is_relative_to(DIST.resolve()):
@@ -54,8 +63,10 @@ for file, doc in documents.items():
 for row in manifest:
     path = urlsplit(row["new_url"]).path
     # A repository base path precedes the generated tree.
-    relative = path.removeprefix(base)
-    target = DIST / relative
+    if not path.startswith(base):
+        failures.append(f"manifest → {row['new_url']}: outside the site's base path")
+        continue
+    target = DIST / path.removeprefix(base)
     if target.is_dir():
         target /= "index.html"
     if not target.is_file():
