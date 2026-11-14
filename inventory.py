@@ -19,9 +19,10 @@ import time
 from collections import Counter, deque
 from dataclasses import asdict, dataclass
 from html.parser import HTMLParser
+from http.client import HTTPException
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urldefrag, urljoin, urlsplit, urlunsplit
+from urllib.parse import quote, urldefrag, urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 BOOKS = {
@@ -134,11 +135,19 @@ class Record:
     discovered_from: str | None = None
 
 
+def request_url(url: str) -> str:
+    """Escape raw whitespace and Unicode in the HTTP request, preserving URL evidence."""
+    parts = urlsplit(url)
+    path = quote(parts.path, safe="/%:@!$&'()*+,;=-._~")
+    query = quote(parts.query, safe="%/?@:!$&'()*+,;=-._~")
+    return urlunsplit((parts.scheme, parts.netloc, path, query, ""))
+
+
 def fetch(url: str, *, max_html_bytes: int) -> tuple[Record, bytes | None, str | None]:
     method = "GET" if likely_html(url) else "HEAD"
     result = Record(url, method, "unavailable")
     try:
-        with urlopen(Request(url, method=method), timeout=15) as response:
+        with urlopen(Request(request_url(url), method=method), timeout=15) as response:
             result.status = f"http_{response.status}"
             result.final_url = response.url
             result.content_type = response.headers.get_content_type()
@@ -164,7 +173,7 @@ def fetch(url: str, *, max_html_bytes: int) -> tuple[Record, bytes | None, str |
         result.status = f"http_{exc.code}"
         result.final_url = exc.url
         result.content_type = exc.headers.get_content_type() if exc.headers else None
-    except (URLError, TimeoutError, OSError, ValueError) as exc:
+    except (URLError, TimeoutError, OSError, ValueError, HTTPException, UnicodeError) as exc:
         result.error = str(exc)[:400]
     return result, None, None
 
@@ -356,6 +365,9 @@ def self_test() -> None:
     assert canonical("https://example.org/x#v", "https://example.org/") == "https://example.org/x"
     assert canonical("https://www.example.org/x", "https://example.org/") == "https://www.example.org/x"
     assert canonical("https://other.org/x", "https://example.org/") is None
+    assert request_url("https://example.org/21b 22.mp3") == "https://example.org/21b%2022.mp3"
+    assert request_url("https://example.org/a%20b?q=x y") == "https://example.org/a%20b?q=x%20y"
+    assert request_url("https://example.org/नाम.pdf") == "https://example.org/%E0%A4%A8%E0%A4%BE%E0%A4%AE.pdf"
     assert not likely_html("https://example.org/book.pdf")
     assert likely_html("https://example.org/sarga1/balasans1.htm.old")
     assert likely_html("https://example.org/sarga1/balasans1.htm.bak")

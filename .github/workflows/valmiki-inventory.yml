@@ -3,8 +3,15 @@ on:
   push:
     paths: ['.github/workflows/valmiki-inventory.yml']
   workflow_dispatch:
+    inputs:
+      checkpoint_run_id:
+        description: Run ID of the primary source inventory checkpoint to resume
+        required: false
+        type: string
+
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: valmiki-source-inventory
   cancel-in-progress: false
@@ -12,12 +19,21 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 85
+    env:
+      CHECKPOINT_RUN: ${{ inputs.checkpoint_run_id || '43560969413' }}
     steps:
       - uses: actions/checkout@v4
-      - name: Inventory source URLs and reconcile chapter indexes
+      - name: Restore reconciled crawl checkpoint
+        uses: actions/download-artifact@v4
+        with:
+          name: primary-source-inventory
+          path: audit/primary
+          run-id: ${{ env.CHECKPOINT_RUN }}
+          github-token: ${{ github.token }}
+      - name: Inventory remaining source URLs and reconcile chapter indexes
         run: |
           python3 inventory.py --self-test
-          python3 inventory.py --fresh --output audit/primary --max-pages 30000 --max-seconds 4500 --delay 0.1
+          python3 inventory.py --output audit/primary --max-pages 100000 --max-seconds 4500 --delay 0.1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
