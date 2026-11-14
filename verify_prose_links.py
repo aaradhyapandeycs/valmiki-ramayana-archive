@@ -242,6 +242,18 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
     return coverage, len(cards)
 
 
+def passage_is_aligned(node, units, ancestors):
+    pair = ancestors[ancestors[node]]
+    parent = ancestors[pair]
+    group = parent if "verse-connected-group" in classes(parent) else pair
+    ordered = [unit.get("id") for unit in checked_units(group)]
+    local = checked_units(pair[0])
+    if not units or not local or local[0].get("id") != units[0] or units[0] not in ordered:
+        return False
+    first = ordered.index(units[0])
+    return units == ordered[first:first + len(units)]
+
+
 def verify(args):
     sys.path.insert(0, str(args.build_root))
     from audit_source_text import check_rendered, parse
@@ -297,8 +309,7 @@ def verify(args):
                     and "".join(node[0].itertext()) == MARKUP.sub(r"\1", group["dutt_text"])
                     and len(node[1]) == 1 and node[1][0].get("href") == group["href"]
                     and group["translator"] in meaningful(node[1]), f"Reviewed Dutt witness changed at {chapter_path}")
-            pair = ancestors[ancestors[node]]
-            require([unit.get("id") for unit in checked_units(pair[0])] == units,
+            require(passage_is_aligned(node, units, ancestors),
                     f"Reviewed Dutt passage is outside its grouped Sanskrit row at {chapter_path}")
             inline.update(units)
         crosswalk_prose = [node for node in reader.iter() if "critical-inline" in classes(node)]
@@ -313,12 +324,7 @@ def verify(args):
         original_units = set()
         for node, draft, placement in zip(original_nodes, expected_original, placements):
             units = node.get("data-original-units", "").split()
-            pair = ancestors[ancestors[node]]
-            group = ancestors[pair] if "verse-connected-group" in classes(ancestors[pair]) else pair
-            ordered = [unit.get("id") for unit in checked_units(group)]
-            first = ordered.index(units[0])
-            require(units == placement["units"] == ordered[first:first + len(units)]
-                    and checked_units(pair[0])[0].get("id") == units[0]
+            require(units == placement["units"] and passage_is_aligned(node, units, ancestors)
                     and node.get("data-original-refs", "").split() == placement["refs"] == draft["refs"],
                     f"Original English is outside its Sanskrit group at {chapter_path}")
             require(len(node) == 2 and "original-english-text" in classes(node[0])

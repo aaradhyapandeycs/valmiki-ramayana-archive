@@ -63,13 +63,19 @@ def load_sanskrit(books):
 
 def load_reviewed_iast(records):
     """Derive IAST for damaged verse blocks using exact, witness-checked substitutions."""
-    review = load_catalog("verse-iast-reviewed.json", None)
-    if review is None:
-        return {}
-    chapter = next((record for record in records.values()
-                    if (record["book"], record["sarga"]) == (review["book"], review["sarga"])), None)
-    if chapter is None:
-        return {}
+    by_reference = {(record["book"], record["sarga"]): record for record in records.values()}
+    restorations = {}
+    for review in load_catalog("verse-iast-reviewed.json", []):
+        reference = review["book"], review["sarga"]
+        if reference in restorations:
+            raise ValueError(f"Repeated reviewed IAST chapter {reference}")
+        chapter = by_reference.get(reference)
+        if chapter is not None:
+            restorations[reference] = restore_iast(chapter, review)
+    return restorations
+
+
+def restore_iast(chapter, review):
     if any(chapter[key] != review[key] for key in ("source_url", "source_sha256")):
         raise ValueError("The reviewed IAST source witness changed")
     witness = review["roman_witness_url"]
@@ -105,7 +111,7 @@ def load_reviewed_iast(records):
         roman[number] = text
     if entries:
         raise ValueError(f"Reviewed IAST references missing from witness: {', '.join(entries)}")
-    return {(chapter["book"], chapter["sarga"]): (roman, witness)}
+    return roman, witness
 
 
 def render_sanskrit(record, *, before=(), after=(), layout=None, groups=(), translation_note="",
