@@ -1,0 +1,51 @@
+name: Verify English translation source locators
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/prose-links.yml', 'collect_prose_links.py']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: prose-links-source
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
+          path: data/sanskrit
+          persist-credentials: false
+      - run: python3 -m pip install html5lib==1.1
+      - name: Collect reference metadata only
+        run: python3 collect_prose_links.py --output "$RUNNER_TEMP/prose-links.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prose-reference-evidence
+          path: ${{ runner.temp }}/prose-links.json
+          if-no-files-found: error
+      - name: Preserve the reference and provenance snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch=english-source-reference-snapshot
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null; then
+            git fetch --no-tags origin "refs/heads/$branch"
+            git switch --detach FETCH_HEAD
+          else
+            rc=$?
+            test "$rc" -eq 2
+            git switch --orphan "$branch"
+          fi
+          cp "$RUNNER_TEMP/prose-links.json" .
+          git add prose-links.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve original English translation reference metadata"
+          fi
+          git push origin "HEAD:refs/heads/$branch"
