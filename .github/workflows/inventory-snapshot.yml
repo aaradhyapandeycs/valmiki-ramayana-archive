@@ -1,0 +1,81 @@
+name: Preserve source inventory snapshots
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/inventory-snapshot.yml']
+  workflow_run:
+    workflows: ["Valmiki source inventory", "Audit chapter directory listings"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Completed inventory workflow run ID
+        type: string
+        required: true
+
+permissions:
+  actions: read
+  contents: write
+jobs:
+  preserve:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve the inventory run
+        id: inventory
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+        run: |
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]]
+          workflow=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" --jq 'select(.conclusion=="success" and .head_branch=="main") | .path')
+          case "$workflow" in
+            .github/workflows/valmiki-inventory.yml)
+              snapshot=recursive-inventory-snapshot
+              artifact=primary-source-inventory
+              if [ "$RUN_ID" -lt 43560969413 ]; then exit 1; fi
+              ;;
+            .github/workflows/chapter-listings.yml)
+              snapshot=directory-inventory-snapshot
+              artifact=chapter-directory-inventory
+              ;;
+            *) exit 1 ;;
+          esac
+          printf 'artifact=%s\nsnapshot=%s\n' "$artifact" "$snapshot" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.inventory.outputs.artifact }}
+          path: ${{ runner.temp }}/verified-inventory
+          run-id: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+          github-token: ${{ github.token }}
+      - name: Check and preserve audit metadata
+        env:
+          SNAPSHOT: ${{ steps.inventory.outputs.snapshot }}
+          RUN_ID: ${{ inputs.run_id || github.event.workflow_run.id || '43562720389' }}
+        run: |
+          dir="$RUNNER_TEMP/verified-inventory"
+          jq -e '.base == "https://valmikiramayan.net/" and .visited > 0 and .discovered_link_edges > 0' "$dir/summary.json"
+          mkdir -p "$RUNNER_TEMP/preserved-inventory/segments"
+          cp "$dir"/{summary.json,reconciliation.json,pending.json,edges.jsonl} "$RUNNER_TEMP/preserved-inventory/"
+          cp "$dir"/segments/[0-9][0-9][0-9][0-9].json "$RUNNER_TEMP/preserved-inventory/segments/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin "refs/heads/$SNAPSHOT" >/dev/null; then
+            git fetch --no-tags origin "refs/heads/$SNAPSHOT"
+            git switch --detach FETCH_HEAD
+            git rm -r --ignore-unmatch .
+          else
+            lookup_status=$?
+            test "$lookup_status" -eq 2
+            git switch --orphan "$SNAPSHOT"
+          fi
+          cp -a "$RUNNER_TEMP/preserved-inventory/." .
+          printf '%s\n' "$RUN_ID" > source-run.txt
+          git add -- summary.json reconciliation.json pending.json edges.jsonl segments source-run.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve URL inventory metadata from run $RUN_ID"
+          fi
+          git push origin "HEAD:refs/heads/$SNAPSHOT"
