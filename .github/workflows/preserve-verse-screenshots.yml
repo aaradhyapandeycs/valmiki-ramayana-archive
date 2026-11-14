@@ -1,0 +1,35 @@
+name: Preserve verse comparison screenshots
+on:
+  push:
+    branches: [verse-layout-screenshots]
+    paths: ['.github/workflows/preserve-verse-screenshots.yml']
+
+permissions:
+  actions: read
+  contents: write
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verse-layout-*
+          path: ${{ runner.temp }}/verse-screenshots
+          run-id: 43568382717
+          github-token: ${{ github.token }}
+      - name: Publish the before and after PNGs
+        run: |
+          mkdir -p audit/verse-screenshots
+          chmod 755 audit/verse-screenshots
+          cp "$RUNNER_TEMP"/verse-screenshots/verse-layout-*/*.png audit/verse-screenshots/
+          test -s audit/verse-screenshots/before-desktop-verse-2.png
+          test -s audit/verse-screenshots/after-desktop-verse-2.png
+          test -s audit/verse-screenshots/before-mobile-verse-5.png
+          test -s audit/verse-screenshots/after-mobile-verse-5.png
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/verse-screenshots/
+          git commit -m "Preserve before and after reader screenshots"
+          git push origin HEAD:refs/heads/verse-layout-screenshots
