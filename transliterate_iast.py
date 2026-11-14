@@ -2,6 +2,8 @@
 
 This generates a new display mode from the source Devanagari. It does not
 transcribe, compare, or replace the source site's separate Roman edition.
+Candrabindu uses m with a combining candrabindu (U+0310). The avagraha uses
+an apostrophe, and the daṇḍa and double daṇḍa use one and two vertical bars.
 """
 import unicodedata
 
@@ -15,15 +17,21 @@ CONSONANTS = dict(zip("कखगघङचछजझञटठडढणतथदध
                         "m", "y", "r", "l", "v", "ś", "ṣ", "s", "h", "ḻ")))
 SIGNS = {"ं": "ṃ", "ः": "ḥ", "ँ": "m̐", "ऽ": "'", "ॐ": "oṃ", "।": "|", "॥": "||"}
 DIGITS = dict(zip("०१२३४५६७८९", "0123456789"))
+JOINERS = {"\u200c", "\u200d"}
+PUNCTUATION = frozenset("0123456789 |-.–—,!?()[]:;'’‘“”\"…")
 
 
 def transliterate(text):
     """Return generated IAST or None if the source uses an unhandled sign."""
     result = []
     pending_vowel = False
+    previous = ""
     for char in unicodedata.normalize("NFC", text):
-        if char in {"\u200c", "\u200d"}:
+        if char in JOINERS:
+            if previous != "्":
+                return None
             continue
+        previous = char
         if char in MATRAS or char == "्":
             if not pending_vowel:
                 return None
@@ -42,10 +50,10 @@ def transliterate(text):
             result.append(SIGNS[char])
         elif char in DIGITS:
             result.append(DIGITS[char])
-        elif char.isspace() or unicodedata.category(char)[0] in {"P", "N", "S"}:
+        elif char in PUNCTUATION or char in "\n\t":
             result.append(char)
         else:
             return None
     if pending_vowel:
         result.append("a")
-    return "".join(result)
+    return unicodedata.normalize("NFC", "".join(result))

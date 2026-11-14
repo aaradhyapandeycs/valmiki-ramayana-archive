@@ -1,3 +1,22 @@
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/source-sans-3.ttf") format("truetype");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif";
+  src: url("fonts/noto-serif.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif Devanagari";
+  src: url("fonts/noto-serif-devanagari.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --ink: #142d45;
@@ -7,7 +26,7 @@
   --paper: #fff;
   --surface: #f3f7fa;
   --sans: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: 'Spectral', Georgia, serif;
+  --serif: 'Noto Serif', Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -168,3 +187,7 @@ footer p { max-width: 83ch; }
 .verse p.iast { margin-top: .3rem; font-size: .96rem; color: var(--muted); }
 .iast-note, .colophon { color: var(--muted); }
 .colophon { white-space: pre-wrap; }
+
+[lang="sa-Deva"] { font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", "Nirmala UI", serif; }
+[lang="sa-Latn"] { font-family: var(--serif); }
+.verse p.iast-gap, .iast-gap { font-size: .875rem; color: var(--muted); }

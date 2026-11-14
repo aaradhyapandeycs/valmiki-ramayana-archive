@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a rights-conscious static index of the source edition.
 
-Source titles are transcribed from the six kanda indexes in chapters.json.
+The original chapter indexes and the reviewed IAST display remain separate.
 Sanskrit snapshots retain their source witness. Modern translations and
 commentary are linked to the original pages.
 """
@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 
+from chapter_iast import display_chapters
 from dutt_reader import render_dutt
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
@@ -24,7 +25,7 @@ NAMES = {
     "baala": "Bāla", "ayodhya": "Ayodhyā", "aranya": "Araṇya",
     "kish": "Kiṣkindhā", "sundara": "Sundara", "yuddha": "Yuddha",
 }
-CHAPTERS = json.loads((ROOT / "chapters.json").read_text())
+SOURCE_CHAPTERS = json.loads((ROOT / "chapters.json").read_text(encoding="utf-8"))
 
 
 def esc(s):
@@ -37,7 +38,8 @@ def page(title, body, depth=0):
                if DUTT.is_dir() else "")
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#09203F"><title>{esc(title)} · Vālmīki Rāmāyaṇa</title>
+<meta name="theme-color" content="#09203F">
+<meta name="description" content="{esc(title)} · Vālmīki Rāmāyaṇa reader"><title>{esc(title)} · Vālmīki Rāmāyaṇa</title>
 <link rel="stylesheet" href="{'../' * depth}style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-head">
 <a class="brand" href="{home}">Vālmīki Rāmāyaṇa</a>
@@ -46,7 +48,7 @@ def page(title, body, depth=0):
 <a href="{home}">Chapters</a><a href="{home.replace('index.html', 'sources/')}">Source files</a>
 <a href="{home.replace('index.html', 'manifest.json')}">URL manifest</a>{english}</nav></header>
 <main id="main" class="wrap">{body}</main><footer class="wrap">
-<p>Chapter titles and order: <a href="{HOST}/">Valmiki Ramayana</a>.
+<p>Source chapter indexes: <a href="{HOST}/">Vālmīki Rāmāyaṇa</a>.
 Translation credits: Desiraju Hanumanta Rao (Bāla, Araṇya, Kiṣkindhā);
 K. M. K. Murthy (Ayodhyā, Sundara, Yuddha), as credited on the source homepage.
 The source introduction also credits Durga Naaga Devi and Vaasudeva Kishore for Sundara contributions.</p>
@@ -62,7 +64,8 @@ def write(path, contents):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    sanskrit = load_sanskrit(CHAPTERS)
+    chapters = display_chapters(SOURCE_CHAPTERS)
+    sanskrit = load_sanskrit(SOURCE_CHAPTERS)
     snapshot = ROOT / "data" / "sanskrit" / "summary.json"
     if snapshot.is_file():
         write("sanskrit-coverage.json", snapshot.read_text(encoding="utf-8"))
@@ -89,7 +92,7 @@ def main():
     manifest = []
     cards = []
     search = []
-    for book_number, book in enumerate(CHAPTERS, 1):
+    for book_number, book in enumerate(chapters, 1):
         slug, rows = book["slug"], book["rows"]
         assert [x["n"] for x in rows] == list(range(1, len(rows) + 1))
         name = NAMES[slug]
@@ -156,12 +159,12 @@ def main():
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     write("search.json", json.dumps(search, ensure_ascii=False, separators=(",", ":")))
     sources = f"""<section class="sources" id="sources"><h2>Sources &amp; rights</h2>
-<p>Chapter headings and sequence were transcribed from the six kāṇḍa indexes of
-<a href="{HOST}/">Valmiki Ramayana</a>. The source describes its six-book presentation
+<p>Chapter headings use reviewed IAST. They follow the six kāṇḍa indexes of
+<a href="{HOST}/">Vālmīki Rāmāyaṇa</a>. The source describes its six-book presentation
 and verse numbering in its <a href="{HOST}/utf8/ramayana.shtml">introduction</a>.
 The Sanskrit epic is ancient; the particular translation, commentary, editorial layout,
 fonts, and downloads have no verified reuse grant for this project. Follow the original links for those materials.</p>
-<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a></p>
+<p><a href="sources/">Source editions and files</a> · <a href="manifest.json">Source URL manifest</a> · <a href="iast-audit.json">IAST audit</a></p>
 <p>Source availability can change. A source link may fail or redirect; the manifest records
 where each URL was found and which responses were observed.</p></section>"""
     body = f"""<section class="hero"><p class="eyebrow">An independent reading directory</p>
@@ -170,9 +173,9 @@ where each URL was found and which responses were observed.</p></section>"""
 the source edition for translation and commentary.</p>
 <p class="coverage">{render_coverage(sanskrit)}{' · <a href="sanskrit-coverage.json">Capture record</a>' if snapshot.is_file() else ""}</p>
 <label class="search-label" for="search">Search chapter headings or sarga number</label>
-<input id="search" type="search" placeholder="Try Hanuma, forest, or 2-119" autocomplete="off">
+<input id="search" type="search" placeholder="Try Rāma, forest, or 2-119" autocomplete="off">
 <p id="search-count" aria-live="polite"></p></section>
-<nav class="book-links" aria-label="Kāṇḍas">{"".join(f'<a href="#{x["slug"]}">{NAMES[x["slug"]]} <small>{len(x["rows"])}</small></a>' for x in CHAPTERS)}</nav>
+<nav class="book-links" aria-label="Kāṇḍas">{"".join(f'<a href="#{x["slug"]}">{NAMES[x["slug"]]} <small>{len(x["rows"])}</small></a>' for x in chapters)}</nav>
 <div id="results" hidden></div><div id="books">{"".join(cards)}</div>{sources}
 <script src="app.js" defer></script>"""
     write("index.html", page("Chapter directory", body))

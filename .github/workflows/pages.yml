@@ -92,6 +92,9 @@ jobs:
         run: |
           python3 build.py
           python3 verify.py
+          python3 -m unittest test_transliterate_iast
+          python3 verify_iast.py
+          bash iast_font_assets.sh dist
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -67,7 +67,7 @@ def render_sanskrit(record):
     note = ("Verse numbering checked against the linked source." if numbered else
             "Passages appear in source order. The numbers mark reading blocks where source verse labels disagree.")
     if record["kind"] == "mirror":
-        note += " This witness may differ from the current Valmikiramayan.net wording."
+        note += " This witness may differ from the current wording on Valmikiramayan.net."
     if any(verse.get("source_glyph_anomaly") for verse in record["verses"]):
         note += " The original contains a few damaged glyphs. They are preserved as printed."
     anchor = "verse" if numbered else "block"
@@ -79,12 +79,20 @@ def render_sanskrit(record):
             items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
         label = str(number) if last == number else f"{number}–{last}"
         roman = None if verse.get("source_glyph_anomaly") else transliterate(verse["sanskrit"])
-        alternate = f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else ""
+        alternate = (f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else
+                     '<p class="iast-gap">IAST unavailable for this source block.</p>')
         items.append(f'<div class="verse" id="{anchor}-{last}">'
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
                      f'<div><p lang="sa-Deva">{escape(verse["sanskrit"])}</p>{alternate}</div></div>')
     colophon = record.get("colophon")
-    ending = f'<p class="colophon" lang="sa-Deva">{escape(colophon)}</p>' if colophon else ""
+    ending = ""
+    if colophon:
+        colophon_iast = transliterate(colophon)
+        ending = f'<p class="colophon" lang="sa-Deva">{escape(colophon)}</p>'
+        if colophon_iast:
+            ending += f'<p class="colophon iast" lang="sa-Latn">{escape(colophon_iast)}</p>'
+        else:
+            ending += '<p class="iast-gap">IAST unavailable for this source colophon.</p>' 
     return (f'<section class="reader" id="sanskrit"><h2>Sanskrit verses</h2>'
             f'<p class="source-note"><a href="{provenance}">{witness} source ↗</a>. {note}</p>'
             f'<p class="iast-note">IAST is generated from the displayed Devanagari.</p>'

@@ -61,15 +61,36 @@ async def inspect_viewport(browser, width, height, label):
     assert "#09203f" in gradient.lower() or "9, 32, 63" in gradient, gradient
     assert "#537895" in gradient.lower() or "83, 120, 149" in gradient, gradient
     await page.screenshot(path=str(OUT / f"{label}-home.png"), full_page=False)
-    await page.locator("#search").fill("Hanuma")
-    await page.locator("#results a").first.wait_for()
-    hits = await page.locator("#results a").count()
-    assert hits > 0 and await page.locator("#books").is_hidden()
+    matched = []
+    for query in ("Rama", "Rāma"):
+        await page.locator("#search").fill(query)
+        await page.locator('#results a[href$="/baala/1/"]').wait_for()
+        matched.append(await page.locator("#results a").all_text_contents())
+    assert matched[0] == matched[1]
+    assert any("Rāma" in text for text in matched[1])
+    hits = len(matched[1])
+    await page.locator("#search").fill("2-119")
+    await page.locator('#results a[href$="/ayodhya/119/"]').wait_for()
+    assert await page.locator("#results a").count() == 1
     await page.locator("#search").fill("")
     assert await page.locator("#books").is_visible()
     await page.goto(urljoin(BASE, "baala/1/"), wait_until="domcontentloaded")
-    assert await page.locator("h1").count() == 1
+    assert await page.locator("h1").inner_text() == (
+        "Nārada briefs Vālmīki about Rāma and the Rāmāyaṇa in a nutshell"
+    )
     assert await page.locator("a.button").get_attribute("href")
+    roman = page.locator('[lang="sa-Latn"]').first
+    assert "nārada" in (await roman.inner_text()).lower()
+    await page.evaluate("""async () => {
+        for (const [family, sample] of [
+            ['Noto Serif', 'Ā ī ū ṛ ṝ ḷ ḹ ṅ ñ ṭ ḍ ṇ ṃ ḥ ś ṣ'],
+            ['Noto Serif Devanagari', 'नारदं वाल्मीकिः'],
+            ['Source Sans 3', 'Rāma Lakṣmaṇa'],
+        ]) {
+            const faces = await document.fonts.load('16px "' + family + '"', sample);
+            if (!faces.some(face => face.status === 'loaded')) throw new Error(family);
+        }
+    }""")
     chapter_overflow = await page.evaluate(
         "() => document.documentElement.scrollWidth - window.innerWidth"
     )
@@ -89,11 +110,13 @@ async def main():
         assert response.status == 200, f"search.json: HTTP {response.status}"
         chapters = await response.json()
         assert len(chapters) == 534, f"Found {len(chapters)} chapter entries"
-        semaphore = asyncio.Semaphore(10)
-        checked = await asyncio.gather(
-            *(visit_chapter(request, row, semaphore) for row in chapters),
-            return_exceptions=True,
-        )
+        checked = []
+        if os.environ.get("SMOKE_VIEWPORTS_ONLY") != "1":
+            semaphore = asyncio.Semaphore(6)
+            checked = await asyncio.gather(
+                *(visit_chapter(request, row, semaphore) for row in chapters),
+                return_exceptions=True,
+            )
         failures = [str(result) for result in checked if isinstance(result, Exception)]
         failures.extend(str(result) for result in checked
                         if not isinstance(result, Exception) and not result["passed"])
@@ -103,7 +126,7 @@ async def main():
                                      (390, 844, "mobile")):
             views.append(await inspect_viewport(browser, width, height, label))
         report = {"site": BASE, "chapter_counts": dict(counts),
-                  "routes_checked": len(chapters),
+                  "routes_checked": len(checked),
                   "route_failures": failures, "viewports": views,
                   "scope": "Published HTML delivery, title, search and layout only"}
         (OUT / "report.json").write_text(json.dumps(report, indent=2) + "\n")
@@ -111,7 +134,7 @@ async def main():
         await request.dispose()
         if failures:
             raise SystemExit(f"{len(failures)} deployed route failures; see {OUT / 'report.json'}")
-        print(f"Passed: {len(chapters)} deployed routes, search, desktop and mobile layout")
+        print(f"Passed: {len(checked)} delivery checks, desktop and mobile search, IAST headings and fonts")
 
 
 if __name__ == "__main__":

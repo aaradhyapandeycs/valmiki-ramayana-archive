@@ -1,0 +1,30 @@
+name: Verify reader layout and IAST search
+on:
+  workflow_run:
+    workflows: ["Build and deploy"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      SMOKE_VIEWPORTS_ONLY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Chromium test dependencies
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Check desktop and mobile search and typography
+        run: python3 smoke_site.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-layout
+          path: smoke-artifacts
+          if-no-files-found: ignore
