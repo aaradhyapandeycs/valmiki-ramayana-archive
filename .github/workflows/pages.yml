@@ -23,18 +23,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     env:
-      SANSKRIT_RUN_ID: '43561258233'
       INVENTORY_RUN_ID: ${{ inputs.inventory_run_id }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - name: Load archived Sanskrit
-        uses: actions/download-artifact@v4
+        uses: actions/checkout@v4
         with:
-          name: source-sanskrit
+          ref: '086b7e0fa2823b4e628067c090f5f99761b8b260'
           path: data/sanskrit
-          run-id: ${{ env.SANSKRIT_RUN_ID }}
-          github-token: ${{ github.token }}
+          persist-credentials: false
       - name: Load the full URL audit
         if: env.INVENTORY_RUN_ID != ''
         uses: actions/download-artifact@v4
@@ -52,8 +50,6 @@ jobs:
             audit=audit/primary
           fi
           python3 build_variant_inventory.py "$audit" data/frames.json data/variants.json --listing-samples data/listing-samples.json
-      - name: Prepare the separately attributed Dutt translation
-        run: python3 build_dutt.py --download
       - name: Build and validate
         run: |
           python3 build.py
