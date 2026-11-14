@@ -5,6 +5,7 @@ Source titles are transcribed from the six kanda indexes in chapters.json.
 Sanskrit snapshots retain their source witness. Modern translations and
 commentary are linked to the original pages.
 """
+import hashlib
 import html
 import json
 import os
@@ -65,6 +66,21 @@ def main():
     frames = load_catalog("frames.json", None)["books"]
     variants = load_catalog("variants.json", {"chapters": {}})
     ancillary = load_catalog("ancillary.json", {"groups": []})
+    introduction = ROOT / "data" / "ayyangar" / "vr_intro_ayyangar.pdf"
+    if introduction.is_file():
+        provenance_path = introduction.with_suffix(".json")
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+        scan = introduction.read_bytes()
+        if hashlib.sha256(scan).hexdigest() != provenance["sha256"] or provenance["pages"] != 142:
+            raise ValueError("Ayyangar scan does not match its provenance")
+        write("resources/vr_intro_ayyangar.json", provenance_path.read_text(encoding="utf-8"))
+        (OUT / "resources" / introduction.name).write_bytes(scan)
+        ancillary["groups"][0]["entries"].insert(0, {
+            "url": "../resources/vr_intro_ayyangar.pdf",
+            "label": "Read Ayyangar’s 1910 introduction (PDF)",
+            "status": "Preserved facsimile · 142 pages",
+            "local": True,
+        })
     audit_summary = ROOT / "audit" / "primary" / "summary.json"
     write("sources/index.html", page("Source files and editions", source_guide(ancillary, variants, audit_summary.is_file()), 1))
     manifest = []
@@ -124,7 +140,7 @@ Open the source edition for Sanskrit, transliteration, English translation, and 
     mapped = {entry["source_url"] for entry in manifest}
     for group in ancillary["groups"]:
         for entry in group["entries"]:
-            if entry["url"] not in mapped:
+            if not entry.get("local") and entry["url"] not in mapped:
                 manifest.append({"source_url": entry["url"], "new_url": f"{BASE}sources/",
                                  "status": entry["status"], "note": entry["label"]})
                 mapped.add(entry["url"])

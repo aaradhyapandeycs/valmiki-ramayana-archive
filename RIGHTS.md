@@ -17,8 +17,7 @@ the modern English translation or commentary has been supplied.
 The source homepage credits Desiraju Hanumanta Rao for Bāla, Araṇya, and
 Kiṣkindhā; K. M. K. Murthy for Ayodhyā, Sundara, and Yuddha. The introduction
 also names Durga Naaga Devi and Vaasudeva Kishore for Sundara contributions.
-The 1910 C. R. Srinivasa Ayyangar introduction is linked as an external PDF;
-it is not redistributed here.
+The archive preserves the 142-page facsimile of the 1910 C. R. Srinivasa Ayyangar introduction as served by the original site. The PDF is accompanied by a provenance record and SHA-256.
 
 An HTTP 200 response or public availability is **not** a reuse license. A
 third-party site's copyright description is not permission from the source

@@ -33,6 +33,12 @@ jobs:
           ref: 'b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad'
           path: data/sanskrit
           persist-credentials: false
+      - name: Load the original 1910 introduction
+        uses: actions/checkout@v4
+        with:
+          ref: '57b40a93e97e6a17c1a7f361cf672c0255dc8b08'
+          path: data/ayyangar
+          persist-credentials: false
       - name: Load the full URL audit
         if: env.INVENTORY_RUN_ID != ''
         uses: actions/download-artifact@v4

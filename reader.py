@@ -140,7 +140,7 @@ def source_guide(catalog, variants, has_audit=False):
                         f'<a href="../source-variants.json">Download the URL inventory</a>.</p></section>')
     for group in catalog["groups"]:
         links = "".join(
-            f'<li><a href="{source_url(entry["url"])}" rel="external">{escape(entry["label"])} ↗</a>'
+            f'<li><a href="{escape(entry["url"]) if entry.get("local") else source_url(entry["url"])}">{escape(entry["label"])} ↗</a>'
             f' · {escape(entry["status"])}</li>'
             for entry in group["entries"]
         )
