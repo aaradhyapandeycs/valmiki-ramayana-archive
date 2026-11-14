@@ -1,0 +1,27 @@
+name: Capture the Sanskrit source
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ingest_sanskrit.py'
+      - '.github/workflows/sanskrit-capture.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: capture-sanskrit
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture numbered Sanskrit verses
+        run: python3 ingest_sanskrit.py --output sanskrit --commit "$GITHUB_SHA"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-sanskrit
+          path: sanskrit
+          if-no-files-found: error
+          retention-days: 90
