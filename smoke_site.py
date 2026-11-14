@@ -6,9 +6,11 @@ import asyncio
 import hashlib
 import json
 import os
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
+from fontTools.ttLib import TTFont
 from playwright.async_api import async_playwright, expect
 
 BASE = os.environ.get(
@@ -18,9 +20,9 @@ OUT = Path(os.environ.get("SMOKE_OUTPUT", "smoke-artifacts"))
 AXE_PATH = os.environ.get("AXE_PATH")
 TITLE = "Nārada briefs Vālmīki about Rāma and the Rāmāyaṇa in a nutshell"
 FONTS = [
-    ("Noto Serif", "Ā ī ū ṛ ṝ ḷ ḹ ṅ ñ ṭ ḍ ṇ ṃ ḥ ś ṣ"),
-    ("Noto Serif Devanagari", "नारदं वाल्मीकिः"),
-    ("Source Sans 3", "Rāma Lakṣmaṇa"),
+    ("Noto Serif", "noto-serif.ttf", "āīūṛṝḷḹṅñṭḍṇṃḥśṣḻ̐"),
+    ("Noto Serif Devanagari", "noto-serif-devanagari.ttf", "नारदंवाल्मीकिः"),
+    ("Source Sans 3", "source-sans-3.ttf", "āīūṛṝḷḹṅñṭḍṇṃḥśṣḻ̐"),
 ]
 HTTP_RETRYABLE = {429, 500, 502, 503, 504}
 LAYOUT_ROUTES = (
@@ -139,7 +141,7 @@ async def inspect_verse(page):
     await expect(page.locator(".verse [lang=sa-Latn]").first).to_contain_text("nārada")
     tests = await page.evaluate("""async families => {
       const out = {};
-      for (const [family, sample] of families) {
+      for (const [family, , sample] of families) {
         const face = await document.fonts.load('16px "' + family + '"', sample);
         out[family] = face.some(entry => entry.status === 'loaded');
       }
@@ -236,6 +238,20 @@ async def check_pdf(request):
     return {"url": pdf.url, "bytes": len(contents), "pages": metadata["pages"], "sha256": metadata["sha256"]}
 
 
+
+async def check_font_glyphs(request):
+    coverage = {}
+    for family, filename, sample in FONTS:
+        response = await request.get(site_url("fonts/" + filename), timeout=30000)
+        assert response.ok, f"{family}: HTTP {response.status}"
+        with TTFont(BytesIO(await response.body())) as font:
+            glyphs = font.getBestCmap() or {}
+            missing = [f"U+{ord(char):04X}" for char in sample if ord(char) not in glyphs]
+        assert not missing, f"{family}: missing required glyphs {missing}"
+        coverage[family] = {"characters_checked": len(sample), "url": response.url}
+    return coverage
+
+
 async def main():
     OUT.mkdir(parents=True, exist_ok=True)
     report = {"site": BASE, "browser": "Chromium", "viewports": []}
@@ -246,6 +262,10 @@ async def main():
             report["pdf"] = await check_pdf(request)
         except Exception as error:
             report["pdf_error"] = str(error)
+        try:
+            report["glyphs"] = await check_font_glyphs(request)
+        except Exception as error:
+            report["glyph_error"] = str(error)
         for width, height, name in ((1440, 900, "desktop"), (390, 844, "mobile"), (320, 740, "narrow-mobile")):
             report["viewports"].append(await inspect_viewport(browser, width, height, name))
         await request.dispose()
@@ -257,7 +277,7 @@ async def main():
     ]
     report["failed_viewports"] = failures
     (OUT / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    if failures or report.get("pdf_error"):
+    if failures or report.get("pdf_error") or report.get("glyph_error"):
         print(json.dumps(report, indent=2, ensure_ascii=False))
         raise SystemExit("Browser checks failed. See the audit report.")
     print(f"Passed {len(LAYOUT_ROUTES)} browser routes at three viewport widths, PDF integrity, search, navigation, and 404 recovery.")

@@ -59,21 +59,54 @@ def plain(element):
 
 def source_blocks(root):
     """Read tagged spans using the browser's HTML5 parsing and tree recovery."""
-    return [(i, text) for i, p in enumerate(root.iter("p"), 1)
-            if "sansloka" in p.get("class", "").casefold().split()
-            and (text := clean(plain(p))) and not AUXILIARY_SEPARATOR.fullmatch(text)]
+    records = []
+    last_anchor = None
+    paragraph_index = 0
+    for node in root.iter():
+        if node.tag == "a":
+            target = node.get("name") or node.get("id") or ""
+            if re.fullmatch(r"Verse[0-9]+", target, re.I):
+                last_anchor = target
+        if node.tag != "p":
+            continue
+        paragraph_index += 1
+        if "sansloka" not in node.get("class", "").casefold().split():
+            continue
+        text = clean(plain(node))
+        if text and not AUXILIARY_SEPARATOR.fullmatch(text):
+            records.append((paragraph_index, text, last_anchor))
+    return records
 
 
-def outside_blocks(records, start, end):
+def extras_category(block, position, whole_paragraph):
+    if not whole_paragraph:
+        return "partial_source_paragraph"
+    if re.match(r"^[ |।॥]*(?:इति|इत्य)", block) and re.search(r"स(?:रग|र्ग)", block):
+        return "colophon"
+    if position == "before" and re.match(r"^[ |।॥]*(?:ॐ|अथ|श्रीगणेश)", block):
+        return "opening_invocation"
+    if LOCATOR.search(block):
+        return "numbered_appendix_or_alternate_passage"
+    if DEVANAGARI.search(block):
+        return "unnumbered_quotation_or_appendix"
+    return "non_sanskrit_or_malformed_tagged_paragraph"
+
+
+def outside_blocks(records, start, end, colophon):
     entries = []
     offset = 0
-    for index, block in records:
+    for index, block, anchor in records:
         block_end = offset + len(block)
-        if offset < start or block_end > end:
-            entries.append({"paragraph": index, "codepoints": len(block),
-                            "whole_paragraph": block_end <= start or offset >= end,
-                            "devanagari_present": bool(DEVANAGARI.search(block)),
-                            "printed_locator_present": bool(LOCATOR.search(block))})
+        if (offset < start or block_end > end) and block != colophon:
+            position = "before" if block_end <= start else "after" if offset >= end else "overlaps"
+            whole_paragraph = position != "overlaps"
+            entries.append({
+                "source_paragraph": index, "nearest_preceding_verse_anchor": anchor,
+                "codepoints": len(block), "sha256_normalized_text": digest(block.encode("utf-8")),
+                "position": position, "category": extras_category(block, position, whole_paragraph),
+                "devanagari_present": bool(DEVANAGARI.search(block)),
+                "printed_locator_present": bool(LOCATOR.search(block)),
+            })
         offset = block_end + 1
     return entries
 
@@ -85,7 +118,7 @@ def compare_to_primary(record, raw):
         if (identifier := a.get("name") or a.get("id")) and re.fullmatch("Verse[0-9]+", identifier, re.I)
     )
     blocks = source_blocks(body)
-    stream = " ".join(block for _, block in blocks)
+    stream = " ".join(block for _, block, _ in blocks)
     snapshot = " ".join(clean(verse["sanskrit"]) for verse in record["verses"])
     offset = stream.find(snapshot)
     colophon = clean(record.get("colophon") or "")
@@ -103,11 +136,7 @@ def compare_to_primary(record, raw):
         end_colophon = end + colophon_offset + len(colophon)
     else:
         end_colophon = end
-    extras = outside_blocks(blocks, offset, end)
-    if colophon:
-        extras = [entry for entry in extras if next(
-            block for index, block in blocks if index == entry["paragraph"]
-        ) != colophon]
+    extras = outside_blocks(blocks, offset, end, colophon)
     absent_anchors = sorted({verse["source_anchor"] for verse in record["verses"]
                              if verse.get("source_anchor") and not observed_anchors[verse["source_anchor"]]})
     return {"status": "matched" if not absent_anchors else "source_anchor_mismatch",
@@ -223,6 +252,10 @@ def main():
         "snapshot_commit": summary["commit"],
         "source_comparison": dict(Counter(r["status"] for r in rows)),
         "source_blocks": sum(r["captured_blocks"] for r in rows),
+        "response_hashes_matched": sum(r.get("response_unchanged", False) for r in rows),
+        "uncaptured_paragraphs_by_review_category": dict(Counter(
+            entry["category"] for row in rows for entry in row.get("outside_capture", [])
+        )),
         "source_chapters_with_uncaptured_numbered_paragraphs": sum(
             any(p["printed_locator_present"] for p in r.get("outside_capture", [])) for r in rows
         ),
@@ -239,6 +272,14 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in output.items() if k != "chapters"}, ensure_ascii=False))
+    for row in rows:
+        extras = row.get("outside_capture", [])
+        if extras or row["status"] != "matched" or row["live_reader"] != "matched":
+            print(json.dumps({
+                "source_url": row["source_url"], "chapter": row["chapter"],
+                "primary_status": row["status"], "live_reader": row["live_reader"],
+                "additional_source_paragraphs": extras,
+            }, ensure_ascii=False))
 
 
 if __name__ == "__main__":
