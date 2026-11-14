@@ -4,11 +4,12 @@ import argparse
 import asyncio
 import json
 from pathlib import Path
+import struct
 import sys
 from tempfile import TemporaryDirectory
 from urllib.parse import urljoin
 
-from playwright.async_api import async_playwright
+from playwright.async_api import Error as BrowserError, async_playwright
 
 
 PROFILES = {
@@ -99,6 +100,24 @@ async def exact_card(page, group):
     raise ValueError(f"Missing exact link {group}")
 
 
+async def keyboard_probe(page):
+    scroll = page.locator(".verse-scroll[data-overflow][tabindex='0']").first
+    # Save and restore the visual styling and reading position before capture.
+    await scroll.focus()
+    await page.keyboard.press("ArrowRight")
+    await page.wait_for_function("document.activeElement.scrollLeft > 0", timeout=1500)
+    await scroll.evaluate("node => { node.blur(); node.scrollLeft = 0; }")
+    await page.wait_for_function("document.activeElement?.matches('.verse-scroll') === false", timeout=1500)
+
+
+async def screenshot_panel(page, card, destination):
+    """Capture the exact joined unit with both scripts at their scroll origins."""
+    await card.locator(".verse-scroll").evaluate_all(
+        "nodes => nodes.forEach(node => { node.blur(); node.scrollLeft = 0; })"
+    )
+    await card.screenshot(path=destination)
+
+
 async def check_profile(browser, profile, name, args, fixtures, no_link, open_route, line_audit):
     width, height, ratio, enlarged, wide = profile
     options = {"viewport": {"width": width, "height": height}, "device_scale_factor": ratio,
@@ -109,6 +128,7 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
     summaries = {}
     last_checked = None
     keyboard_checks = 0
+    unmatched_result = None
     try:
         for label, (chapter, group) in fixtures.items():
             if last_checked != chapter:
@@ -120,19 +140,25 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
                     raise ValueError(f"{name} {chapter}: {result['errors']} / {script_result['errors'][:8]}")
                 result["checked_script_rows"] = script_result["stats"]["lines"]
                 if result["overflow_regions"] and name in {"mobile", "mobile-large-text"}:
-                    scroll = page.locator(".verse-scroll[data-overflow][tabindex='0']").first
-                    await scroll.focus()
-                    await page.keyboard.press("ArrowRight")
-                    await page.wait_for_function("document.activeElement.scrollLeft > 0", timeout=1500)
+                    await keyboard_probe(page)
                     keyboard_checks += 1
                 summaries[chapter] = result
             card = await exact_card(page, group)
             if screenshot:
-                await card.screenshot(path=args.output / f"after-{name}-{label}.png")
+                await screenshot_panel(page, card, args.output / f"after-{name}-{label}.png")
         if no_link:
             await open_route(page, args.after, no_link + "/", enlarged)
-            if await page.locator(".verse-translation").count() or not await page.locator("#sanskrit").count():
+            gap = page.locator("#sanskrit .source-note").filter(
+                has_text="Verse-level references could not be verified for this chapter."
+            )
+            if (await page.locator(".verse-translation").count() or await gap.count() != 1
+                    or await gap.get_by_role("link", name="Read the chapter’s English at the source ↗").count() != 1):
                 raise ValueError(f"{no_link}: source-link gap has an unexpected presentation")
+            usable = await page.evaluate(line_audit)
+            if usable["errors"]:
+                raise ValueError(f"{no_link}: Sanskrit rendering errors beside the gap {usable['errors'][:8]}")
+            unmatched_result = {"chapter": no_link, "source_link": await gap.locator("a").get_attribute("href"),
+                                "checked_script_rows": usable["stats"]["lines"]}
         if name in {"mobile", "mobile-large-text"} and not keyboard_checks:
             raise ValueError(f"{name}: no keyboard-scroll probe was available")
         if args.before and name in {"desktop", "mobile"}:
@@ -144,7 +170,15 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
     finally:
         await context.close()
     return {"profile": name, "checked": summaries, "keyboard_checks": keyboard_checks,
-            "unmatched_chapter": no_link}
+            "unmatched_chapter": unmatched_result}
+
+
+def check_png_size(screenshot, label):
+    # A known Chromium native-zoom capture problem returns an entirely blank
+    # 720px × 480px PNG. Do not retain it as visual evidence.
+    width, height = struct.unpack(">II", screenshot[16:24])
+    if width < 100 or height < 50 or len(screenshot) < 5000:
+        raise ValueError(f"{label} screenshot did not paint the reader ({width}×{height}, {len(screenshot)} bytes)")
 
 
 async def native_zoom(playwright, args, fixture, open_route):
@@ -188,11 +222,32 @@ async def native_zoom(playwright, args, fixture, open_route):
             if result["errors"] or factor != 2:
                 raise ValueError(f"Actual browser zoom failed: {result}, factor {factor}")
             card = await exact_card(page, group)
-            await card.scroll_into_view_if_needed()
-            await page.screenshot(path=args.output / "after-native-200-percent.png")
+            # At native browser zoom CDP's PNG rasterizer instead uses the
+            # pre-zoom device origin. Set a viewport-sized clip for the now
+            # centered card and verify that the screenshot has painted content.
+            location = await card.evaluate("""node => {
+                node.scrollIntoView({block: 'center', inline: 'nearest'});
+                const rect = node.getBoundingClientRect();
+                return {top: rect.top, bottom: rect.bottom, innerHeight, scroll: scrollY};
+            }""")
+            await page.evaluate("() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))")
+            if not location["bottom"] > 0 or not location["top"] < location["innerHeight"]:
+                raise ValueError(f"Zoomed card is outside the viewport: {location}")
+            output = args.output / "after-native-200-percent.png"
+            capture = None
+            for image in (lambda: card.screenshot(timeout=5_000),
+                          lambda: page.screenshot(timeout=5_000)):
+                try:
+                    screenshot = await image()
+                    check_png_size(screenshot, "native screen")
+                    output.write_bytes(screenshot)
+                    capture = output.name
+                    break
+                except (BrowserError, ValueError):
+                    continue
             return {"factor": factor, "chapter": chapter, "before": before,
                     "after": await page.evaluate("({width:innerWidth,dpr:devicePixelRatio})"),
-                    "geometry": result}
+                    "geometry": result, "screen_position": location, "screenshot": capture}
         finally:
             await context.close()
 

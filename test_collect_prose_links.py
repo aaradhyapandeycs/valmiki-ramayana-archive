@@ -114,6 +114,20 @@ class ProseLinkMetadata(unittest.TestCase):
         self.assertEqual("4543, 4, 5", groups[0]["label"])
         self.assertEqual(["4-54-3", "4-54-4", "4-54-5"], groups[0]["refs"])
 
+    def test_unanchored_verses_still_validate_complete_alternate_prefix(self):
+        digest = "a" * 64
+        document = fake_page("""
+<p class="SanSloka">प्रथमः | द्वितीयः || ९०-६-१</p>
+<p class="tat">Unanchored prose paragraph.</p>
+<a name="Verse2"></a>
+<p class="SanSloka">तृतीयः | चतुर्थः || ९०-६-२</p>
+<p class="tat">Prose with an observed anchor.</p>
+""")
+        with patch.dict(REVIEWED_COORDINATES, {(6, 90): ((90, 6), 2, digest)}):
+            found, missing, _ = link_metadata(document, 6, 90, digest)
+        self.assertEqual(["6-90-2"], found[0]["refs"])
+        self.assertEqual("no_verse_anchor", missing[0]["reason"])
+
     def test_reviewed_chapter_prefix_retains_printed_label(self):
         digest = "a" * 64
         document = fake_page("""

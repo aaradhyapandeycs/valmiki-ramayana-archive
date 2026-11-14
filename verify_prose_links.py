@@ -91,6 +91,17 @@ def source_groups(metadata, book, chapter):
         require(label is None or re.fullmatch(r"[1-9][0-9a-d,;\.\s–—&-]*(?:(?:and|to)[0-9a-d,;\.\s–—&-]*)*",
                                               label, re.I),
                 f"non-reference data in metadata label: {fragment}")
+        if group["basis"] == "printed_translation_reference":
+            require(bool(label), f"printed translation reference lacks original label {fragment}")
+            prefix = re.match(r"([0-9]{1,3})\s*[-–—]\s*([0-9]{1,3})\s*[-–—]", label)
+            alternate = PRINTED_PREFIX.get((book, chapter))
+            if prefix:
+                coordinate = tuple(map(int, prefix.groups()))
+                require(coordinate == (book, chapter) or alternate and coordinate == alternate[:2],
+                        f"original English label crosses chapter boundaries {label}")
+            else:
+                require((book, chapter) == (4, 54) and re.match(r"454[0-9]", label),
+                        f"original English label lacks the reviewed chapter prefix {label}")
         href = metadata["source_url"] + "#" + fragment
         stated[href, tuple(group["refs"]), group["basis"]] = group
     return stated
@@ -216,7 +227,9 @@ def verify(args):
         metadata = source_metadata["chapters"][chapter_path]
         report = audit["chapters"][chapter_path]
         record = json.loads((snapshot / chapter_path).with_suffix(".json").read_text(encoding="utf-8"))
-        require(metadata["source_url"] == record["source_url"], f"source edition mismatch {chapter_path}")
+        require(metadata["source_url"] == record["source_url"]
+                and metadata["source_sha256"] == record["source_sha256"],
+                f"source edition or pinned bytes mismatch {chapter_path}")
         if report.get("source_url"):
             require(report["source_url"] == record["source_url"], f"report edition mismatch {chapter_path}")
         original_groups = source_groups(metadata, book, chapter)

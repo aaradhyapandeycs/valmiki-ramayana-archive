@@ -45,7 +45,7 @@ jobs:
           git show "$ref:verse-layout.json" > data/verse-layout.json
       - name: Load the verified English source reference index
         run: |
-          ref=d7714c3d5a3fa30eed02304b28a042adb81343ef
+          ref=67e4e51efc9e22cfd24ed6dae13fa4fdce9ecb91
           git fetch --no-tags --depth=1 origin "$ref"
           git show "$ref:prose-links.json" > data/prose-links.json
       - name: Load the original 1910 introduction
