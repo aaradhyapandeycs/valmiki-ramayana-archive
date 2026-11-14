@@ -28,8 +28,8 @@ jobs:
       - name: Verify capture run and artifact identity
         env:
           GH_TOKEN: ${{ github.token }}
-          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
-          CAPTURE_COMMIT: ${{ inputs.capture_commit || 'f593b61f4d9689b0409d7d6e419abf9b75d99fe8' }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43562097676' }}
+          CAPTURE_COMMIT: ${{ inputs.capture_commit || '89e2ac54cb045ff189f5ea06abc0867dab85f010' }}
         run: |
           [[ "$CAPTURE_RUN_ID" =~ ^[0-9]+$ && "$CAPTURE_COMMIT" =~ ^[0-9a-f]{40}$ ]]
           gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CAPTURE_RUN_ID" |
@@ -44,11 +44,11 @@ jobs:
           name: source-sanskrit
           path: ${{ runner.temp }}/source-sanskrit
           github-token: ${{ github.token }}
-          run-id: ${{ inputs.capture_run_id || '43561258233' }}
+          run-id: ${{ inputs.capture_run_id || '43562097676' }}
       - name: Verify artifact and construct exact snapshot tree
         env:
-          CAPTURE_COMMIT: ${{ inputs.capture_commit || 'f593b61f4d9689b0409d7d6e419abf9b75d99fe8' }}
-          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
+          CAPTURE_COMMIT: ${{ inputs.capture_commit || '89e2ac54cb045ff189f5ea06abc0867dab85f010' }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43562097676' }}
         run: |
           python3 verify_capture.py "$RUNNER_TEMP/source-sanskrit" --commit "$CAPTURE_COMMIT"
           python3 - <<'PY'
@@ -86,7 +86,7 @@ jobs:
           PY
       - name: Publish snapshot on its dedicated branch
         env:
-          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43561258233' }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '43562097676' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
