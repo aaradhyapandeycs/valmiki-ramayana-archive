@@ -445,6 +445,6 @@ if __name__ == "__main__":
     cli.add_argument("--baseline", action="store_true")
     cli.add_argument("--baseline-dist", type=Path, help="frozen pre-change dist directory for exact passage comparison")
     cli.add_argument("--actual-browser-zoom", action="store_true",
-                     help="also check representative pages at Chromium native 200% zoom")
+                     help="also check representative pages at Chromium native 200 percent zoom")
     cli.add_argument("--workers", type=int, default=4, choices=range(1, 9))
     asyncio.run(main(cli.parse_args()))
