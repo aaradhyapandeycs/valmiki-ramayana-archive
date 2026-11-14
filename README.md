@@ -80,6 +80,13 @@ source prefixes. The mapping is tied to exact source response hashes and
 requires all printed verse numbers to form an uninterrupted sequence.
 The displayed Sanskrit and printed source labels are preserved.
 
+The [reviewed Dutt excerpt index](data/dutt-reviewed-passages.json) records the
+exact transcription spans and Sanskrit block hashes for passages checked
+directly against Dutt’s edition. These excerpts preserve the historical
+transcription’s wording and spelling, with whitespace normalized. The
+English coverage report distinguishes inline prose from source links and
+chapter-level references throughout the Sanskrit archive.
+
 
 ## Critical Edition English
 

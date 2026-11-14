@@ -144,21 +144,40 @@ def translation_panel(groups):
         return ""
     links = []
     translations = []
+    chapter_link = ""
+    unavailable = any("row" not in group and "dutt_text" not in group for group in groups)
     for group in groups:
         if "row" in group:
             translations.append(inline_panel(group))
+            continue
+        if "dutt_text" in group:
+            labels = ", ".join(group["refs"])
+            reference = (group["refs"][0] + "–" + group["refs"][-1].rsplit("-", 1)[1]
+                         if len(group["refs"]) > 1 else labels)
+            translations.append(
+                f'<div class="dutt-inline" data-dutt-refs="{escape(" ".join(group["refs"]), quote=True)}" '
+                f'data-dutt-units="{escape(" ".join(group["units"]), quote=True)}">'
+                f'<p class="dutt-english-text">{escape(group["dutt_text"])}</p>'
+                f'<p class="critical-refs"><a href="{escape(group["href"], quote=True)}" rel="external">'
+                f'{escape(group["translator"])} · {escape(reference)} ↗</a> · Historical spelling</p></div>'
+            )
+            continue
+        if "chapter_href" in group:
+            chapter_link = (f'<p><a href="{escape(group["chapter_href"], quote=True)}" '
+                            'rel="external">Open the original chapter ↗</a></p>')
             continue
         labels = ", ".join(group["refs"])
         url = escape(group["href"], quote=True)
         refs = escape(" ".join(group["refs"]), quote=True)
         basis = escape(group["basis"], quote=True)
-        caption = "Source passage" if group["basis"] == "anchored_sanskrit_reference" else "Read at the source"
+        caption = "Source passage" if group["basis"] == "anchored_sanskrit_reference" else "English at ValmikiRamayan.net"
         links.append(f'<li><a href="{url}" rel="external" data-source-refs="{refs}" '
                      f'data-prose-basis="{basis}">{escape(labels)} · {caption} ↗</a></li>')
     original_links = f'<ul role="list">{"".join(links)}</ul>' if links else ""
-    return ('<div class="verse-translation" lang="en">' 
-            '<p class="verse-translation-label">English translation</p>'
-            f'{"".join(translations)}{original_links}</div>')
+    label = "English translation unavailable here" if unavailable and not translations else "English translation"
+    return ('<div class="verse-translation" lang="en">'
+            f'<p class="verse-translation-label">{label}</p>'
+            f'{"".join(translations)}{original_links}{chapter_link}</div>')
 
 
 def pair_units(units, groups):

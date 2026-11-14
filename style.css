@@ -388,6 +388,7 @@ main.wrap:has(.reader) {
 }
 
 .verse-translation li + li { margin-block-start: .3em; }
+.verse-translation .dutt-english-text { margin-block: .38rem .48rem; }
 
 .critical-reader { max-width: 74ch; margin-block-start: 2rem; }
 .critical-passage { padding-block: .95rem; border-block-end: 1px solid var(--line); }

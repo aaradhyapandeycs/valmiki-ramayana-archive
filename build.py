@@ -12,9 +12,9 @@ import os
 from pathlib import Path
 
 from chapter_iast import display_chapters, load_title_review, title_aliases
-from dutt_reader import render_dutt
+from dutt_reader import render_dutt, reviewed_passages
 from critical_reader import inline_groups, read_critical, render_critical
-from prose_links import TRANSLATORS, local_units, prepare_links
+from prose_links import REF, TRANSLATORS, local_units, prepare_links
 from sanskrit_paratext import load_paratext, render_paratext
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
                     render_sanskrit, source_guide, supplemental_files)
@@ -84,9 +84,11 @@ def main():
     prose_report = {}
     critical_manifest, critical_books = read_critical(CRITICAL)
     crosswalk = load_catalog("critical-site/archive-links.json", None)
+    reviewed = reviewed_passages(DUTT, load_catalog("dutt-reviewed-passages.json", {})) if sanskrit else {}
     critical_rows = {row["id"]: row for chapters in critical_books.values()
                      for rows in chapters.values() for row in rows}
     shown_english = {}
+    english_coverage = {}
     expected_chapters = {f"{slug}/{n}" for slug, n in sanskrit}
     if prose and (prose["schema_version"] != 1 or set(prose["chapters"]) != expected_chapters):
         raise ValueError("English source reference snapshot does not cover the same chapters")
@@ -124,7 +126,8 @@ def main():
     guide = source_guide(ancillary, variants, audit_summary.is_file())
     if prose:
         guide += ('<section class="sources"><h2>English translation reference audit</h2>'
-                  '<p><a href="../prose-links-audit.json">Verified links, verse groups, and mapping gaps</a>.</p></section>')
+                  '<p><a href="../prose-links-audit.json">Verified source links and verse groups</a> · '
+                  '<a href="../english-coverage.json">Inline English coverage and unresolved units</a>.</p></section>')
     write("sources/index.html", page("Source files and editions", guide, 1))
     manifest = []
     cards = []
@@ -167,13 +170,15 @@ def main():
                         or set(chapter_layout["supplements"]) != expected_supplements
                         or ("colophon" in chapter_layout) != bool(record.get("colophon"))):
                     raise ValueError(f"Verse layout differs from the Sanskrit witness for {slug}/{n}")
-            groups, translation_note = [], ""
+            groups, translation_note, witnesses = [], "", []
             key = f"{slug}/{n}"
+            if record:
+                witnesses = local_units(record, additions)
             if prose and record:
                 evidence = prose["chapters"][key]
                 groups, issues = prepare_links(record, additions, evidence)
                 covered = {anchor for group in groups for anchor in group["units"]}
-                units = [anchor for anchor, *_ in local_units(record, additions)]
+                units = [anchor for anchor, *_ in witnesses]
                 unmatched = [anchor for anchor in units if anchor not in covered]
                 prose_report[key] = {
                     "source_url": evidence["source_url"],
@@ -197,8 +202,52 @@ def main():
             if matched_english:
                 shown_english[key] = [{name: value for name, value in passage.items() if name != "row"}
                                       for passage in matched_english]
+            restored_english = reviewed.pop(key, [])
+            gaps = []
+            if record:
+                by_anchor = {anchor: (position, numbers, digest)
+                             for position, (anchor, numbers, _, digest) in enumerate(witnesses)}
+                inline = {anchor for group in matched_english for anchor in group["units"]}
+                for group in restored_english:
+                    locators = [REF.fullmatch(ref) for ref in group["refs"]]
+                    if not all(locators) or not all(tuple(map(int, ref.groups()[:2])) == (book_number, n)
+                                                    for ref in locators):
+                        raise ValueError(f"Reviewed Dutt references disagree with {key}")
+                    targets = [by_anchor[anchor] for anchor in group["units"]]
+                    positions = [position for position, _, _ in targets]
+                    if (not targets or positions != list(range(positions[0], positions[-1] + 1))
+                            or group["unit_sha256"] != [digest for _, _, digest in targets]
+                            or {int(ref[3]) for ref in locators} != {number for _, ns, _ in targets for number in ns}
+                            or inline.intersection(group["units"])):
+                        raise ValueError(f"Reviewed Dutt mapping overlaps or disagrees with Sanskrit at {key}")
+                    inline.update(group["units"])
+                urls_by_anchor = {}
+                for group in groups:
+                    for anchor in group["units"]:
+                        urls_by_anchor.setdefault(anchor, []).append(group["href"])
+                unresolved = []
+                for anchor, numbers, _, _ in witnesses:
+                    if anchor not in inline:
+                        urls = list(dict.fromkeys(urls_by_anchor.get(anchor, ())))
+                        unresolved.append({"anchor": anchor, "printed_verse_numbers": sorted(numbers),
+                                           "source_urls": urls or [record["source_url"]],
+                                           "status": "source_link_only" if urls else "verse_match_unverified"})
+                        if not urls:
+                            gaps.append({"units": [anchor], "chapter_href": record["source_url"]})
+                english_coverage[key] = {
+                    "reading_units": len(witnesses),
+                    "crosswalk_dutt_passages": len(matched_english),
+                    "reviewed_dutt_passages": [
+                        {field: group[field] for field in ("translator", "href", "refs", "units", "section", "english_span")}
+                        for group in restored_english
+                    ],
+                    "inline_dutt_reading_units": len(inline),
+                    "unresolved": unresolved,
+                }
+            elif restored_english:
+                raise ValueError(f"Reviewed Dutt passage has no Sanskrit witness at {key}")
             offsets = chapter_layout.get("supplements")
-            passage = render_sanskrit(record, layout=chapter_layout, groups=groups + matched_english,
+            passage = render_sanskrit(record, layout=chapter_layout, groups=groups + matched_english + restored_english + gaps,
                                       translation_note=translation_note,
                                       before=render_paratext(additions.get("before"), offsets),
                                       after=render_paratext(additions.get("after"), offsets))
@@ -241,6 +290,15 @@ def main():
         cards.append(f'<section class="book" id="{slug}"><div class="book-heading"><div><p class="eyebrow">Book {len(cards)+1}</p>'
                      f'<h2><a href="{slug}/">{name} Kāṇḍa</a></h2></div><span>{len(rows)} sargas</span></div>'
                      f'<ol class="chapters">{items}</ol></section>')
+
+    if reviewed:
+        raise ValueError(f"Reviewed Dutt data refer to unknown archive chapters: {sorted(reviewed)}")
+    if english_coverage:
+        write("english-coverage.json", json.dumps({
+            "scope": "Six-book Sanskrit archive. A reading unit can contain multiple or partial verses.",
+            "fallback_text": "No verified republication license for the modern source translation. Direct links are supplied.",
+            "chapters": english_coverage,
+        }, ensure_ascii=False, separators=(",", ":")) + "\n")
 
     if prose:
         write("prose-links-audit.json", json.dumps({

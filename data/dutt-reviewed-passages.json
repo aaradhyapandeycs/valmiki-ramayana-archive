@@ -1,0 +1,72 @@
+{
+  "baala/77": {
+    "section": "77",
+    "href": "https://www.gutenberg.org/cache/epub/57265/pg57265-images.html#section-lxxvii",
+    "section_sha256": "9600a470f086e318e810457d2269c190ec2ef2543862514d52ff460f4ef00fac",
+    "passages": [
+      {
+        "refs": [
+          "1-77-1"
+        ],
+        "units": [
+          "verse-1"
+        ],
+        "unit_sha256": [
+          "9e98f59fea69fe186eedb44c452a333d8f6f3ee006fbdb048e287309e6798dc5"
+        ],
+        "english_span": [
+          0,
+          148
+        ]
+      },
+      {
+        "refs": [
+          "1-77-2"
+        ],
+        "units": [
+          "verse-2"
+        ],
+        "unit_sha256": [
+          "381d7089fe0030afa71d1810197c860bb6238b730c22c9faa8c0d99f1b73e9a8"
+        ],
+        "english_span": [
+          148,
+          277
+        ]
+      },
+      {
+        "refs": [
+          "1-77-3"
+        ],
+        "units": [
+          "verse-3"
+        ],
+        "unit_sha256": [
+          "9f71c0b6c6bff29417682c2a3228a86cabe3507bd12f46b973e806927f19abfc"
+        ],
+        "english_span": [
+          277,
+          419
+        ]
+      },
+      {
+        "refs": [
+          "1-77-4",
+          "1-77-5"
+        ],
+        "units": [
+          "verse-4",
+          "verse-5"
+        ],
+        "unit_sha256": [
+          "94dc20410344cdd657efb9dfe4bf15d4096df7d07a54e642737d0a7d7c8289aa",
+          "a339e3976e50c040eff219bb08b6bb8cd53e8c40e4c835feb3bca251868029ed"
+        ],
+        "english_span": [
+          419,
+          659
+        ]
+      }
+    ]
+  }
+}

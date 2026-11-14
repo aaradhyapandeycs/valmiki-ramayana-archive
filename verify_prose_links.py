@@ -152,13 +152,22 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
         pair = ancestors[card]
         require("verse-pair" in classes(pair) and len(pair) == 2 and pair[1] == card
                 and "verse-pair-source" in classes(pair[0]), "Sanskrit must precede its English card")
+        text_nodes = [child for child in list(card)[1:]
+                      if {"critical-inline", "dutt-inline"}.intersection(classes(child))]
         require(card.get("lang") == "en" and len(card) >= 2
                 and card[0].tag == "p" and "verse-translation-label" in classes(card[0])
-                and meaningful(card[0]) == "English translation",
+                and meaningful(card[0]) == ("English translation" if text_nodes else "English translation unavailable here"),
                 "English card contains unexpected content")
         lists = [child for child in list(card)[1:] if child.tag == "ul"]
-        require(len(lists) <= 1 and all(child.tag == "ul" or "critical-inline" in classes(child)
-                                      for child in list(card)[1:]), "Unexpected English panel content")
+        chapter_links = [child for child in list(card)[1:] if child.tag == "p"]
+        require(len(lists) <= 1 and len(chapter_links) <= 1
+                and len(card) == 1 + len(lists) + len(text_nodes) + len(chapter_links),
+                "Unexpected English panel content")
+        if chapter_links:
+            chapter_link = chapter_links[0]
+            href = urlsplit(chapter_link[0].get("href", "")) if len(chapter_link) == 1 else None
+            require(not lists and not text_nodes and href and href.scheme == "https" and href.netloc in WITNESSES
+                    and not href.fragment and chapter_link[0].tag == "a", "Invalid chapter-only control")
         if not lists:
             continue
         link_list = lists[0]
@@ -176,7 +185,7 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
             require(key in assigned and key in source, f"unrecorded source link {key}")
             require(key not in links, f"repeated source group {key}")
             labels = ", ".join(key[1])
-            caption = "Source passage" if key[2] == "anchored_sanskrit_reference" else "Read at the source"
+            caption = "Source passage" if key[2] == "anchored_sanskrit_reference" else "English at ValmikiRamayan.net"
             require(meaningful(anchor) == f"{labels} · {caption} ↗",
                     f"unexpected source link label {key}")
             group = assigned[key]
@@ -200,6 +209,10 @@ def inspect_cards(reader, nodes, groups, source, book, chapter):
                     set(candidate.get("data-critical-local-units", "").split()) & set(intended)
                     for candidate in ancestors[pair].iter()
                     if "critical-inline" in classes(candidate)
+                ) or any(
+                    set(candidate.get("data-dutt-units", "").split()) & set(intended)
+                    for candidate in ancestors[pair].iter()
+                    if "dutt-inline" in classes(candidate)
                 )
                 require(set(intended) <= connected and overlap,
                         f"short visual group has no overlapping source coverage {key}")
@@ -227,6 +240,12 @@ def verify(args):
     chapters = [f"{slug}/{number}" for slug, count in BOOKS.items() for number in range(1, count + 1)]
     for label, data in (("source index", source_metadata), ("published matching report", audit)):
         require(set(data["chapters"]) == set(chapters), f"{label} is missing or adding chapters")
+    from dutt_reader import reviewed_passages
+
+    review_file = args.build_root / "data" / "dutt-reviewed-passages.json"
+    reviewed = reviewed_passages(args.build_root / "dutt-corpus", json.loads(review_file.read_bytes())) if review_file.is_file() else {}
+    english_audit = json.loads((args.dist / "english-coverage.json").read_bytes())["chapters"]
+    require(set(english_audit) == set(chapters), "English coverage is missing or adding chapters")
     counts = Counter()
     examples = {}
     for chapter_path in chapters:
@@ -249,6 +268,46 @@ def verify(args):
         nodes = checked_units(reader)
         mapped = report["mapped_groups"]
         covered, cards = inspect_cards(reader, nodes, mapped, original_groups, book, chapter)
+        unit_ids = {node.get("id") for node in nodes}
+        inline = set()
+        ancestors = {child: parent for parent in reader.iter() for child in parent}
+        historical = [node for node in reader.iter() if "dutt-inline" in classes(node)]
+        expected_historical = reviewed.get(chapter_path, [])
+        require(len(historical) == len(expected_historical), f"Reviewed Dutt count disagrees at {chapter_path}")
+        for node, group in zip(historical, expected_historical):
+            units = node.get("data-dutt-units", "").split()
+            require(units == group["units"] and node.get("data-dutt-refs", "").split() == group["refs"],
+                    f"Reviewed Dutt references changed at {chapter_path}")
+            require(len(node) == 2 and "dutt-english-text" in classes(node[0])
+                    and "".join(node[0].itertext()) == group["dutt_text"]
+                    and len(node[1]) == 1 and node[1][0].get("href") == group["href"]
+                    and group["translator"] in meaningful(node[1]), f"Reviewed Dutt witness changed at {chapter_path}")
+            pair = ancestors[ancestors[node]]
+            require([unit.get("id") for unit in checked_units(pair[0])] == units,
+                    f"Reviewed Dutt passage is outside its grouped Sanskrit row at {chapter_path}")
+            inline.update(units)
+        crosswalk_prose = [node for node in reader.iter() if "critical-inline" in classes(node)]
+        for node in crosswalk_prose:
+            inline.update(node.get("data-critical-local-units", "").split())
+        audit = english_audit[chapter_path]
+        unresolved = {gap["anchor"]: gap for gap in audit["unresolved"]}
+        require(audit["reading_units"] == len(unit_ids) and inline <= unit_ids
+                and audit["inline_dutt_reading_units"] == len(inline)
+                and set(unresolved) == unit_ids - inline, f"English coverage disagrees with HTML at {chapter_path}")
+        require(audit["crosswalk_dutt_passages"] == len(crosswalk_prose)
+                and len(audit["reviewed_dutt_passages"]) == len(historical), f"Dutt counts disagree at {chapter_path}")
+        for node in nodes:
+            unit = node.get("id")
+            if unit not in inline:
+                parent = ancestors[node]
+                while parent is not None and not {"verse-pair", "verse-connected-group"}.intersection(classes(parent)):
+                    parent = ancestors.get(parent)
+                require(parent is not None, f"Unresolved unit has no English panel at {chapter_path}/{unit}")
+                require(unresolved[unit]["status"] == ("source_link_only" if unit in covered else "verse_match_unverified"),
+                        f"Unresolved status disagrees with source links at {chapter_path}/{unit}")
+        counts["reviewed_dutt_passages"] += len(historical)
+        counts["inline_dutt_units"] += len(inline)
+        counts["unresolved_english_units"] += len(unresolved)
         unmatched = [node.get("id") for node in nodes if node.get("id") not in covered]
         require(report["unmatched_units"] == unmatched, f"unmatched unit list differs from reader {chapter_path}")
         counts["chapters"] += 1

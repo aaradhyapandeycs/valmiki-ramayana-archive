@@ -1,5 +1,6 @@
 """Render the historical English translation under a separate route."""
 import gzip
+from hashlib import sha256
 import html
 import json
 import re
@@ -33,19 +34,46 @@ def paragraphs(text):
         yield "<p>" + MARKUP.sub(r"<em>\1</em>", segment) + "</p>"
 
 
+def read_sections(data_dir, slug):
+    chunks = [json.loads(gzip.decompress(file.read_bytes()))
+              for file in sorted(data_dir.glob(f"{slug}*.json.gz"))]
+    if not chunks:
+        raise ValueError(f"No Dutt corpus for {slug}")
+    return chunks[0]["book"], chunks[0]["source"], [section for chunk in chunks for section in chunk["sections"]]
+
+
+def reviewed_passages(data_dir, catalog):
+    """Resolve reviewed boundaries against the archived Dutt transcription."""
+    passages = {}
+    for chapter, review in catalog.items():
+        book, number = chapter.split("/")
+        _, _, sections = read_sections(data_dir, book)
+        section = next(s for s in sections if s["id"] == review["section"])
+        english = " ".join(section["text"].split())
+        if sha256(english.encode("utf-8")).hexdigest() != review["section_sha256"]:
+            raise ValueError(f"Reviewed Dutt transcription changed at {book}/{review['section']}")
+        passages[chapter] = []
+        end = 0
+        for group in review["passages"]:
+            first, last = group["english_span"]
+            if not end <= first < last <= len(english):
+                raise ValueError(f"Invalid reviewed Dutt passage boundaries at {book}/{number}")
+            text = english[first:last].strip()
+            if not text:
+                raise ValueError(f"Empty reviewed Dutt passage at {book}/{number}")
+            passages[chapter].append({**group, "dutt_text": text, "href": review["href"],
+                                      "translator": "M. N. Dutt", "section": review["section"]})
+            end = last
+    return passages
+
+
 def render_dutt(page, write, data_dir=None):
     """Render the edition using the parent build's page and write functions."""
     data_dir = data_dir or Path(__file__).resolve().with_name("dutt-corpus")
     summaries = []
     source_texts = []
     for slug, count in BOOKS:
-        files = sorted(data_dir.glob(f"{slug}*.json.gz"))
-        chunks = [json.loads(gzip.decompress(file.read_bytes())) for file in files]
-        if not chunks:
-            raise ValueError(f"No Dutt corpus for {slug}")
-        book = chunks[0]["book"]
-        ebook = chunks[0]["source"]
-        sections = [section for chunk in chunks for section in chunk["sections"]]
+        book, ebook, sections = read_sections(data_dir, slug)
         expected = list(map(str, range(1, count + 1)))
         if slug == "aranya":
             expected = expected[:55] + ["56a", "56b"] + expected[56:-1]

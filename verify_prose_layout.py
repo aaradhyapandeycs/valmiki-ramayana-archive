@@ -85,6 +85,10 @@ def fixture_groups(chapters):
              and len(p[1]["units"]) > 1),
     )
     chosen["longest-group"] = max(all_groups, key=lambda p: len(p[1]["units"]))
+    bala_opening = {tuple(group["refs"]): group for group in chapters["baala/77"]["mapped_groups"]}
+    for label, refs in (("1", ("1-77-1",)), ("2", ("1-77-2",)), ("3", ("1-77-3",)),
+                        ("4-5", ("1-77-4", "1-77-5"))):
+        chosen[f"bala-77-{label}"] = ("baala/77", bala_opening[refs])
     no_link = next((key for key, chapter in chapters.items() if not chapter["mapped_groups"]), None)
     return chosen, no_link
 
@@ -144,6 +148,11 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
                     keyboard_checks += 1
                 summaries[chapter] = result
             card = await exact_card(page, group)
+            if label.startswith("bala-77-"):
+                dutt = card.locator(".dutt-inline")
+                assert await dutt.count() == 1
+                assert (await dutt.get_attribute("data-dutt-units")).split() == group["units"]
+                assert len((await dutt.locator(".dutt-english-text").inner_text()).split()) >= 15
             if screenshot:
                 await screenshot_panel(page, card, args.output / f"after-{name}-{label}.png")
         if no_link:
