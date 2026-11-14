@@ -1,0 +1,56 @@
+name: Recover only original Sanskrit verse lines
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verse-layout.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: source-verse-layout
+  cancel-in-progress: false
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load the pinned Sanskrit snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
+          path: data/sanskrit
+          persist-credentials: false
+      - name: Install the source HTML parser
+        run: python3 -m pip install html5lib==1.1
+      - name: Recover source-supported display break offsets
+        run: |
+          python3 -m unittest test_verse_lines
+          python3 collect_verse_layout.py --output "$RUNNER_TEMP/verse-layout/verse-layout.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verse-layout
+          path: ${{ runner.temp }}/verse-layout/verse-layout.json
+          if-no-files-found: error
+      - name: Preserve the derived offsets
+        run: |
+          test "$(git status --porcelain --untracked-files=no)" = ""
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          branch=verse-layout-snapshot
+          if git ls-remote --exit-code --heads origin "refs/heads/$branch" >/dev/null; then
+            git fetch --no-tags origin "refs/heads/$branch"
+            git switch --detach FETCH_HEAD
+          else
+            rc=$?
+            test "$rc" -eq 2
+            git switch --orphan "$branch"
+          fi
+          cp "$RUNNER_TEMP/verse-layout/verse-layout.json" .
+          git add verse-layout.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve verified verse line offsets"
+          fi
+          git push origin "HEAD:refs/heads/$branch"
