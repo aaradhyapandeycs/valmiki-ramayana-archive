@@ -74,6 +74,15 @@ def main():
         write("heading-provenance.json", json.dumps(corrections, ensure_ascii=False, indent=2) + "\n")
     sanskrit = load_sanskrit(SOURCE_CHAPTERS)
     paratext = load_paratext(sanskrit)
+    layout = load_catalog("verse-layout.json", None)
+    if layout:
+        snapshot = load_catalog("sanskrit/summary.json", None)
+        if not snapshot or layout["snapshot_commit"] != snapshot["commit"]:
+            raise ValueError("Verse layout is based on a different Sanskrit capture")
+        write("verse-layout-audit.json", json.dumps({
+            "source_break_chapters": len(layout["chapters"]),
+            "unresolved_chapters": layout["unresolved"],
+        }, ensure_ascii=False, indent=2) + "\n")
     snapshot = ROOT / "data" / "sanskrit" / "summary.json"
     if snapshot.is_file():
         write("sanskrit-coverage.json", snapshot.read_text(encoding="utf-8"))
@@ -126,9 +135,22 @@ def main():
             before = f'<a href="../{n-1}/">← Previous</a>' if n > 1 else ""
             after = f'<a href="../{n+1}/">Next →</a>' if n < len(rows) else ""
             additions = paratext.get((slug, n), {})
-            passage = render_sanskrit(sanskrit.get((slug, n)),
-                                      before=render_paratext(additions.get("before")),
-                                      after=render_paratext(additions.get("after")))
+            record = sanskrit.get((slug, n))
+            chapter_layout = layout["chapters"].get(f"{slug}/{n}", {}) if layout else {}
+            if chapter_layout:
+                expected_supplements = {
+                    str(item["source_paragraph"])
+                    for items in additions.values() for item in items
+                }
+                if (record is None or chapter_layout["source_sha256"] != record["source_sha256"]
+                        or set(chapter_layout["verses"]) != {str(verse["number"]) for verse in record["verses"]}
+                        or set(chapter_layout["supplements"]) != expected_supplements
+                        or ("colophon" in chapter_layout) != bool(record.get("colophon"))):
+                    raise ValueError(f"Verse layout differs from the Sanskrit witness for {slug}/{n}")
+            offsets = chapter_layout.get("supplements")
+            passage = render_sanskrit(record, layout=chapter_layout,
+                                      before=render_paratext(additions.get("before"), offsets),
+                                      after=render_paratext(additions.get("after"), offsets))
             correction = corrections.get(slug, {}).get(str(n))
             heading_note = ""
             if correction:

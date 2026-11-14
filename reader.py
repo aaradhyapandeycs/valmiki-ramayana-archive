@@ -59,9 +59,10 @@ def load_sanskrit(books):
     return records
 
 
-def render_sanskrit(record, *, before="", after=""):
+def render_sanskrit(record, *, before="", after="", layout=None):
     if record is None:
         return ""
+    layout = layout or {}
     provenance = source_url(record["source_url"])
     witness = WITNESSES[record["kind"]]
     numbered = record["status"] == "numbering_verified"
@@ -80,7 +81,9 @@ def render_sanskrit(record, *, before="", after=""):
             items.append(f'<span id="{anchor}-{n}" class="verse-anchor"></span>')
         label = str(number) if last == number else f"{number}–{last}"
         source = verse["sanskrit"]
-        breaks = line_break_offsets(source)
+        breaks = layout.get("verses", {}).get(str(number))
+        if breaks is None:
+            breaks = line_break_offsets(source)
         roman = None if verse.get("source_glyph_anomaly") else transliterate(source)
         alternate = (f'<p lang="sa-Latn" class="iast">{render_lines(roman, corresponding_breaks(source, roman, breaks))}</p>' if roman else
                      '<p class="iast-gap">IAST unavailable for this source block.</p>')
@@ -92,7 +95,9 @@ def render_sanskrit(record, *, before="", after=""):
     ending = ""
     if colophon:
         colophon_iast = transliterate(colophon)
-        breaks = line_break_offsets(colophon)
+        breaks = layout.get("colophon")
+        if breaks is None:
+            breaks = line_break_offsets(colophon)
         ending = f'<p class="colophon" lang="sa-Deva">{render_lines(colophon, breaks)}</p>' 
         if colophon_iast:
             ending += f'<p class="colophon iast" lang="sa-Latn">{render_lines(colophon_iast, corresponding_breaks(colophon, colophon_iast, breaks))}</p>'

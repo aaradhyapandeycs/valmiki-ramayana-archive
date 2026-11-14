@@ -38,6 +38,11 @@ jobs:
           ref: 'b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad'
           path: data/sanskrit
           persist-credentials: false
+      - name: Load verified verse line offsets
+        run: |
+          ref=62c55ef21556e2d7d3716cd0f6a486e2f66c8823
+          git fetch --no-tags --depth=1 origin "$ref"
+          git show "$ref:verse-layout.json" > data/verse-layout.json
       - name: Load the original 1910 introduction
         uses: actions/checkout@v4
         with:
