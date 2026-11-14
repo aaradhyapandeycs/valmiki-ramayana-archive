@@ -513,6 +513,19 @@
     },
     {
       "refs": [
+        "1-7-2"
+      ],
+      "unit_sha256": [
+        "51cad03a6034251385d7cafbb51622d9b70c47811f61ac388611d3f853cc998c"
+      ],
+      "original_english": "That valiant king had eight illustrious ministers, upright and loyal, who were always devoted to the affairs of the kingdom.",
+      "replaces_critical_refs": [
+        "VRCE-1-7-1"
+      ],
+      "review_note": "The inherited cross-edition excerpt also translated verse 1."
+    },
+    {
+      "refs": [
         "1-7-3"
       ],
       "unit_sha256": [
@@ -538,7 +551,7 @@
         "1a8ec06358be29d659477f57fc5f911775ce309e37692803cbe2e049899d9316",
         "ea5fea91c60c8c1c278bb97955c2cec0b6df5a83e1bcd2d67a5ede0d936e79b4"
       ],
-      "original_english": "There were also Suyajña, Jābāli, Kāśyapa, Gautama, the long-lived Mārkaṇḍeya, and the twice-born Kātyāyana. These brahmin seers served as the king’s hereditary officiating priests."
+      "original_english": "There were also Suyajña, Jābāli, Kāśyapa, Gautama, the long-lived Mārkaṇḍeya, and the twice-born Kātyāyana. These brahmin seers always served alongside the king’s hereditary officiating priests."
     },
     {
       "refs": [
@@ -562,6 +575,22 @@
     },
     {
       "refs": [
+        "1-7-9",
+        "1-7-10"
+      ],
+      "unit_sha256": [
+        "2a868d17d883acd4131676e44894f14c1bcf22cdd8210b5ec31878bea8836704",
+        "5909b4d013f3c0c6a8fba36cc811f385360f4c3b737bc4160f7552b3a42530d0"
+      ],
+      "original_english": "They used spies to learn what was under way in their own realm and in others, what had already been done, and what was being planned. They were skilled in conducting affairs and had proved their loyalty. When punishment was called for, they would impose the appropriate penalty even on their own sons.",
+      "replaces_critical_refs": [
+        "VRCE-1-7-6",
+        "VRCE-1-7-7"
+      ],
+      "review_note": "The imported English omits the use of spies and the rule of punishing even their own sons."
+    },
+    {
+      "refs": [
         "1-7-11"
       ],
       "unit_sha256": [
@@ -571,12 +600,25 @@
     },
     {
       "refs": [
+        "1-7-13"
+      ],
+      "unit_sha256": [
+        "73162664896ff0fd52e338abf8ac462828c84311a22955e9c306b1ef95c736bb"
+      ],
+      "original_english": "They filled the treasury without harming the brahmins or the warriors. They could impose severe penalties, but first they weighed the strength and weakness of the person concerned.",
+      "replaces_critical_refs": [
+        "VRCE-1-7-10"
+      ],
+      "review_note": "The inherited prose loses the assessment of the person’s strength and weakness and contains OCR errors."
+    },
+    {
+      "refs": [
         "1-7-14"
       ],
       "unit_sha256": [
         "270da539173bb39d603baef316472eb3000e1dc4b7aa2dd80e0905e2e365c2a8"
       ],
-      "original_english": "While all these upright ministers deliberated together with one purpose, no one anywhere in the capital or the realm spoke falsely."
+      "original_english": "While all these upright ministers governed with a single purpose, no one anywhere in the capital or the realm spoke falsely."
     },
     {
       "refs": [
@@ -603,7 +645,7 @@
       "unit_sha256": [
         "9f6f96020e29a3d4660deb5ccd9b6ac7ca60eb4121802afd85493d0d0ceedaa6"
       ],
-      "original_english": "They acquired their virtues from their teachers. Renowned for their prowess, they were known even abroad for the soundness of their judgment in every matter."
+      "original_english": "They had learned virtue from their elders. Renowned for their prowess, they were known even abroad for the soundness of their judgment in every matter."
     },
     {
       "refs": [

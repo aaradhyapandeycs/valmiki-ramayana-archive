@@ -218,15 +218,18 @@ def verify_archive(dist, source, records, counts):
     expected = {f"{slug}/{chapter}" for slug, count in ARCHIVE_BOOKS.items() for chapter in range(1, count + 1)}
     require(set(crosswalk["chapters"]) == expected, "English crosswalk is missing archive chapters")
     require(set(crosswalk["orthographic_candidates"]) <= expected, "English crosswalk contains unknown archive chapters")
-    reviewed_path = Path(__file__).resolve().parent / "data" / "dutt-reviewed-passages.json"
+    data = Path(__file__).resolve().parent / "data"
+    reviewed_path = data / "dutt-reviewed-passages.json"
+    original_path = data / "original-english.json"
     reviewed = json.loads(reviewed_path.read_bytes()) if reviewed_path.is_file() else {}
+    drafts = json.loads(original_path.read_bytes()) if original_path.is_file() else {}
     for chapter in sorted(expected):
         entries = archive_entries(chapter, crosswalk, records)
-        for review in reviewed.get(chapter, {}).get("passages", []):
+        for review in [*reviewed.get(chapter, {}).get("passages", []), *drafts.get(chapter, [])]:
             refs = review.get("replaces_critical_refs", [])
             if refs:
                 original, _ = entries.pop(refs[0])
-                require(original["refs"] == refs and original["units"] == review["units"],
+                require(original["refs"] == refs and original["unit_sha256"] == review["unit_sha256"],
                         f"{chapter}: reviewed Dutt correction replaces the wrong crosswalk passage")
         raw = (dist / chapter / "index.html").read_bytes()
         check_archive_chapter(raw, entries, chapter, counts)

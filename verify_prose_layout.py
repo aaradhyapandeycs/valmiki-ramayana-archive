@@ -168,7 +168,7 @@ async def check_profile(browser, profile, name, args, fixtures, no_link, open_ro
                 raise ValueError(f"{no_link}: Sanskrit rendering errors beside the gap {usable['errors'][:8]}")
             unmatched_result = {"chapter": no_link, "source_link": await gap.locator("a").get_attribute("href"),
                                 "checked_script_rows": usable["stats"]["lines"]}
-        reviewed_chapters = (("baala/5", 12, 14), ("baala/6", 16, 16), ("baala/7", 17, 19),
+        reviewed_chapters = (("baala/5", 12, 14), ("baala/6", 16, 16), ("baala/7", 20, 23),
                              ("baala/19", 19, 20), ("baala/69", 13, 17), ("baala/77", 21, 24))
         for chapter, translated, units in reviewed_chapters:
             await open_route(page, args.after, chapter + "/", enlarged)

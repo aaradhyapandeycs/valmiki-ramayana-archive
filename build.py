@@ -202,24 +202,21 @@ def main():
                 )
             matched_english = inline_groups(crosswalk, key, record, additions, critical_rows) if crosswalk and record else []
             restored_english = reviewed.pop(key, [])
+            drafts = original.pop(key, [])
             if crosswalk:
-                replacements = {tuple(group["replaces_critical_refs"]): group["units"]
-                                for group in restored_english if "replaces_critical_refs" in group}
-                for group in matched_english:
-                    refs = tuple(group["refs"])
-                    if refs in replacements and replacements.pop(refs) != group["units"]:
+                replacements = {tuple(group["replaces_critical_refs"]): group["unit_sha256"]
+                                for group in [*restored_english, *drafts] if "replaces_critical_refs" in group}
+                matched = {tuple(group["refs"]): group for group in matched_english}
+                for refs, digests in replacements.items():
+                    if refs not in matched or digests != matched[refs]["unit_sha256"]:
                         raise ValueError(f"Dutt correction targets a different group at {key}")
-                if replacements:
-                    raise ValueError(f"Dutt correction targets an unknown matching group at {key}")
                 for group in restored_english:
                     if any(critical_rows[ref]["alignment"]["type"] != "split" for ref in group.get("excluded_split_refs", ())):
                         raise ValueError(f"Reviewed Dutt passage refers to a non-split record at {key}")
-                replaced = {tuple(group["replaces_critical_refs"]) for group in restored_english if "replaces_critical_refs" in group}
-                matched_english = [group for group in matched_english if tuple(group["refs"]) not in replaced]
+                matched_english = [group for group in matched_english if tuple(group["refs"]) not in replacements]
             if matched_english:
                 shown_english[key] = [{name: value for name, value in passage.items() if name != "row"}
                                       for passage in matched_english]
-            drafts = original.pop(key, [])
             additional_english = []
             gaps = []
             if record:
