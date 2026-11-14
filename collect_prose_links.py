@@ -19,6 +19,7 @@ BOOK_CHAPTER = re.compile(r"([1-9][0-9]?)\s*[-–—]\s*(\d{1,3})\s*[-–—]\s*
 NUMBER = re.compile(r"(\d{1,3})([a-d]?)(?![A-Za-z0-9])", re.IGNORECASE)
 PART_ONLY = re.compile(r"[a-d](?![A-Za-z0-9])", re.IGNORECASE)
 SEPARATOR = re.compile(r"\s*(,|;|\.|[-–—]|\bto\b|\band\b|&)\s*", re.IGNORECASE)
+DEVANAGARI_LETTER = re.compile(r"[\u0904-\u0939]")
 MALFORMED_TERMINAL = re.compile(r"\[\s*\d{1,2}\s*[-–—]\s*\d{1,3}\s*[-–—][^\[\]]*$")
 OUTPUT_METHOD = "Detailed original UTF-8 reading pane: p.tat, printed references or an unambiguous enclosing Sanskrit locator."
 
@@ -117,11 +118,15 @@ def source_evidence(paragraphs, book, chapter):
     verse_numbers = set()
     hashes = []
     foreign = 0
+    has_partial_tail = False
     for _, content in paragraphs:
         found = list(parsed_locators(content))
+        if DEVANAGARI_LETTER.search(content):
+            hashes.append(digest_text(content))
+            remaining = content[found[-1][0].end():] if found else content
+            has_partial_tail = DEVANAGARI_LETTER.search(remaining) is not None
         if not found:
             continue
-        hashes.append(digest_text(content))
         for _, (kanda, sarga, first, last) in found:
             if (kanda, sarga) != (book, chapter):
                 foreign += 1
@@ -132,7 +137,7 @@ def source_evidence(paragraphs, book, chapter):
             end = f"{book}-{chapter}-{last}"
             refs.append(start if start == end else f"{start}–{end}")
             verse_numbers.update(range(first, last + 1))
-    return refs, verse_numbers, hashes, foreign
+    return refs, verse_numbers, hashes, foreign, has_partial_tail
 
 
 def issue(ordinal, fragment, reason, refs=None):
@@ -148,10 +153,14 @@ def link_metadata(document, book, chapter):
     units = chapter_units(document)
     anchor_counts = Counter(fragment.casefold() for fragment, _, _ in units if fragment)
     groups, unresolved = [], []
+    seen_partial = False
     for fragment, sanskrit, translations in units:
+        source_refs, source_numbers, source_hashes, foreign, partial_tail = source_evidence(sanskrit, book, chapter)
+        partial_start = seen_partial
+        if fragment is not None:
+            seen_partial = partial_tail
         if not translations:
             continue
-        source_refs, source_numbers, source_hashes, foreign = source_evidence(sanskrit, book, chapter)
         for ordinal, content in translations:
             if fragment is None:
                 unresolved.append(issue(ordinal, fragment, "no_verse_anchor"))
@@ -167,7 +176,7 @@ def link_metadata(document, book, chapter):
                 except ValueError as error:
                     unresolved.append(issue(ordinal, fragment, str(error)))
                     continue
-                if not sources_align(source_numbers, numbers):
+                if not sources_align(source_numbers, numbers, refs, partial_tail, book, chapter):
                     unresolved.append(issue(ordinal, fragment, "printed_reference_disagrees_with_unit", refs))
                     continue
                 basis = "printed_translation_reference"
@@ -175,6 +184,9 @@ def link_metadata(document, book, chapter):
                 unresolved.append(issue(ordinal, fragment, "malformed_translation_reference"))
                 continue
             elif source_numbers and len(translations) == 1 and foreign == 0:
+                if partial_start or partial_tail:
+                    unresolved.append(issue(ordinal, fragment, "unlabelled_partial_boundary", source_refs))
+                    continue
                 if source_numbers != set(range(min(source_numbers), max(source_numbers) + 1)):
                     unresolved.append(issue(ordinal, fragment, "noncontiguous_enclosing_sanskrit_references"))
                     continue
@@ -200,13 +212,18 @@ def link_metadata(document, book, chapter):
     return groups, unresolved, sum(len(translations) for _, _, translations in units)
 
 
-def sources_align(source_numbers, translated_numbers):
-    """Allow the next first half before its verse-end locator is printed."""
-    if not source_numbers:
+def sources_align(source_numbers, translated_numbers, refs, partial_tail, book, chapter):
+    """Allow an explicitly identified first half before its printed verse ending."""
+    if not source_numbers or not source_numbers & translated_numbers:
         return False
-    return (bool(source_numbers & translated_numbers)
-            and min(translated_numbers) >= min(source_numbers)
-            and max(translated_numbers) <= max(source_numbers) + 1)
+    if min(translated_numbers) < min(source_numbers):
+        return False
+    extra = translated_numbers - source_numbers
+    if not extra:
+        return True
+    next_number = max(source_numbers) + 1
+    half = f"{book}-{chapter}-{next_number}a"
+    return extra == {next_number} and partial_tail and refs[-1].split("–")[-1] == half
 
 
 def capture_chapter(item, root, timeout):
