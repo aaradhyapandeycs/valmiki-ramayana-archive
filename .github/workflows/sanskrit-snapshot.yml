@@ -21,6 +21,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   preserve:
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -101,7 +103,7 @@ jobs:
             git switch --orphan "$branch"
           fi
           cp -a "$RUNNER_TEMP/verified-sanskrit/." .
-          git add --all
+          git add -- summary.json provenance.json baala ayodhya aranya kish sundara yuddha
           if ! git diff --cached --quiet; then
             git commit -m "Preserve Sanskrit capture from run $CAPTURE_RUN_ID"
           fi
