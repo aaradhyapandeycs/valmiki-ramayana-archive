@@ -80,7 +80,7 @@ def render_sanskrit(record):
         label = str(number) if last == number else f"{number}–{last}"
         roman = None if verse.get("source_glyph_anomaly") else transliterate(verse["sanskrit"])
         alternate = f'<p lang="sa-Latn" class="iast">{escape(roman)}</p>' if roman else ""
-        items.append(f'<div class="verse" id="{anchor}-{last}">' 
+        items.append(f'<div class="verse" id="{anchor}-{last}">'
                      f'<a href="#{anchor}-{last}" aria-label="Link to {anchor} {label}">{label}</a>'
                      f'<div><p lang="sa-Deva">{escape(verse["sanskrit"])}</p>{alternate}</div></div>')
     colophon = record.get("colophon")
@@ -109,6 +109,11 @@ def chapter_sources(slug, number, original, frames, variants):
         ("original", "Original chapter viewer"), ("utf8", "UTF-8 chapter viewer"),
         ("mirror", "Sanskrit Documents mirror"),
     ]]
+    statuses = {
+        "http_200": "Response checked", "http_404": "Returns 404",
+        "listed_not_fetched": "Listed by source", "soft_block": "Response blocked",
+        "listing_observed": "Directory listing observed",
+    }
     entries.extend(
         (entry["url"], f'{entry["label"]} · {unquote(urlsplit(entry["url"]).path.rstrip("/").rsplit("/", 1)[-1])}',
          entry["status"])
@@ -120,11 +125,30 @@ def chapter_sources(slug, number, original, frames, variants):
         if url in seen:
             continue
         seen.add(url)
-        statuses = {"http_200": "Response checked", "http_404": "Returns 404",
-                    "listed_not_fetched": "Listed by source", "soft_block": "Response blocked"}
         note = f" · {escape(statuses.get(status, status.replace('_', ' ')))}" if status else ""
         links.append(f'<li><a href="{source_url(url)}" rel="external">{escape(label)} ↗</a>{note}</li>')
     return f'<details class="chapter-sources"><summary>Source editions and files</summary><ul class="variant-list">{"".join(links)}</ul></details>'
+
+
+def supplemental_files(ancillary, variants):
+    seen = {entry["url"] for group in ancillary["groups"] for entry in group["entries"]}
+    entries = variants.get("other_source_files", []) + [
+        entry for key in variants.get("auxiliary_chapters", []) for entry in variants["chapters"][key]
+    ]
+    sections = {}
+    for entry in entries:
+        url = entry["url"]
+        if url in seen:
+            continue
+        seen.add(url)
+        path = unquote(urlsplit(url).path)
+        group = "UTF-8 source tree" if path.startswith("/utf8/") else "Legacy source tree"
+        sections.setdefault(group, []).append(
+            f'<li><a href="{source_url(url)}" rel="external">{escape(path)} ↗</a></li>'
+        )
+    return (f'<h1>Additional source files</h1><p><a href="../">Source files and editions</a></p>' +
+            "".join(f'<section class="sources"><h2>{escape(group)}</h2><ul class="variant-list">'
+                    f'{"".join(items)}</ul></section>' for group, items in sections.items()))
 
 
 def source_guide(catalog, variants, has_audit=False):
@@ -147,7 +171,8 @@ def source_guide(catalog, variants, has_audit=False):
         sections.append(f'<section class="sources"><h2>{escape(group["title"])}</h2>'
                         f'<p>{escape(group["description"])}</p><ul class="variant-list">{links}</ul></section>')
     if has_audit:
-        sections.append('<section class="sources"><h2>Recursive inventory</h2>'
-                        '<p><a href="../source-audit.json">Audit totals, unresolved URLs, and crawl scope</a></p></section>')
+        sections.append('<section class="sources"><h2>Audit details</h2>'
+                        '<p><a href="files/">Additional discovered files</a> · '
+                        '<a href="../source-audit.json">Audit totals and discovery scope</a></p></section>')
     return (f'<h1>Source files and editions</h1><p>Resources found on the original site, including both chapter trees '
             f'and files outside the editorial chapter index.</p>{"".join(sections)}')

@@ -13,7 +13,7 @@ from pathlib import Path
 
 from dutt_reader import render_dutt
 from reader import (chapter_sources, load_catalog, load_sanskrit, render_coverage,
-                    render_sanskrit, source_guide)
+                    render_sanskrit, source_guide, supplemental_files)
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "dist"
@@ -148,6 +148,7 @@ Open the source edition for Sanskrit, transliteration, English translation, and 
         write("source-variants.json", json.dumps(variants, ensure_ascii=False, separators=(",", ":")))
     if audit_summary.is_file():
         write("source-audit.json", audit_summary.read_text(encoding="utf-8"))
+        write("sources/files/index.html", page("Additional source files", supplemental_files(ancillary, variants), 2))
     manifest.sort(key=lambda x: x["source_url"])
     assert len({x["source_url"] for x in manifest}) == len(manifest)
     write("manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
