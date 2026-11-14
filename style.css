@@ -265,3 +265,8 @@ footer p { max-width: 83ch; }
 
 .verse-line:empty { min-block-size: 1em; }
 .verse-scroll > p.colophon { margin-block: .35rem; }
+
+.reader [lang="sa-Deva"], .reader [lang="sa-Latn"] { white-space: normal; }
+
+.reader .verse-line { padding-inline-end: .22em; }
+.reader .verse-scroll { padding-inline-start: .12rem; }

@@ -1,0 +1,72 @@
+name: Audit every rendered verse line
+on:
+  workflow_run:
+    workflows: ["Build and deploy"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verse-layout-audit
+  cancel-in-progress: true
+jobs:
+  layout:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [desktop, tablet, mobile, zoom-200, mobile-large-text]
+    env:
+      BASE_PATH: /valmiki-ramayana-archive/
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+      - name: Checkout frozen before snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: 4d26c84680cd47fda6f0dadfdc0efd0656b39e57
+          path: .before
+          persist-credentials: false
+      - name: Check out the same Sanskrit data for both versions
+        uses: actions/checkout@v4
+        with:
+          ref: b674a55c67ad0de3513c4e04e5b30e2d0dc7e1ad
+          path: data/sanskrit
+          persist-credentials: false
+      - name: Install Chromium
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Build before and after with identical font files
+        run: |
+          cp -a data/sanskrit .before/data/
+          (cd .before && python3 build.py)
+          python3 build.py
+          bash iast_font_assets.sh dist
+          cp -a dist/fonts .before/dist/
+          mkdir -p "$RUNNER_TEMP/before" "$RUNNER_TEMP/after"
+          ln -s "$PWD/.before/dist" "$RUNNER_TEMP/before/valmiki-ramayana-archive"
+          ln -s "$PWD/dist" "$RUNNER_TEMP/after/valmiki-ramayana-archive"
+      - name: Check all 534 chapters and capture matching screenshots
+        run: |
+          python3 -m http.server 8764 --bind 127.0.0.1 --directory "$RUNNER_TEMP/before" > /tmp/verse-before-server.log 2>&1 &
+          before_pid=$!
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory "$RUNNER_TEMP/after" > /tmp/verse-after-server.log 2>&1 &
+          after_pid=$!
+          trap 'kill "$before_pid" "$after_pid" || true' EXIT
+          curl --fail --silent --retry 5 --retry-connrefused http://127.0.0.1:8764/valmiki-ramayana-archive/search.json > /dev/null
+          curl --fail --silent --retry 5 --retry-connrefused http://127.0.0.1:8765/valmiki-ramayana-archive/search.json > /dev/null
+          python3 verify_verse_layout.py http://127.0.0.1:8764/valmiki-ramayana-archive "${{ matrix.profile }}" --baseline
+          python3 verify_verse_layout.py http://127.0.0.1:8765/valmiki-ramayana-archive "${{ matrix.profile }}" --baseline-dist .before/dist
+      - name: Save per-profile results and screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verse-layout-${{ matrix.profile }}
+          path: verse-audit/
+          if-no-files-found: error

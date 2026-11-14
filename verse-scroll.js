@@ -2,7 +2,7 @@ const scrollers = document.querySelectorAll(".verse-scroll");
 
 if (scrollers.length > 0 && "ResizeObserver" in window) {
   const update = (area) => {
-    const overflow = area.scrollWidth > area.clientWidth + 1;
+    const overflow = area.scrollWidth > area.clientWidth;
     if (overflow || area === document.activeElement) {
       area.setAttribute("tabindex", "0");
     } else {

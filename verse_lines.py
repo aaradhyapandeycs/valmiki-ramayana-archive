@@ -10,6 +10,7 @@ REFERENCE = (
     rf"(?:\s*[-–]\s*{DIGITS}{{1,3}})?"
 )
 CLOSING_ROW = re.compile(rf"\s*(?:(?:[|।॥]\s*)+(?:{REFERENCE})?|{REFERENCE})\s*")
+FORMAT_SPACE = re.compile(r"[\t\r\n\f \u00a0]+")
 
 
 def line_break_offsets(text):
@@ -34,9 +35,9 @@ def line_segments(text, break_offsets=None):
     offsets = line_break_offsets(text) if break_offsets is None else break_offsets
     start = 0
     for offset in offsets:
-        if not start <= offset < len(text) or text[offset] != "\n":
+        if not start <= offset < len(text) or not FORMAT_SPACE.fullmatch(text[offset]):
             raise ValueError(f"Invalid source line break offset {offset}")
-        yield text[start:offset], "\n"
+        yield text[start:offset], text[offset]
         start = offset + 1
     yield text[start:], ""
 
@@ -48,10 +49,10 @@ def render_lines(text, break_offsets=None):
 
 
 def corresponding_breaks(source, transliteration, source_offsets):
-    """Transfer breaks by newline ordinal because IAST may change row lengths."""
-    indices = [index for index, char in enumerate(source) if char == "\n"]
-    roman_indices = [index for index, char in enumerate(transliteration) if char == "\n"]
+    """Transfer break offsets by whitespace ordinal because IAST changes row lengths."""
+    indices = [index for index, char in enumerate(source) if FORMAT_SPACE.fullmatch(char)]
+    roman_indices = [index for index, char in enumerate(transliteration) if FORMAT_SPACE.fullmatch(char)]
     if len(indices) != len(roman_indices):
-        raise ValueError("IAST changed the source newline count")
+        raise ValueError("IAST changed the source whitespace count")
     translations = dict(zip(indices, roman_indices))
     return [translations[index] for index in source_offsets]
