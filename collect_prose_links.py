@@ -19,9 +19,12 @@ BOOK_CHAPTER = re.compile(r"([1-9][0-9]?)\s*[-–—]\s*(\d{1,3})\s*[-–—]\s*
 NUMBER = re.compile(r"(\d{1,3})([a-d]?)(?![A-Za-z0-9])", re.IGNORECASE)
 PART_ONLY = re.compile(r"[a-d](?![A-Za-z0-9])", re.IGNORECASE)
 SEPARATOR = re.compile(r"\s*(,|;|\.|[-–—]|\bto\b|\band\b|&)\s*", re.IGNORECASE)
+FUSED_KISH_54_SANSKRIT = re.compile(r"(?<=[|।॥])\s*454([1-9][0-9]{0,2})(?![0-9])")
+FUSED_KISH_54_PROSE = re.compile(r"^454(?=[1-9][0-9]{0,2}(?![0-9]))")
+DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
 DEVANAGARI_LETTER = re.compile(r"[\u0904-\u0939]")
 MALFORMED_TERMINAL = re.compile(r"\[\s*\d{1,2}\s*[-–—]\s*\d{1,3}\s*[-–—][^\[\]]*$")
-OUTPUT_METHOD = "Detailed original UTF-8 reading pane: p.tat, printed references or an unambiguous enclosing Sanskrit locator."
+OUTPUT_METHOD = "Detailed original UTF-8 reading pane: p.tat, printed references or unambiguous preceding Sanskrit locators; documented chapter-specific numeral formats."
 
 
 def digest_text(text):
@@ -120,15 +123,19 @@ def source_evidence(paragraphs, book, chapter):
     foreign = 0
     has_partial_tail = False
     for _, content in paragraphs:
-        found = list(parsed_locators(content))
+        found = [(match.end(), locators) for match, locators in parsed_locators(content)]
+        if (book, chapter) == (4, 54) and not found:
+            found.extend((match.end(), (4, 54, int(match[1]), int(match[1])))
+                         for match in FUSED_KISH_54_SANSKRIT.finditer(content.translate(DEVANAGARI_DIGITS)))
         if DEVANAGARI_LETTER.search(content):
             hashes.append(digest_text(content))
-            remaining = content[found[-1][0].end():] if found else content
+            remaining = content[found[-1][0]:] if found else content
             has_partial_tail = DEVANAGARI_LETTER.search(remaining) is not None
         if not found:
             continue
+        expected = (94, 6) if (book, chapter) == (6, 94) else (book, chapter)
         for _, (kanda, sarga, first, last) in found:
-            if (kanda, sarga) != (book, chapter):
+            if (kanda, sarga) != expected:
                 foreign += 1
                 continue
             if not first <= last <= first + 20:
@@ -155,13 +162,17 @@ def link_metadata(document, book, chapter):
     groups, unresolved = [], []
     seen_partial = False
     for fragment, sanskrit, translations in units:
-        source_refs, source_numbers, source_hashes, foreign, partial_tail = source_evidence(sanskrit, book, chapter)
         partial_start = seen_partial
         if fragment is not None:
-            seen_partial = partial_tail
-        if not translations:
-            continue
+            seen_partial = source_evidence(sanskrit, book, chapter)[-1]
+        previous_prose = 0
         for ordinal, content in translations:
+            preceding = [(position, text) for position, text in sanskrit if previous_prose < position < ordinal]
+            source_refs, source_numbers, source_hashes, foreign, partial_tail = source_evidence(preceding, book, chapter)
+            previous_prose = ordinal
+            has_partial_start = partial_start
+            if preceding:
+                partial_start = partial_tail
             if fragment is None:
                 unresolved.append(issue(ordinal, fragment, "no_verse_anchor"))
                 continue
@@ -170,9 +181,14 @@ def link_metadata(document, book, chapter):
                 continue
             final_bracket = END_BRACKET.search(content)
             label = final_bracket[1].strip() if final_bracket else None
-            if label and BOOK_CHAPTER.match(label):
+            parsed_label = label
+            if label and (book, chapter) == (4, 54):
+                # Both Sanskrit and prose in this source chapter concatenate
+                # book, sarga, and first verse digits. Preserve the source label.
+                parsed_label = FUSED_KISH_54_PROSE.sub("4-54-", label, count=1)
+            if parsed_label and BOOK_CHAPTER.match(parsed_label):
                 try:
-                    refs, numbers = parse_reference_label(label, book, chapter)
+                    refs, numbers = parse_reference_label(parsed_label, book, chapter)
                 except ValueError as error:
                     unresolved.append(issue(ordinal, fragment, str(error)))
                     continue
@@ -184,7 +200,7 @@ def link_metadata(document, book, chapter):
                 unresolved.append(issue(ordinal, fragment, "malformed_translation_reference"))
                 continue
             elif source_numbers and len(translations) == 1 and foreign == 0:
-                if partial_start or partial_tail:
+                if has_partial_start or partial_tail:
                     unresolved.append(issue(ordinal, fragment, "unlabelled_partial_boundary", source_refs))
                     continue
                 if source_numbers != set(range(min(source_numbers), max(source_numbers) + 1)):

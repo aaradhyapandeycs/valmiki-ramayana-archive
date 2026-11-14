@@ -73,6 +73,39 @@ class ProseLinkMetadata(unittest.TestCase):
                           "no_unambiguous_translation_reference", "no_unambiguous_translation_reference"],
                          [i["reason"] for i in missing])
 
+    def test_source_evidence_stops_before_prose_and_starts_after_prior_prose(self):
+        found, missing, _ = link_metadata(fake_page("""
+<a name="Verse100"></a>
+<p class="SanSloka">प्रथमः | द्वितीयः || १-१-९९</p>
+<p class="SanSloka">तृतीयः | चतुर्थः || १-१-१००</p>
+<p class="tat">One paragraph covering both verses. [1-1-99, 100]</p>
+<p class="SanSloka">प्रथमः | द्वितीयः || १-१-१</p>
+<p class="tat">Appendix. [1-1-100]</p>
+<p class="SanSloka">तृतीयः | चतुर्थः || २-१-१</p>
+"""), 1, 1)
+        self.assertEqual(1, len(found))
+        self.assertEqual(["1-1-99", "1-1-100"], found[0]["source_sanskrit_refs"])
+        self.assertEqual("printed_reference_disagrees_with_unit", missing[0]["reason"])
+
+    def test_documented_source_chapter_number_malformations(self):
+        groups, issues, _ = link_metadata(fake_page("""
+<a name="Verse3"></a>
+<p class="SanSloka">प्रथमः | द्वितीयः || ९४-६-१<br>तृतीयः | चतुर्थः || ९४-६-२</p>
+<p class="SanSloka">प्रथमः | द्वितीयः || ९४-६-३</p>
+<p class="tat">One paragraph covering three verses.</p>
+"""), 6, 94)
+        self.assertEqual([], issues)
+        self.assertEqual(["6-94-1", "6-94-2", "6-94-3"], groups[0]["refs"])
+        groups, issues, _ = link_metadata(fake_page("""
+<a name="Verse5"></a>
+<p class="SanSloka">प्रथमः | द्वितीयः || ४५४३<br>तृतीयः | चतुर्थः || ४५४४</p>
+<p class="SanSloka">प्रथमः | द्वितीयः || ४५४५</p>
+<p class="tat">One paragraph covering three verses. [4543, 4, 5]</p>
+"""), 4, 54)
+        self.assertEqual([], issues)
+        self.assertEqual("4543, 4, 5", groups[0]["label"])
+        self.assertEqual(["4-54-3", "4-54-4", "4-54-5"], groups[0]["refs"])
+
     def test_reject_duplicate_anchors_and_opening_prose(self):
         found, missing, count = link_metadata(fake_page("""
 <p class="tat">Introduction</p>
